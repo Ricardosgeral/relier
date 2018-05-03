@@ -168,6 +168,6 @@ Majority of the sensors are connected to the Acquisition system box via mini avi
 ![page7](Nextion/320x240/erosiontest_Artboard 11.png)
 
 
-**Disconnected indication**
+**Disconnect indication**
 
 ![page0](Nextion/320x240/shutdown.bmp)
