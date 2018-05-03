@@ -16,7 +16,7 @@ things, there will be similarities too.
 Feel free to contact me if you manage to get it working with different components, 
 so these instructions can be improved and be more helpful. 
 
-#Hardware
+# Hardware
 
 ## Microprocessor
 
