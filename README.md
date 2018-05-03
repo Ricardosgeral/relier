@@ -143,27 +143,27 @@ Majority of the sensors are connected to the Acquisition system box via mini avi
  
  **Main**
  
-![page2](Nextion/320x240/erosiontest_Artboard 3.png)
+![page2](Nextion/320x240/Artboard3.png)
  
 **General settings**
  
-![page3](Nextion/320x240/general settings_0.bmp)
+![page3](Nextion/320x240/settings0.bmp)
 
 **Test Type selection**
  
-![page4](Nextion/320x240/erosiontest_Artboard 5a.png)
+![page4](Nextion/320x240/Artboard5a.png)
 
 **Analog sensors config**
  
-![page5](Nextion/320x240/erosiontest_v2_Artboard 7.png)
+![page5](Nextion/320x240/Artboard7.png)
 
 **Record readings**
  
-![page6](Nextion/320x240/erosiontest_Artboard 9.png)
+![page6](Nextion/320x240/Artboard9.png)
 
 **Stop recording readings**
  
-![page7](Nextion/320x240/erosiontest_Artboard 11.png)
+![page7](Nextion/320x240/Artboard11.png)
 
 **Disconnect indication**
 
