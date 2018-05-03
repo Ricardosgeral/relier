@@ -83,7 +83,7 @@ And that's it, after reboot the _Raspberry PI_ server should be running properly
 + 6 x 4cm shielded cable with 3 wires [<1€]
 
 ## Printed circuit board (PCB) developed
-The 2 layer's PCB was developed using [Fritzing](fritzing.org/), and the production files and fzz file are presented [here](https://github.com/Ricardosgeral/erosLab/tree/master/Fritzing). 
+The 2 layer's PCB was developed using [Fritzing](fritzing.org/), and the production files and fzz file are presented [here](https://github.com/Ricardosgeral/erosLab/tree/master/Fritzing). The PCB was printed by [PCBWAY](https://www.pcbway.com/).
 
 **Breadboard view**
 ![Breadboard_image](Fritzing/breadboard_erosLab.JPG)
@@ -91,8 +91,12 @@ The 2 layer's PCB was developed using [Fritzing](fritzing.org/), and the product
 **PCB view**
 ![PCB_image](Fritzing/PCB_erosLab.JPG)
 
+**Top layer og PCB**
+![FinalPCBtop_image](Fritzing/Final_TopPCB_erosLab.JPG)
+
 **Final result of PCB with top and bottom layers (printed by [PCBWAY](https://www.pcbway.com/))**
-![FinalPCB_image](Fritzing/Final_PCB_erosLab.JPG)
+![FinalPCBbottom_image](Fritzing/Final_bottomPCB_erosLab.JPG)
+
 
 ## Additional tools required in assembly
 + Cable Wire Stripper Crimping Plier
