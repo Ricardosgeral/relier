@@ -146,7 +146,6 @@ Majority of the sensors are connected to the Acquisition system box via mini avi
  
 ![page2](Nextion/320x240/erosiontest_Artboard 3.png)
  
- 
 **General settings**
  
 ![page3](Nextion/320x240/general settings_0.bmp)
@@ -166,7 +165,6 @@ Majority of the sensors are connected to the Acquisition system box via mini avi
 **Stop recording readings**
  
 ![page7](Nextion/320x240/erosiontest_Artboard 11.png)
-
 
 **Disconnect indication**
 
