@@ -91,10 +91,10 @@ The 2 layer's PCB was developed using [Fritzing](fritzing.org/), and the product
 **PCB view**
 ![PCB_image](Fritzing/PCB_erosLab.JPG)
 
-**Top layer og PCB**
+**Top layer of the PCB**
 ![FinalPCBtop_image](Fritzing/Final_TopPCB_erosLab.JPG)
 
-**Final result of PCB with top and bottom layers (printed by [PCBWAY](https://www.pcbway.com/))**
+**Bottom Layer of the PCB**
 ![FinalPCBbottom_image](Fritzing/Final_bottomPCB_erosLab.JPG)
 
 
