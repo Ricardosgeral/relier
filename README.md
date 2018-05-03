@@ -27,7 +27,8 @@ so these instructions can be improved and be more helpful.
 + 1x [Raspberry Pi case](https://www.aliexpress.com/item/Best-Selling-Clear-Case-for-Raspberry-Pi-3-Model-B-Clear-by-SB-Components-Plastic-Protective/32738665641.html?spm=a2g0s.9042311.0.0.A8JBGc) [2€] (optional!)
 
 ## Acquisition system developed
-+ 1x [Nextion screen 2.8" - NX3224T028_011R](https://nextion.itead.cc/shop-nextion/) [15 €]
++ 1x PCB (details of the PCB printed by [PCBWAY](https://www.pcbway.com/) are detailed below) [12 €]
++ 1x [Nextion screen 2.8" - NX3224T028](https://nextion.itead.cc/shop-nextion/) [15 €]
 + 1x [88x38x100mm aluminum box profile with enclosure for PCB](https://www.aliexpress.com/item/Free-shipping88-38-100mm-width-x-high-x-length-aluminum-extrusion-box-profile-enclosure-for-PCB/32800855972.html?spm=a2g0s.9042311.0.0.Wvmz38) [6€]
 + 1x [16 Bit I2C ADS1115 Module ADC 4 channel with Pro Gain Amplifier](https://www.aliexpress.com/item/16-Bit-I2C-ADS1115-Module-ADC-4-channel-with-Pro-Gain-Amplifier-RPi-1PCS/32817162654.html?spm=a2g0s.9042311.0.0.KZKf8O) [2€]
 + 1x [Logic Level Shifter Bi-Directional 5V to 3.3V](https://www.aliexpress.com/item/5PCS-Logic-Level-Shifter-Bi-Directional-For-Arduino-5V-to-3-3V-Four-Way-Two-Way/32827270848.html?spm=a2g0s.9042311.0.0.PRV9iC) [2€]
@@ -39,10 +40,13 @@ so these instructions can be improved and be more helpful.
 + 1x Active Buzzer Alarm 5V  [<1€]
 + 3x 10kΩ carbon film resistor 1x 20kΩ carbon film resistor [<1€]
 + 1x 4 pins Male Single Row Pin Header Strip [<1€]
-+ 6 x 7cm cable with 3 wires [<1€]
++ 6 x 4cm shielded cable with 3 wires [<1€]
 
-## Additional tools required
+## Printed circuit board (PCB)developed
+The PCB was developed using [Fritzing](fritzing.org/), and the production files and fzz file is presented [here](https://github.com/Ricardosgeral/erosLab/tree/master/Fritzing) 
 
+
+## Additional tools required in assembly
 + Cable Wire Stripper Crimping Plier
 + Soldering iron + sold
 
