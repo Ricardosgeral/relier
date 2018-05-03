@@ -82,7 +82,7 @@ And that's it, after reboot the _Raspberry PI_ server should be running properly
 + 1x 4 pins Male Single Row Pin Header Strip [<1€]
 + 6 x 4cm shielded cable with 3 wires [<1€]
 
-## Printed circuit board (PCB) developed
+## Printed circuit board (PCB) produced
 The 2 layer's PCB was developed using [Fritzing](fritzing.org/), and the production files and fzz file are presented [here](https://github.com/Ricardosgeral/erosLab/tree/master/Fritzing). The PCB was printed by [PCBWAY](https://www.pcbway.com/).
 
 **Breadboard view**
@@ -91,10 +91,10 @@ The 2 layer's PCB was developed using [Fritzing](fritzing.org/), and the product
 **PCB view**
 ![PCB_image](Fritzing/PCB_erosLab.JPG)
 
-**Top layer of the PCB**
+**Look of the PCB top layer**
 ![FinalPCBtop_image](Fritzing/Final_TopPCB_erosLab.JPG)
 
-**Bottom Layer of the PCB**
+**Look of the PCB Bottom Layer**
 ![FinalPCBbottom_image](Fritzing/Final_bottomPCB_erosLab.JPG)
 
 
