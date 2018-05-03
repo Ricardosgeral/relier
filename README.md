@@ -60,7 +60,7 @@ In this section there are indicated all the hardware pieces required to put the 
 It is also indicated the way those pieces should be connected. 
 Just for you to have an idea of the cost of the project, some links and prices of the components are also presented.
 
-## Microprocessor specs and necessary components
+## Microprocessor and necessary components
 
 + 1x [**Raspberry Pi 3 model B**](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) [35€]
 + 1x [Micro SD card](https://www.aliexpress.com/item/SAMSUNG-Micro-SD-Card-256G-128GB-64gb-32g-100M-s-Class10-U3-4K-UHD-Memory-card/32813615707.html?spm=a2g0s.9042311.0.0.Xdt3Ob) [12 €]
@@ -151,7 +151,7 @@ Majority of the sensors are connected to the Acquisition system box via mini avi
  
 ![page1](Nextion/320x240/general settings_0.bmp)
 
-**Test Type selection **
+**Test Type selection**
  
 ![page1](Nextion/320x240/erosiontest_Artboard 5a.png)
 
