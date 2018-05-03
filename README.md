@@ -4,6 +4,8 @@ Open design of a sensor acquisition system of a laboratory erosion test apparatu
 
 This work has been done by **Ricardo Correia dos Santos** at [Laboratório Nacional de Engenharia Civil (LNEC)](www.lnec.pt/en/), in Lisbon, Portugal.
 
+Project webpage: https://ricardosgeral.github.io/erosLab/
+
 #### Is this for me ?
 You just need to have some DIY skills, for scrapping some materials, figuring out 
 how to assemble some things together and figuring out how some components work. The 
