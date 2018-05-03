@@ -12,7 +12,7 @@ The author developed this software at Laboratório Nacional de Engenharia Civil 
 These instructions should be carried out after a fresh installation of raspbian (tested with [2018-04-18-raspian-stretch](http://downloads.raspberrypi.org/raspbian/images/raspbian-2018-04-19/)). 
 
 #### NOTE: If no monitor is available (headless raspberry pi 3), first you have to do these 4 steps.
-1. Create an empty file (in windows use notepad | in Linux terminal use command *touch* | in Mac use TextEdit).
+1. Create an empty file (in windows use notepad - in Linux terminal use command *touch* - in Mac use TextEdit).
 2. Save the file with name: ssh (ssh.txt should also work).
 3. Copy or move the ssh file into the root of the sd card.
 4. Put the SD card in RPi3B and power it on.
