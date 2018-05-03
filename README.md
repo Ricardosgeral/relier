@@ -34,9 +34,13 @@ current password: *raspberry*
 To obtain it, see https://pygsheets.readthedocs.io/en/latest/authorizing.html#signed-credentials
 
     $ sudo nano /home/pi/erosLab/service_creds.json
-
-Delete all content of the file and past your own credentials. Ctrl+X, yes and Enter to save file.
+    
+Then,delete all content of the file and past your own credentials. Ctrl+X, yes and Enter to save file.
 
     $ sudo reboot
 
 #### After reboot the server should be running properly (if hardware is also set correctly)!
+
+## Troubleshooting
+ - It is normal to get the following error/warning: 'grep: /dev/fd/63: No such file or directory' at the end of $ sudo ./raspbian-post-install.sh
+ - Don't forget to obtain and replace the file service_creds.json or the program will not run.
