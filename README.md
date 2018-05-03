@@ -67,7 +67,7 @@ And that's it, after reboot the _Raspberry PI_ server should be running properly
 
 ## Acquisition system developed
 
-+ 1x PCB with 2 layers (details of the PCB printed by [PCBWAY](https://www.pcbway.com/) are detailed below) [12 €]
++ 1x PCB with 2 layers (details of the PCB are detailed below) [12 €]
 + 1x [Nextion screen 2.8" - NX3224T028](https://nextion.itead.cc/shop-nextion/) [15 €]
 + 1x [88x38x100mm aluminum box profile with enclosure for PCB](https://www.aliexpress.com/item/Free-shipping88-38-100mm-width-x-high-x-length-aluminum-extrusion-box-profile-enclosure-for-PCB/32800855972.html?spm=a2g0s.9042311.0.0.Wvmz38) [6€]
 + 1x [16 Bit I2C ADS1115 Module ADC 4 channel with Pro Gain Amplifier](https://www.aliexpress.com/item/16-Bit-I2C-ADS1115-Module-ADC-4-channel-with-Pro-Gain-Amplifier-RPi-1PCS/32817162654.html?spm=a2g0s.9042311.0.0.KZKf8O) [2€]
@@ -91,8 +91,8 @@ The 2 layer's PCB was developed using [Fritzing](fritzing.org/), and the product
 **PCB view**
 ![PCB_image](Fritzing/PCB_erosLab.JPG)
 
-**Final PCB**
-
+**Final result of PCB with top and bottom layers (printed by [PCBWAY](https://www.pcbway.com/))**
+![FinalPCB_image](Fritzing/FinalPCB_erosLab.JPG)
 
 ## Additional tools required in assembly
 + Cable Wire Stripper Crimping Plier
