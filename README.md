@@ -139,7 +139,7 @@ Majority of the sensors are connected to the Acquisition system box via mini avi
   
 **Credits**
  
-![page1](Nextion/320x240/Artboard1.png)
+![page1](Nextion/320x240/Artboard_1.png)
  
  **Main**
  
