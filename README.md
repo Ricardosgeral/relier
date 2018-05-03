@@ -134,9 +134,10 @@ Majority of the sensors are connected to the Acquisition system box via mini avi
  - The following error/warning is expected: 'grep: /dev/fd/63: No such file or directory' at the end of $ sudo ./raspbian-post-install.sh
  - Don't forget to obtain and replace the file **service_creds.json**, as indicated above, or the program will not start!
  
- # Usage of the user Interface (shown in Nextion screen)
+ # Usage of the GUI
  
-  
+Here are presented the pages of the Graphical User Interface (GUI), shown in touchscreen (Nextion device).
+
 **Credits**
  
 ![page1](Nextion/320x240/Artboard_1.png)
