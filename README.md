@@ -111,10 +111,17 @@ The following **'low cost' sensors** were used:
 
 Majority of the sensors are connected to the Acquisition system box via mini aviator plugs. Exception is the *BME280* that is soldered directly in the PCB.
 
+## Other components that may be useful
++ Breadboard(s)
++ [T-cobbler for raspberry pi](https://www.aliexpress.com/item/830-tie-points-MB102-breadboard-40Pin-Rainbow-Cable-GPIO-T-Cobbler-Plus-Breakout-Board-Kit-for/32673580640.html?spm=2114.search0104.3.9.6581309ai8NJdY&ws_ab_test=searchweb0_0,searchweb201602_1_10152_10151_10065_10344_10068_10342_10343_5722611_10340_10341_10698_10696_5722911_5722811_10084_5722711_10083_10618_10304_10307_10301_5711211_10059_308_100031_10103_10624_10623_10622_10621_10620_5711311_5722511,searchweb201603_32,ppcSwitch_5&algo_expid=3ed88c37-67f1-4fe2-a688-b3983db90ff7-1&algo_pvid=3ed88c37-67f1-4fe2-a688-b3983db90ff7&transAbTest=ae803_2&priceBeautifyAB=0)
++ DuPont jumper wires
++ Micro SD adapter
 
-## Additional tools required in assembly
+## Additional tools required for the assemblage of the PCB and acquisition system
 + Cable Wire Stripper Crimping Plier
 + Soldering iron + sold
++ Tools to make the openings in the aluminum box (*e.g.* a mini Drill DIY set should be enough) 
++ Precision screwdriver set
 
 
 
