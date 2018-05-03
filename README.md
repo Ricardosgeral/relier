@@ -2,7 +2,7 @@
 # Laboratory Erosion Test Software 
 Open design of a sensor acquisition system of a laboratory erosion test apparatus, using a *Raspberry Pi* as server, and *Python* code. 
 
-This work has been done by **Ricardo Correia dos Santos** at [Laboratório Nacional de Engenharia Civil (LNEC)](www.lnec.pt/en/), in Lisbon, Portugal.
+This work has been done by **Ricardo Correia dos Santos** at [Laboratório Nacional de Engenharia Civil - LNEC](www.lnec.pt/en/), in Lisbon, Portugal.
 
 Project webpage: https://ricardosgeral.github.io/erosLab/
 
