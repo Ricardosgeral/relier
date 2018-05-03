@@ -86,7 +86,7 @@ And that's it, after reboot the _Raspberry PI_ server should be running properly
 The PCB was developed using [Fritzing](fritzing.org/), and the production files and fzz file are presented [here](https://github.com/Ricardosgeral/erosLab/tree/master/Fritzing). 
 
 Breadboard view
-![Breadboard_image](..master/Fritzing/breadboard_erosLab.JPG)
+![Breadboard_image](erosLab/master/Fritzing/breadboard_erosLab.JPG)
 
 ## Additional tools required in assembly
 + Cable Wire Stripper Crimping Plier
