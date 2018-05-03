@@ -16,7 +16,7 @@ things, there will be similarities too.
 Feel free to contact me if you manage to get it working with different components, 
 so these instructions can be improved and be more helpful. 
 
-#Software
+# Software
 
 ## Usage/install
 These instructions should be carried out after a fresh installation of raspbian (tested with [2018-04-18-raspian-stretch](http://downloads.raspberrypi.org/raspbian/images/raspbian-2018-04-19/)). 
@@ -122,8 +122,6 @@ Majority of the sensors are connected to the Acquisition system box via mini avi
 + Soldering iron + sold
 + Tools to make the openings in the aluminum box (*e.g.* a mini Drill DIY set should be enough) 
 + Precision screwdriver set
-
-
 
 ## Troubleshooting
  - The following error/warning is expected: 'grep: /dev/fd/63: No such file or directory' at the end of $ sudo ./raspbian-post-install.sh
