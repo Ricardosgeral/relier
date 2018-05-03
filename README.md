@@ -44,7 +44,7 @@ In a terminal, run the following sequential commands:
     $ sudo ./raspbian-post-install.sh
 
 Next, you need to create your own JSON file with the google credentials
-To obtain it, see https://pygsheets.readthedocs.io/en/latest/authorizing.html#signed-credentials
+To obtain it, follow instructions on this [Link](https://pygsheets.readthedocs.io/en/latest/authorizing.html#signed-credentials).
 
     $ sudo nano /home/pi/erosLab/service_creds.json
     
