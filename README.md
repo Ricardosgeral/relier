@@ -67,7 +67,7 @@ And that's it, after reboot the _Raspberry PI_ server should be running properly
 
 ## Acquisition system developed
 
-+ 1x PCB (details of the PCB printed by [PCBWAY](https://www.pcbway.com/) are detailed below) [12 €]
++ 1x PCB with 2 layers (details of the PCB printed by [PCBWAY](https://www.pcbway.com/) are detailed below) [12 €]
 + 1x [Nextion screen 2.8" - NX3224T028](https://nextion.itead.cc/shop-nextion/) [15 €]
 + 1x [88x38x100mm aluminum box profile with enclosure for PCB](https://www.aliexpress.com/item/Free-shipping88-38-100mm-width-x-high-x-length-aluminum-extrusion-box-profile-enclosure-for-PCB/32800855972.html?spm=a2g0s.9042311.0.0.Wvmz38) [6€]
 + 1x [16 Bit I2C ADS1115 Module ADC 4 channel with Pro Gain Amplifier](https://www.aliexpress.com/item/16-Bit-I2C-ADS1115-Module-ADC-4-channel-with-Pro-Gain-Amplifier-RPi-1PCS/32817162654.html?spm=a2g0s.9042311.0.0.KZKf8O) [2€]
@@ -82,14 +82,16 @@ And that's it, after reboot the _Raspberry PI_ server should be running properly
 + 1x 4 pins Male Single Row Pin Header Strip [<1€]
 + 6 x 4cm shielded cable with 3 wires [<1€]
 
-## Printed circuit board (PCB)developed
-The PCB was developed using [Fritzing](fritzing.org/), and the production files and fzz file are presented [here](https://github.com/Ricardosgeral/erosLab/tree/master/Fritzing). 
+## Printed circuit board (PCB) developed
+The 2 layer's PCB was developed using [Fritzing](fritzing.org/), and the production files and fzz file are presented [here](https://github.com/Ricardosgeral/erosLab/tree/master/Fritzing). 
 
 **Breadboard view**
-![Breadboard_image](..master/Fritzing/breadboard_erosLab.JPG)
+![Breadboard_image](Fritzing/breadboard_erosLab.JPG)
 
 **PCB view**
-![PCB_image](..master/Fritzing/PCB_erosLab.JPG)
+![PCB_image](Fritzing/PCB_erosLab.JPG)
+
+**Final PCB**
 
 
 ## Additional tools required in assembly
