@@ -1,6 +1,6 @@
 # *erosLab* 
 # Laboratory Erosion Test Software 
-Open design of a monitoring acquisition system of a laboratory erosion test apparatus, using raspberry pi3 B as server, and python3 code. 
+Open design of a sensor acquisition system of a laboratory erosion test apparatus, using a *Raspberry Pi* as server, and *Python* code. 
 
 This work has been done by **Ricardo Correia dos Santos** at [Laboratório Nacional de Engenharia Civil (LNEC)](www.lnec.pt/en/), in Lisbon, Portugal.
 
@@ -15,9 +15,9 @@ things, there will be similarities too.
 Feel free to contact me if you manage to get it working with different components, 
 so these instructions can be improved and be more helpful. 
 
-# Software
+# Software (running in the *Raspberry Pi*)
 
-## Usage/installation
+## Installation
 These instructions should be carried out after a fresh installation of raspbian (see [instructions](https://www.raspberrypi.org/documentation/installation/installing-images/README.md)). It was tested with [2018-04-18-raspian-stretch](http://downloads.raspberrypi.org/raspbian/images/raspbian-2018-04-19/). 
 
 **NOTE:** If no monitor is available (headless raspberry pi 3), first you have to do these 4 simple steps:
@@ -134,4 +134,27 @@ Majority of the sensors are connected to the Acquisition system box via mini avi
  - The following error/warning is expected: 'grep: /dev/fd/63: No such file or directory' at the end of $ sudo ./raspbian-post-install.sh
  - Don't forget to obtain and replace the file **service_creds.json**, as indicated above, or the program will not start!
  
+ # Usage of the user Interface (shown in Nextion screen)
  
+  
+**Credits**
+ 
+![page1](Nextion/320x240/erosiontest_Artboard 1.png)
+ 
+ 
+**Main**
+ 
+![page1](Nextion/320x240/erosiontest_Artboard 3.png)
+ 
+ 
+**General settings**
+ 
+![page1](Nextion/320x240/general settings_0.bmp)
+
+**Test Type selection **
+ 
+![page1](Nextion/320x240/erosiontest_Artboard 5a.png)
+
+**Analog sensors config**
+ 
+![page1](Nextion/320x240/erosiontest_Artboard 7.png)
