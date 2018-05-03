@@ -1,0 +1,37 @@
+*Pick And Place List
+*Company=
+*Author=
+*eMail=
+*
+*Project=erosion_v3
+*Date=10:09:14
+*CreatedBy=Fritzing 0.9.3b.04.19.5c895d327c44a3114e5fcc9d8260daf0cbb52806
+*
+*
+*Coordinates in mm, always center of component
+*Origin 0/0=Lower left corner of PCB
+*Rotation in degree (0-360, math. pos.)
+*
+*No;Value;Package;X;Y;Rotation;Side;Name
+1;1k;THT;10.4858;-12.0496;0;Bottom;Rt1k
+2;;;11.5258;-19.5496;0;Bottom;Via1
+3;;;50.5385;-13.8947;0;Bottom;TXT1
+4;;THT;8.06583;-7.5496;90;Bottom;Temp
+5;;THT;24.5658;-7.5496;90;Bottom;Flow
+6;;;14.1305;-1.74978;0;Bottom;TXT3
+7;2.0k;THT;17.5258;-9.5096;-90;Bottom;Rfl2k
+8;;;78.5058;-38.6996;180;Bottom;Buzzer
+9;;THT;37.0259;-7.5496;90;Bottom;Pu
+10;;THT;62.5258;-7.5496;90;Bottom;Pd
+11;;;53.0478;-12.4732;0;Bottom;TXT1
+12;;3 mm [THT];66.1771;-39.0495;90;Bottom;LED
+13;;Breakout board;25.1225;-25.995;0;Bottom;Shifter
+14;;;12.3002;-3.7498;0;Bottom;TXT2
+15;;THT;31.516;-39.0998;0;Bottom;40pines RPi3
+16;1k;THT;73.4258;-34.8896;-90;Bottom;R2
+17;1k;THT;25.4858;-13.5496;0;Bottom;R1
+18;;THT;7.38583;-23.4596;0;Bottom;Nextion
+19;;;49.2958;-23.7771;0;Bottom;ADC: ADS1x15
+20;;;75.4341;-20.9196;-90;Bottom;BME280
+21;;THT;49.0257;-7.5496;90;Bottom;Pi
+22;;THT;74.5259;-7.5496;90;Bottom;Turb

@@ -1,0 +1,10 @@
+[Unit]
+Description=set nextion page at shutdown
+
+[Service]
+Type=oneshot
+RemainAfterExit=true
+ExecStop=/usr/bin/python3.5 /home/pi/erosLab/shutdown.py
+
+[Install]
+WantedBy=multi-user.target

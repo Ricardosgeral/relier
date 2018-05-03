@@ -1,0 +1,13 @@
+[Unit]
+Description=GPIO shutdown/restart 1 button
+After=network.target
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=root
+ExecStart=/usr/bin/python3.5 /home/pi/erosLab/shutdown_button.py
+
+[Install]
+WantedBy=multi-user.target
