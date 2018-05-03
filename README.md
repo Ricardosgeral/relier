@@ -4,8 +4,7 @@ Open design of a monitoring acquisition system of a laboratory erosion test appa
 
 This work has been done by **Ricardo Correia dos Santos** at [Laboratório Nacional de Engenharia Civil (LNEC)](www.lnec.pt/en/), in Lisbon, Portugal.
 
-## Is this for me ?
-
+#### Is this for me ?
 You just need to have some DIY skills, for scrapping some materials, figuring out 
 how to assemble some things together and figuring out how some components work. The 
 instructions given here should also be taken more like guidelines based on what 
@@ -18,18 +17,18 @@ so these instructions can be improved and be more helpful.
 
 # Software
 
-## Usage/install
-These instructions should be carried out after a fresh installation of raspbian (tested with [2018-04-18-raspian-stretch](http://downloads.raspberrypi.org/raspbian/images/raspbian-2018-04-19/)). 
+## Usage/installation
+These instructions should be carried out after a fresh installation of raspbian (see [instructions](https://www.raspberrypi.org/documentation/installation/installing-images/README.md)). It was tested with [2018-04-18-raspian-stretch](http://downloads.raspberrypi.org/raspbian/images/raspbian-2018-04-19/). 
 
-**NOTE:** If no monitor is available (headless raspberry pi 3), first you have to do these 4 steps.
+**NOTE:** If no monitor is available (headless raspberry pi 3), first you have to do these 4 simple steps:
 1. Create an empty file (in windows use notepad - in Linux terminal use command *touch* - in Mac use TextEdit).
 2. Save the file with name: ssh (ssh.txt should also work).
 3. Copy or move the ssh file into the root of the sd card.
-4. Put the SD card in RPi3B and power it on.
+4. Put the Micro SD card in the Raspberry Pi, and power it on.
 
-Connect to raspberry pi directly (if monitor is available) or via SSH (for example with putty). In this last option, you need to know the IP of the raspberry pi!
+Connect to Raspberry Pi directly (if monitor is available) or via SSH (for example with putty). In this last option, you need to know the IP of the raspberry pi!
 
-It is recommended to change the password of user pi, since SSH is enabled!
+It is recommended to change the password, since SSH is enabled!
 
     $ passwd 
     
@@ -57,7 +56,11 @@ And that's it, after reboot the _Raspberry PI_ server should be running properly
 
 # Hardware
 
-## Microprocessor specs and components
+In this section there are indicated all the hardware pieces required to put the server running and capturing sensors readings. 
+It is also indicated the way those pieces should be connected. 
+Just for you to have an idea of the cost of the project, some links and prices of the components are also presented.
+
+## Microprocessor specs and necessary components
 
 + 1x [**Raspberry Pi 3 model B**](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) [35€]
 + 1x [Micro SD card](https://www.aliexpress.com/item/SAMSUNG-Micro-SD-Card-256G-128GB-64gb-32g-100M-s-Class10-U3-4K-UHD-Memory-card/32813615707.html?spm=a2g0s.9042311.0.0.Xdt3Ob) [12 €]
@@ -65,9 +68,10 @@ And that's it, after reboot the _Raspberry PI_ server should be running properly
 + 1x [Raspberry Pi GPIO 40 pin cable](https://www.aliexpress.com/item/Raspberry-pi-B-raspberry-PI-GPIO-40-pin-cable/32809594049.html?spm=2114.search0104.8.35.5790121bpoCIAu&transAbTest=ae803_2&priceBeautifyAB=0) [3€]
 + 1x [Raspberry Pi case](https://www.aliexpress.com/item/Best-Selling-Clear-Case-for-Raspberry-Pi-3-Model-B-Clear-by-SB-Components-Plastic-Protective/32738665641.html?spm=a2g0s.9042311.0.0.A8JBGc) [2€] (optional!)
 
+
 ## Acquisition system developed to read the sensors
 
-+ 1x PCB with 2 layers (details of the PCB are detailed below) [12 €]
++ 1x PCB with 2 layers (details of the PCB are shown below) [12 €]
 + 1x [**Nextion screen 2.8"** - NX3224T028](https://nextion.itead.cc/shop-nextion/) [15 €]
 + 1x [**16 Bit I2C ADS1115** Module ADC 4 channel with Pro Gain Amplifier](https://www.aliexpress.com/item/16-Bit-I2C-ADS1115-Module-ADC-4-channel-with-Pro-Gain-Amplifier-RPi-1PCS/32817162654.html?spm=a2g0s.9042311.0.0.KZKf8O) [2€]
 + 1x [**Logic Level Shifter** Bi-Directional 5V to 3.3V](https://www.aliexpress.com/item/5PCS-Logic-Level-Shifter-Bi-Directional-For-Arduino-5V-to-3-3V-Four-Way-Two-Way/32827270848.html?spm=a2g0s.9042311.0.0.PRV9iC) [2€]
@@ -78,12 +82,15 @@ And that's it, after reboot the _Raspberry PI_ server should be running properly
 + 1x [Momentary pushbutton switches 3A Reset Button](https://www.aliexpress.com/item/10pcs-Momentary-Push-Button-Switch-12mm-Momentary-pushbutton-switches-3A-125VAC-1-5A-250VAC-Reset-Button/32802331189.html?spm=a2g0s.9042311.0.0.1PWJGq) [2€]
 + 1x 3mm LED [<1€]
 + 1x Active Buzzer Alarm 5V  [<1€]
-+ 3x 10kΩ carbon film resistor 1x 20kΩ carbon film resistor [<1€]
++ 3x 10kΩ carbon film resistor [<1€]
++ 1x 20kΩ carbon film resistor [<1€]
 + 1x 4 pins Male Single Row Pin Header Strip [<1€]
-+ 6 x 4cm shielded cable with 3 wires [<1€]
++ 6 x 4cm *shielded* cable with 3 wires [<1€]
 
 ## Printed circuit board (PCB) produced
-The 2 layer's PCB was developed using [Fritzing](fritzing.org/), and the production files and fzz file are presented [here](https://github.com/Ricardosgeral/erosLab/tree/master/Fritzing). The PCB was printed by [PCBWay company](https://www.pcbway.com/).
+The 2 layer's PCB was developed using [Fritzing](fritzing.org/). 
+The production files and fzz file are presented [here](https://github.com/Ricardosgeral/erosLab/tree/master/Fritzing). 
+The PCB was printed by [PCBWay company](https://www.pcbway.com/).
 
 **Breadboard view**
 ![Breadboard_image](Fritzing/breadboard_erosLab.JPG)
