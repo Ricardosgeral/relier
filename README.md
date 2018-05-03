@@ -141,8 +141,7 @@ Majority of the sensors are connected to the Acquisition system box via mini avi
  
 ![page1](Nextion/320x240/erosiontest_Artboard 1.png)
  
- 
-**Main**
+ **Main**
  
 ![page2](Nextion/320x240/erosiontest_Artboard 3.png)
  
