@@ -44,7 +44,7 @@ In a terminal, run the following sequential commands:
     $ sudo ./raspbian-post-install.sh
 
 Next, you need to create your own JSON file with the google credentials
-To obtain it, follow instructions on this [Link](https://pygsheets.readthedocs.io/en/latest/authorizing.html#signed-credentials).
+To obtain it, follow instructions on this [Link](https://pygsheets.readthedocs.io/en/latest/authorizing.html#signed-credentials). Once you generated the JSON file edit the dummy file in the Raspberry Pi:
 
     $ sudo nano /home/pi/erosLab/service_creds.json
     
@@ -52,7 +52,7 @@ Then, delete all content of the file and past your own credentials. Ctrl+X, yes 
 
     $ sudo reboot
 
-And that's it, after reboot the _Raspberry PI_ server should be running properly (if hardware is also set correctly)!
+And that's it, after reboot, the _Raspberry PI_ server should be running properly (if hardware is also set correctly)!
 
 # Hardware
 
