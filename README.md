@@ -92,7 +92,7 @@ The 2 layer's PCB was developed using [Fritzing](fritzing.org/), and the product
 ![PCB_image](Fritzing/PCB_erosLab.JPG)
 
 **Final result of PCB with top and bottom layers (printed by [PCBWAY](https://www.pcbway.com/))**
-![FinalPCB_image](Fritzing/FinalPCB_erosLab.JPG)
+![FinalPCB_image](Fritzing/Final_PCB_erosLab.JPG)
 
 ## Additional tools required in assembly
 + Cable Wire Stripper Crimping Plier
