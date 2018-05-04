@@ -209,17 +209,25 @@ That is, if a USB drive is plugged in, data goes to USB, otherwise, data goes to
 **In addition**, it is possible to send data to [Google Sheets](https://www.google.com/sheets/about/), if a valid *service_creds.JSON* file is provided (see instructions in *Software>Installation* section).
 With this functionality, you can do **Live monitoring** of the data being placed in the internet. 
 
-**How to enable 'Google sheets'** make sure to:
--  Select that option:
+**To enable 'Google sheets'**
+-  Select the appropriate option:
    + In the *touchscreen GUI* > *Settings* page > activate the (only) checkbox. 
    + In *inputs.ini* file > ensure that *google_sheets = yes*.
    
-- Provide a Tittle for the Spreadsheet and a Tittle for the Worksheet:
-   +  In the *touchscreen GUI* > *Settings* page > Add Tittle for spreadsheet (the worksheet name will be the tittle of the CSV filename).
-   +  In *inputs.ini* file > spreadsheet name is defined by parameter *googlesh* and worksheet name by *filename*.
+- Provide a Tittle for the *Spreadsheet* and a Tittle for the *Worksheet*:
+   + In the *touchscreen GUI* > *Settings* page > Add Tittle for spreadsheet (the worksheet name will be the tittle of the CSV filename).
+   + In *inputs.ini* file > spreadsheet name is defined by parameter *googlesh* and worksheet name by *filename*.
 
-- Provide a valid ena
+- Provide a valid email, since a link to access the spreadsheet will be shared via email at the start of each test
+   + In the *touchscreen GUI* > *Settings* page > Add email
+   + In *inputs.ini* file > use parameter *share_email*
 
+**Additional notes:**
+
+- If the spreadsheet/worksheet provided by the user already exists, the data that was in that worksheet will be deleted (**Attention!**). 
+However, when a new worksheet name is provided in an already existing spreadsheet, a new sheet is added. 
+This means that you can have a single spreadsheet with different tests organized in different worksheets.
+- If internet connection is lost during a test, the software will raise an error and stop recording data!.
 
 ## Troubleshooting
  - The following error/warning is expected: 'grep: /dev/fd/63: No such file or directory' at the end of $ sudo ./raspbian-post-install.sh
