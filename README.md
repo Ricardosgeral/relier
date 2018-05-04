@@ -172,12 +172,12 @@ Here are presented the pages GUI displayed in the touchscreen monitor (Nextion d
 
 ![page0](Nextion/320x240/shutdown.bmp)
 
-## Data collection
+# Data collection
 The *Raspberry Pi*, together with the *acquisition system box*, handles the sensors and gets the data from them. 
 The data is collected once the red button in the *touchscreen GUI* (in *Sensors* page) is pressed. 
 The location where data will be collected depends on the user *settings*, on whether an internet connection is available and a USB drive is plugged in.
 
-### No internet connection
+## No internet connection
 The data has two possible ways to go:
   
 1. **No** USB drive is plugged in
@@ -202,7 +202,7 @@ This will prevent corrupting the Micro SD card and the USB drive. For that you c
 - Data in the *CSV* files is never deleted automatically. If the filename already exists in the USB drive or Micro SD card, data is placed bellow the last row present. This means that multiple tests may be collected in the same filename (not recommended!).
 
 
-### Internet connection available
+## Internet connection available
 
 The *local data* collection method is identical as stated when there is no internet connection.
 That is, if a USB drive is plugged in, data goes to USB, otherwise, data goes to the Micro SD card.
@@ -230,7 +230,7 @@ However, when a new worksheet name is provided in an already existing spreadshee
 This means that you can have a single spreadsheet with different tests organized in different worksheets.
 - If internet connection is lost during a test, the software will raise an error and stop recording data! (**be careful!**).
 
-## Troubleshooting
+# Troubleshooting
 
 - The following warning is expected: 'grep: /dev/fd/63: No such file or directory' at the end of $ *sudo ./raspbian-post-install.sh*.
 - Don't forget to obtain and replace the content of the file **service_creds.json**, as indicated above, or the program will not start!
