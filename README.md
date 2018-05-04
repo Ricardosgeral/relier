@@ -83,7 +83,7 @@ Just for a reference about the cost of the project, some links and prices of the
 + 6x [8mm Male & Female Connector miniature Aviation Plug M8 Circular Socket+Plug](https://www.aliexpress.com/item/1PCS-AP049-YC8-2-3-4-5-6-7Pin-8mm-Male-Female-Connector-miniature-Aviation-Plug/32845374887.html?spm=a2g0s.9042311.0.0.6sphAY) [6x4=24€]
 + 6x [XH2.54 3-Pins connectors with right angle Male for PCB - Header+Housing+Terminal](https://www.aliexpress.com/item/XH2-54-2P-3P-4P-5P-6P-7P-8P-9P-10P-11P-12P-13P-14P-15P/32793262315.html?spm=a2g0s.9042311.0.0.DEz5gr) [3€]
 + 1x [2.54mm 2x20 DC3 40 Pin Right Angle Male for PCB](https://www.aliexpress.com/item/10pcs-2-54mm-2x20-DC3-40-Pin-Right-Angle-Male-Shrouded-PCB-IDC-Socket-Box-header/32597308721.html?spm=a2g0s.9042311.0.0.y1HFgb) [4€]
-+ 1x [Momentary pushbutton switches 3A Reset Button](https://www.aliexpress.com/item/10pcs-Momentary-Push-Button-Switch-12mm-Momentary-pushbutton-switches-3A-125VAC-1-5A-250VAC-Reset-Button/32802331189.html?spm=a2g0s.9042311.0.0.1PWJGq) [2€]
++ 1x [Momentary pushbutton switch 3A Reset Button](https://www.aliexpress.com/item/10pcs-Momentary-Push-Button-Switch-12mm-Momentary-pushbutton-switches-3A-125VAC-1-5A-250VAC-Reset-Button/32802331189.html?spm=a2g0s.9042311.0.0.1PWJGq) [2€]
 + 1x 3mm LED [<1€]
 + 1x Active Buzzer Alarm 5V  [<1€]
 + 3x 10kΩ carbon film resistor [<1€]
@@ -92,7 +92,7 @@ Just for a reference about the cost of the project, some links and prices of the
 + 6 x 4cm *shielded* cable with 3 wires [<1€]
 
 ## Printed circuit board (*PCB*) designed/produced
-The design of the 2 layer's *PCB* was developed using [Fritzing](fritzing.org/). 
+The design of the 2 layer's *PCB* was developed using [Fritzing](http://www.fritzing.org/). 
 It's production files and the *.fzz* file are [here](https://github.com/Ricardosgeral/erosLab/tree/master/Fritzing). 
 The *PCB* was printed by [PCBWay company](https://www.pcbway.com/).
 
@@ -233,7 +233,13 @@ This means that you can have a single spreadsheet with different tests organized
 ## Troubleshooting
  - The following error/warning is expected: 'grep: /dev/fd/63: No such file or directory' at the end of $ sudo ./raspbian-post-install.sh
  - Don't forget to obtain and replace the file **service_creds.json**, as indicated above, or the program will not start!
-
+ - To check if the Analog-to-Digital Converter (ADC - ADS1115 chip) is properly connected via I2C, you can do **$ cd sudo i2cdetect -y 1**. 
+ You should see number 48 in the matrix (row 40, column 8). 
+ Otherwise, something is not connected correctly, or I2C protocol has not been enabled (done in the installation process in bash file *raspbian-post-install.sh*).
+-
+    
+ 
+ 
 
 # Licence
 see [licence](LICENSE)
