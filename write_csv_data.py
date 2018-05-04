@@ -47,7 +47,7 @@ def write_data(data, data_file):
         # don't forget to do 1st:   sudo mkdir /srv/sensors
         #                           sudo chmod - R 777 / srv / sensors
 
-        path = os.path.join('/srv/sensors', csv_file)  #create first the /srv/sensor
+        path = os.path.join('/srv/EROSTESTS', csv_file)  #create first the /srv/sensor
         file_exists = os.path.isfile(path)  # sets to TRUE if file exists otherwise FALSE
 
         with open(path, 'a', newline='') as f: # if the file exists data will be added below after a black line

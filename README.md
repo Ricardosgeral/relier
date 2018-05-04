@@ -20,17 +20,17 @@ so these instructions can be improved and be more helpful.
 # Software (running in the *Raspberry Pi*)
 
 ## Installation
-These instructions should be carried out after a fresh installation of raspbian (see [instructions](https://www.raspberrypi.org/documentation/installation/installing-images/README.md)). It was tested with [2018-04-18-raspian-stretch](http://downloads.raspberrypi.org/raspbian/images/raspbian-2018-04-19/). 
+These instructions should be carried out after a fresh installation of raspbian image (see [instructions](https://www.raspberrypi.org/documentation/installation/installing-images/README.md)). It was tested with [2018-04-18-raspian-stretch](http://downloads.raspberrypi.org/raspbian/images/raspbian-2018-04-19/). 
 
-**NOTE:** If no monitor is available (headless raspberry pi 3), first you have to do these 4 simple steps:
-1. Create an empty file (in windows use notepad - in Linux terminal use command *touch* - in Mac use TextEdit).
-2. Save the file with name: ssh (ssh.txt should also work).
-3. Copy or move the ssh file into the root of the sd card.
-4. Put the Micro SD card in the Raspberry Pi, and power it on.
+**NOTE:** If no monitor is available (headless *Raspberry Pi*), you have to do the following 4 simple steps to enable *SSH* in first boot. So, right after installing the raspbian image in the  Micro SD card:
+1. Create an empty file (in Windows use notepad, in a Linux terminal use command *touch*, in Mac use TextEdit).
+2. Save the file with name: **ssh** (preferentially with no extension, but *ssh.txt* should also work).
+3. Copy or move the ssh file into the *Root* of the Micro SD card.
+4. Insert the Micro SD card in the *Raspberry Pi*, and power it on.
 
-Connect to Raspberry Pi directly (if monitor is available) or via SSH (for example with putty). In this last option, you need to know the IP of the raspberry pi!
+Connect to *Raspberry Pi* directly (if monitor is available) or via *SSH* (for example, using *Putty*). In this last option, you need to know the IP of the raspberry pi!
 
-It is recommended to change the password, since SSH is enabled!
+It is recommended to change the password in first boot, since *SSH* is enabled!
 
     $ passwd 
     
@@ -46,34 +46,35 @@ In a terminal, run the following sequential commands:
     $ sudo ./raspbian-post-install.sh
 
 Next, you need to create your own JSON file with the google credentials
-To obtain it, follow instructions on this [Link](https://pygsheets.readthedocs.io/en/latest/authorizing.html#signed-credentials). Once you generated the JSON file edit the dummy file in the Raspberry Pi:
+To obtain the credentials, follow instructions on this [Link](https://pygsheets.readthedocs.io/en/latest/authorizing.html#signed-credentials). 
+Once you generated the JSON file, edit the dummy file in the Raspberry Pi:
 
     $ sudo nano /home/pi/erosLab/service_creds.json
     
-Then, delete all content of the file and past your own credentials. Ctrl+X, yes and Enter to save file.
+Delete all content of the file and past your own credentials. Ctrl+X, yes and Enter to save file.
 
     $ sudo reboot
 
-And that's it, after reboot, the _Raspberry PI_ server should be running properly (if hardware is also set correctly)!
+And that's it, after reboot, the *Raspberry Pi* server should be running properly, if **hardware** is also set correctly!
 
 # Hardware
 
-In this section there are indicated all the hardware pieces required to put the server running and to capture the sensors readings. 
-It is also indicated the way those pieces should be connected. 
+In this section there are indicated all the hardware items required to put the server running and capturing the sensors readings. 
+It is also indicated the way those pieces should be connected.
 Just for a reference about the cost of the project, some links and prices of the components are also presented.
 
-## Microprocessor and necessary components
+## (Micro)computer and necessary components
 
 + 1x [**Raspberry Pi 3 model B**](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) [35€]
-+ 1x [Micro SD card (>=8Gb - used one with 32Gb)](https://www.aliexpress.com/item/SAMSUNG-Micro-SD-Card-256G-128GB-64gb-32g-100M-s-Class10-U3-4K-UHD-Memory-card/32813615707.html?spm=a2g0s.9042311.0.0.Xdt3Ob) [12 €]
-+ 1x [Raspberry Pi Universal Power Supply](https://www.raspberrypi.org/products/raspberry-pi-universal-power-supply/) [15€]
++ 1x [Micro SD card (>=8Gb - I´ve used one with 32Gb)](https://www.aliexpress.com/item/SAMSUNG-Micro-SD-Card-256G-128GB-64gb-32g-100M-s-Class10-U3-4K-UHD-Memory-card/32813615707.html?spm=a2g0s.9042311.0.0.Xdt3Ob) [12 €]
++ 1x [Raspberry Pi Universal Power Supply or equivalent](https://www.raspberrypi.org/products/raspberry-pi-universal-power-supply/) [15€]
 + 1x [Raspberry Pi GPIO 40 pin cable](https://www.aliexpress.com/item/Raspberry-pi-B-raspberry-PI-GPIO-40-pin-cable/32809594049.html?spm=2114.search0104.8.35.5790121bpoCIAu&transAbTest=ae803_2&priceBeautifyAB=0) [3€]
 + 1x [Raspberry Pi case](https://www.aliexpress.com/item/Best-Selling-Clear-Case-for-Raspberry-Pi-3-Model-B-Clear-by-SB-Components-Plastic-Protective/32738665641.html?spm=a2g0s.9042311.0.0.A8JBGc) [2€] (optional!)
 
 
-## Acquisition system developed to read the sensors
+## Acquisition system box developed to read the sensors
 
-+ 1x **PCB with 2 layers** (details of the PCB are shown below) [12 €]
++ 1x **PCB with 2 layers** (details to manufacter the *PCB* are shown below) [12 €]
 + 1x [**Nextion touchscreen 2.8"** - NX3224T028](https://nextion.itead.cc/shop-nextion/) [15 €]
 + 1x [**16 Bit I2C ADS1115** Module ADC 4 channel with Pro Gain Amplifier](https://www.aliexpress.com/item/16-Bit-I2C-ADS1115-Module-ADC-4-channel-with-Pro-Gain-Amplifier-RPi-1PCS/32817162654.html?spm=a2g0s.9042311.0.0.KZKf8O) [2€]
 + 1x [**Logic Level Shifter** Bi-Directional 5V to 3.3V](https://www.aliexpress.com/item/5PCS-Logic-Level-Shifter-Bi-Directional-For-Arduino-5V-to-3-3V-Four-Way-Two-Way/32827270848.html?spm=a2g0s.9042311.0.0.PRV9iC) [2€]
@@ -89,15 +90,17 @@ Just for a reference about the cost of the project, some links and prices of the
 + 1x 4 pins Male Single Row Pin Header Strip [<1€]
 + 6 x 4cm *shielded* cable with 3 wires [<1€]
 
-## Printed circuit board (PCB) produced
-The 2 layer's PCB was developed using [Fritzing](fritzing.org/). 
-The production files and the *.fzz* file are [here](https://github.com/Ricardosgeral/erosLab/tree/master/Fritzing). 
-The PCB was printed by [PCBWay company](https://www.pcbway.com/).
+## Printed circuit board (*PCB*) designed/produced
+The design of the 2 layer's *PCB* was developed using [Fritzing](fritzing.org/). 
+It's production files and the *.fzz* file are [here](https://github.com/Ricardosgeral/erosLab/tree/master/Fritzing). 
+The *PCB* was printed by [PCBWay company](https://www.pcbway.com/).
 
-**Breadboard view**
+Below, you can see images showing the circuits hooked in the breadboard and in the PCB, as well as the final aspect of each layer individually.
+
+**Fritzing Breadboard view**
 ![Breadboard_image](Fritzing/breadboard_erosLab.JPG)
 
-**PCB view**
+**Fritzing PCB view**
 ![PCB_image](Fritzing/PCB_erosLab.JPG)
 
 **Look of the PCB top layer**
@@ -118,7 +121,7 @@ The following **'low cost' sensors** were used:
 + 1x [Waterproof DS18B20 digital temperature sensor (probe)](https://www.aliexpress.com/snapshot/0.html?spm=a2g0s.9042311.0.0.oXghXt&orderId=505161631680030&productId=32675444739) [<1€]
 + 1x [BME280 Digital Sensor, Humidity Temperature and Barometric Pressure Sensor](https://www.aliexpress.com/item/3In1-BME280-GY-BME280-Digital-Sensor-SPI-I2C-Humidity-Temperature-and-Barometric-Pressure-Sensor-Module-1/32659765502.html?spm=a2g0s.9042311.0.0.oXghXt) [3€]
 
-Majority of the sensors are connected to the Acquisition system box via the mini aviator plugs. Exception is the *BME280* chip, which is soldered directly into the PCB.
+Majority of the sensors are connected to the Acquisition system box via the mini aviator plugs. An exception is the *BME280* chip, which is soldered directly into the PCB.
 
 ## Other components that may be useful
 + Breadboard(s)
@@ -167,6 +170,55 @@ Here are presented the pages of the Graphical User Interface (GUI), shown in tou
 **Disconnect indication**
 
 ![page0](Nextion/320x240/shutdown.bmp)
+
+## Data collection
+The *Raspberry Pi*, together with the *acquisition system box*, handles the sensors and gets the data from them. 
+The data is collected once the red button in the *touchscreen GUI* (in *Sensors* page) is pressed. 
+The location where data will be collected depends on the user *settings*, on whether an internet connection is available and a USB drive is plugged in.
+
+### No internet connection
+The data has two possible ways to go:
+  
+1. **No** USB drive is plugged in
+   
+   Data are stored *only* locally on the Micro SD card. The data are stored in the *CSV* format inside folder **/srv/EROSTESTS**. 
+
+2. A USB is plugged in (before recording data!)
+
+   Data are stored *only* on **USB_root_directory** in the *CSV* format. 
+
+**Additional notes:**
+
+- The name of the *CSV* file is defined by the user, either using:
+   + the *touchscreen GUI* in *Settings page*, or  
+   + the *inputs.ini* file, modifying the parameter *filename*.
+
+- Before removing a USB drive or the Micro SD card it is **strongly** recommended to gently shutdown the *Raspberry Pi* and unplug the power supply.
+This will prevent corrupting the Micro SD card and the USB drive. For that you can either:
+   + press the *red pushbutton* in the back of the *acquisition system box* for more than *7 seconds*, or 
+   + *$ sudo halt* in a *SSH* terminal session.
+- If more than one USB drive is plugged in (not recommended!), data will be saved in the *first drive* being found.
+- Data in the *CSV* files is never deleted automatically. If the filename already exists in the USB drive or Micro SD card, data is placed bellow the last row present. This means that multiple tests may be collected in the same filename (not recommended!).
+
+
+### Internet connection available
+
+The *local data* collection method is identical as stated when there is no internet connection.
+That is, if a USB drive is plugged in, data goes to USB, otherwise, data goes to the Micro SD card.
+
+**In addition**, it is possible to send data to [Google Sheets](https://www.google.com/sheets/about/), if a valid *service_creds.JSON* file is provided (see instructions in *Software>Installation* section).
+With this functionality, you can do **Live monitoring** of the data being placed in the internet. 
+
+**How to enable 'Google sheets'** make sure to:
+-  Select that option:
+   + In the *touchscreen GUI* > *Settings* page > activate the (only) checkbox. 
+   + In *inputs.ini* file > ensure that *google_sheets = yes*.
+   
+- Provide a Tittle for the Spreadsheet and a Tittle for the Worksheet:
+   +  In the *touchscreen GUI* > *Settings* page > Add Tittle for spreadsheet (the worksheet name will be the tittle of the CSV filename).
+   +  In *inputs.ini* file > spreadsheet name is defined by parameter *googlesh* and worksheet name by *filename*.
+
+- Provide a valid ena
 
 
 ## Troubleshooting

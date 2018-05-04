@@ -32,8 +32,8 @@ echo 'Done.'
 # => Folder to save the data values from sensors csv (comma separated values)
 # -----------------------------------------------------------------------------
 
-if [ -d "/srv/sensors/" ]; then
-    echo 'Directory /srv/sensors/ already exists'
+if [ -d "/srv/EROSTESTS/" ]; then
+    echo 'Directory /srv/EROSTESTS/ already exists'
 else
     sudo mkdir /srv/sensors/
 fi
@@ -45,7 +45,7 @@ else
 fi
 
 # permissions
-sudo chmod -R 777 /srv/sensors
+sudo chmod -R 777 /srv/EROSTESTS
 sudo chown pi:pi /media/pi
 sudo chmod -R 777 /media/pi
 
