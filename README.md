@@ -6,7 +6,7 @@ This work has been done by **Ricardo Correia dos Santos** at [Laboratório Nacio
 
 **Project Webpage**: https://ricardosgeral.github.io/erosLab/
 
-#### Is this for me ?
+#### Is this for me?
 You just need to have some DIY skills, for scrapping some materials, figuring out 
 how to assemble some things together, and figuring out how some components work. The 
 instructions given here should also be taken more like guidelines based on what 
@@ -17,13 +17,13 @@ things, there will be similarities too.
 Feel free to contact me if you manage to get it working with different components, 
 so these instructions can be improved and be more helpful. 
 
-# Software (running in the *Raspberry Pi*)
+# Software Installation
 
-## Installation
+## Running in the *Raspberry Pi*
 These instructions should be carried out after a fresh installation of *Raspbian* image (see [instructions](https://www.raspberrypi.org/documentation/installation/installing-images/README.md)). In this project I've used [2018-04-18-raspian-stretch](http://downloads.raspberrypi.org/raspbian/images/raspbian-2018-04-19/). 
 The generality of the code was done in *Python 3.5*. A few scripts were written in *Bash*.
 
-**NOTE:** If no monitor is available (headless *Raspberry Pi*), you have to do the following 4 simple steps to enable *SSH* in first boot. So, right after installing the raspbian image in the  Micro SD card:
+**Note:** If no monitor is available (headless *Raspberry Pi*), you have to do the following 4 simple steps to enable *SSH* in first boot. So, right after installing the raspbian image in the  Micro SD card:
 1. Create an empty file (in Windows use notepad, in a Linux terminal use command *touch*, in Mac use TextEdit).
 2. Save the file with name: **ssh** (preferentially with no extension, but *ssh.txt* should also work).
 3. Copy or move the ssh file into the *Root* of the Micro SD card.
@@ -31,12 +31,11 @@ The generality of the code was done in *Python 3.5*. A few scripts were written 
 
 Connect to *Raspberry Pi* directly (if monitor is available) or via *SSH* (for example, using *Putty*). In this last option, you need to know the IP of the raspberry pi!
 
-It is recommended to change the password in first boot, since *SSH* is enabled!
+It is recommended to change the password after first boot, since *SSH* is enabled!
 
     $ passwd 
     
-   **Login**: *pi*
-   
+   **Login**: *pi*   
    **Password**: *raspberry*
 
 In a terminal, run the following sequential commands:
@@ -56,8 +55,35 @@ Delete all content of the file and past your own credentials. Ctrl+X, yes and En
 
     $ sudo reboot
 
-And that's it, after reboot, the *Raspberry Pi* server should be running properly, if **hardware** is also set correctly!
+And that's it, after reboot, the *Raspberry Pi* server should be running properly. 
+However, you still need to update the software to the **touchscreen** , and set correctly all the **hardware**!
 
+
+## Running in the *touchscreen* [Nextion device](https://nextion.itead.cc/)
+
+The touchscreen used is an *HMI (Human Machine Interface)*. Note that it does not work like typical TFT or HDMI monitors. 
+A piece of code should be uploaded to the device using a Micro SD card. 
+The connection between the *Nextion device* and the *Raspberry* Pi is made via *Serial UART (RX, TX)*.
+The GUI interface of the project was developed in the [Nextion Editor](https://nextion.itead.cc/resources/download/nextion-editor/) (free software - only for windows).
+Follow the [Nextion Editor Guide](https://nextion.itead.cc/editor_guide/) to learn how to work with it. 
+I've provide the [erosLab.HMI](https://github.com/Ricardosgeral/erosLab/blob/master/Nextion/HMI/erosLab.HMI) file that i've developed for this project. 
+To upload the code into the *Nextion device* follow these steps:
+
+1. Open the file [erosLab.HMI](https://github.com/Ricardosgeral/erosLab/blob/master/Nextion/HMI/erosLab.HMI) with the Nextion Editor.
+2. Press the *Compile* icon in the first top bar.
+3. In *File > Open build folder* copy the *.tft* file produced by the editor (which contains the code). 
+4. Copy that file into a Micro SD with no files (first I recommend using the windows format tool, to ensure all files are cleared from the card).
+5. Disconnect the power supply to the *Nextion device*.
+6. Insert the Micro SD file (with only one tft file) on the slot in the back of the device.
+7. Reconnect the power supply to the *Nextion device*. You should see the *SD card update* status. 
+If you see *Check data.. 100%*, then the code was uploaded successfully.  
+8. Disconnect again the power supply of the screen, and remove the Micro SD card (it's not necessary anymore) from the *Nextion device*.
+9. In next power on, the software with the code made by the Nextion Editor is running in the device and the GUI is set in the touchscreen.
+
+**Note:** Be careful when buying the NEXTION device. Confirm that you are not buying a *TJC* (chinese version), which looks identical. 
+This version only works with the Chinese version of the Nextion Editor! You will need to learn Chinese !!!!
+ 
+ 
 # Hardware
 
 In this section there are indicated all the hardware items required to put the server running and capturing the sensors readings. 
@@ -89,7 +115,7 @@ Just for a reference about the cost of the project, some links and prices of the
 + 3x 10kΩ carbon film resistor [<1€]
 + 1x 20kΩ carbon film resistor [<1€]
 + 1x 4 pins Male Single Row Pin Header Strip [<1€]
-+ 6 x 4cm *shielded* cable with 3 wires [<1€]
++ 6 x 5cm *shielded* cable with 3 wires [<1€]
 
 ## Printed circuit board (*PCB*) designed/produced
 The design of the 2 layer's *PCB* was developed using [Fritzing](http://www.fritzing.org/). 
@@ -146,7 +172,7 @@ Here are presented the pages GUI displayed in the touchscreen monitor (Nextion d
 
  **Credits**
 
-![page1](Nextion/320x240/page1-credits0.png)
+![page1](Nextion/GUI/page1.png)
  
  **Main menu**
  
@@ -154,19 +180,19 @@ Here are presented the pages GUI displayed in the touchscreen monitor (Nextion d
  
 **General settings**
  
-![page3](Nextion/320x240/page3-settings0.png)
+![page3](Nextion/GUI/page3.png)
 
 **Test Type selection**
  
-![page4](Nextion/320x240/page4-testtype0.png)
+![page4](Nextion/GUI/page4.png)
 
 **Analog sensors config**
  
-![page5](Nextion/320x240/page5-analog0.png)
+![page5](Nextion/GUI/page5.png)
 
 **Record readings**
  
-![page6](Nextion/320x240/page6-sensors0.png)
+![page6](Nextion/GUI/page6.png)
 
 **Stop recording readings**
  
