@@ -4,14 +4,14 @@ Open design of a sensor acquisition system of a laboratory erosion test apparatu
 
 This work has been done by **Ricardo Correia dos Santos** at [Laboratório Nacional deEngenharia Civil - LNEC](http://www.lnec.pt/en/), in Lisbon, Portugal.
 
-Project webpage: https://ricardosgeral.github.io/erosLab/
+**Project Webpage**: https://ricardosgeral.github.io/erosLab/
 
 #### Is this for me ?
 You just need to have some DIY skills, for scrapping some materials, figuring out 
 how to assemble some things together, and figuring out how some components work. The 
 instructions given here should also be taken more like guidelines based on what 
 I could do with the materials I had. If you do not have the exact same hardware
-(sensors, ADC, level shifter...), they'll surely work a little different, but as they should do the same 
+(sensors, ADC, level shifter, touchscreen...), they'll surely work a little different, but as they should do the same 
 things, there will be similarities too. 
 
 Feel free to contact me if you manage to get it working with different components, 
@@ -136,9 +136,9 @@ Majority of the sensors are connected to the Acquisition system box via the mini
 + Tools to make the openings in the aluminum box (*e.g.* a mini Drill DIY set should be enough) 
 + Precision screwdriver set
 
- # Usage of the GUI
+# Usage of the Graphical User Interface (GUI)
  
-Here are presented the pages of the Graphical User Interface (GUI), shown in touchscreen (Nextion device).
+Here are presented the pages GUI displayed in the touchscreen monitor (Nextion device).
 
 **Credits**
  
@@ -231,12 +231,13 @@ This means that you can have a single spreadsheet with different tests organized
 - If internet connection is lost during a test, the software will raise an error and stop recording data! (**be careful!**).
 
 ## Troubleshooting
- - The following error/warning is expected: 'grep: /dev/fd/63: No such file or directory' at the end of $ *sudo ./raspbian-post-install.sh*.
- - Don't forget to obtain and replace the content of the file **service_creds.json**, as indicated above, or the program will not start!
- - To check if the *Analog-to-Digital Converter* (ADC - ADS1115 chip) is properly connected via I2C, you can do **$ cd sudo i2cdetect -y 1**. 
+
+- The following warning is expected: 'grep: /dev/fd/63: No such file or directory' at the end of $ *sudo ./raspbian-post-install.sh*.
+- Don't forget to obtain and replace the content of the file **service_creds.json**, as indicated above, or the program will not start!
+- The inspection of the **cronlog** file ($ *sudo nano /home/pi/erosLab/logs/cronlog*) may be helpful for detecting any eventual bugs during the software installation process.
+- To check if the *Analog-to-Digital Converter* (ADC - ADS1115 chip) is properly connected via I2C, you can do **$ cd sudo i2cdetect -y 1**. 
  You should see number **48** in the matrix (row 40, column 8). 
  Otherwise, something is not connected correctly, or I2C protocol has not been enabled (the bash file *raspbian-post-install.sh* run in installation is supposed to do that).
-- The inspection of the **cronlog** file ($ *sudo nano /home/pi/erosLab/logs/cronlog*) may be helpful for detecting any eventual bugs during the software installation process.
 
 # Licence
-see [licence](LICENSE)
+Please see the [licence conditions](LICENSE).
