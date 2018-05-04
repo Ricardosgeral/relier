@@ -1,26 +1,32 @@
 # *erosLab* 
 # Laboratory Erosion Test Software 
-Open design of a sensor acquisition system of a laboratory erosion test apparatus, using a *Raspberry Pi* as server, and *Python* code. 
+Open design of a sensor acquisition system for laboratory erosion test apparatuses. 
 
 This work has been done by **Ricardo Correia dos Santos** at [Laboratório Nacional deEngenharia Civil - LNEC](http://www.lnec.pt/en/), in Lisbon, Portugal.
 
 **Project Webpage**: https://ricardosgeral.github.io/erosLab/
 
-#### about the author and the project
-I'm a Civil Engineer with a master degree in Geotechnical Engineering and a PhD in the theme of internal erosion in embankment dams.
+#### About the author and the *erosLab* project
+I'm a Civil Engineer, with a master degree in Geotechnical Engineering, and a PhD in the theme of internal erosion in embankment dams.
 
-In the laboratory tests on internal erosion in soils that I developed in the PhD, it was necessary to continually collect different types of measurements (water pressure, flowrate, temperature, turbidity, ...)
-Most of the measurements were made manually!! which was tedious and prone to human errors.
+To  carry out the laboratory tests on internal erosion in soils, developed in my PhD, 
+it is necessary to continually collect different types of measurements (water pressures, flowrate, temperature, turbidity, ...).
+Most of the measurements were made manually, at least, by two operators!! 
+This process was very tedious and prone to human errors.
 
-So I,'ve decided to invest time to develop an acquisition system that could read /record data from "low budget sensors". erosLab was born!
+So, I've decided to invest time, and some Euros, developing an acquisition system that could read /record data from "low budget sensors". 
+*erosLab* was born this way!
 
-Note that I'm not an expert in informatics nor in electronics. I'm an enthusiastic self learner. All that i developed I've researched mainly in foruns and webpages.
-Thus, It is likely that some things (code, connections,...) could be optimized or done in a different way. You can suggest enhancements, contribute to the project or fork it in Github.
+Note that I'm not an expert in informatics, nor in electronics.
+I define myself as an enthusiastic self learner. 
+All that was developed is based in my own research, mainly in foruns, Github and other webpages.
+Thus, it is likely that some things (code, connections,...) could be optimized, or done in a different or better way. 
+You can report bugs, suggest enhancements, or even fork the project in Github. 
 All contributions are welcome.
 
 
 #### Is this for me?
-You just need to have some DIY skills, for scrapping some materials, figuring out how to assemble some things together, and figuring out how some components work. The 
+If you need to do a similar project, you just need to have some DIY skills, for scrapping some materials, figuring out how to assemble some things together, and figuring out how some components work. The 
 instructions given here should also be taken more like guidelines based on what I could do with the materials I had. If you do not have the exact same hardware
 (sensors, ADC, level shifter, touchscreen...), they'll surely work a little different, but as they should do the same things, there will be similarities too. 
 
@@ -28,8 +34,8 @@ Feel free to contact me if you manage to get it working with different component
 
 # Software Installation
 
-## Running in the *Raspberry Pi*
-These instructions should be carried out after a fresh installation of *Raspbian* image (see [instructions](https://www.raspberrypi.org/documentation/installation/installing-images/README.md)). In this project I've used [2018-04-18-raspian-stretch](http://downloads.raspberrypi.org/raspbian/images/raspbian-2018-04-19/). 
+## Running in *Raspberry Pi*
+These instructions should be carried out after a fresh installation of *Raspbian* image in the Micro SD card (see [instructions](https://www.raspberrypi.org/documentation/installation/installing-images/README.md)). In this project I've used [2018-04-18-raspian-stretch](http://downloads.raspberrypi.org/raspbian/images/raspbian-2018-04-19/). 
 The generality of the code was done in *Python 3.5*. A few scripts were written in *Bash*.
 
 **Note:** If no monitor is available (headless *Raspberry Pi*), you have to do the following 4 simple steps to enable *SSH* in first boot. So, right after installing the raspbian image in the  Micro SD card:
@@ -68,7 +74,7 @@ And that's it, after reboot, the *Raspberry Pi* server should be running properl
 However, you still need to update the software to the **touchscreen** , and set correctly all the **hardware**!
 
 
-## Running in the *touchscreen* [Nextion device](https://nextion.itead.cc/)
+## Running in *touchscreen* [Nextion device](https://nextion.itead.cc/)
 
 The touchscreen used is an *HMI (Human Machine Interface)*. Note that it does not work like typical TFT or HDMI monitors. 
 A piece of code should be uploaded to the device using a Micro SD card. 
