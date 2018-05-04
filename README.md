@@ -6,16 +6,25 @@ This work has been done by **Ricardo Correia dos Santos** at [Laboratório Nacio
 
 **Project Webpage**: https://ricardosgeral.github.io/erosLab/
 
-#### Is this for me?
-You just need to have some DIY skills, for scrapping some materials, figuring out 
-how to assemble some things together, and figuring out how some components work. The 
-instructions given here should also be taken more like guidelines based on what 
-I could do with the materials I had. If you do not have the exact same hardware
-(sensors, ADC, level shifter, touchscreen...), they'll surely work a little different, but as they should do the same 
-things, there will be similarities too. 
+#### about the author and the project
+I'm a Civil Engineer with a master degree in Geotechnical Engineering and a PhD in the theme of internal erosion in embankment dams.
 
-Feel free to contact me if you manage to get it working with different components, 
-so these instructions can be improved and be more helpful. 
+In the laboratory tests on internal erosion in soils that I developed in the PhD, it was necessary to continually collect different types of measurements (water pressure, flowrate, temperature, turbidity, ...)
+Most of the measurements were made manually!! which was tedious and prone to human errors.
+
+So I,'ve decided to invest time to develop an acquisition system that could read /record data from "low budget sensors". erosLab was born!
+
+Note that I'm not an expert in informatics nor in electronics. I'm an enthusiastic self learner. All that i developed I've researched mainly in foruns and webpages.
+Thus, It is likely that some things (code, connections,...) could be optimized or done in a different way. You can suggest enhancements, contribute to the project or fork it in Github.
+All contributions are welcome.
+
+
+#### Is this for me?
+You just need to have some DIY skills, for scrapping some materials, figuring out how to assemble some things together, and figuring out how some components work. The 
+instructions given here should also be taken more like guidelines based on what I could do with the materials I had. If you do not have the exact same hardware
+(sensors, ADC, level shifter, touchscreen...), they'll surely work a little different, but as they should do the same things, there will be similarities too. 
+
+Feel free to contact me if you manage to get it working with different components, so these instructions can be improved and be more helpful. 
 
 # Software Installation
 
