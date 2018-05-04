@@ -190,7 +190,7 @@ crontab -r
 
 CMD="/usr/bin/pigpiod"
 JOB="@reboot $CMD"
-TMPC="mycron"
+TMPC="mycron1"
 sudo grep "$CMD" -q <(crontab -l) || (crontab -l>"$TMPC"; echo "$JOB">>"$TMPC"; crontab "$TMPC")
 #
 # -----------------------------------------------------------------------------
@@ -202,10 +202,11 @@ sudo chmod 755 /home/pi/erosLab/launcher.sh  # this file should be placed in /ho
 sed -i 's/\r//' /home/pi/erosLab/launcher.sh
 #Create a logs directory:
 sudo mkdir /home/pi/erosLab/logs
+sudo chmod 777 -R /home/pi/erosLab/logs
 
 CMD="sh /home/pi/erosLab/launcher.sh >/home/pi/erosLab/logs/cronlog 2>&1"
 JOB="@reboot $CMD"
-TMPC="mycron"
+TMPC="mycron2"
 sudo grep "$CMD" -q <(crontab -l) || (crontab -l>"$TMPC"; echo "$JOB">>"$TMPC"; crontab "$TMPC")
 
 # -----------------------------------------------------------------------------

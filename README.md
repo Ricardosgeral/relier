@@ -231,15 +231,12 @@ This means that you can have a single spreadsheet with different tests organized
 - If internet connection is lost during a test, the software will raise an error and stop recording data! (**be careful!**).
 
 ## Troubleshooting
- - The following error/warning is expected: 'grep: /dev/fd/63: No such file or directory' at the end of $ sudo ./raspbian-post-install.sh
- - Don't forget to obtain and replace the file **service_creds.json**, as indicated above, or the program will not start!
- - To check if the Analog-to-Digital Converter (ADC - ADS1115 chip) is properly connected via I2C, you can do **$ cd sudo i2cdetect -y 1**. 
- You should see number 48 in the matrix (row 40, column 8). 
- Otherwise, something is not connected correctly, or I2C protocol has not been enabled (done in the installation process in bash file *raspbian-post-install.sh*).
--
-    
- 
- 
+ - The following error/warning is expected: 'grep: /dev/fd/63: No such file or directory' at the end of $ *sudo ./raspbian-post-install.sh*.
+ - Don't forget to obtain and replace the content of the file **service_creds.json**, as indicated above, or the program will not start!
+ - To check if the *Analog-to-Digital Converter* (ADC - ADS1115 chip) is properly connected via I2C, you can do **$ cd sudo i2cdetect -y 1**. 
+ You should see number **48** in the matrix (row 40, column 8). 
+ Otherwise, something is not connected correctly, or I2C protocol has not been enabled (the bash file *raspbian-post-install.sh* run in installation is supposed to do that).
+- The inspection of the **cronlog** file ($ *sudo nano /home/pi/erosLab/logs/cronlog*) may be helpful for detecting any eventual bugs during the software installation process.
 
 # Licence
 see [licence](LICENSE)
