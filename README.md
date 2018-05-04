@@ -8,10 +8,10 @@ Project webpage: https://ricardosgeral.github.io/erosLab/
 
 #### Is this for me ?
 You just need to have some DIY skills, for scrapping some materials, figuring out 
-how to assemble some things together and figuring out how some components work. The 
+how to assemble some things together, and figuring out how some components work. The 
 instructions given here should also be taken more like guidelines based on what 
-I could do with the materials I had. If you do not have the exact same 
-sensors/components, they'll surely work a little different, but as they should do the same 
+I could do with the materials I had. If you do not have the exact same hardware
+(sensors, ADC, level shifter...), they'll surely work a little different, but as they should do the same 
 things, there will be similarities too. 
 
 Feel free to contact me if you manage to get it working with different components, 
@@ -20,7 +20,8 @@ so these instructions can be improved and be more helpful.
 # Software (running in the *Raspberry Pi*)
 
 ## Installation
-These instructions should be carried out after a fresh installation of raspbian image (see [instructions](https://www.raspberrypi.org/documentation/installation/installing-images/README.md)). It was tested with [2018-04-18-raspian-stretch](http://downloads.raspberrypi.org/raspbian/images/raspbian-2018-04-19/). 
+These instructions should be carried out after a fresh installation of *Raspbian* image (see [instructions](https://www.raspberrypi.org/documentation/installation/installing-images/README.md)). In this project I've used [2018-04-18-raspian-stretch](http://downloads.raspberrypi.org/raspbian/images/raspbian-2018-04-19/). 
+The generality of the code was done in *Python 3.5*. A few scripts were written in *Bash*.
 
 **NOTE:** If no monitor is available (headless *Raspberry Pi*), you have to do the following 4 simple steps to enable *SSH* in first boot. So, right after installing the raspbian image in the  Micro SD card:
 1. Create an empty file (in Windows use notepad, in a Linux terminal use command *touch*, in Mac use TextEdit).
@@ -227,7 +228,7 @@ With this functionality, you can do **Live monitoring** of the data being placed
 - If the spreadsheet/worksheet provided by the user already exists, the data that was in that worksheet will be deleted (**Attention!**). 
 However, when a new worksheet name is provided in an already existing spreadsheet, a new sheet is added. 
 This means that you can have a single spreadsheet with different tests organized in different worksheets.
-- If internet connection is lost during a test, the software will raise an error and stop recording data!.
+- If internet connection is lost during a test, the software will raise an error and stop recording data! (**be careful!**).
 
 ## Troubleshooting
  - The following error/warning is expected: 'grep: /dev/fd/63: No such file or directory' at the end of $ sudo ./raspbian-post-install.sh
