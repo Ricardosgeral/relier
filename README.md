@@ -139,38 +139,38 @@ Majority of the sensors are connected to the Acquisition system box via the mini
 # Usage of the Graphical User Interface (GUI)
  
 Here are presented the pages GUI displayed in the touchscreen monitor (Nextion device).
+ 
+ **Disconnected indication**
 
-**Credits**
+![page0](Nextion/320x240/page0-shutdown.png)
+
+ **Credits**
+
+![page1](Nextion/320x240/page1-credits0.png)
  
-![page1](Nextion/320x240/Artboard_1.png)
+ **Main menu**
  
- **Main**
- 
-![page2](Nextion/320x240/Artboard3.png)
+![page2](Nextion/320x240/page2-menu0.png)
  
 **General settings**
  
-![page3](Nextion/320x240/settings0.bmp)
+![page3](Nextion/320x240/page3-settings0.png)
 
 **Test Type selection**
  
-![page4](Nextion/320x240/Artboard5a.png)
+![page4](Nextion/320x240/page4-testtype0.png)
 
 **Analog sensors config**
  
-![page5](Nextion/320x240/Artboard7.png)
+![page5](Nextion/320x240/page5-analog0.png)
 
 **Record readings**
  
-![page6](Nextion/320x240/Artboard9.png)
+![page6](Nextion/320x240/page6-sensors0.png)
 
 **Stop recording readings**
  
-![page7](Nextion/320x240/Artboard11.png)
-
-**Disconnect indication**
-
-![page0](Nextion/320x240/shutdown.bmp)
+![page7](Nextion/320x240/page7-stop0.png)
 
 # Data collection
 The *Raspberry Pi*, together with the *acquisition system box*, handles the sensors and gets the data from them. 
