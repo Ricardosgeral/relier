@@ -172,7 +172,7 @@ Here are presented the pages GUI displayed in the touchscreen monitor (Nextion d
 
  **Credits**
 
-![page1](Nextion/GUI/page1.png)
+![page1](Nextion/GUI/page1.PNG)
  
  **Main menu**
  
@@ -180,19 +180,19 @@ Here are presented the pages GUI displayed in the touchscreen monitor (Nextion d
  
 **General settings**
  
-![page3](Nextion/GUI/page3.png)
+![page3](Nextion/GUI/page3.PNG)
 
 **Test Type selection**
  
-![page4](Nextion/GUI/page4.png)
+![page4](Nextion/GUI/page4.PNG)
 
 **Analog sensors config**
  
-![page5](Nextion/GUI/page5.png)
+![page5](Nextion/GUI/page5.PNG)
 
 **Record readings**
  
-![page6](Nextion/GUI/page6.png)
+![page6](Nextion/GUI/page6.PNG)
 
 **Stop recording readings**
  
