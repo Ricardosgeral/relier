@@ -12,14 +12,14 @@ I'm a Civil Engineer, with a master degree in Geotechnical Engineering, and a Ph
 To  carry out the laboratory tests on internal erosion in soils, developed in my PhD, 
 it is necessary to continually collect different types of measurements (water pressures, flowrate, temperature, turbidity, ...).
 Most of the measurements were made manually, at least, by two operators!! 
-This process was very tedious and prone to human errors.
+This manual process is very tedious and prone to human errors.
 
 So, I've decided to invest time, and some Euros, developing an acquisition system that could read /record data from "low budget sensors". 
 *erosLab* was born this way!
 
 Note that I'm not an expert in informatics, nor in electronics.
 I define myself as an enthusiastic self learner. 
-All that was developed is based in my own research, mainly in foruns, Github and other webpages.
+All shown here was developed from my own research, mainly in foruns, Github and other webpages.
 Thus, it is likely that some things (code, connections,...) could be optimized, or done in a different or better way. 
 You can report bugs, suggest enhancements, or even fork the project in Github. 
 All contributions are welcome.
@@ -35,33 +35,37 @@ Feel free to contact me if you manage to get it working with different component
 # Software Installation
 
 ## Running in *Raspberry Pi*
-These instructions should be carried out after a fresh installation of *Raspbian* image in the Micro SD card (see [instructions](https://www.raspberrypi.org/documentation/installation/installing-images/README.md)). In this project I've used [2018-04-18-raspian-stretch](http://downloads.raspberrypi.org/raspbian/images/raspbian-2018-04-19/). 
-The generality of the code was done in *Python 3.5*. A few scripts were written in *Bash*.
+These instructions should be carried out after a fresh installation of *Raspbian* image in the Micro SD card (see [instructions](https://www.raspberrypi.org/documentation/installation/installing-images/README.md)). 
+I've used [2018-04-18-raspian-stretch](http://downloads.raspberrypi.org/raspbian/images/raspbian-2018-04-19/). 
+The generality of the code was written in *Python 3.5*. A few scripts were written in *Bash*.
 
 **Note:** If no monitor is available (headless *Raspberry Pi*), you have to do the following 4 simple steps to enable *SSH* in first boot. So, right after installing the raspbian image in the  Micro SD card:
 1. Create an empty file (in Windows use notepad, in a Linux terminal use command *touch*, in Mac use TextEdit).
 2. Save the file with name: **ssh** (preferentially with no extension, but *ssh.txt* should also work).
-3. Copy or move the ssh file into the *Root* of the Micro SD card.
+3. Copy or move that file into the *Root* of the Micro SD card.
 4. Insert the Micro SD card in the *Raspberry Pi*, and power it on.
 
-Connect to *Raspberry Pi* directly (if monitor is available) or via *SSH* (for example, using *Putty*). In this last option, you need to know the IP of the raspberry pi!
+Access the *Raspberry Pi* directly (if monitor is available), or via *SSH* (for example, using *Putty*). 
+In this last option, you will need to know the local IP atributted to the *Raspberry Pi*!
+
+   **Login**: *pi*   
+   **Password**: *raspberry*
 
 It is recommended to change the password after first boot, since *SSH* is enabled!
 
     $ passwd 
     
-   **Login**: *pi*   
-   **Password**: *raspberry*
-
-In a terminal, run the following sequential commands:
+Choose your new password.
+    
+Then, in the terminal, run the following sequential commands:
     
     $ cd /tmp && wget https://raw.githubusercontent.com/Ricardosgeral/erosLab/master/bash/raspbian-post-install.sh
     $ sudo chmod +x raspbian-post-install.sh
     $ sed -i 's/\r//' raspbian-post-install.sh
     $ sudo ./raspbian-post-install.sh
 
-Next, you need to create your own JSON file with the google credentials
-To obtain the credentials, follow instructions on this [Link](https://pygsheets.readthedocs.io/en/latest/authorizing.html#signed-credentials). 
+Next, you need to create your own JSON file with the google credentials.
+To obtain the credentials, follow these [instructions](https://pygsheets.readthedocs.io/en/latest/authorizing.html#signed-credentials). 
 Once you generated the JSON file, edit the dummy file in the Raspberry Pi:
 
     $ sudo nano /home/pi/erosLab/service_creds.json
@@ -70,40 +74,40 @@ Delete all content of the file and past your own credentials. Ctrl+X, yes and En
 
     $ sudo reboot
 
-And that's it, after reboot, the *Raspberry Pi* server should be running properly. 
-However, you still need to update the software to the **touchscreen** , and set correctly all the **hardware**!
+And that's it, after reboot, the *Raspberry Pi* server should be set properly. 
+However, you still need to update the  **touchscreen** software, and set correctly the **hardware**!
 
 
 ## Running in *touchscreen* [Nextion device](https://nextion.itead.cc/)
 
 The touchscreen used is an *HMI (Human Machine Interface)*. Note that it does not work like typical TFT or HDMI monitors. 
-A piece of code should be uploaded to the device using a Micro SD card. 
-The connection between the *Nextion device* and the *Raspberry* Pi is made via *Serial UART (RX, TX)*.
+A code should be generated and uploaded to the device using a Micro SD card. 
+The connection between the *Nextion device* and the *Raspberry Pi* is made via *Serial UART (RX, TX channels)*.
 The GUI interface of the project was developed in the [Nextion Editor](https://nextion.itead.cc/resources/download/nextion-editor/) (free software - only for windows).
 Follow the [Nextion Editor Guide](https://nextion.itead.cc/editor_guide/) to learn how to work with it. 
 I've provide the [erosLab.HMI](https://github.com/Ricardosgeral/erosLab/blob/master/Nextion/HMI/erosLab.HMI) file that i've developed for this project. 
 To upload the code into the *Nextion device* follow these steps:
 
 1. Open the file [erosLab.HMI](https://github.com/Ricardosgeral/erosLab/blob/master/Nextion/HMI/erosLab.HMI) with the Nextion Editor.
-2. Press the *Compile* icon in the first top bar.
+2. Press the *Compile* icon in the first top bar, and confirm that there are no errors.
 3. In *File > Open build folder* copy the *.tft* file produced by the editor (which contains the code). 
-4. Copy that file into a Micro SD with no files (first I recommend using the windows format tool, to ensure all files are cleared from the card).
+4. Copy that file into a Micro SD card with no files (first I recommend using the windows format tool, to ensure all files are cleared from the card).
 5. Disconnect the power supply to the *Nextion device*.
-6. Insert the Micro SD file (with only one tft file) on the slot in the back of the device.
+6. Insert the Micro SD card (with only one tft file) in the slot on the back of the device.
 7. Reconnect the power supply to the *Nextion device*. You should see the *SD card update* status. 
 If you see *Check data.. 100%*, then the code was uploaded successfully.  
 8. Disconnect again the power supply of the screen, and remove the Micro SD card (it's not necessary anymore) from the *Nextion device*.
-9. In next power on, the software with the code made by the Nextion Editor is running in the device and the GUI is set in the touchscreen.
+9. In next power on, the software with the code made by the Nextion Editor is running in the device, and the GUI is set in the touchscreen.
 
-**Note:** Be careful when buying the NEXTION device. Confirm that you are not buying a *TJC* (chinese version), which looks identical. 
+**Note:** Be careful when buying the NEXTION device. Confirm that you are not getting a *TJC* (chinese version), which looks identical. 
 This version only works with the Chinese version of the Nextion Editor! You will need to learn Chinese !!!!
  
  
 # Hardware
 
-In this section there are indicated all the hardware items required to put the server running and capturing the sensors readings. 
+In this section there are indicated all the hardware items required to put the server/acquisition system collecting the sensors readings. 
 It is also indicated the way those pieces should be connected.
-Just for a reference about the cost of the project, some links and prices of the components are also presented.
+Just for a reference about the cost of the components used, some links and prices of the components are also presented.
 
 ## (Micro)computer and necessary components
 
@@ -114,7 +118,7 @@ Just for a reference about the cost of the project, some links and prices of the
 + 1x [Raspberry Pi case](https://www.aliexpress.com/item/Best-Selling-Clear-Case-for-Raspberry-Pi-3-Model-B-Clear-by-SB-Components-Plastic-Protective/32738665641.html?spm=a2g0s.9042311.0.0.A8JBGc) [2€] (optional!)
 
 
-## Acquisition system box developed to read the sensors
+## Acquisition system box (where sensors are connected)
 
 + 1x **PCB with 2 layers** (details to manufacter the *PCB* are shown below) [12 €]
 + 1x [**Nextion touchscreen 2.8"** - NX3224T028](https://nextion.itead.cc/shop-nextion/) [15 €]
@@ -179,17 +183,17 @@ Majority of the sensors are connected to the Acquisition system box via the mini
 
 # Usage of the Graphical User Interface (GUI)
  
-Here are presented the pages GUI displayed in the touchscreen monitor (Nextion device).
+Here are presented the GUI pages displayed in the touchscreen monitor (Nextion device).
  
  **Disconnected indication**
 
 ![page0](Nextion/320x240/page0-shutdown.png)
 
- **Credits**
+ **Credits and local IP address of the *Raspberry Pi***
 
 ![page1](Nextion/GUI/page1.PNG)
  
- **Main menu**
+ **Main menu*
  
 ![page2](Nextion/320x240/page2-menu0.png)
  
@@ -201,15 +205,15 @@ Here are presented the pages GUI displayed in the touchscreen monitor (Nextion d
  
 ![page4](Nextion/GUI/page4.PNG)
 
-**Analog sensors config**
+**Analog sensors configuration**
  
 ![page5](Nextion/GUI/page5.PNG)
 
-**Record readings**
+**Record sensors readings**
  
 ![page6](Nextion/GUI/page6.PNG)
 
-**Stop recording readings**
+**Stop recording sensor readings**
  
 ![page7](Nextion/320x240/page7-stop0.png)
 
