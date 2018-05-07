@@ -26,7 +26,7 @@ It also records the time and date of the measure.
 
 # Libraries required
 from time import sleep
-from analogsensor_thread import AnalogSensor
+from analogsensor_thread import AnalogSensor, GAIN
 from DigitalSen_thread import WTemp
 from datetime import datetime
 import pigpio   # needs to be installed for callback https://www.raspberrypi.org/forums/viewtopic.php?t=66445
@@ -43,6 +43,27 @@ PRESSUP_ch = 0     # piezometric pressure in upstream chamber
 PRESSINT_ch = 1    # piezometric pressure in interface
 PRESSDW_ch = 2     # piezometric pressure in downstream chamber
 TURB_ch = 3        # turbidity of outlet water (or downstream chamber)
+
+# Relation Gain voltages :
+#  - 2/3 = +/-6.144V
+#  -   1 = +/-4.096V
+#  -   2 = +/-2.048V
+#  -   4 = +/-1.024V
+#  -   8 = +/-0.512V
+#  -  16 = +/-0.256V
+
+if GAIN == 1:
+    max_VOLT = 4.096
+elif GAIN == 2:
+    max_VOLT = 2.048
+elif GAIN == 4:
+    max_VOLT = 1.024
+elif GAIN == 4:
+    max_VOLT = 0.512
+elif GAIN == 4:
+    max_VOLT = 0.256
+else: # GAIN == 2/3
+    max_VOLT = 6.144
 
 #For the flowmeter
 FLOW_ch = 27       #GPIO27 in raspberry pi3
@@ -95,10 +116,10 @@ def zero_press(mu, mi, md, bu, bi, bd, testtype):
     zerou  = zeroi = zerod = 0 # values to zero pressure sensors - datum
     analog = [0]*3
     for ch in range(3):
-        analog[ch] = adc.read_adc(ch, gain=1, data_rate=860)  # check if it's equal to Analogsensor.py
+        analog[ch] = adc.read_adc(ch, gain=GAIN, data_rate=860)  # check if it's equal to Analogsensor.py
         # transformar o valor lido pelo adc em volts
         # Ratio of 15 bit value to max volts determines volts
-        volts[ch] = analog[ch] / 32767.0 * 4.096
+        volts[ch] = analog[ch] / 32767.0 * max_VOLT
         #determine the value to add in order to zero pressures
         zerou = (mu * volts[PRESSUP_ch] + bu)
         if testtype == '3':  # if the test is a HET
@@ -162,7 +183,7 @@ def get_data(interval, mu, mi, md, bu, bi, bd, mturb, bturb, zerou, zeroi, zerod
 
     for ch in range(0,3,1):
         # Ratio of 15 bit value to max volts determines volts
-        volts[ch] = analog[ch] / 32767.0 * 2.048
+        volts[ch] = analog[ch] / 32767.0 * max_VOLT
 
     # linear relationship between psi & voltage in the pressure sensors(from manufacturer)
     bar[PRESSUP_ch]  = (mu * volts[PRESSUP_ch]  + bu) - zerou # 0 psi(bar) = 0.5v ; 15psi(*psi_to_bar) = 4.5V

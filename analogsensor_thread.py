@@ -8,7 +8,7 @@ import Adafruit_ADS1x15 # Analogic digital conversor ADS 15 bit 2^15-1=32767 (ne
 
 adc = Adafruit_ADS1x15.ADS1115(address=0x48, busnum=1) #address of ADC See in -- sudo i2cdetect -y 1
 
-# Choose a gain of 1 for reading voltages from 0 to 4.09V.
+# Choose a gain of 1 for reading voltages from 0 to 6.14V.
 # Or pick a different gain to change the range of voltages that are read:
 #  - 2/3 = +/-6.144V
 #  -   1 = +/-4.096V
