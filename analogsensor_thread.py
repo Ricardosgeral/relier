@@ -19,7 +19,7 @@ adc = Adafruit_ADS1x15.ADS1115(address=0x48, busnum=1) #address of ADC See in --
 
 # CHECK IS IT'S THE SAME AS IN SENSOR_SERVER.PY
 # See table 3 in the ADS1015/ADS1115 datasheet for more info on gain.
-GAIN = 2  #2/3, 1, 2, 4 , 6 , 8, 16
+GAIN = 1  #2/3, 1, 2, 4 , 6 , 8, 16
 DATA_RATE = 860  # 8, 16, 32, 64, 128, 250, 475, 860 samples/second   max =860
 
 class AnalogSensor(threading.Thread):

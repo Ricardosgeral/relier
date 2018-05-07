@@ -95,7 +95,7 @@ def zero_press(mu, mi, md, bu, bi, bd, testtype):
     zerou  = zeroi = zerod = 0 # values to zero pressure sensors - datum
     analog = [0]*3
     for ch in range(3):
-        analog[ch] = adc.read_adc(ch, gain=2, data_rate=860)  # check if it's equal to Analogsensor.py
+        analog[ch] = adc.read_adc(ch, gain=1, data_rate=860)  # check if it's equal to Analogsensor.py
         # transformar o valor lido pelo adc em volts
         # Ratio of 15 bit value to max volts determines volts
         volts[ch] = analog[ch] / 32767.0 * 2.048

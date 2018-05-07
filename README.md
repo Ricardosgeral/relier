@@ -323,10 +323,13 @@ or the program will not start!
 - The inspection of the **cronlog** file ($ *sudo nano /home/pi/LerAS/logs/cronlog*) may be helpful for detecting 
 any eventual bugs during the software installation process.
 - To check if the *Analog-to-Digital Converter* (ADC - ADS1115 chip) is properly connected via I2C, you can do 
-**$ cd sudo i2cdetect -y 1**. 
+**$ sudo i2cdetect -y 1**. 
  You should see number **48** in the matrix (row 40, column 8). 
  Otherwise, something is not connected correctly, or I2C protocol has not been enabled 
  (the bash file *raspbian-post-install.sh* run in installation is supposed to do that).
+- If you want to check if the services units running on reboot/shutdown are active do:
+  + $ *sudo systemctl status rcshut*
+  + $ *sudo systemctl status shutdown_button*
 
 ## Licence
 Using this acquisition system (Software and/or Hardware) you agree with the [licence conditions](LICENSE).
