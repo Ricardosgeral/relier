@@ -332,4 +332,4 @@ any eventual bugs during the software installation process.
   + $ *sudo systemctl status shutdown_button*
 
 ## Licence
-Using this acquisition system (Software and/or Hardware) you agree with the [licence conditions](LICENSE).
+By using this acquisition system (Software and/or Hardware) you agree with the [licence conditions](LICENSE).
