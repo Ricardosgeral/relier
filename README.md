@@ -78,8 +78,7 @@ Choose your new password.
 Then, in the terminal, run the following sequential commands:
     
     $ cd /tmp && wget https://raw.githubusercontent.com/Ricardosgeral/LerAS/master/bash/raspbian-post-install.sh
-    $ sudo chmod +x raspbian-post-install.sh
-    $ sed -i 's/\r//' raspbian-post-install.sh
+    $ sudo chmod +x raspbian-post-install.sh && sed -i 's/\r//' raspbian-post-install.sh
     $ sudo ./raspbian-post-install.sh
 
 Next, you need to create your own JSON file with the google credentials.
@@ -94,7 +93,7 @@ Delete all content of the file and past your own credentials. Ctrl+X, yes and En
     $ sudo reboot
 
 And that's it, after reboot, the *Raspberry Pi* server should be set properly. 
-However, you still need to update the  **touchscreen** software, and set correctly the **hardware**!
+However, you still need to update the  **touchscreen** software, and set the **hardware** correctly!
 
 
 ### *Touchscreen* software ([Nextion device](https://nextion.itead.cc/))
