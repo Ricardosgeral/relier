@@ -35,7 +35,7 @@ echo 'Done.'
 if [ -d "/srv/EROSTESTS/" ]; then
     echo 'Directory /srv/EROSTESTS/ already exists'
 else
-    sudo mkdir /srv/sensors/
+    sudo mkdir /srv/sensors/EROSTESTS
 fi
 
 if [ -d "/media/pi/" ]; then
