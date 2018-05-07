@@ -5,8 +5,8 @@
 #
 # Description:
 # A post-installation bash script for 2018-03-13-raspbian-stretch
-# A raspbian post-install script for erosLab (Erosion Laboratory Test Software) server
-# Usage: see README.md https://github.com/Ricardosgeral/erosLab/blob/master/README.md
+# A raspbian post-install script for LerAS (Erosion Laboratory Test Software) server
+# Usage: see README.md https://github.com/Ricardosgeral/LerAS/blob/master/README.md
 #
 # check if sudo is used
 if [ "$(id -u)" != 0 ]; then
@@ -16,7 +16,7 @@ fi
 clear
 
 echo '-------------------------------------------------------------------------'
-echo '=> Raspbian post-install script for erosLab... pick a very hot cup of tea'
+echo '=> Raspbian post-install script for LerAS... pick a very hot cup of tea'
 echo '-------------------------------------------------------------------------'
 
 # -----------------------------------------------------------------------------
@@ -53,13 +53,13 @@ sudo chmod -R 777 /media/pi
 # => Get files from gibhub
 # -----------------------------------------------------------------------------
 
-if [ -d "/home/pi/erosLab" ]; then
-    sudo rm -R /home/pi/erosLab
+if [ -d "/home/pi/LerAS" ]; then
+    sudo rm -R /home/pi/LerAS
 fi
-git clone https://github.com/Ricardosgeral/erosLab.git /home/pi/erosLab
+git clone https://github.com/Ricardosgeral/LerAS.git /home/pi/LerAS
 #these following two lines may be unnecessary
-sudo chown -R pi: /home/pi/erosLab
-sudo chmod 777 -R erosLab/
+sudo chown -R pi: /home/pi/LerAS
+sudo chmod 777 -R LerAS/
 
 # ----------------------------------------------------------------------------
 # => Install system utilities
@@ -142,11 +142,11 @@ sudo systemctl disable hciuart
 # -----------------------------------------------------------------------------
 
 #Create a script to run at power up
-sudo cp /home/pi/erosLab/bash/usb-mount.sh /usr/local/bin/usb-mount.sh
+sudo cp /home/pi/LerAS/bash/usb-mount.sh /usr/local/bin/usb-mount.sh
 sudo sed -i 's/\r//' /usr/local/bin/usb-mount.sh
 
 #Call the script by a system unit file
-sudo cp /home/pi/erosLab/services/usb-mount@.service /etc/systemd/system/usb-mount@.service
+sudo cp /home/pi/LerAS/services/usb-mount@.service /etc/systemd/system/usb-mount@.service
 
 #Add the two rules (file 99-local.rules) to start and stop system unit service on hotplug/unplug
 sudo echo 'KERNEL== "sd[a-z][0-9]", SUBSYSTEMS=="usb", ACTION=="add", RUN+="/bin/systemctl start usb-mount@%k.service"' >> /etc/udev/rules.d/99-local.rules
@@ -161,12 +161,12 @@ sudo systemctl daemon-reload            #reloads systemd
 # -----------------------------------------------------------------------------
 
 #Create a script to run at shutdown/reboot
-sudo cp /home/pi/erosLab/services/rcshut.service /etc/systemd/system/rcshut.service
+sudo cp /home/pi/LerAS/services/rcshut.service /etc/systemd/system/rcshut.service
 #sudo systemctl daemon-reload
 sudo systemctl enable rcshut --now
 sudo systemctl start rcshut
 # systemctl status rcshut #if you want to se if its active(running)
-sudo chmod +w /home/pi/erosLab/shutdown.py
+sudo chmod +w /home/pi/LerAS/shutdown.py
 
 #-----------------------------------------------------------------------------
 # => Create systemd unit file to control shutdown/restart button
@@ -174,12 +174,12 @@ sudo chmod +w /home/pi/erosLab/shutdown.py
 
 #Create a script to run at shutdown/reboot
 #sudo apt install python3-gpiozero this should be not needed because is already in raspbian now
-sudo cp /home/pi/erosLab/services/shutdown_button.service /etc/systemd/system/shutdown_button.service
+sudo cp /home/pi/LerAS/services/shutdown_button.service /etc/systemd/system/shutdown_button.service
 sudo systemctl daemon-reload
 sudo systemctl enable shutdown_button --now
 sudo systemctl start shutdown_button
 # systemctl status shutdown_button #if you want to se if its active(running)
-sudo chmod +w /home/pi/erosLab/shutdown_button.py
+sudo chmod +w /home/pi/LerAS/shutdown_button.py
 
 # -----------------------------------------------------------------------------
 # => Configurations of cron tab (files to run at startup)
@@ -197,14 +197,14 @@ sudo grep "$CMD" -q <(crontab -l) || (crontab -l>"$TMPC"; echo "$JOB">>"$TMPC"; 
 # => run main.py at start-up of raspberry pi (using a shell script in crontab)
 # -----------------------------------------------------------------------------
 # make the launcher script an executable
-sudo cp /home/pi/erosLab/bash/launcher.sh /home/pi/erosLab/launcher.sh
-sudo chmod 755 /home/pi/erosLab/launcher.sh  # this file should be placed in /home/pi/erosionLab/
-sed -i 's/\r//' /home/pi/erosLab/launcher.sh
+sudo cp /home/pi/LerAS/bash/launcher.sh /home/pi/LerAS/launcher.sh
+sudo chmod 755 /home/pi/LerAS/launcher.sh  # this file should be placed in /home/pi/erosionLab/
+sed -i 's/\r//' /home/pi/LerAS/launcher.sh
 #Create a logs directory:
-sudo mkdir /home/pi/erosLab/logs
-sudo chmod 777 -R /home/pi/erosLab/logs
+sudo mkdir /home/pi/LerAS/logs
+sudo chmod 777 -R /home/pi/LerAS/logs
 
-CMD="sh /home/pi/erosLab/launcher.sh >/home/pi/erosLab/logs/cronlog 2>&1"
+CMD="sh /home/pi/LerAS/launcher.sh >/home/pi/LerAS/logs/cronlog 2>&1"
 JOB="@reboot $CMD"
 TMPC="mycron2"
 sudo grep "$CMD" -q <(crontab -l) || (crontab -l>"$TMPC"; echo "$JOB">>"$TMPC"; crontab "$TMPC")

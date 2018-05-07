@@ -1,0 +1,39 @@
+*Pick And Place List
+*Company=
+*Author=
+*eMail=
+*
+*Project=LerAS_production
+*Date=10:47:28
+*CreatedBy=Fritzing 0.9.3b.04.19.5c895d327c44a3114e5fcc9d8260daf0cbb52806
+*
+*
+*Coordinates in mm, always center of component
+*Origin 0/0=Lower left corner of PCB
+*Rotation in degree (0-360, math. pos.)
+*
+*No;Value;Package;X;Y;Rotation;Side;Name
+1;;THT;8.06583;-7.5496;90;Bottom;Temp
+2;20k;THT;17.5258;-9.50964;-90;Bottom;Rfl2k
+3;;;75.4341;-20.9196;-90;Bottom;BME280
+4;;Breakout board;25.1225;-25.995;0;Bottom;Shifter
+5;;;1.3701;-9.95298;-90;Bottom;TXT2
+6;;THT;49.0258;-7.5496;90;Bottom;Pi
+7;;THT;74.5259;-7.5496;90;Bottom;Turb
+8;10k;THT;25.4859;-13.5496;0;Bottom;R1
+9;;THT;7.38584;-23.4596;0;Bottom;Nextion
+10;;;78.5058;-38.6996;180;Bottom;Buzzer
+11;;;50.5386;-13.8948;0;Bottom;TXT1
+12;;THT;37.0259;-7.5496;90;Bottom;Pu
+13;;THT;62.5259;-7.5496;90;Bottom;Pd
+14;;;53.0479;-12.4732;0;Bottom;TXT1
+15;;THT;31.516;-39.0998;0;Bottom;40pines RPi3
+16;;3 mm [THT];66.1771;-39.0495;90;Bottom;LED
+17;;;70.92;-29.8877;0;Bottom;TXT3
+18;10k;THT;73.4258;-34.8896;-90;Bottom;R2
+19;;;49.2958;-23.7771;0;Bottom;ADC: ADS1x15
+20;;;66.0958;-28.178;0;Bottom;TXT3
+21;;;11.5258;-19.5496;0;Bottom;Via1
+22;10k;THT;10.4859;-12.0496;0;Bottom;Rt1k
+23;;;44.5858;-34.5496;0;Bottom;Button
+24;;THT;24.5658;-7.5496;90;Bottom;Flow
