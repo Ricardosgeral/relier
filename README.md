@@ -1,5 +1,5 @@
-# *Ler Acquisition System (LerAS)* 
-## Laboratory Erosion Test Acquisition System 
+# *Ler Acquisition System (LerAS)*
+##### Laboratory Erosion Test Acquisition System 
 Open design of a sensor acquisition system for laboratory erosion test apparatuses. 
 
 This work has been done by **Ricardo Correia dos Santos** at 
@@ -54,7 +54,7 @@ running in different *hardware* components, particularly in the:
 These instructions should be carried out after a fresh installation of *Raspbian* image in the Micro SD card 
 (see [instructions](https://www.raspberrypi.org/documentation/installation/installing-images/README.md)). 
 I've used [2018-04-18-raspian-stretch](http://downloads.raspberrypi.org/raspbian/images/raspbian-2018-04-19/). 
-The generality of the code was written in *Python 3.5*. A few scripts were written in *Bash*.
+Most of the code is written in *Python 3.5*, and a few scripts are written in *Bash*.
 
 **Note:** If no monitor is available (headless *Raspberry Pi*), you have to do the following 4 simple steps to 
 enable *SSH* in first boot. So, right after installing the raspbian image in the  Micro SD card:
@@ -73,7 +73,7 @@ It is recommended to change the password after first boot, since *SSH* is enable
 
     $ passwd 
     
-Choose your new password.
+and choose your new password.
     
 Then, in the terminal, run the following sequential commands:
     
@@ -125,7 +125,7 @@ and the GUI is set in the touchscreen.
 
 **Note:** Be careful when buying the *NEXTION* screen. Confirm that you are not getting a *TJC* (for Chinese market), 
 which looks identical. 
-This version only works with the Chinese version of the Nextion Editor! You will need to learn Chinese !!!!
+This version only works with the Chinese version of the Nextion Editor! You will need to learn Chinese to use it!!!!
  
  
 ## Hardware

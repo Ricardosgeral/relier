@@ -35,7 +35,7 @@ echo 'Done.'
 if [ -d "/srv/EROSTESTS/" ]; then
     echo 'Directory /srv/EROSTESTS/ already exists'
 else
-    sudo mkdir /srv/sensors/EROSTESTS
+    sudo mkdir /srv/EROSTESTS
 fi
 
 if [ -d "/media/pi/" ]; then
@@ -162,7 +162,6 @@ sudo systemctl daemon-reload            #reloads systemd
 
 #Create a script to run at shutdown/reboot
 sudo cp /home/pi/LerAS/services/rcshut.service /etc/systemd/system/rcshut.service
-#sudo systemctl daemon-reload
 sudo systemctl enable rcshut --now
 sudo systemctl start rcshut
 # systemctl status rcshut #if you want to se if its active(running)
