@@ -26,7 +26,7 @@ def nx_setcmd_0par(ser, command):  #Set operational Commands without parameters
     ser.write((command+EndCom).encode('latin-1'))
     return None
 
-def nx_setcmd_1par(ser, command,value):  #Set operational Commands with 1 parameters
+def nx_setcmd_1par(ser, command, value):  #Set operational Commands with 1 parameters
     # Possible commands: 'page', 'ref'
     # see instruction set of NEXTION device to know the possible commands and what they do
     if value is str:

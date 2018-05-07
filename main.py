@@ -15,7 +15,7 @@ import rw_ini as rw
 import write_csv_data
 import google_sheets as gsh
 #from led_blink import fast_5blinks as blink5
-#from active_buzzer import alert_end as buzz
+from active_buzzer import alert_end
 
 ######### make connection to serial UART to read/write NEXTION
 ser = serial.Serial(port='/dev/ttyAMA0', baudrate = 38400,
@@ -213,6 +213,7 @@ def read_display(e_rd): #read and display data in page "analog"
 ##################
 
 def read_display_write(e_rdw): # read and display data in page "sensors" and write to file
+    global stop
     #first, check if HET test is selected
     if inp['testtype'] == "3":  # if HET test is the selection
         nxlib.nx_setcmd_2par(ser, 'vis', 'txt_pi', 0)
@@ -235,36 +236,38 @@ def read_display_write(e_rdw): # read and display data in page "sensors" and wri
 
     e_rdw.wait()
     row = 1
-    buzz_alert = False
     while end_rdw.is_set() == False:
-        e_rdw.wait()
-        current = time.time()
-        elapsed = current - start# restart thread t_rdw
-        elapsed = time.strftime("%H:%M:%S", time.gmtime(elapsed))
-        autostop =  time.strftime("%H:%M:%S", time.gmtime(stop))
-        print("write running")
-        data=srv.get_data(int(inp['interval']),
-                          float(inp['mu']), float(inp['mi']), float(inp['md']),
-                          float(inp['bu']), float(inp['bi']), float(inp['bd']),
-                          float(inp['mturb']), float(inp['bturb']),
-                          zerou, zeroi, zerod, inp['testtype'])
-        display_sensors(data)  # display in NEXTION monitor
-        write_csv_data.write_data(data = data, data_file = inp['filename'])
-        ID_elapsed = nxApp.get_Ids('sensors', 'txt_duration')
-        nxlib.nx_setText(ser, ID_elapsed[0], ID_elapsed[1], elapsed)
-        ID_autostop = nxApp.get_Ids('sensors', 'txt_autostop')
-        nxlib.nx_setText(ser, ID_autostop[0], ID_autostop[1], autostop)
-        if export_google in ['yes', 'Yes', 'YES', 'y', 'Y', 'yep']:
-            gsh.write_gsh(data, row, wks)
-            row += 1
+        if time.time() < stop+1:
+            e_rdw.wait()
+            current = time.time()
+            elapsed = current - start# restart thread t_rdw
+            elapsed = time.strftime("%H:%M:%S", time.gmtime(elapsed))
+            autostop =  time.strftime("%H:%M:%S", time.gmtime(stop))
+            print("write running")
+            data=srv.get_data(int(inp['interval']),
+                              float(inp['mu']), float(inp['mi']), float(inp['md']),
+                              float(inp['bu']), float(inp['bi']), float(inp['bd']),
+                              float(inp['mturb']), float(inp['bturb']),
+                              zerou, zeroi, zerod, inp['testtype'])
+            display_sensors(data)  # display in NEXTION monitor
+            write_csv_data.write_data(data = data, data_file = inp['filename'])
+            ID_elapsed = nxApp.get_Ids('sensors', 'txt_duration')
+            nxlib.nx_setText(ser, ID_elapsed[0], ID_elapsed[1], elapsed)
+            ID_autostop = nxApp.get_Ids('sensors', 'txt_autostop')
+            nxlib.nx_setText(ser, ID_autostop[0], ID_autostop[1], autostop)
+            if export_google in ['yes', 'Yes', 'YES', 'y', 'Y', 'yep']:
+                gsh.write_gsh(data, row, wks)
+                row += 1
 
-        sleep(int(inp['interval']))  # interval to write down  the readings
+            sleep(int(inp['interval']))  # interval to write down  the readings
+        alert_end()
+        # end_rdw.set()
+        # t_rdw.join()
+        # e_rdw.clear()
+        # nxlib.nx_setcmd_1par(ser, 'page',2)
+        # nxlib.nx_setValue(ser, nxApp.ID_status[0], nxApp.ID_status[1], 1)  # green flag
+        # nxlib.nx_setText(ser, nxApp.ID_ip[0], nxApp.ID_ip[1], ip)
 
-
-        # if datetime.datetime.fromtimestamp(current).time() > datetime.datetime.strptime(autostop, '%H:%M:%S').time() \
-        #         and buzz_alert == False:
-        #     buzz()
-        #     buzz_alert = True
 
 ##################
 
