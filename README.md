@@ -255,7 +255,7 @@ The location where data will be collected depends on the user *settings*,
 on whether an internet connection is available and a USB drive is plugged in.
 
 ### No internet connection
-Da ta is only stored locally. The data has two possible ways to go:
+Data is only stored locally. The data has two possible ways to go:
   
 1. **No** USB drive is plugged in
    
