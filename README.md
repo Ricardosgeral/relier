@@ -45,8 +45,8 @@ and be more helpful.
 
 The software of *Ler Acquisition System* is composed by two distinct but interconnected parts, 
 running in different *hardware* components, particularly in the:
-+ **Server** (*Raspberry Pi*), which performs the computing tasks, and
-+ **Touchscreen** (*Nextion device*), responsible by the interactivity between the end user and the server.
+1. **Server** (*Raspberry Pi*), which performs the computing tasks, and
+2. **Touchscreen** (*Nextion device*), responsible by the interactivity between the end user and the server.
 
 
 ### Server software (*Raspberry Pi*)
