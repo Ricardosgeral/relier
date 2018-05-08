@@ -104,7 +104,10 @@ The GUI interface of the project was developed in the
 [Nextion Editor](https://nextion.itead.cc/resources/download/nextion-editor/) (free software - only for windows!).
 Follow the [Nextion Editor Guide](https://nextion.itead.cc/editor_guide/) to learn how to work with it. 
 I've provide the file [LerAS.HMI](https://github.com/Ricardosgeral/LerAS/blob/master/Nextion/HMI/LerAS.HMI) 
-developed for this project. 
+developed for this project. The next picture shows a look of the file content in Nextion Editor:
+
+![NextionEditor](Nextion/GUI/NextionEditor.PNG)
+
 To upload the code into *Nextion touchscreen* follow these steps:
 
 1. Open the file [LerAS.HMI](https://github.com/Ricardosgeral/LerAS/blob/master/Nextion/HMI/LerAS.HMI) 
