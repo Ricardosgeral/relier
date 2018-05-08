@@ -6,7 +6,7 @@ This work has been done by [*Ricardo Correia dos Santos*](https://www.linkedin.c
 
 **Website**: https://ricardosgeral.github.io/LerAS/
 
-#### About the author and the *LerAS* project
+### About the author and the *LerAS* project
 I'm a Civil Engineer, with a master degree in Geotechnical Engineering, and a PhD on experimental investigations on 
 internal erosion in embankment dams.
 
@@ -29,7 +29,7 @@ You can report bugs, suggest enhancements, or even fork the project on Github.
 All contributions are welcome.
 
 
-#### Is this for me?
+### Is this for me?
 If you need to do a similar project, you just need to have some DIY skills, for scrapping some materials, figuring out 
 how to assemble some things together, and figuring out how some components work. The 
 instructions given here should also be taken more like guidelines based on what I could do with the materials I had. If 
