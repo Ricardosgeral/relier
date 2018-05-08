@@ -325,10 +325,10 @@ This means that you can have a single Spreadsheet with different tests organized
    + Detection of serial connection between the server and the Nextion touchscreen. The server needs to check if the 
    touchscreen is pressed, independently of being at the same time doing other tasks. To achieve this it is used Thread alongside with Events from the threading module. 
    This achievement took me a while to master, and I believe it may be useful to others.
-- *Serial communication with the *Nextion Device* in python 3* (TX-RX UART protocol). Unfortunately, there was not 
-(at least until this day) a Python library to use Nextion.
-There is a library developed for Arduino, but I did not want to add *C* code here. 
-So, I've developed my own NEXTION Library for Python 3, which took me a while to do!
+- *Serial communication with the *Nextion Device* in Python 3* (TX-RX UART protocol). Unfortunately, there was not 
+(at least until this day) a Python library to use Nextion touchscreen.
+There is a library developed for Arduino, but I did not want to mix Python and *C* code. 
+So, I've developed my own NEXTION Library for Python 3 (which took me a while to do!).
 This Nextion Library for Python 3 is relatively simple to use. 
 You just need to look at the [py3nextion_lib.py](https://github.com/Ricardosgeral/LerAS/blob/master/py3nextion_lib.py),
 and use it alongside with another .py file with all the components used in the Nextion Editor 
