@@ -323,8 +323,8 @@ This means that you can have a single Spreadsheet with different tests organized
    + Since temperature sensors take a considerable time between reads (about 1 second), the readings of those sensors is done in multi-tasking. 
    This ensures that the interval between readings is the one indicated by the user. Treads are here also used as *Class objects*.
    + Detection of serial connection between the server and the Nextion touchscreen. The server needs to check if the 
-   touchscreen is pressed, independently of being at the same time doing other tasks. To achieve this it is used Thread alongside with Events from the threading module. 
-   This achievement took me a while to master, and I believe it may be useful to others.
+   touchscreen is pressed, independently of being at the same time doing other tasks. 
+   To achieve this it is used Thread, alongside with Events from the threading module. This achievement took me a while to master, and I believe it may be useful to others.
 - *Serial communication with the *Nextion Device* in Python 3* (TX-RX UART protocol). Unfortunately, there was not 
 (at least until this day) a Python library to use Nextion touchscreen.
 There is a library developed for Arduino, but I did not want to mix Python and *C* code. 
