@@ -317,16 +317,18 @@ This means that you can have a single Spreadsheet with different tests organized
 
 ## Achievements that can help the reuse of the code:
 
-- *Use of Threading ('multi tasking'), together with Event objects, in Python 3*. Threads are used as an class object for two reasons: 
-   + Since temperature sensors take a considerable time between reads, the readings of those sensors is done in parallel processing. 
-   This ensures that the interval between readings is that indicated by the user.
+- *Use of Threading ('multi tasking'), together with Event objects, in Python 3*. Threads are used in three cases: 
+   + Since temperature sensors take a considerable time between reads, the readings of those sensors is done in multitasking. 
+   This ensures that the interval between readings is that indicated by the user. In this case Treads are used as *Class objects*
+   + Threads are useful for analog reads to provide "stability". These allow to perform a mean over a certain period of time 
+   with a shorter delay between samples for reliability. The reading of the ADC ADS1115 is done using a Thread as a Class object.   
    + Detection of serial connection between the server and the touch screen. The server needs to check if the 
-   touchscreen is pressed, independently of being at the same time doing other tasks.
+   touchscreen is pressed, independently of being at the same time doing other tasks. Also, I've used Events from Threading package. This may be useful to others.
 - *Serial connection with the *Nextion Device* in python 3*. Unfortunately, there was not a python library to use Nextion.
 There is a library developed for Arduino, but i did not want to add *C* code here. So, I've developed my own NEXTION Library for Python 3.
-This Nextion Library for Python 3 is relatively simple to use. You just need to look at the [py3nextion_lib.py](https://github.com/Ricardosgeral/LerAS/blob/master/py3nextion_lib.py)
+This Nextion Library for Python 3 is relatively simple to use. You just need to look at the [py3nextion_lib.py](https://github.com/Ricardosgeral/LerAS/blob/master/py3nextion_lib.py),
 and use it alongside with another .py file with all the components used in the Nextion Editor (see [NextionApp](https://github.com/Ricardosgeral/LerAS/blob/master/NextionApp.py)). 
-Of course you need to know how to use the commands available in Nextion. For that, see [instructions set](https://nextion.itead.cc/resources/documents/instruction-set/)
+Of course you need to know how to use the Nextion commands . For that, see [instructions set](https://nextion.itead.cc/resources/documents/instruction-set/).
 
 
 
