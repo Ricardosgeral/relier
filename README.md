@@ -106,7 +106,7 @@ Follow the [Nextion Editor Guide](https://nextion.itead.cc/editor_guide/) to lea
 I've provide the file [LerAS.HMI](https://github.com/Ricardosgeral/LerAS/blob/master/Nextion/HMI/LerAS.HMI) 
 developed for this project. The next picture shows a look of the file content in Nextion Editor:
 
-![NextionEditor](Nextion/GUI/NextionEditor.PNG)
+![NextionEditor](Nextion/GUI/Nextion_Editor.PNG)
 
 To upload the code into *Nextion touchscreen* follow these steps:
 
