@@ -80,9 +80,9 @@ Then, in the terminal, run the following sequential commands:
     $ sudo chmod +x raspbian-post-install.sh && sed -i 's/\r//' raspbian-post-install.sh
     $ sudo ./raspbian-post-install.sh
 
-Next, you need to create your *json* file with the google service credentials.
-To get the *service credentials*, follow these 
-[instructions](https://pygsheets.readthedocs.io/en/latest/authorizing.html#signed-credentials). 
+Next, you need to create your *json* file with the google signed credentials.
+To get the *Signed Credentials*, follow first steps 1-4 from these [instructions](https://pygsheets.readthedocs.io/en/latest/authorizing.html#)
+then, steps 5-6 from these [instructions](https://pygsheets.readthedocs.io/en/latest/authorizing.html#signed-credentials). 
 Once you generated the credentials, copy then, do:
 
     $ sudo nano /home/pi/LerAS/service_creds.json
@@ -299,15 +299,15 @@ This functionality allows **Live monitoring** of the data being placed in the Go
 
 **How to enable 'Google sheets':**
 -  Select that option:
-   + In the *touchscreen GUI* > *Settings* > activate the (only) checkbox. 
+   + In the *touchscreen GUI* > *Settings* > activate the (only) checkbox, or
    + In *inputs.ini* file > ensure that *google_sheets = yes*.
    
 - Provide names for the *Spreadsheet* and for the *Worksheet*:
-   + In the *touchscreen GUI* > *Settings*  > *Spreadsheet* (the *Worksheet* name = *CSV filename*).
+   + In the *touchscreen GUI* > *Settings*  > *Spreadsheet* (the *Worksheet* name = *CSV filename*), or
    + In *inputs.ini* file > Spreadsheet name = *googlesh*, and Worksheet name = *filename*.
 
 - Provide a valid email, since a link to access the spreadsheet will be shared via email at the start of each test.
-   + In the *touchscreen GUI* > *Settings* > Add email.
+   + In the *touchscreen GUI* > *Settings* > Add email, or
    + In *inputs.ini* file > use parameter *share_email*.
 
 **Additional notes:**
