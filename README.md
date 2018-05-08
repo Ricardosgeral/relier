@@ -104,7 +104,7 @@ The GUI interface of the project was developed in the
 [Nextion Editor](https://nextion.itead.cc/resources/download/nextion-editor/) (free software - only for windows!).
 Follow the [Nextion Editor Guide](https://nextion.itead.cc/editor_guide/) to learn how to work with it. 
 I've provide the file [LerAS.HMI](https://github.com/Ricardosgeral/LerAS/blob/master/Nextion/HMI/LerAS.HMI) 
-developed for this project. The next picture shows a look of the file content in Nextion Editor:
+developed for this project. The next picture shows some of that file content in Nextion Editor:
 
 ![NextionEditor](Nextion/GUI/Nextion_Editor.PNG)
 
@@ -114,7 +114,7 @@ To upload the code into *Nextion touchscreen* follow these steps:
 with the Nextion Editor.
 2. Press the *Compile* icon in the first top bar, and check that there are no errors.
 3. Go to *File > Open build folder* and copy the *.tft* file produced by the editor (that has the code). 
-4. Past the file into a Micro SD card **without** files (first I recommend using the windows format tool, 
+4. Past the file into a Micro SD card **without** any files (first I recommend using the windows format tool, 
 to ensure all files are cleared from the card).
 5. Disconnect the power supply to *Nextion*.
 6. Insert the Micro SD card (with only one tft file) in the slot on the back of the device.
@@ -135,10 +135,10 @@ This version only works with the Chinese version of the Nextion Editor! You will
 Here, the hardware items required, to collect the sensors readings, are indicated. 
 Instructions about the way those pieces are connected are also presented.
 Just for reference, some links and prices of the components are also presented.
-So, the *Hardware* is composed by the:
-+ *Server* and its peripherals,
-+ *Acquisition system box*, linking the server and the sensors, and
-+ *Sensors* (4 with analog output and 3 with digital outputs).
+So, the *Hardware* is composed by the three main parts:
+1. *Server* and its peripherals,
+2. *Acquisition system box*, linking the server and the sensors, and
+3. *Sensors* (4 with analog output and 3 with digital outputs).
 
 ### Server and peripherals
 
@@ -168,7 +168,7 @@ So, the *Hardware* is composed by the:
 + 1x 4 pins Male Single Row Pin Header Strip [<1€]
 + 6 x 5cm *shielded* cable with 3 wires [<1€]
 
-### Printed circuit board (*PCB*) designed/produced
+#### Printed circuit board (*PCB*) designed/produced
 The design of the 2 layer's *PCB* was developed using [Fritzing](http://www.fritzing.org/). 
 The production files and the *.fzz* file are [here](https://github.com/Ricardosgeral/LerAS/tree/master/Fritzing). 
 The *PCB* was printed by [PCBWay company](https://www.pcbway.com/).
@@ -200,7 +200,7 @@ The following **'low cost' sensors** were used:
 + 1x [Waterproof DS18B20 digital temperature sensor (probe)](https://www.aliexpress.com/snapshot/0.html?spm=a2g0s.9042311.0.0.oXghXt&orderId=505161631680030&productId=32675444739) [<1€]
 + 1x [BME280 Digital Sensor, Humidity Temperature and Barometric Pressure Sensor](https://www.aliexpress.com/item/3In1-BME280-GY-BME280-Digital-Sensor-SPI-I2C-Humidity-Temperature-and-Barometric-Pressure-Sensor-Module-1/32659765502.html?spm=a2g0s.9042311.0.0.oXghXt) [3€]
 
-Almost all of the sensors are connected to the Acquisition system box via the mini aviator plugs. An exception is the 
+Almost all of the sensors are connected to the acquisition system box via the mini aviator (circular) plugs. An exception is the 
 *BME280* chip, which is soldered directly into the PCB.
 
 #### Other components that may be useful
@@ -209,13 +209,13 @@ Almost all of the sensors are connected to the Acquisition system box via the mi
 + DuPont jumper wires
 + Micro SD adapter
 
-### Additional tools required for the assemblage of the PCB and AS
+### Additional tools required for the assemblage of the PCB and AS box
 + Cable wire Stripper/Crimping Plier
 + Soldering iron + sold
 + Tools to make the openings in the aluminum box (*e.g.* a mini Drill DIY set should be enough) 
 + Precision screwdriver set
 
-## Usage of the Graphical User Interface (GUI)
+## Graphical User Interface (GUI)
  
 The GUI pages displayed in the touchscreen (*Nextion device*) are shown next.
  
@@ -254,13 +254,13 @@ The GUI pages displayed in the touchscreen (*Nextion device*) are shown next.
 ## Data collection
 The *Raspberry Pi*, together with the *acquisition system box*, handles the sensors and gets the data from them. 
 The data is collected once the green start button in the *touchscreen GUI* (in *Main menu* page) is pressed. 
-The location where data will be collected depends on the user *settings*, 
-on whether an internet connection is available and a USB drive is plugged in.
+The location where data will be collected is defined  by the user, and depends
+on whether or not an internet connection is available, and whether or not a USB drive is plugged in.
 
 ### No internet connection
 Data is only stored locally and has two possible ways to go:
   
-1. **No** USB drive is plugged in
+1. **No USB drive** is plugged in
    
    Data are stored *only* on the Micro SD card. The data are stored in the *CSV* format inside folder **/srv/EROSTESTS**. 
 
