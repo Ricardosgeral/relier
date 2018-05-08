@@ -182,11 +182,11 @@ aspect of each layer individually.
 **Fritzing PCB view**
 ![PCB_image](Fritzing/PCB_LerAS.png)
 
-**Look of the PCB top layer**
+**PCB top layer**
 
 ![FinalPCBtop_image](Fritzing/Final_TopPCB_LerAS.JPG)
 
-**Look of the PCB Bottom Layer**
+**PCB Bottom Layer**
 
 ![FinalPCBbottom_image](Fritzing/Final_bottomPCB_LerAS.JPG)
 
