@@ -18,7 +18,7 @@ This manual process is tedious and prone to human errors.
 
 So, I've decided to invest time, and few money, developing a "low budget" acquisition system (hardware and software) that could 
 collect data from multiple sensors. 
-*Ler AS* was born this way!
+*LerAS* was born this way!
 
 Please note that I'm not an expert in informatics, computing, nor in electronics.
 I define myself as an enthusiastic self learner. 
