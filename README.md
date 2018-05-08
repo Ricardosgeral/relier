@@ -81,8 +81,8 @@ Then, in the terminal, run the following sequential commands:
     $ sudo ./raspbian-post-install.sh
 
 Next, you need to create your *json* file with the google signed credentials.
-To get the *Signed Credentials*, follow first steps 1-4 from these [instructions](https://pygsheets.readthedocs.io/en/latest/authorizing.html#)
-then, steps 5-6 from these [instructions](https://pygsheets.readthedocs.io/en/latest/authorizing.html#signed-credentials). 
+First, you need to create a developer account following steps 1-4 from these [instructions](https://pygsheets.readthedocs.io/en/latest/authorizing.html#), 
+then, you can get your *Signed Credential*, following steps 5-6 from these [instructions](https://pygsheets.readthedocs.io/en/latest/authorizing.html#signed-credentials). 
 Once you generated the credentials, copy then, do:
 
     $ sudo nano /home/pi/LerAS/service_creds.json
