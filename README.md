@@ -280,23 +280,23 @@ This will prevent corruption of the Micro SD card and of the USB drive, and incr
 To silently disconnect the server you can either:
    + hold the *red pushbutton* in the back of the *acquisition system box* for more than *7 seconds* (if holden between 3 and 7 seconds, 
    the *Raspberry Pi* will reboot), or 
-   + *$ sudo halt* in a *SSH* terminal session. .
+   + *$ sudo halt* in a *SSH* terminal session.
 - If more than one USB drive is plugged in (not recommended!), data will be saved in the *first drive* being found.
-- Data in the *CSV* files is never deleted automatically. If the filename already exists in the USB drive or 
-Micro SD card, data is placed bellow the last row present. This means that multiple tests may be collected 
+- Data in the *CSV* files is **never deleted** automatically. If the filename already exists in the USB drive or 
+Micro SD card, data is placed in the file but bellow the last row present. This means that multiple tests may be collected 
 in the same filename (not recommended!). It is preferable to save each test in an individual file.
 
 
 ### Internet connection available
 
-Data collection is also done locally. That is, if a USB drive is plugged in, data goes to USB, otherwise, data goes to the Micro SD card.
+Data collection is also done locally in CSV format . That is, if a USB drive is plugged in, data goes to USB, otherwise, data goes to the Micro SD card.
 
 However, **in addition**, it is possible to send data to [Google Sheets](https://www.google.com/sheets/about/), if a valid 
-*service_creds.JSON* file is provided (see instructions in *Software Installation > server* section).
+*service_creds.json* file is provided (see instructions in *Software Installation > server* section).
 This functionality allows **Live monitoring** of the data being placed in the Google sheets. 
 
-**To enable 'Google sheets'**
--  Select the appropriate option:
+**How to enable 'Google sheets'**
+-  Select that option:
    + In the *touchscreen GUI* > *Settings* > activate the (only) checkbox. 
    + In *inputs.ini* file > ensure that *google_sheets = yes*.
    
@@ -305,8 +305,8 @@ This functionality allows **Live monitoring** of the data being placed in the Go
    + In *inputs.ini* file > Spreadsheet name = *googlesh*, and Worksheet name = *filename*.
 
 - Provide a valid email, since a link to access the spreadsheet will be shared via email at the start of each test.
-   + In the *touchscreen GUI* > *Settings* > Add email
-   + In *inputs.ini* file > use parameter *share_email*
+   + In the *touchscreen GUI* > *Settings* > Add email.
+   + In *inputs.ini* file > use parameter *share_email*.
 
 **Additional notes:**
 
