@@ -338,8 +338,8 @@ with the options chosen by the user in the touchscreen, once the server begins t
 Note that the parameters in the file will not appear always in the same order!
 - Automatic detection when USB drives are plugged-in (mounted) or removed (unmounted).
 - Use a single physical momentary pushbutton to reboot/shutdown the server: 
- + *Reboot*: hold the button more than 3 seconds but less than 7 seconds.
- + *Shutdown*: hold the button more than 7 seconds. Note, that the Raspberry Pi is still powered. 
+   + *Reboot*: hold the button more than 3 seconds but less than 7 seconds.
+   + *Shutdown*: hold the button more than 7 seconds. Note, that the Raspberry Pi is still powered. 
  To stop power supply you need to unplug the micro USB cable. To restart the server after a shutdown, just power it on again.
 
 ## Troubleshooting
