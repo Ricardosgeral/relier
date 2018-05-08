@@ -6,7 +6,7 @@ This work has been done by [*Ricardo Correia dos Santos*](https://www.linkedin.c
 
 **Website**: https://ricardosgeral.github.io/LerAS/
 
-### About the author and the *LerAS* project
+### About the author and *LerAS* project
 I'm a Civil Engineer, with a master degree in Geotechnical Engineering, and a PhD on experimental investigations on 
 internal erosion in embankment dams.
 
