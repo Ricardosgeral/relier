@@ -1,3 +1,6 @@
+#! /usr/bin/python3
+# -*- coding: utf-8 -*-
+#Ricardos.geral@gmail.com
 '''
 This code is helpful in the analog sensors calibration
 to determine the line constants m and b
