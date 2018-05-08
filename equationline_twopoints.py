@@ -1,9 +1,19 @@
+'''
+This code is helpful in the analog sensors calibration
+to determine the line constants m and b
+
+for Pressures: (x,y) = (Volts, pressure_psi)
+for Turbidity: (x,y) = (analog_number, NTU)
+
+analog numbers are from 0 to 32767
+'''
+
 from numpy import ones, vstack
 from numpy.linalg import lstsq
 
 psi_to_bar = 0.0689476
 
-def line2(x1,y1,x2,y2):  #x = volts ; y = psi
+def line2(x1,y1,x2,y2):  #x = volts ; y = psi 32767
     points_pu = [(x1, y1), (x2, y2)]
     x_coords_pu, y_coords_pi = zip(*points_pu)
     A = vstack([x_coords_pu, ones(len(x_coords_pu))]).T
