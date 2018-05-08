@@ -223,7 +223,7 @@ The GUI pages displayed in the touchscreen (*Nextion device*) are shown next.
 
 ![page0](Nextion/320x240/page0-shutdown.png)
 
- **Credits (showing the IP address of the *server***
+ **Credits (showing the IP address of the *server*)**
 
 ![page1](Nextion/GUI/page1.PNG)
  
