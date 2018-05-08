@@ -334,7 +334,10 @@ This Nextion Library for Python 3 is relatively simple to use. You just need to 
 and use it alongside with another .py file with all the components used in the Nextion Editor (see [NextionApp](https://github.com/Ricardosgeral/LerAS/blob/master/NextionApp.py)). 
 Of course you need to know how to use the Nextion commands . For that, see [instructions set](https://nextion.itead.cc/resources/documents/instruction-set/).
 
-
+- Use of the library *pygsheets* alongside with library *pandas* to collect data from multiple sensors and write them in google sheets.  
+- Use the library *CSV* to write the data (as dictionary variable) in rows.
+- Use of the library *configparser* to have a *.ini* file with the inputs.
+ 
 ## Troubleshooting
 
 - The following warning is expected: *'grep: /dev/fd/63: No such file or directory'* at the end of 
