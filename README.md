@@ -319,7 +319,7 @@ This means that you can have a single Spreadsheet with different tests organized
 
 - The following warning is expected: *'grep: /dev/fd/63: No such file or directory'* at the end of 
 $ *sudo ./raspbian-post-install.sh*. Ignore it.
-- Don't forget to obtain and replace the content of the file **service_creds.json**, as indicated above, 
+- Don't forget to obtain and replace the content of the file **service_creds.json**, as indicated [above](https://github.com/Ricardosgeral/LerAS/blob/master/README.md#server-software-raspberry-pi), 
 or the program may not start!
 - The inspection of the **cronlog** file ($ *sudo nano /home/pi/LerAS/logs/cronlog*) may be helpful for detecting 
 any eventual bugs during the software installation process.
