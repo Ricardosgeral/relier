@@ -322,17 +322,17 @@ This means that you can have a single Spreadsheet with different tests organized
    with a shorter delay between samples. This should improve reliability. Thus, the collection of data from the ADC (ADS1115) is done using a Thread as a Class object.   
 
    + Since temperature sensors take a considerable time between reads (about 1 second), the readings of those sensors is done in multi-tasking. 
-   This ensures that the interval between readings is the one indicated by the user. Treads are here also used as *Class objects*
+   This ensures that the interval between readings is the one indicated by the user. Treads are here also used as *Class objects*.
 
-   + Detection of serial connection between the server and the touch screen. The server needs to check if the 
-   touchscreen is pressed, independently of being at the same time doing other tasks. Also, I've used Events from Threading package. This may be useful to others.
+   + Detection of serial connection between the server and the Nextion touchscreen. The server needs to check if the 
+   touchscreen is pressed, independently of being at the same time doing other tasks. To achieve this it is used Threading alongside with Events from the Thread module. 
+   This achievement took me a while to master, and I believe it may be useful to others.
 
 - *Serial connection with the *Nextion Device* in python 3*. Unfortunately, there was not a python library to use Nextion.
 There is a library developed for Arduino, but i did not want to add *C* code here. So, I've developed my own NEXTION Library for Python 3.
 This Nextion Library for Python 3 is relatively simple to use. You just need to look at the [py3nextion_lib.py](https://github.com/Ricardosgeral/LerAS/blob/master/py3nextion_lib.py),
 and use it alongside with another .py file with all the components used in the Nextion Editor (see [NextionApp](https://github.com/Ricardosgeral/LerAS/blob/master/NextionApp.py)). 
 Of course you need to know how to use the Nextion commands . For that, see [instructions set](https://nextion.itead.cc/resources/documents/instruction-set/).
-
 
 
 ## Troubleshooting
