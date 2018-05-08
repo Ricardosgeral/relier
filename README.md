@@ -341,6 +341,7 @@ Note that the parameters in the file will not appear always in the same order!
    + *Reboot*: hold the button more than 3 seconds but less than 7 seconds.
    + *Shutdown*: hold the button more than 7 seconds. Note, that the Raspberry Pi is still powered. 
  To stop power supply you need to unplug the micro USB cable. To restart the server after a shutdown, just power it on again.
+- Detection of the local IP of the server (if connected to the internet).
 
 ## Troubleshooting
 
