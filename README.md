@@ -80,14 +80,16 @@ Then, in the terminal, run the following sequential commands:
     $ sudo chmod +x raspbian-post-install.sh && sed -i 's/\r//' raspbian-post-install.sh
     $ sudo ./raspbian-post-install.sh
 
-Next, you need to create your own JSON file with the google credentials.
-To obtain the credentials, follow these 
+Next, you need to create your *json* file with the google service credentials.
+To get the *service credentials*, follow these 
 [instructions](https://pygsheets.readthedocs.io/en/latest/authorizing.html#signed-credentials). 
-Once you generated the JSON file, edit the dummy file in the Raspberry Pi:
+Once you generated the credentials, copy then, do:
 
     $ sudo nano /home/pi/LerAS/service_creds.json
     
-Delete all content of the file and past your own credentials. Ctrl+X, yes and Enter to save file.
+and past the credentials generated.
+
+Ctrl+X, yes and Enter to save file.
 
     $ sudo reboot
 
