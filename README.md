@@ -297,7 +297,7 @@ However, **in addition**, it is possible to send data to [Google Sheets](https:/
 *service_creds.json* file is provided (see instructions in *Software Installation > server* section).
 This functionality allows **Live monitoring** of the data being placed in the Google sheets. 
 
-**How to enable 'Google sheets'**
+**How to enable 'Google sheets':**
 -  Select that option:
    + In the *touchscreen GUI* > *Settings* > activate the (only) checkbox. 
    + In *inputs.ini* file > ensure that *google_sheets = yes*.
