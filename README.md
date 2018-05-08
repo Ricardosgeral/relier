@@ -1,11 +1,11 @@
 # *Ler Acquisition System (LerAS)*
-##### Laboratory Erosion Test Acquisition System 
-Open design of a sensor acquisition system for laboratory erosion test apparatuses. 
+##### Laboratory ERosion test Acquisition System 
+Open design of a sensors acquisition system for erosion test apparatuses. 
 
-This work has been done by **Ricardo Correia dos Santos** at 
-[Laboratório Nacional de Engenharia Civil - LNEC](http://www.lnec.pt/en/), in Lisbon, Portugal.
+This work has been done by [*Ricardo Correia dos Santos*](https://www.linkedin.com/in/ricardons/) at 
+[Laboratório Nacional de Engenharia Civil - *LNEC*](http://www.lnec.pt/en/), in Lisbon, Portugal.
 
-**Project Webpage**: https://ricardosgeral.github.io/LerAS/
+**Website**: https://ricardosgeral.github.io/LerAS/
 
 #### About the author and the *LerAS* project
 I'm a Civil Engineer, with a master degree in Geotechnical Engineering, and a PhD on experimental investigations on 
