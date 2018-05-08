@@ -18,7 +18,7 @@ Most of the measurements were made by hand, at least, by two operators!!
 This manual process is tedious and prone to human errors.
 
 So, I've decided to invest time, and few money, developing a "low budget" acquisition system (hardware and software) that could 
-collected data from multiple sensors. 
+collect data from multiple sensors. 
 *Ler AS* was born this way!
 
 Please note that I'm not an expert in informatics, computing, nor in electronics.
@@ -34,8 +34,8 @@ All contributions are welcome.
 If you need to do a similar project, you just need to have some DIY skills, for scrapping some materials, figuring out 
 how to assemble some things together, and figuring out how some components work. The 
 instructions given here should also be taken more like guidelines based on what I could do with the materials I had. If 
-you do not have the exact same hardware
-(sensors, ADC, level shifter, touchscreen...), they'll surely work a little different, but as they should do the same 
+you do not have the exact same hardware components 
+(sensors, ADC, level shifter, touchscreen...), yours will surely work a little different, but as they should do the same 
 things, there will be similarities too. In that case, you may have to adjust the code and/or the connections.
 
 Feel free to contact me if you manage to get it working with different components, so these instructions can be improved 
@@ -44,14 +44,14 @@ and be more helpful.
 
 ## Software installation
 
-The software of *Ler acquisition system* is composed by two distinct but interconnected parts, 
+The software of *Ler Acquisition System* is composed by two distinct but interconnected parts, 
 running in different *hardware* components, particularly in the:
 + **Server** (*Raspberry Pi*), which performs the computing tasks, and
-+ **Touchscreen** (*Nextion device*), responsible by the interactivity between the user and the server.
++ **Touchscreen** (*Nextion device*), responsible by the interactivity between the end user and the server.
 
 
 ### Server software (*Raspberry Pi*)
-These instructions should be carried out after a fresh installation of *Raspbian* image in the Micro SD card 
+These instructions should be carried out after a fresh installation of *Raspbian* image in a Micro SD card 
 (see [instructions](https://www.raspberrypi.org/documentation/installation/installing-images/README.md)). 
 I've used [2018-04-18-raspian-stretch](http://downloads.raspberrypi.org/raspbian/images/raspbian-2018-04-19/). 
 Most of the code is written in *Python 3.5*, and a few scripts are written in *Bash*.
@@ -106,13 +106,13 @@ The GUI interface of the project was developed in the
 Follow the [Nextion Editor Guide](https://nextion.itead.cc/editor_guide/) to learn how to work with it. 
 I've provide the file [LerAS.HMI](https://github.com/Ricardosgeral/LerAS/blob/master/Nextion/HMI/LerAS.HMI) 
 developed for this project. 
-To upload the code into *Nextion* follow these steps:
+To upload the code into *Nextion touchscreen* follow these steps:
 
 1. Open the file [LerAS.HMI](https://github.com/Ricardosgeral/LerAS/blob/master/Nextion/HMI/LerAS.HMI) 
 with the Nextion Editor.
-2. Press the *Compile* icon in the first top bar, and confirm that there are no errors.
+2. Press the *Compile* icon in the first top bar, and check that there are no errors.
 3. Go to *File > Open build folder* and copy the *.tft* file produced by the editor (that has the code). 
-4. Copy the file into a Micro SD card **without** files (first I recommend using the windows format tool, 
+4. Past the file into a Micro SD card **without** files (first I recommend using the windows format tool, 
 to ensure all files are cleared from the card).
 5. Disconnect the power supply to *Nextion*.
 6. Insert the Micro SD card (with only one tft file) in the slot on the back of the device.
@@ -136,7 +136,7 @@ Just for reference, some links and prices of the components are also presented.
 So, the *Hardware* is composed by the:
 + *Server* and its peripherals,
 + *Acquisition system box*, linking the server and the sensors, and
-+ *Sensors* (4 with analog output and 3 with digital output).
++ *Sensors* (4 with analog output and 3 with digital outputs).
 
 ### Server and peripherals
 
@@ -191,13 +191,13 @@ aspect of each layer individually.
 ### Sensors
 
 The following **'low cost' sensors** were used:
-+ 3x [**Pressure Transducer Transmitter Sensor**, 0-5psi 5V](https://www.aliexpress.com/item/1Pc-Pressure-Transducer-Sender-Stainless-Steel-for-Oil-Fuel-Air-Water-5psi-CSL2017/32814346612.html?spm=2114.search0104.3.34.61855791WWOsT5&ws_ab_test=searchweb0_0,searchweb201602_1_10152_10151_10065_10344_10068_10342_10343_5722611_10340_10341_10698_10696_5722911_5722811_10084_5722711_10083_10618_10304_10307_10301_5711211_10059_308_100031_10103_10624_10623_10622_10621_10620_5711311_5722511,searchweb201603_32,ppcSwitch_5&algo_expid=a59a0ef4-feff-4b1a-b341-8883ad49d5dc-5&algo_pvid=a59a0ef4-feff-4b1a-b341-8883ad49d5dc&transAbTest=ae803_2&priceBeautifyAB=0) [3x13=39€]
-+ 1x [**Turbine flow sensor**, 1.5" DN40 2~200L/min water Plastic Hall ](https://www.aliexpress.com/item/1-5-DN40-2-200L-min-water-Plastic-Hall-Turbine-flow-sensor-industry-meter/32445746581.html?spm=a2g0s.9042311.0.0.lPAUbg) [13€]
++ 3x [**Analog Pressure Transducer Transmitter Sensor**, 0-5psi 0.5-5V](https://www.aliexpress.com/item/1Pc-Pressure-Transducer-Sender-Stainless-Steel-for-Oil-Fuel-Air-Water-5psi-CSL2017/32814346612.html?spm=2114.search0104.3.34.61855791WWOsT5&ws_ab_test=searchweb0_0,searchweb201602_1_10152_10151_10065_10344_10068_10342_10343_5722611_10340_10341_10698_10696_5722911_5722811_10084_5722711_10083_10618_10304_10307_10301_5711211_10059_308_100031_10103_10624_10623_10622_10621_10620_5711311_5722511,searchweb201603_32,ppcSwitch_5&algo_expid=a59a0ef4-feff-4b1a-b341-8883ad49d5dc-5&algo_pvid=a59a0ef4-feff-4b1a-b341-8883ad49d5dc&transAbTest=ae803_2&priceBeautifyAB=0) [3x13=39€]
++ 1x [**Digital turbine flow sensor**, 1.5" DN40 2~200L/min water Plastic Hall](https://www.aliexpress.com/item/1-5-DN40-2-200L-min-water-Plastic-Hall-Turbine-flow-sensor-industry-meter/32445746581.html?spm=a2g0s.9042311.0.0.lPAUbg) [13€]
 + 1x [**Analog Turbidity Sensor**, 5V 40mA](https://www.aliexpress.com/item/DFRobot-Gravity-Analog-Digital-Turbidity-Sensor-5V-40mA-DC-support-both-signal-output-compatible-with-arduino/32595773560.html?spm=a2g0s.9042311.0.0.dGtxdp) [9€]
 + 1x [Waterproof DS18B20 digital temperature sensor (probe)](https://www.aliexpress.com/snapshot/0.html?spm=a2g0s.9042311.0.0.oXghXt&orderId=505161631680030&productId=32675444739) [<1€]
 + 1x [BME280 Digital Sensor, Humidity Temperature and Barometric Pressure Sensor](https://www.aliexpress.com/item/3In1-BME280-GY-BME280-Digital-Sensor-SPI-I2C-Humidity-Temperature-and-Barometric-Pressure-Sensor-Module-1/32659765502.html?spm=a2g0s.9042311.0.0.oXghXt) [3€]
 
-Majority of the sensors are connected to the Acquisition system box via the mini aviator plugs. An exception is the 
+Almost all of the sensors are connected to the Acquisition system box via the mini aviator plugs. An exception is the 
 *BME280* chip, which is soldered directly into the PCB.
 
 #### Other components that may be useful
@@ -206,7 +206,7 @@ Majority of the sensors are connected to the Acquisition system box via the mini
 + DuPont jumper wires
 + Micro SD adapter
 
-### Additional tools required for the assemblage of the PCB and acquisition system
+### Additional tools required for the assemblage of the PCB and AS
 + Cable wire Stripper/Crimping Plier
 + Soldering iron + sold
 + Tools to make the openings in the aluminum box (*e.g.* a mini Drill DIY set should be enough) 
@@ -214,17 +214,17 @@ Majority of the sensors are connected to the Acquisition system box via the mini
 
 ## Usage of the Graphical User Interface (GUI)
  
-Here are presented the GUI pages displayed in the touchscreen monitor (Nextion device).
+The GUI pages displayed in the touchscreen (*Nextion device*) are shown next.
  
  **Disconnected indication**
 
 ![page0](Nextion/320x240/page0-shutdown.png)
 
- **Credits and local IP address of the *Raspberry Pi***
+ **Credits (showing the IP address of the *server***
 
 ![page1](Nextion/GUI/page1.PNG)
  
- **Main menu*
+ **Main menu**
  
 ![page2](Nextion/320x240/page2-menu0.png)
  
@@ -250,12 +250,12 @@ Here are presented the GUI pages displayed in the touchscreen monitor (Nextion d
 
 ## Data collection
 The *Raspberry Pi*, together with the *acquisition system box*, handles the sensors and gets the data from them. 
-The data is collected once the red button in the *touchscreen GUI* (in *Sensors* page) is pressed. 
+The data is collected once the green start button in the *touchscreen GUI* (in *Main menu* page) is pressed. 
 The location where data will be collected depends on the user *settings*, 
 on whether an internet connection is available and a USB drive is plugged in.
 
 ### No internet connection
-Data is only stored locally. The data has two possible ways to go:
+Data is only stored locally and has two possible ways to go:
   
 1. **No** USB drive is plugged in
    
@@ -286,19 +286,18 @@ in the same filename (not recommended!).
 
 ### Internet connection available
 
-Data collection method also works as stated when there is no internet connection.
-That is, if a USB drive is plugged in, data goes to USB, otherwise, data goes to the Micro SD card.
+Data collection is also done locally. That is, if a USB drive is plugged in, data goes to USB, otherwise, data goes to the Micro SD card.
 
 However, **in addition**, it is possible to send data to [Google Sheets](https://www.google.com/sheets/about/), if a valid 
-*service_creds.JSON* file is provided (see instructions in *Software>Installation* section).
-With this functionality, you can do a **Live monitoring** of the data being placed in the internet. 
+*service_creds.JSON* file is provided (see instructions in *Software Installation > server* section).
+This functionality allows a **Live monitoring** of the data being placed in the sheets. 
 
 **To enable 'Google sheets'**
 -  Select the appropriate option:
    + In the *touchscreen GUI* > *Settings* page > activate the (only) checkbox. 
    + In *inputs.ini* file > ensure that *google_sheets = yes*.
    
-- Provide a name for the *Spreadsheet* and a name for the *Worksheet*:
+- Provide name for the *Spreadsheet* and for the *Worksheet*:
    + In the *touchscreen GUI* > *Settings* page > Give a name to the  spreadsheet (the worksheet name will be the tittle of 
    the CSV filename).
    + In *inputs.ini* file > spreadsheet name is defined by parameter *googlesh* and worksheet name by *filename*.
