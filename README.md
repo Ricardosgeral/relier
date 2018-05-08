@@ -290,7 +290,7 @@ Data collection is also done locally. That is, if a USB drive is plugged in, dat
 
 However, **in addition**, it is possible to send data to [Google Sheets](https://www.google.com/sheets/about/), if a valid 
 *service_creds.JSON* file is provided (see instructions in *Software Installation > server* section).
-This functionality allows a **Live monitoring** of the data being placed in the sheets. 
+This functionality allows **Live monitoring** of the data being placed in the sheets. 
 
 **To enable 'Google sheets'**
 -  Select the appropriate option:
