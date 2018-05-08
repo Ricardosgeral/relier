@@ -338,11 +338,15 @@ Of course you need to know how to use the Nextion commands . For that, see [inst
 
 - Use the library [*CSV*](https://docs.python.org/3.6/library/csv.html) to write the data (as dictionary variable) in rows.
 
-- Use of the library [*configparser*](https://docs.python.org/3/library/configparser.html) to have a *.ini* file with the inputs.
+- Use of the library [*configparser*](https://docs.python.org/3/library/configparser.html) to have a *.ini* file with the inputs. 
+The file [*inputs.ini*](https://github.com/Ricardosgeral/LerAS/blob/master/inputs.ini) is updated, with the options chosen by the user in the touchscreen, once the server begins to record data. 
 
-- Automatic detection when USB drives are plugged in (mounted) or removed (unmounted).
+- Automatic detection when USB drives are plugged-in (mounted) or removed (unmounted).
 
-- Use one single physical momentary pushbutton to reboot/shutdown the server.  
+- Use a single physical momentary pushbutton to reboot/shutdown the server. 
+ + *Reboot*: hold the button more than 3 seconds but less than 7 seconds.
+ + *Shutdown*: hold the button more than 7 seconds. Note, that the Raspberry Pi is still powered. 
+ To stop power supply you need to unplug the micro USB cable. To restart the server after a shutdown, just power it on again.
 
 ## Troubleshooting
 
