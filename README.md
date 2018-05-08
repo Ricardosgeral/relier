@@ -1,6 +1,5 @@
-# *Ler Acquisition System (LerAS)*
+# *LerAS - Ler Acquisition System*
 ##### Laboratory ERosion test Acquisition System 
-Open design of a sensors acquisition system for erosion test apparatuses. 
 
 This work has been done by [*Ricardo Correia dos Santos*](https://www.linkedin.com/in/ricardons/) at 
 [Laboratório Nacional de Engenharia Civil - *LNEC*](http://www.lnec.pt/en/), in Lisbon, Portugal.
