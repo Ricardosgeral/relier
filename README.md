@@ -275,16 +275,16 @@ Data is only stored locally and has two possible ways to go:
    + the *inputs.ini* file, modifying the parameter *filename*.
 
 - Before removing a USB drive or the Micro SD card it is **strongly** recommended to gently shutdown the *Raspberry Pi* 
-and unplug the power supply.
-This will prevent corrupting the Micro SD card and the USB drive, and increase their life span. 
+and then unplug the power supply.
+This will prevent corruption of the Micro SD card and of the USB drive, and increase their life span. 
 To silently disconnect the server you can either:
-   + press the *red pushbutton* in the back of the *acquisition system box* for more than *7 seconds*, or 
+   + hold the *red pushbutton* in the back of the *acquisition system box* for more than *7 seconds*, or 
    + *$ sudo halt* in a *SSH* terminal session. If the button is holden between 3 and 7 seconds, 
    the *Raspberry Pi* will reboot.
 - If more than one USB drive is plugged in (not recommended!), data will be saved in the *first drive* being found.
 - Data in the *CSV* files is never deleted automatically. If the filename already exists in the USB drive or 
 Micro SD card, data is placed bellow the last row present. This means that multiple tests may be collected 
-in the same filename (not recommended!).
+in the same filename (not recommended!). It is preferable to save each test in an individual file.
 
 
 ### Internet connection available
@@ -293,45 +293,46 @@ Data collection is also done locally. That is, if a USB drive is plugged in, dat
 
 However, **in addition**, it is possible to send data to [Google Sheets](https://www.google.com/sheets/about/), if a valid 
 *service_creds.JSON* file is provided (see instructions in *Software Installation > server* section).
-This functionality allows **Live monitoring** of the data being placed in the sheets. 
+This functionality allows **Live monitoring** of the data being placed in the Google sheets. 
 
 **To enable 'Google sheets'**
 -  Select the appropriate option:
-   + In the *touchscreen GUI* > *Settings* page > activate the (only) checkbox. 
+   + In the *touchscreen GUI* > *Settings* > activate the (only) checkbox. 
    + In *inputs.ini* file > ensure that *google_sheets = yes*.
    
-- Provide name for the *Spreadsheet* and for the *Worksheet*:
-   + In the *touchscreen GUI* > *Settings* page > Give a name to the  spreadsheet (the worksheet name will be the tittle of 
-   the CSV filename).
-   + In *inputs.ini* file > spreadsheet name is defined by parameter *googlesh* and worksheet name by *filename*.
+- Provide names for the *Spreadsheet* and for the *Worksheet*:
+   + In the *touchscreen GUI* > *Settings*  > *Spreadsheet* (the *Worksheet* name = *CSV filename*).
+   + In *inputs.ini* file > Spreadsheet name = *googlesh*, and Worksheet name = *filename*.
 
-- Provide a valid email, since a link to access the spreadsheet will be shared via email at the start of each test
-   + In the *touchscreen GUI* > *Settings* page > Add email
+- Provide a valid email, since a link to access the spreadsheet will be shared via email at the start of each test.
+   + In the *touchscreen GUI* > *Settings* > Add email
    + In *inputs.ini* file > use parameter *share_email*
 
 **Additional notes:**
 
-- If the spreadsheet/worksheet provided by the user already exists, the data that was in that worksheet will be deleted (**Attention!**). 
-However, when a new worksheet name is provided in an already existing spreadsheet, a new sheet is added. 
-This means that you can have a single spreadsheet with different tests organized in different worksheets.
+- If the *Spreadsheet/Worksheet* provided by the user already exists, the data that was in that worksheet will be deleted (**Attention!**). 
+However, when a new Worksheet name is provided in an already existing Spreadsheet, a new sheet is added. 
+This means that you can have a single Spreadsheet with different tests organized in different Worksheets (preferable).
 - If internet connection is lost during a test, the software will raise an error and stop recording data! (**be aware!**).
 
 ## Troubleshooting
 
-- The following warning is expected: 'grep: /dev/fd/63: No such file or directory' at the end of 
-$ *sudo ./raspbian-post-install.sh*.
+- The following warning is expected: *'grep: /dev/fd/63: No such file or directory'* at the end of 
+$ *sudo ./raspbian-post-install.sh*. Ignore it.
 - Don't forget to obtain and replace the content of the file **service_creds.json**, as indicated above, 
-or the program will not start!
+or the program may not start!
 - The inspection of the **cronlog** file ($ *sudo nano /home/pi/LerAS/logs/cronlog*) may be helpful for detecting 
 any eventual bugs during the software installation process.
 - To check if the *Analog-to-Digital Converter* (ADC - ADS1115 chip) is properly connected via I2C, you can do 
 **$ sudo i2cdetect -y 1**. 
  You should see number **48** in the matrix (row 40, column 8). 
  Otherwise, something is not connected correctly, or I2C protocol has not been enabled 
- (the bash file *raspbian-post-install.sh* run in installation is supposed to do that).
-- If you want to check if the services units running on reboot/shutdown are active do:
+ (the bash file *raspbian-post-install.sh* should have done that).
+- If you want to check if the Linux service units running on reboot/shutdown are active do:
   + $ *sudo systemctl status rcshut*
   + $ *sudo systemctl status shutdown_button*
 
 ## Licence
+Copyright (c) 2018 Ricardo Correia dos Santos
+
 By using this acquisition system (Software and/or Hardware) you agree with the [licence conditions](LICENSE).
