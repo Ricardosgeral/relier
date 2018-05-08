@@ -83,11 +83,11 @@ Then, in the terminal, run the following sequential commands:
 Next, you need to create your *json* file with the google signed credentials.
 First, you need to create a developer account following steps 1-4 from these [instructions](https://pygsheets.readthedocs.io/en/latest/authorizing.html#), 
 then, you can get your *Signed Credential*, following steps 5-6 from these [instructions](https://pygsheets.readthedocs.io/en/latest/authorizing.html#signed-credentials). 
-Once you generated the credentials, copy then, do:
+*Copy* your signed credentials, then, do:
 
     $ sudo nano /home/pi/LerAS/service_creds.json
     
-and past the credentials generated.
+and *Past* the signed credentials generated.
 
 Ctrl+X, yes and Enter to save file.
 
@@ -99,7 +99,7 @@ However, you still need to update the  **touchscreen** software, and set the **h
 
 ### *Touchscreen* software ([Nextion device](https://nextion.itead.cc/))
 
-The touchscreen used is an *HMI (Human Machine Interface)*. Note that it does not work like typical TFT or HDMI monitors. 
+The touchscreen used is an *HMI - Human Machine Interface*. Note that it does not work like typical TFT or HDMI monitors. 
 A code needs to be developed and uploaded to the device using a Micro SD card. 
 The connection between *Nextion* and the *Raspberry Pi* is made via *Serial UART* (RX, TX channels).
 The GUI interface of the project was developed in the 
