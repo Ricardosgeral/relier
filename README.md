@@ -87,9 +87,7 @@ then, you can get your *Signed Credential*, following steps 5-6 from these [inst
 
     $ sudo nano /home/pi/LerAS/service_creds.json
     
-and *Past* the signed credentials generated.
-
-Ctrl+X, yes and Enter to save file.
+and *Past* the signed credentials generated. Ctrl+X, yes and Enter to save file.
 
     $ sudo reboot
 
