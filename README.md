@@ -317,27 +317,33 @@ This means that you can have a single Spreadsheet with different tests organized
 
 ## Achievements that can help the reuse of the code:
 
-- *Use of Threading ('multi-tasking'), together with Event objects, in Python 3*. Threads are used in three cases: 
+- *Use of threading (['thread-based parallelism'](https://docs.python.org/3/library/threading.html)), together with [Event objects](https://docs.python.org/3/library/threading.html#event-objects), in Python 3*. Threads are used in three cases: 
    + Threads are useful for analog reads, to provide "stability". These allow to perform a mean over a certain period of time 
-   with a shorter delay between samples. This should improve reliability. Thus, the collection of data from the ADC (ADS1115) is done using a Thread as a Class object.   
+   with a shorter delay between samples. This should improve reliability. Thus, the collection of data from the ADC (ADS1115) is done using a [Thread Class object](https://docs.python.org/3/library/threading.html#thread-objects).   
 
    + Since temperature sensors take a considerable time between reads (about 1 second), the readings of those sensors is done in multi-tasking. 
    This ensures that the interval between readings is the one indicated by the user. Treads are here also used as *Class objects*.
 
    + Detection of serial connection between the server and the Nextion touchscreen. The server needs to check if the 
-   touchscreen is pressed, independently of being at the same time doing other tasks. To achieve this it is used Threading alongside with Events from the Thread module. 
+   touchscreen is pressed, independently of being at the same time doing other tasks. To achieve this it is used Thread alongside with Events from the threading module. 
    This achievement took me a while to master, and I believe it may be useful to others.
 
 - *Serial connection with the *Nextion Device* in python 3*. Unfortunately, there was not a python library to use Nextion.
-There is a library developed for Arduino, but i did not want to add *C* code here. So, I've developed my own NEXTION Library for Python 3.
+There is a library developed for Arduino, but I did not want to add *C* code here. So, I've developed my own NEXTION Library for Python 3, which took me a while to do!
 This Nextion Library for Python 3 is relatively simple to use. You just need to look at the [py3nextion_lib.py](https://github.com/Ricardosgeral/LerAS/blob/master/py3nextion_lib.py),
 and use it alongside with another .py file with all the components used in the Nextion Editor (see [NextionApp](https://github.com/Ricardosgeral/LerAS/blob/master/NextionApp.py)). 
 Of course you need to know how to use the Nextion commands . For that, see [instructions set](https://nextion.itead.cc/resources/documents/instruction-set/).
 
-- Use of the library *pygsheets* alongside with library *pandas* to collect data from multiple sensors and write them in google sheets.  
-- Use the library *CSV* to write the data (as dictionary variable) in rows.
-- Use of the library *configparser* to have a *.ini* file with the inputs.
- 
+- Use of the library [*pygsheets*](https://github.com/nithinmurali/pygsheets), alongside with library [*pandas*](https://pandas.pydata.org/index.html) to collect data from multiple sensors and write them in google sheets.  
+
+- Use the library [*CSV*](https://docs.python.org/3.6/library/csv.html) to write the data (as dictionary variable) in rows.
+
+- Use of the library [*configparser*](https://docs.python.org/3/library/configparser.html) to have a *.ini* file with the inputs.
+
+- Automatic detection when USB drives are plugged in (mounted) or removed (unmounted).
+
+- Use one single physical momentary pushbutton to reboot/shutdown the server.  
+
 ## Troubleshooting
 
 - The following warning is expected: *'grep: /dev/fd/63: No such file or directory'* at the end of 
