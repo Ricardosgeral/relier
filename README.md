@@ -315,6 +315,21 @@ However, when a new Worksheet name is provided in an already existing Spreadshee
 This means that you can have a single Spreadsheet with different tests organized in different Worksheets (preferable).
 - If internet connection is lost during a test, the software will raise an error and stop recording data! (**be aware!**).
 
+## Achievements that can help the reuse of the code:
+
+- *Use of Threading ('multi tasking'), together with Event objects, in Python 3*. Threads are used as an class object for two reasons: 
+   + Since temperature sensors take a considerable time between reads, the readings of those sensors is done in parallel processing. 
+   This ensures that the interval between readings is that indicated by the user.
+   + Detection of serial connection between the server and the touch screen. The server needs to check if the 
+   touchscreen is pressed, independently of being at the same time doing other tasks.
+- *Serial connection with the *Nextion Device* in python 3*. Unfortunately, there was not a python library to use Nextion.
+There is a library developed for Arduino, but i did not want to add *C* code here. So, I've developed my own NEXTION Library for Python 3.
+This Nextion Library for Python 3 is relatively simple to use. You just need to look at the [py3nextion_lib.py](https://github.com/Ricardosgeral/LerAS/blob/master/py3nextion_lib.py)
+and use it alongside with another .py file with all the components used in the Nextion Editor (see [NextionApp](https://github.com/Ricardosgeral/LerAS/blob/master/NextionApp.py)). 
+Of course you need to know how to use the commands available in Nextion. For that, see [instructions set](https://nextion.itead.cc/resources/documents/instruction-set/)
+
+
+
 ## Troubleshooting
 
 - The following warning is expected: *'grep: /dev/fd/63: No such file or directory'* at the end of 
