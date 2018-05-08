@@ -315,7 +315,7 @@ However, when a new Worksheet name is provided in an already existing Spreadshee
 This means that you can have a single Spreadsheet with different tests organized in different Worksheets (preferable).
 - If internet connection is lost during a test, the software will raise an error and stop recording data! (**be aware!**).
 
-## Achievements that can help Python code reuse:
+## Achievements that can help Python code reuse
 
 - *Use of threading (['thread-based parallelism'](https://docs.python.org/3/library/threading.html)), together with [Event objects](https://docs.python.org/3/library/threading.html#event-objects), in Python 3*. Threads are used in three cases: 
    + Threads are useful for analog reads, to provide "stability". These allow to perform a mean over a certain period of time 
