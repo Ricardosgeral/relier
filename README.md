@@ -1,5 +1,5 @@
 # *LerAS - Ler Acquisition System*
-### Laboratory ERosion test Acquisition System 
+###### **L**aboratory **ER**osion test Acquisition System 
 
 This work has been done by [*Ricardo Correia dos Santos*](https://www.linkedin.com/in/ricardons/) at 
 [Laboratório Nacional de Engenharia Civil - *LNEC*](http://www.lnec.pt/en/), in Lisbon, Portugal.
