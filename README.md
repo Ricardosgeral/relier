@@ -320,10 +320,13 @@ This means that you can have a single Spreadsheet with different tests organized
 - *Use of Threading ('multi-tasking'), together with Event objects, in Python 3*. Threads are used in three cases: 
    + Threads are useful for analog reads, to provide "stability". These allow to perform a mean over a certain period of time 
    with a shorter delay between samples. This should improve reliability. Thus, the collection of data from the ADC (ADS1115) is done using a Thread as a Class object.   
+
    + Since temperature sensors take a considerable time between reads (about 1 second), the readings of those sensors is done in multi-tasking. 
    This ensures that the interval between readings is the one indicated by the user. Treads are here also used as *Class objects*
+
    + Detection of serial connection between the server and the touch screen. The server needs to check if the 
    touchscreen is pressed, independently of being at the same time doing other tasks. Also, I've used Events from Threading package. This may be useful to others.
+
 - *Serial connection with the *Nextion Device* in python 3*. Unfortunately, there was not a python library to use Nextion.
 There is a library developed for Arduino, but i did not want to add *C* code here. So, I've developed my own NEXTION Library for Python 3.
 This Nextion Library for Python 3 is relatively simple to use. You just need to look at the [py3nextion_lib.py](https://github.com/Ricardosgeral/LerAS/blob/master/py3nextion_lib.py),
