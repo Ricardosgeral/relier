@@ -325,12 +325,18 @@ This means that you can have a single Spreadsheet with different tests organized
    + Detection of serial connection between the server and the Nextion touchscreen. The server needs to check if the 
    touchscreen is pressed, independently of being at the same time doing other tasks. To achieve this it is used Thread alongside with Events from the threading module. 
    This achievement took me a while to master, and I believe it may be useful to others.
-- *Serial connection with the *Nextion Device* in python 3*. Unfortunately, there was not a python library to use Nextion.
-There is a library developed for Arduino, but I did not want to add *C* code here. So, I've developed my own NEXTION Library for Python 3, which took me a while to do!
-This Nextion Library for Python 3 is relatively simple to use. You just need to look at the [py3nextion_lib.py](https://github.com/Ricardosgeral/LerAS/blob/master/py3nextion_lib.py),
-and use it alongside with another .py file with all the components used in the Nextion Editor (see [NextionApp](https://github.com/Ricardosgeral/LerAS/blob/master/NextionApp.py)). 
-Of course you need to know how to use the Nextion commands . For that, see [instructions set](https://nextion.itead.cc/resources/documents/instruction-set/).
-- Use of the library [*pygsheets*](https://github.com/nithinmurali/pygsheets), alongside with library [*pandas*](https://pandas.pydata.org/index.html) to collect data from multiple sensors and write them in google sheets.  
+- *Serial communication with the *Nextion Device* in python 3* (TX-RX UART protocol). Unfortunately, there was not 
+(at least until this day) a Python library to use Nextion.
+There is a library developed for Arduino, but I did not want to add *C* code here. 
+So, I've developed my own NEXTION Library for Python 3, which took me a while to do!
+This Nextion Library for Python 3 is relatively simple to use. 
+You just need to look at the [py3nextion_lib.py](https://github.com/Ricardosgeral/LerAS/blob/master/py3nextion_lib.py),
+and use it alongside with another .py file with all the components used in the Nextion Editor 
+(see [NextionApp](https://github.com/Ricardosgeral/LerAS/blob/master/NextionApp.py)). 
+Of course you need to know how to use the Nextion commands. 
+For that, see [instructions set](https://nextion.itead.cc/resources/documents/instruction-set/).
+- Use of the library [*pygsheets*](https://github.com/nithinmurali/pygsheets), alongside with 
+library [*pandas*](https://pandas.pydata.org/index.html) to collect data from multiple sensors and write them in google sheets.  
 - Use the library [*CSV*](https://docs.python.org/3.6/library/csv.html) to write the data (as dictionary variable) in rows.
 - Use of the library [*configparser*](https://docs.python.org/3/library/configparser.html) to have a *.ini* file 
 with the inputs.  The file [*inputs.ini*](https://github.com/Ricardosgeral/LerAS/blob/master/inputs.ini) is updated, 
@@ -341,7 +347,7 @@ Note that the parameters in the file will not appear always in the same order!
    + *Reboot*: hold the button more than 3 seconds but less than 7 seconds.
    + *Shutdown*: hold the button more than 7 seconds. Note, that the Raspberry Pi is still powered. 
  To stop power supply you need to unplug the micro USB cable. To restart the server after a shutdown, just power it on again.
-- Detection of the local IP of the server (if connected to the internet).
+- Detection of the local *IP address* of the server (if connected to the internet).
 
 ## Troubleshooting
 
