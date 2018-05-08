@@ -253,7 +253,7 @@ The GUI pages displayed in the touchscreen (*Nextion device*) are shown next.
 
 ## Data collection
 The *Raspberry Pi*, together with the *acquisition system box*, handles the sensors and gets the data from them. 
-The data is collected once the green start button in the *touchscreen GUI* (in *Main menu* page) is pressed. 
+The data is collected once the green start button in page *Main menu*  (in *touchscreen GUI*) is pressed. 
 The location where data will be collected is defined  by the user, and depends
 on whether or not an internet connection is available, and whether or not a USB drive is plugged in.
 
@@ -271,16 +271,16 @@ Data is only stored locally and has two possible ways to go:
 **Additional notes:**
 
 - The name of the *CSV* file is defined by the user, either using:
-   + the *touchscreen GUI* in *Settings page*, or  
+   + the *touchscreen GUI*, in *Settings page*, or  
    + the *inputs.ini* file, modifying the parameter *filename*.
 
 - Before removing a USB drive or the Micro SD card it is **strongly** recommended to gently shutdown the *Raspberry Pi* 
 and then unplug the power supply.
 This will prevent corruption of the Micro SD card and of the USB drive, and increase their life span. 
 To silently disconnect the server you can either:
-   + hold the *red pushbutton* in the back of the *acquisition system box* for more than *7 seconds*, or 
-   + *$ sudo halt* in a *SSH* terminal session. If the button is holden between 3 and 7 seconds, 
-   the *Raspberry Pi* will reboot.
+   + hold the *red pushbutton* in the back of the *acquisition system box* for more than *7 seconds* (if holden between 3 and 7 seconds, 
+   the *Raspberry Pi* will reboot), or 
+   + *$ sudo halt* in a *SSH* terminal session. .
 - If more than one USB drive is plugged in (not recommended!), data will be saved in the *first drive* being found.
 - Data in the *CSV* files is never deleted automatically. If the filename already exists in the USB drive or 
 Micro SD card, data is placed bellow the last row present. This means that multiple tests may be collected 
