@@ -217,7 +217,7 @@ Almost all of the sensors are connected to the acquisition system box via the mi
  
 The *GUI* pages displayed in the touchscreen (*Nextion device*), and the way the should be use, are shown next.
  
-### *0 - Disconnected indication*
+### *0 - Disconnected*
 ![page0](Nextion/320x240/page0-shutdown.png)
 
 After a start up or reboot of the *Raspberry Pi*, you should see this **Disconnected** black page. 
