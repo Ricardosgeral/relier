@@ -225,29 +225,29 @@ The GUI pages displayed in the touchscreen (*Nextion device*) are shown next.
 After a start up or reboot of the *Raspberry Pi*, you should see this **Disconnected** black page. 
 Waiting a while (the normal is 15 to 45 seconds), you should see the *Credits* page of *LerAs*. 
 
-### **Credits (showing the IP address of the *server*)**
+### *1 - Credits*
 ![page1](Nextion/GUI/page1.PNG)
  
 When this page appears, first, you will see a *red* bar on the top of the screen. Wait (less than 5 seconds).
 That bar should stay *green*. That means that all is working Ok. You can now start the process and go the *Main menu* page.
  
  
-### **Main menu**
+### *2 - Main menu*
 ![page2](Nextion/320x240/page2-menu0.png)
  
-### **General settings**
+### *3 - General settings*
 ![page3](Nextion/GUI/page3.PNG)
 
-### **Test Type selection**
+### *4 - Test Type selection**
 ![page4](Nextion/GUI/page4.PNG)
 
-### **Analog sensors configuration**
+### *5 - Analog sensors configuration*
 ![page5](Nextion/GUI/page5.PNG)
 
-### **Record sensors readings**
+### *6 - Record sensors readings*
 ![page6](Nextion/GUI/page6.PNG)
 
-### **Stop recording sensor readings**
+### *7 - Stop recording sensor readings*
 ![page7](Nextion/320x240/page7-stop0.png)
 
 ## Data collection
