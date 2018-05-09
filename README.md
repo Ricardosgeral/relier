@@ -301,8 +301,16 @@ which is done individually for the three pressure sensors.
 Please note that, for the future tests, it will be necessary to set again the pressures to zero (if desired). 
 That is, the zero shift (*z*) is not remembered by the acquisition system. 
 
+When you consider that the analog sensors are conveniently calibrated, you can press the *back blue button* (top-right), 
+which will send you to the **Main menu** page.
+
+If you want to leave the **Sensor** page, you can also push the *Home* button, which will send you to the **Credits** page.  
+
 ### *6 - Record sensors readings*
 ![page6](Nextion/GUI/page6.PNG)
+
+
+
 
 ### *7 - Stop recording sensor readings*
 ![page7](Nextion/320x240/page7-stop0.png)
