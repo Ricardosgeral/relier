@@ -303,8 +303,8 @@ Here is an example of the ini file, which is divided in 4 sections, with the des
 
 **Additional notes:**
 
-- If the user changes the parameters in the interactive way, [*inputs.ini*](https://github.com/Ricardosgeral/LerAS/blob/master/inputs.ini) will updated, 
-will be updated with those selections, once the server begins to record data (green start button is pressed).
+- If the user changes the parameters in the interactive way, [*inputs.ini*](https://github.com/Ricardosgeral/LerAS/blob/master/inputs.ini), 
+will be updated to comply with those selections, once the server begins to record data (green start button is pressed).
 - Note that the parameters in the file will not appear always in the same order! 
 However, they always appear in there respective sections. 
 That is, for example, the parameter *interval* will always appear in section [settings].
