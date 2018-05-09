@@ -295,8 +295,8 @@ Now the piezometric pressures should be nearly null. The next figure exemplifies
 
 ![zeroing](https://github.com/Ricardosgeral/LerAS/blob/master/Nextion/GUI/Zeroing_explain.png)
 
-Please note that, in a posterior test, it will be necessary to set the pressures to zero again. 
-That is, the zero shift is not remembered by the acquisition system.  
+Please note that, in the following tests, it will be necessary to set the pressures to zero again. 
+That is, the zero shift (z) is not remembered by the acquisition system.  
 
 
 
