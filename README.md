@@ -304,10 +304,12 @@ Here is an example of the ini file, which is divided in 4 sections, with the des
 **Additional notes:**
 
 - If the user changes the parameters in the interactive way, [*inputs.ini*](https://github.com/Ricardosgeral/LerAS/blob/master/inputs.ini) 
-will be updated to comply with those selections, once the server begins to record data (green start button is pressed).
-- Note that the parameters in the file will not appear always in the same order! 
-However, they always appear in there respective sections. 
+will be updated, once the server begins to record data (green start button is pressed). 
+So, those selections are kept and may be reused in the next test.
+- Note that the parameters in the *ini* file will not appear always in the same order! 
+However, they will always appear in there respective sections. 
 That is, for example, the parameter *interval* will always appear in section [settings].
+
 
 ## Data collection
 The *Raspberry Pi*, together with the *acquisition system box*, handles the sensors and gets the data from them. 
