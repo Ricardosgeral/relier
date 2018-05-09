@@ -315,9 +315,11 @@ interactively in the touchscreen. For that, open a terminal and run the command:
  
 then, change the parameters as intended.
 
-Here is an example of the *inputs.ini* file, which is divided in 4 sections, 
-with a description of the parameters meaning:
+The structure of the ini comprises 4 sections. Next is an example of an *inputs.ini* file,  
+with a description of the parameters meaning.
 
+    # example of inputs.ini
+    
     [settings]
     filename      = soilX_n01          # <Name of the CSV file> and (if google_sheets = yes) <Name of the Worksheet of Google Spreadsheet>
     google_sheets = yes                # <yes (y, yep, Yes, YES) or no (n, nop, No, NO)>  
