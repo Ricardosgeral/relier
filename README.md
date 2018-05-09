@@ -343,6 +343,7 @@ with the inputs.  The file [*inputs.ini*](https://github.com/Ricardosgeral/LerAS
 with the options chosen by the user in the touchscreen, once the server begins to record data. 
 Note that the parameters in the file will not appear always in the same order!
 - Automatic detection when USB drives are plugged-in (mounted) or removed (unmounted).
+ This also implies writing two rules in file *99-local.rules*.
 - Use a single physical momentary pushbutton to reboot/shutdown the server 
 (using a [*systemd service*](https://wiki.debian.org/systemd)): 
    + *Reboot*: hold the button more than 3 seconds but less than 7 seconds.
@@ -351,6 +352,9 @@ Note that the parameters in the file will not appear always in the same order!
 - Detection of the local *IP address* of the server (if connected to the internet).
 - Start a python script right after power-on or reboot of the server (*Raspberry Pi*), 
 using [*crontab*](https://debian-administration.org/article/56/Command_scheduling_with_cron).
+- Enable IC2 and 1-wire GPIO in file */boot/config.txt*.
+- Enable pins 14(TX) and 15(RX) to use UART serial connection (where Nextion device is connected).  
+
 
 ## Troubleshooting
 
@@ -368,6 +372,13 @@ any eventual bugs during the software installation process.
 - If you want to check if the Linux service units running on reboot/shutdown are active do:
   + $ *sudo systemctl status rcshut*.
   + $ *sudo systemctl status shutdown_button.
+- If the NEXTION touchscreen is not functioning properly or not working at all:
+  + first, see the connections, in particular check that: RX (server) <-> TX(screen), and TX(server) <-> RX(screen); 
+  + second, ensure that *serial* is disconnected: $ *sudo raspi-config* > 5 > P6 Serial > * No*;
+  + third, $ doing *ls -l /dev |grep serial* you should see *serial 0 -> ttyAMA0* (pins 14/15 in UART) and 
+  *serial 1 -> ttyS0* (bluetooth in miniuart). By default UART is attributed to Bluetooth and miniuart to pins 14/15 (which has limitations). 
+  That's why they are changed during the execution of 
+  [*raspbian-post-install.sh*](https://github.com/Ricardosgeral/LerAS/blob/master/bash/raspbian-post-install.sh).
 
 ## Licence
 Copyright (c) 2018 Ricardo Correia dos Santos
