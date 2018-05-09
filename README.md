@@ -331,7 +331,7 @@ Actually, it will not record forever. *'Forever'* should be understood as 2 mont
 
 Here you confirm that you pressed the stop button, just in case! Pressing the:
 
-- *Green button* -> stops recording data and directs to *Credits* page. 
+- *Green button* -> stops recording data and directs to **Credits** page. 
 - *Red button*   -> go back to **Sensors readings record** page, and readings never stopped being registered.
 
 
