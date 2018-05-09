@@ -239,7 +239,7 @@ Touch anywhere to go the **Main menu** page.
 You have three main options:
  1. **Settings** - to set the general *inputs*.
  2. **Sensors** - to set the calibration parameters of *analog sensors*.
- 3. **Start** - to initiate right away the test (record data).
+ 3. **Start** - to initiate right away the test (record data). Directs to  **Sensors readings record** page.
  
 You can skip options 1 and 2, case you decide to use the 
 [*inputs ini file*](https://github.com/Ricardosgeral/LerAS#inputs-ini-file). 
@@ -310,13 +310,23 @@ which will send you to the **Main menu** page.
 
 If you want to leave the **Sensor** page, you can also push the *Home* button, which will send you to the **Credits** page.  
 
-### *6 - Record sensors readings*
+### *6 - Sensors readings record*
 ![page6](Nextion/GUI/page6.PNG)
 
+This page appears when the *Start* green button is pressed. The various outputs should appear in the screen and update 
+at constant interval (define in the *Settings*).
 
+If "Google sheets" option has been selected, the first reading can take more than normal (due to the request to access the google API).
 
+If you want to stop the test, prior the test duration defined, 
+just press the *Red circular button*, which will redirect you to the **Stop sensor data recording** confirmation page.
 
-### *7 - Stop recording sensor readings*
+When the chosen test duration is achieved, the server stops acquiring the data.
+
+**Note:** if you want to record data 'forever', set the *Test time duration* to **0**. 
+Actually, it will not record forever. *'Forever'* should be understood as 2 months (43200 minutes!).
+
+### *7 - Stop sensor data recording*
 ![page7](Nextion/320x240/page7-stop0.png)
 
 
