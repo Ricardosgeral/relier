@@ -273,33 +273,33 @@ interactively in the touchscreen. For that, open a terminal and run
  
 then, change the parameters as intended.
 
-These are the parameters:
+Here is an example, with the description of the parameters meaning:
 
     [settings]
-    filename = <NAME OF THE CSV FILE> and, if google_sheets = yes, <NAME OF THE WORKSHEET OF GOOGLE SPREADSHEET> 
-    google_sheets = <yes or no>  
-    googlesh = <NAME OF THE GOOGLE SPREADSHEET>
-    share_email= <EMAIL> to where link is send to access the google spreedsheet
-    duration = <DURATION OF THE TEST IN MINUTES>
-    interval = <INTERVAL BETWEEN READS IN SECONDS>
-    no_reads = <NUMBER OF READINGS PER INTERVAL> to performe an average
+    filename = HET_soil_A_01        # <Name of the CSV file> and (if google_sheets = yes) <Name of the Worksheet of Google Spreadsheet>
+    google_sheets = yes             # <yes (y, yep, YES or no, nop, NO>  
+    googlesh = HETs_soil_A          # <Name of the Google Spreadsheet>
+    share_email = my_email@email.pt # <email to share access to the google spreedsheet>
+    duration = 180                  # <Duration of the test in Minutes>
+    interval = 15                   # <Interval between records in seconds>
+    no_reads = 5                    # <Number of readings per interval (analog sensors only)> In this example an average between 15/5=3 values is made.
 
     [testtype]
-    testtype = <1 to 4>  1-HET; 2-FLET; 3-CFET; 4-OTHER
-    othername = bla bla
+    testtype = 1                    # <1 to 4>  1-HET; 2-FLET; 3-CFET; 4-OTHER
+    othername = testType_name       # < Name of the test type>
 
-    [analog]
-    mu = 0.0862
+    [analog]                        # Equation of the straight lines for analog sensors
+    mu = 0.0862                     # <Upstream pressure sensor> [ pu(bar) = mu tension_u(Volts) + bu ] 
     bu = -0.0432
-    mi = 0.0898
+    mi = 0.0898                     # <Interface pressure sensor> [ pi(bar) = mi tension_i(Volts) + bi ]
     bi = -0.0596
-    md = 0.0898
+    md = 0.0898                     # <Downstream pressure sensor> [ pd(bar) = md tension_d(Volts) + bu ]
     bd = -0.0596
-    mturb = -0.0429
+    mturb = -0.0429                 # <Turbidity sensor> [ turbidity(NTU) = mturb analog_no + bturb ]
     bturb = 1413.289
 
     [other]
-    lastip = 193.136.108.75
+    lastip = 193.136.108.75         # This parameter is not editable. It's an indication of the server IP in the last test 
 
 
 
