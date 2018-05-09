@@ -392,13 +392,13 @@ The location where data will be collected is defined  by the user, and depends
 on whether or not an internet connection is available, and whether or not a USB drive is plugged in.
 
 ### No internet connection
-Data is only stored locally and has two possible ways to go:
+Data is only stored locally in the *CSV* format and has two possible ways to go:
   
 1. **No USB drive** is plugged in.
-   Data are stored *only* on the Micro SD card. The data are stored in the *CSV* format inside folder **/srv/EROSTESTS**. 
+   Data are stored *only* on the Micro SD card, inside folder **/srv/EROSTESTS**. 
 
 2. A USB is plugged in (before recording data!).
-   Data are stored *only* on **USB_root_directory** in the *CSV* format. 
+   Data are stored *only* on the **USB_root_directory**. 
 
 **Additional notes:**
 
