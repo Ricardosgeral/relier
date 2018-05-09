@@ -223,7 +223,7 @@ The GUI pages displayed in the touchscreen (*Nextion device*) are shown next.
  
 ![page0](Nextion/320x240/page0-shutdown.png)
 
-- After a start up or reboot of the *Raspberry Pi*, you should see this **Disconnected** black page. 
+After a start up or reboot of the *Raspberry Pi*, you should see this **Disconnected** black page. 
 Waiting a while (the normal is 15 to 45 seconds) you should see the *Credits* page of *LerAs*. 
 
  **Credits (showing the IP address of the *server*)**
