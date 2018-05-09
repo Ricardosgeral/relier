@@ -13,10 +13,10 @@ internal erosion in embankment dams.
 Carrying out the laboratory tests on internal erosion in soils, developed in my PhD, 
 requires to continually collect different types of measurements (water pressures, flowrate, temperature, 
 turbidity, ...).
-Most of the measurements were made by hand, at least, by two operators!! 
-This manual process is tedious and prone to human errors.
+The measurements had to be registered by hand, by two operators!! 
+Such manual process is tedious and prone to human errors.
 
-So, I've decided to invest time, and few money, developing a "low budget" acquisition system (hardware and software) that could 
+So, I've decided to invest time ()and few money), developing a "low budget" acquisition system (hardware and software) that could 
 collect data from multiple sensors. 
 *LerAS* was born this way!
 
