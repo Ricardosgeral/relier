@@ -223,14 +223,15 @@ The GUI pages displayed in the touchscreen (*Nextion device*) are shown next.
 ![page0](Nextion/320x240/page0-shutdown.png)
 
 After a start up or reboot of the *Raspberry Pi*, you should see this **Disconnected** black page. 
-Waiting a while (the normal is 15 to 45 seconds, depending on server services), you should see the **Credits** page of *LerAs*. 
+Waiting a while (the normal is 15 to 45 seconds, depending on the server services), you should see the **Credits** page. 
 
 ### *1 - Credits*
 ![page1](Nextion/GUI/page1.PNG)
  
 When this page appears, first, you will see a *red* bar on the top of the screen. Wait (less than 5 seconds).
 That bar should then stay *green*. That means that all is working Ok. You can also see the local *IP address* of the server, 
-which is useful in case you want to make a remote connection via Putty.
+which is useful in case you want to make a remote connection with *Putty*.
+
 Touch anywhere to go the **Main menu** page.
  
 ### *2 - Main menu*
@@ -244,14 +245,23 @@ You have three main options:
 You can skip options 1 and 2, case you decide to use 
 [*inputs ini file*](https://github.com/Ricardosgeral/LerAS#inputs-ini-file). 
  
- 
 ### *3 - General settings*
 ![page3](Nextion/GUI/page3.PNG)
 
+Here, you can edit the main inputs of the test to carry out.
+- *CSV filename* textbox - name of the CSV file.
+- *Google sheets* checkbox - select it, if you want to send data to google sheets.
+- *Spreadsheet* textbox - name of the google spreadsheet (the name of the workbook will be the *CSV filename*).
+- *email* textbox - email to where a link, to access the google spreadsheet, will be sent.
+- *Test time* textbox - duration of the test, in minutes.
+- *Record* textbox - interval between records, in seconds.
+- *Number* textbox - number of readings in each record interval, to make an average.
 
 
 
-### *4 - Test Type selection**
+
+
+### *4 - Test Type selection*
 ![page4](Nextion/GUI/page4.PNG)
 
 ### *5 - Analog sensors configuration*
