@@ -283,20 +283,22 @@ It is assumed that there is a linear relation (**y = mx + b**) between the analo
 
 If you modify in the touchscreen the *m* and *b* parameters of any of the sensors, you need to push the *Calibration* button.
 
-**Zero button**
+**Zero button**:
 There is a button for *'Zeroing'* the water pressures. 
 This functionality can be used to take into account the normal variations of the atmospheric pressure.
-To use it properly it is necessary to ensure that there is no pressure applied to the sensors (besides the atmospheric pressure);
+To use it properly it is necessary, first, to ensure that there is no pressure applied to the sensors (besides the ambient pressure).
 In this scenario, ideally, the sensor pressures should indicate zero *mbar*. 
-However, due to changes of barometric pressure during the day (that depends on temperature, humidity, altitude, ...), 
-the most likely is that they are not completely null. If you push the *Zero* button at this stage, 
-you will get a *wait a few settings* page. After 6 to 10 seconds, the acquisition system will restart showing the readings.
-Now the piezometric pressures should be nearly null. The next figure exemplifies the procedure.
+However, due to the daily  changes of atmospheric pressure (that depends on temperature, humidity, altitude, ...), 
+the most likely is that they are not null. 
+
+If you push the *Zero* button at this stage (*i.e.*, no external pressure applied), 
+you will get a *wait a few settings* progress bar. After some time, the acquisition system will restart showing the readings.
+Now the piezometric pressures should be nearly null. The next figure exemplifies the 'zeroing' procedure.
 
 ![zeroing](Nextion/GUI/Zeroing_explain.png)
 
-Please note that, in the following tests, it will be necessary to set the pressures to zero again. 
-That is, the zero shift (z) is not remembered by the acquisition system.  
+Please note that, in the following tests, it will be necessary to set the pressures to zero again (if desired). 
+That is, the zero shift (*z*) is not remembered by the acquisition system.  
 
 
 ### *6 - Record sensors readings*
