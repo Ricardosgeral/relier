@@ -282,7 +282,7 @@ Here is an example of the ini file, with the description of the parameters meani
     share_email = my_email@email.pt # <email to share access to the google spreedsheet>
     duration = 180                  # <Duration of the test in Minutes>
     interval = 15                   # <Interval between records in seconds>
-    no_reads = 5                    # <Number of readings per interval (analog sensors only)> In this example an average between 15/5=3 values is made.
+    no_reads = 5                    # <Number of readings per interval (analog sensors only)>: In this example an average between 15/5=3 values is made.
 
     [testtype]
     testtype = 1                    # <1 to 4>  1-HET; 2-FLET; 3-CFET; 4-OTHER
@@ -299,7 +299,7 @@ Here is an example of the ini file, with the description of the parameters meani
     bturb = 1413.289
 
     [other]
-    lastip = 193.136.108.75         # This parameter is not editable. It's an indication of the server IP in the last test 
+    lastip = 193.136.108.75         # This parameter is not editable! It's an indication of the server IP in the last test 
 
 
 
