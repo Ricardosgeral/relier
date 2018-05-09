@@ -387,7 +387,7 @@ That is, for example, the parameter *interval* will always appear in section [se
 
 ## Data collection
 The *Raspberry Pi*, together with the *acquisition system box*, handles the sensors and gets the data from them. 
-The data is collected once the green start button in page *Main menu*  (in *touchscreen GUI*) is pressed. 
+The data is collected once the green start button in page **Main menu** is pressed. 
 The location where data will be collected is defined  by the user, and depends
 on whether or not an internet connection is available, and whether or not a USB drive is plugged in.
 
@@ -395,11 +395,9 @@ on whether or not an internet connection is available, and whether or not a USB 
 Data is only stored locally and has two possible ways to go:
   
 1. **No USB drive** is plugged in
-   
    Data are stored *only* on the Micro SD card. The data are stored in the *CSV* format inside folder **/srv/EROSTESTS**. 
 
 2. A USB is plugged in (before recording data!)
-
    Data are stored *only* on **USB_root_directory** in the *CSV* format. 
 
 **Additional notes:**
