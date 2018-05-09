@@ -286,7 +286,7 @@ It is assumed that there is a linear relation (**y = mx + b**) between the analo
 If you modify  the *m* and *b* parameters of any of the sensors, you need to push the *Calibration* button, 
 in order to see the influence on the pressure and turbidity values.
 
-***Zero* pushbutton** for *'Zeroing'* the water pressures
+***Zero* pushbutton** for *'Zeroing'* the values of the pressure sensors
 
 This functionality can be used to take into account the normal variations of the atmospheric pressure.
 To use it properly it is necessary, first, to ensure that there is no pressure applied to the sensors (besides the ambient pressure).
