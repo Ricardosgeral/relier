@@ -427,15 +427,15 @@ However, **in addition**, it is possible to send data to [Google Sheets](https:/
 This functionality allows **Live monitoring** of the data being placed in the Google sheets. 
 
 **How to enable 'Google sheets':**
--  Select that option:
+1.  Select that option:
    + In the *touchscreen GUI* > *Settings* > activate the (only) checkbox, or
    + In *inputs.ini* file > ensure that *google_sheets = yes*.
    
-- Provide names for the *Spreadsheet* and for the *Worksheet*:
+2. Provide names for the *Spreadsheet* and for the *Worksheet*:
    + In the *touchscreen GUI* > *Settings*  > *Spreadsheet* (the *Worksheet* name = *CSV filename*), or
    + In *inputs.ini* file > Spreadsheet name = *googlesh*, and Worksheet name = *filename*.
 
-- Provide a valid email, since a link to access the spreadsheet will be shared via email at the start of each test.
+3. Provide a valid email, since a link to access the spreadsheet will be shared via email at the start of each test.
    + In the *touchscreen GUI* > *Settings* > Add email, or
    + In *inputs.ini* file > use parameter *share_email*.
 
