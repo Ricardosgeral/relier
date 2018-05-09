@@ -343,11 +343,14 @@ with the inputs.  The file [*inputs.ini*](https://github.com/Ricardosgeral/LerAS
 with the options chosen by the user in the touchscreen, once the server begins to record data. 
 Note that the parameters in the file will not appear always in the same order!
 - Automatic detection when USB drives are plugged-in (mounted) or removed (unmounted).
-- Use a single physical momentary pushbutton to reboot/shutdown the server: 
+- Use a single physical momentary pushbutton to reboot/shutdown the server 
+(using a [*systemd service*](https://wiki.debian.org/systemd)): 
    + *Reboot*: hold the button more than 3 seconds but less than 7 seconds.
    + *Shutdown*: hold the button more than 7 seconds. Note, that the Raspberry Pi is still powered. 
  To stop power supply you need to unplug the micro USB cable. To restart the server after a shutdown, just power it on again.
 - Detection of the local *IP address* of the server (if connected to the internet).
+- Start a python script right after power-on or reboot of the server (*Raspberry Pi*), 
+using [*crontab*](https://debian-administration.org/article/56/Command_scheduling_with_cron).
 
 ## Troubleshooting
 
