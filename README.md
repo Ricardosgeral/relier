@@ -277,7 +277,7 @@ Here is an example of the ini file, with the description of the parameters meani
 
     [settings]
     filename = HET_soil_A_01        # <Name of the CSV file> and (if google_sheets = yes) <Name of the Worksheet of Google Spreadsheet>
-    google_sheets = yes             # <yes (y, yep, YES or no, nop, NO>  
+    google_sheets = yes             # <yes (y, yep, Yes, YES) or no (n, nop, No, NO)>  
     googlesh = HETs_soil_A          # <Name of the Google Spreadsheet>
     share_email = my_email@email.pt # <email to share access to the google spreedsheet>
     duration = 180                  # <Duration of the test in Minutes>
