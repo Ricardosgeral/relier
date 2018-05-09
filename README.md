@@ -273,7 +273,7 @@ interactively in the touchscreen. For that, open a terminal and run the command:
  
 then, change the parameters as intended.
 
-Here is an example of the ini file, which is divided in 4 sections, with the description of the parameters meaning:
+Here is an example of the *inputs.ini* file, which is divided in 4 sections, with the description of the parameters meaning:
 
     [settings]
     filename = HET_soil_A_01        # <Name of the CSV file> and (if google_sheets = yes) <Name of the Worksheet of Google Spreadsheet>
