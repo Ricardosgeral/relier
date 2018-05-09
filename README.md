@@ -283,11 +283,14 @@ It is assumed that there is a linear relation (**y = mx + b**) between the analo
 
 If you modify in the touchscreen the *m* and *b* parameters of any of the sensors, you need to push the *Calibration* button.
 
-**Zero button**:
+**Zero button**
+
+
 There is a button for *'Zeroing'* the water pressures. 
 This functionality can be used to take into account the normal variations of the atmospheric pressure.
 To use it properly it is necessary, first, to ensure that there is no pressure applied to the sensors (besides the ambient pressure).
-In this scenario, ideally, the sensor pressures should indicate zero *mbar*. 
+
+In that scenario, ideally, the sensor pressures should indicate zero *mbar*. 
 However, due to the daily  changes of atmospheric pressure (that depends on temperature, humidity, altitude, ...), 
 the most likely is that they are not null. 
 
