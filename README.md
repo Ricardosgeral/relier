@@ -329,10 +329,10 @@ Actually, it will not record forever. *'Forever'* should be understood as 2 mont
 ### *7 - Stop sensor data recording*
 ![page7](Nextion/320x240/page7-stop0.png)
 
-Here you confirm that you pressed the stop button, just in case! Pressing 
-Green button - > stops recording data and directs to *Credits* page. 
-Red button -> go back to **Sensors readings record** and readings never stopped being registered.
+Here you confirm that you pressed the stop button, just in case! Pressing the:
 
+- *Green button* -> stops recording data and directs to *Credits* page. 
+- *Red button*   -> go back to **Sensors readings record** page, and readings never stopped being registered.
 
 
 ## Inputs ini file
