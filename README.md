@@ -229,13 +229,23 @@ Waiting a while (the normal is 15 to 45 seconds, depending on server services), 
 ![page1](Nextion/GUI/page1.PNG)
  
 When this page appears, first, you will see a *red* bar on the top of the screen. Wait (less than 5 seconds).
-That bar should then stay *green*. That means that all is working Ok. You can see also the local *IP address* of the server, 
-which is useful if you want to make a remote connection via Putty.
+That bar should then stay *green*. That means that all is working Ok. You can also see the local *IP address* of the server, 
+which is useful in case you want to make a remote connection via Putty.
 Touch anywhere to go the **Main menu** page.
  
 ### *2 - Main menu*
 ![page2](Nextion/320x240/page2-menu0.png)
  
+ You have three main options:
+ 1. **Settings** - to set the general *inputs*
+ 2. **Sensors** - to set the calibration parameters of *analog sensors*
+ 3. **Start** - to start right away the test
+ 
+ You can skip the options 1 and 2, case you edit the file inputs.ini. For that, run
+ 
+    $ sudo nano /home/pi/LerAS/inputs.ini  
+ 
+ and change the parameters as intended.
  
 ### *3 - General settings*
 ![page3](Nextion/GUI/page3.PNG)
