@@ -45,7 +45,7 @@ and be more helpful.
 
 The software of *Ler Acquisition System* is composed by two distinct but interconnected parts, 
 running in different *hardware* components, particularly in the:
-1. **Server** (*Raspberry Pi*), which performs the computing tasks, and
+1. **Server** (*Raspberry Pi*), which performs the computation tasks, and
 2. **Touchscreen** (*Nextion device*), responsible by the interactivity between the end user and the server.
 
 
@@ -53,7 +53,7 @@ running in different *hardware* components, particularly in the:
 These instructions should be carried out after a fresh installation of *Raspbian* image in a Micro SD card 
 (see [instructions](https://www.raspberrypi.org/documentation/installation/installing-images/README.md)). 
 I've used [2018-04-18-raspian-stretch](http://downloads.raspberrypi.org/raspbian/images/raspbian-2018-04-19/). 
-Most of the code is written in *Python 3.5*, and a few scripts are written in *Bash*.
+Most of the code is written in *Python v3.5.3*, and a few scripts are written in *Bash v4.4.12(1)*.
 
 **Note:** If no monitor is available (headless *Raspberry Pi*), you have to do the following 4 simple steps to 
 enable *SSH* in first boot. So, right after installing the raspbian image in the  Micro SD card:
