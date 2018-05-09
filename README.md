@@ -267,13 +267,13 @@ You can skip options 1 and 2, case you decide to use
 ## Inputs ini file
 
 It is possible to set *ALL* input parameters by editing the file **inputs.ini**. This avoids setting the inputs 
-interactively in the touchscreen. For that, open a terminal and run
+interactively in the touchscreen. For that, open a terminal and run the command:
  
     $ sudo nano /home/pi/LerAS/inputs.ini  
  
 then, change the parameters as intended.
 
-Here is an example of the ini file, with the description of the parameters meaning:
+Here is an example of the ini file, which is divided in 4 sections, with the description of the parameters meaning:
 
     [settings]
     filename = HET_soil_A_01        # <Name of the CSV file> and (if google_sheets = yes) <Name of the Worksheet of Google Spreadsheet>
@@ -301,7 +301,13 @@ Here is an example of the ini file, with the description of the parameters meani
     [other]
     lastip = 193.136.108.75         # This parameter is not editable! It's an indication of the server IP in the last test 
 
+**Additional notes:**
 
+- The file [*inputs.ini*](https://github.com/Ricardosgeral/LerAS/blob/master/inputs.ini) is updated, 
+with the options chosen by the user in the touchscreen, once the server begins to record data.
+- Note that the parameters in the file will not appear always in the same order! 
+However, they always appear in there respective sections. 
+That is, for example, the parameter *interval* will always appear in section [settings].
 
 ## Data collection
 The *Raspberry Pi*, together with the *acquisition system box*, handles the sensors and gets the data from them. 
@@ -396,9 +402,7 @@ For that, see [instructions set](https://nextion.itead.cc/resources/documents/in
 library [*pandas*](https://pandas.pydata.org/index.html) to collect data from multiple sensors and write them in google sheets.  
 - Use the library [*CSV*](https://docs.python.org/3.6/library/csv.html) to write the data (as dictionary variable) in rows.
 - Use of the library [*configparser*](https://docs.python.org/3/library/configparser.html) to have a *.ini* file 
-with the inputs.  The file [*inputs.ini*](https://github.com/Ricardosgeral/LerAS/blob/master/inputs.ini) is updated, 
-with the options chosen by the user in the touchscreen, once the server begins to record data. 
-Note that the parameters in the file will not appear always in the same order!
+with the inputs.  
 - Automatic detection when USB drives are plugged-in (mounted) or removed (unmounted).
  This also implies writing two rules in file *99-local.rules*.
 - Use a single physical momentary pushbutton to reboot/shutdown the server 
