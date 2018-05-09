@@ -275,12 +275,26 @@ To go back to the **Settings** page, click the return blue button.
 ### *5 - Analog sensors configuration*
 ![page5](Nextion/GUI/page5.PNG)
 
-Well, here is where the calibration parameters of the analog sensors (water pressure and turbidity sensors) is set.
-It is assumed that there is a linear relation (**y = mx + b**) between the analog readings and the measurements. 
+Well, here is where the calibration parameters of the analog sensors (water pressure and turbidity sensors) are set.
+It is assumed that there is a linear relation (**y = mx + b**) between the analog readings and the effective measurements. 
 
-- Pressure sensors: **x** = output tension (in *mV*); **y** = pressure (in *mbar*) 
-- Turbidity sensor: **x** = output analog number (0 to 32767 - 15 bits ADC, 2^15); **y** = turbidity number (NTU)
+- Pressure sensors: **x** = output tension (in *mV*); **y** = water pressure (in *mbar*).
+- Turbidity sensor: **x** = output analog number (0 to 32767 - 15 bits ADC, 2^15); **y** = water turbidity number (NTU).
 
+If you modify in the touchscreen the *m* and *b* parameters of any of the sensors, you need to push the *Calibration* button.
+
+There is a button to *'Zero'* the water pressures. 
+This functionality can be used to take into account the normal variations of the atmospheric pressure.
+To use it properly it is necessary to ensure that there is no pressure applied to the sensors (besides the atmospheric pressure);
+In this scenario, ideally, the sensor pressures should indicate zero *mbar*. 
+However, due to changes of barometric pressure during the day (that depends on temperature, humidity, altitude, ...), 
+the most likely is that they are not completely null. If you push the *Zero* button at this stage, 
+you will get a *wait a few settings* page. After 6 to 10 seconds, the acquisition system will restart showing the readings.
+Now the piezometric pressures should be nearly null. The next figure exemplifies the procedure.
+
+
+Please note that, in a posterior test, it will be necessary to set the pressures to zero again. 
+That is, the zero shift is not remembered by the acquisition system.  
 
 
 
