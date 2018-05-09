@@ -213,7 +213,7 @@ Almost all of the sensors are connected to the acquisition system box via the mi
 + Tools to make the openings in the aluminum box (*e.g.* a mini Drill DIY set should be enough) 
 + Precision screwdriver set
 
-## Graphical User Interface (GUI)
+## Usage of the *Graphical User Interface (GUI)*
  
 The GUI pages displayed in the touchscreen (*Nextion device*) are shown next.
  
