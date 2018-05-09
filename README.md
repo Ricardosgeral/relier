@@ -302,7 +302,7 @@ which is done individually for each pressure sensor.
 
 ![zeroing](Nextion/GUI/Zeroing_explain.png)
 
-Please note that, for the future tests, it will be necessary to do 'zeroing' process again (if desired). 
+Attention that, for the future tests, it will be necessary to do 'zeroing' process again (if desired). 
 That is, the zero shift (*z*) history is not remembered by the acquisition system. 
 
 When you consider that the analog sensors are conveniently calibrated, you can press the *back blue button* (top-right), 
@@ -375,7 +375,7 @@ with a description of the parameters meaning.
     [other]
     lastip        = 193.136.108.75  # This parameter is not editable! It's an indication of the server IP in the last test 
 
-**Additional notes:**
+#### Additional notes
 
 - If the user changes the parameters in the interactive way, [*inputs.ini*](https://github.com/Ricardosgeral/LerAS/blob/master/inputs.ini) 
 will be updated, once the server begins to record data (green start button is pressed). 
@@ -400,7 +400,7 @@ Data is only stored locally in the *CSV* format and has two possible ways to go:
 2. A USB is plugged in (before recording data!).
    Data are stored *only* on the **USB_root_directory**. 
 
-**Additional notes:**
+#### Additional notes
 
 - The name of the *CSV* file is defined by the user, either using:
    + the *touchscreen GUI*, in **General settings** page, or  
@@ -426,7 +426,7 @@ However, **in addition**, it is possible to send data to [Google Sheets](https:/
 *service_creds.json* file is provided (see instructions in *Software Installation > server* section).
 This functionality allows **Live monitoring** of the data being placed in the Google sheets. 
 
-**How to enable 'Google sheets':**
+#### How to enable 'Google sheets'
 1.  Select that option:
    - In the *touchscreen GUI* > *Settings* > activate the (only) checkbox, or
    - In *inputs.ini* file > ensure that *google_sheets = yes*.
@@ -439,7 +439,7 @@ This functionality allows **Live monitoring** of the data being placed in the Go
    - In the *touchscreen GUI* > *Settings* > Add email, or
    - In *inputs.ini* file > use parameter *share_email*.
 
-**Additional notes:**
+#### Additional notes
 
 - If the *Spreadsheet/Worksheet* provided by the user already exists, the data that was in that worksheet will be deleted (**Attention!**). 
 However, when a new Worksheet name is provided in an already existing Spreadsheet, a new sheet is added. 
@@ -517,7 +517,8 @@ First, you will see a red bar on the top of the screen. Then, that bar should be
 - If you want to check if the Linux service units running on reboot/shutdown are active do:
   + $ *sudo systemctl status rcshut*.
   + $ *sudo systemctl status shutdown_button.
-- I
+
+
 ## Licence
 Copyright (c) 2018 Ricardo Correia dos Santos
 
