@@ -288,7 +288,7 @@ Here is an example of the ini file, with the description of the parameters meani
     testtype = 1                    # <1 to 4>  1-HET; 2-FLET; 3-CFET; 4-OTHER
     othername = testType_name       # < Name of the test type> only relevant when testtype = 4
 
-    [analog]                        # Equation of the straight lines for analog sensors
+    [analog]                        # Equation of the straight lines for analog sensors: y = m x + b (m is the slope and b the y intercept)
     mu = 0.0862                     # <Upstream pressure sensor> [ pu(bar) = mu tension_u(Volts) + bu ] 
     bu = -0.0432
     mi = 0.0898                     # <Interface pressure sensor> [ pi(bar) = mi tension_i(Volts) + bi ]
