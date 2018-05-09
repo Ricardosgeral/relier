@@ -415,7 +415,7 @@ To silently disconnect the server you can either:
 - If more than one USB drive is plugged in (not recommended!), data will be saved in the *first drive* being found.
 - Data in the *CSV* files is **never deleted** automatically. If the filename already exists in the USB drive or 
 Micro SD card, data is placed in the file but bellow the last row present. This means that multiple tests may be collected 
-in the same filename (not recommended!). It is preferable to save each test in an individual file.
+in the same filename (not recommended!). It is preferable to set each test in an individual file.
 
 
 ### Internet connection available
