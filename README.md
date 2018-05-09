@@ -239,7 +239,7 @@ Touch anywhere to go the **Main menu** page.
 You have three main options:
  1. **Settings** - to set the general *inputs*.
  2. **Sensors** - to set the calibration parameters of *analog sensors*.
- 3. **Start** - to start right away the test.
+ 3. **Start** - to initiate right away the test (recording data).
  
 You can skip options 1 and 2, case you decide to use 
 [*inputs ini file*](https://github.com/Ricardosgeral/LerAS#inputs-ini-file). 
@@ -266,11 +266,42 @@ You can skip options 1 and 2, case you decide to use
 
 ## Inputs ini file
 
-For that, open a terminal and run
+It is possible to set *ALL* input parameters by editing the file **inputs.ini**. This avoids setting the inputs 
+interactively in the touchscreen. For that, open a terminal and run
  
     $ sudo nano /home/pi/LerAS/inputs.ini  
  
 then, change the parameters as intended.
+
+These are the parameters:
+
+    [settings]
+    filename = <NAME OF THE CSV FILE> and, if google_sheets = yes, <NAME OF THE WORKSHEET OF GOOGLE SPREADSHEET> 
+    google_sheets = <yes or no>  
+    googlesh = <NAME OF THE GOOGLE SPREADSHEET>
+    share_email= <EMAIL> to where link is send to access the google spreedsheet
+    duration = <DURATION OF THE TEST IN MINUTES>
+    interval = <INTERVAL BETWEEN READS IN SECONDS>
+    no_reads = <NUMBER OF READINGS PER INTERVAL> to performe an average
+
+    [testtype]
+    testtype = <1 to 4>  1-HET; 2-FLET; 3-CFET; 4-OTHER
+    othername = bla bla
+
+    [analog]
+    mu = 0.0862
+    bu = -0.0432
+    mi = 0.0898
+    bi = -0.0596
+    md = 0.0898
+    bd = -0.0596
+    mturb = -0.0429
+    bturb = 1413.289
+
+    [other]
+    lastip = 193.136.108.75
+
+
 
 ## Data collection
 The *Raspberry Pi*, together with the *acquisition system box*, handles the sensors and gets the data from them. 
