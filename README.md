@@ -403,7 +403,7 @@ Data is only stored locally in the *CSV* format and has two possible ways to go:
 **Additional notes:**
 
 - The name of the *CSV* file is defined by the user, either using:
-   + the *touchscreen GUI*, in *Settings page*, or  
+   + the *touchscreen GUI*, in **General settings** page, or  
    + the *inputs.ini* file, modifying the parameter *filename*.
 - Before removing a USB drive or the Micro SD card it is **strongly** recommended to gently shutdown the *Raspberry Pi* 
 and then unplug the power supply.
