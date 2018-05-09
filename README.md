@@ -220,12 +220,17 @@ Almost all of the sensors are connected to the acquisition system box via the mi
 The GUI pages displayed in the touchscreen (*Nextion device*) are shown next.
  
  **Disconnected indication**
-
 ![page0](Nextion/320x240/page0-shutdown.png)
+
+- After a start up or reboot of the *Raspberry Pi*, you should see this **Disconnected** black page. 
+Waiting a while (the normal is 15 to 45 seconds) you should see the *Credits* page of *LerAs*. 
 
  **Credits (showing the IP address of the *server*)**
 
 ![page1](Nextion/GUI/page1.PNG)
+ 
+When this page appears, first, you will see a *red* bar on the top of the screen. Wait (less than 5 seconds).
+That bar should stay *green*. That means that all is working Ok. You can now start the process and go the *Main menu* page.
  
  **Main menu**
  
@@ -314,6 +319,11 @@ This functionality allows **Live monitoring** of the data being placed in the Go
 However, when a new Worksheet name is provided in an already existing Spreadsheet, a new sheet is added. 
 This means that you can have a single Spreadsheet with different tests organized in different Worksheets (preferable).
 - If internet connection is lost during a test, the software will raise an error and stop recording data! (**be aware!**).
+- Please note that, by choosing the 'google sheets' feature, the interval between readings chosen by the user 
+will be increased a couple of seconds, because of the resquest needed to access the google API.
+ 
+
+
 
 ## Achievements that can help Python code reuse
 
@@ -364,6 +374,19 @@ $ *sudo ./raspbian-post-install.sh*. Ignore it.
 or the program may not start!
 - The inspection of the **cronlog** file ($ *sudo nano /home/pi/LerAS/logs/cronlog*) may be helpful for detecting 
 any eventual bugs during the software installation process.
+
+- After a start up or reboot of the *Raspberry Pi*, you should see a black page in the touchscreen (**Disconnected**). 
+If everything is working properly, after a while (the normal is 15 to 45 seconds) you should see the *Credits* page of *LerAs*.
+First, you will see a red bar on the top of the screen. Then, that bar should become green. That 
+
+
+- If the NEXTION touchscreen is not functioning properly or not working at all:
+  + first, see the connections, in particular check that: RX (server) <-> TX(screen), and TX(server) <-> RX(screen); 
+  + second, ensure that *serial* is disconnected: $ *sudo raspi-config* > 5 > P6 Serial > * No*;
+  + third, $ doing *ls -l /dev |grep serial* you should see *serial 0 -> ttyAMA0* (pins 14/15 in UART) and 
+  *serial 1 -> ttyS0* (bluetooth in miniuart). By default UART is attributed to Bluetooth and miniuart to pins 14/15 (which has limitations). 
+  That's why they are changed during the execution of 
+  [*raspbian-post-install.sh*](https://github.com/Ricardosgeral/LerAS/blob/master/bash/raspbian-post-install.sh).
 - To check if the *Analog-to-Digital Converter* (ADC - ADS1115 chip) is properly connected via I2C, you can do 
 **$ sudo i2cdetect -y 1**. 
  You should see number **48** in the matrix (row 40, column 8). 
@@ -372,14 +395,7 @@ any eventual bugs during the software installation process.
 - If you want to check if the Linux service units running on reboot/shutdown are active do:
   + $ *sudo systemctl status rcshut*.
   + $ *sudo systemctl status shutdown_button.
-- If the NEXTION touchscreen is not functioning properly or not working at all:
-  + first, see the connections, in particular check that: RX (server) <-> TX(screen), and TX(server) <-> RX(screen); 
-  + second, ensure that *serial* is disconnected: $ *sudo raspi-config* > 5 > P6 Serial > * No*;
-  + third, $ doing *ls -l /dev |grep serial* you should see *serial 0 -> ttyAMA0* (pins 14/15 in UART) and 
-  *serial 1 -> ttyS0* (bluetooth in miniuart). By default UART is attributed to Bluetooth and miniuart to pins 14/15 (which has limitations). 
-  That's why they are changed during the execution of 
-  [*raspbian-post-install.sh*](https://github.com/Ricardosgeral/LerAS/blob/master/bash/raspbian-post-install.sh).
-
+- I
 ## Licence
 Copyright (c) 2018 Ricardo Correia dos Santos
 
