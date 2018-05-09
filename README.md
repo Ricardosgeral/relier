@@ -297,7 +297,7 @@ the most likely is that they are not null.
 If you push the *Zero* button at this stage (*i.e.*, no external pressure applied), 
 you will get a *wait a few seconds* progress bar. After a few seconds, the acquisition system will restart and show the readings.
 Now the piezometric pressures should be nearly null. The next figure exemplifies the 'zeroing' procedure, 
-which is done individually for the three pressure sensors.
+which is done individually for each pressure sensor.
 
 ![zeroing](Nextion/GUI/Zeroing_explain.png)
 
