@@ -207,7 +207,7 @@ Almost all of the sensors are connected to the acquisition system box via the mi
 + DuPont jumper wires
 + Micro SD adapter
 
-### Additional tools required for the assemblage of the PCB and AS box
+#### Additional tools required for the assemblage of the PCB and AS box
 + Cable wire Stripper/Crimping Plier
 + Soldering iron + sold
 + Tools to make the openings in the aluminum box (*e.g.* a mini Drill DIY set should be enough) 
