@@ -219,41 +219,35 @@ Almost all of the sensors are connected to the acquisition system box via the mi
  
 The GUI pages displayed in the touchscreen (*Nextion device*) are shown next.
  
- #### **Disconnected indication**
+ ### **Disconnected indication**
 ![page0](Nextion/320x240/page0-shutdown.png)
 
 After a start up or reboot of the *Raspberry Pi*, you should see this **Disconnected** black page. 
 Waiting a while (the normal is 15 to 45 seconds), you should see the *Credits* page of *LerAs*. 
 
- **Credits (showing the IP address of the *server*)**
-
+### **Credits (showing the IP address of the *server*)**
 ![page1](Nextion/GUI/page1.PNG)
  
 When this page appears, first, you will see a *red* bar on the top of the screen. Wait (less than 5 seconds).
 That bar should stay *green*. That means that all is working Ok. You can now start the process and go the *Main menu* page.
  
- **Main menu**
  
+### **Main menu**
 ![page2](Nextion/320x240/page2-menu0.png)
  
-**General settings**
- 
+### **General settings**
 ![page3](Nextion/GUI/page3.PNG)
 
-**Test Type selection**
- 
+### **Test Type selection**
 ![page4](Nextion/GUI/page4.PNG)
 
-**Analog sensors configuration**
- 
+### **Analog sensors configuration**
 ![page5](Nextion/GUI/page5.PNG)
 
-**Record sensors readings**
- 
+### **Record sensors readings**
 ![page6](Nextion/GUI/page6.PNG)
 
-**Stop recording sensor readings**
- 
+### **Stop recording sensor readings**
 ![page7](Nextion/320x240/page7-stop0.png)
 
 ## Data collection
