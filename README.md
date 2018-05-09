@@ -286,7 +286,7 @@ Here is an example, with the description of the parameters meaning:
 
     [testtype]
     testtype = 1                    # <1 to 4>  1-HET; 2-FLET; 3-CFET; 4-OTHER
-    othername = testType_name       # < Name of the test type>
+    othername = testType_name       # < Name of the test type> only relevant when testtype = 4
 
     [analog]                        # Equation of the straight lines for analog sensors
     mu = 0.0862                     # <Upstream pressure sensor> [ pu(bar) = mu tension_u(Volts) + bu ] 
