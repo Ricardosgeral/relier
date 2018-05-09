@@ -35,7 +35,7 @@ how to assemble some things together, and figuring out how some components work.
 instructions given here should also be taken more like guidelines based on what I could do with the materials I had. If 
 you do not have the exact same hardware components 
 (sensors, ADC, level shifter, touchscreen...), yours will surely work a little different, but as they should do the same 
-things, there will be similarities too. In that case, you may have to adjust the code and/or the connections.
+things, there will be similarities too. You may have to adjust the code and/or the connections to meet your needs.
 
 Feel free to contact me if you manage to get it working with different components, so these instructions can be improved 
 and be more helpful. 
