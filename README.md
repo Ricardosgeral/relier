@@ -299,7 +299,6 @@ Please note that, in the following tests, it will be necessary to set the pressu
 That is, the zero shift (z) is not remembered by the acquisition system.  
 
 
-
 ### *6 - Record sensors readings*
 ![page6](Nextion/GUI/page6.PNG)
 
