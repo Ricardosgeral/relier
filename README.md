@@ -236,12 +236,12 @@ Touch anywhere to go the **Main menu** page.
 ### *2 - Main menu*
 ![page2](Nextion/320x240/page2-menu0.png)
  
-You have three main Options:
+You have three main options:
  1. **Settings** - to set the general *inputs*.
  2. **Sensors** - to set the calibration parameters of *analog sensors*.
  3. **Start** - to start right away the test.
  
-You can skip Options 1 and 2, case you decide to use 
+You can skip options 1 and 2, case you decide to use 
 [*inputs ini file*](https://github.com/Ricardosgeral/LerAS#inputs-ini-file). 
  
  
