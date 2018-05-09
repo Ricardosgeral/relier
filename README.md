@@ -220,6 +220,7 @@ Almost all of the sensors are connected to the acquisition system box via the mi
 The GUI pages displayed in the touchscreen (*Nextion device*) are shown next.
  
  ### *0 - Disconnected indication*
+ 
 ![page0](Nextion/320x240/page0-shutdown.png)
 
 After a start up or reboot of the *Raspberry Pi*, you should see this **Disconnected** black page. 
@@ -287,7 +288,7 @@ with a description of the parameters meaning:
 
     [testtype]
     testtype      = 1                  # <1 to 4>  1-HET; 2-FLET; 3-CFET; 4-OTHER
-    othername     = testType_name      # < Name of the test type> only relevant when testtype = 4
+    othername     = testtype_name      # < Name of the test type> only relevant when testtype = 4
 
     [analog]                           # Equation of the straight lines for analog sensors: y = m x + b (m is the slope and b the y intercept)
     mu    = 0.0862                     # <Upstream pressure sensor> [ pu(bar) = mu tension_u(Volts) + bu ] 
