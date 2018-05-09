@@ -319,9 +319,9 @@ Here is an example of the *inputs.ini* file, which is divided in 4 sections,
 with a description of the parameters meaning:
 
     [settings]
-    filename      = soil1_n01              # <Name of the CSV file> and (if google_sheets = yes) <Name of the Worksheet of Google Spreadsheet>
+    filename      = soilX_n01          # <Name of the CSV file> and (if google_sheets = yes) <Name of the Worksheet of Google Spreadsheet>
     google_sheets = yes                # <yes (y, yep, Yes, YES) or no (n, nop, No, NO)>  
-    googlesh      = tests_soil1           # <Name of the Google Spreadsheet>
+    googlesh      = tests_soilX        # <Name of the Google Spreadsheet>
     share_email   = my_email@email.com # <email to share access to the google spreedsheet>
     duration      = 180                # <Duration of the test in Minutes>
     interval      = 15                 # <Interval between records in seconds>
@@ -417,13 +417,11 @@ This functionality allows **Live monitoring** of the data being placed in the Go
 However, when a new Worksheet name is provided in an already existing Spreadsheet, a new sheet is added. 
 This means that you can have a single Spreadsheet with different tests organized in different Worksheets (preferable).
 - If internet connection is lost during a test, the software will raise an error and stop recording data! (**be aware!**).
-- Please note that, by choosing the 'google sheets' feature, the interval between readings chosen by the user 
-will be increased a couple of seconds, because of the resquest needed to access the google API.
+- Please be aware that, by choosing the 'google sheets' feature, the interval between readings chosen by the user 
+will be increased a couple of seconds, due to the time required to request access the google API.
  
 
-
-
-## Achievements that can help Python code reuse
+## Achievements that can help *Python code reuse*
 
 - *Use of threading (['thread-based parallelism'](https://docs.python.org/3/library/threading.html)), together with [Event objects](https://docs.python.org/3/library/threading.html#event-objects), in Python 3*. Threads are used in three cases: 
    + Threads are useful for analog reads, to provide "stability". These allow to perform a mean over a certain period of time 
