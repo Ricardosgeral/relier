@@ -283,6 +283,7 @@ It is assumed that there is a linear relation (**y = mx + b**) between the analo
 
 If you modify in the touchscreen the *m* and *b* parameters of any of the sensors, you need to push the *Calibration* button.
 
+**Zero pressures**
 There is a button to *'Zero'* the water pressures. 
 This functionality can be used to take into account the normal variations of the atmospheric pressure.
 To use it properly it is necessary to ensure that there is no pressure applied to the sensors (besides the atmospheric pressure);
@@ -292,6 +293,7 @@ the most likely is that they are not completely null. If you push the *Zero* but
 you will get a *wait a few settings* page. After 6 to 10 seconds, the acquisition system will restart showing the readings.
 Now the piezometric pressures should be nearly null. The next figure exemplifies the procedure.
 
+![zeroing](https://github.com/Ricardosgeral/LerAS/blob/master/Nextion/GUI/Zeroing_explain.png)
 
 Please note that, in a posterior test, it will be necessary to set the pressures to zero again. 
 That is, the zero shift is not remembered by the acquisition system.  
