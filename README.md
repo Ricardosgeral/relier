@@ -319,9 +319,9 @@ Here is an example of the *inputs.ini* file, which is divided in 4 sections,
 with a description of the parameters meaning:
 
     [settings]
-    filename      = S1#01              # <Name of the CSV file> and (if google_sheets = yes) <Name of the Worksheet of Google Spreadsheet>
+    filename      = soil1_n01              # <Name of the CSV file> and (if google_sheets = yes) <Name of the Worksheet of Google Spreadsheet>
     google_sheets = yes                # <yes (y, yep, Yes, YES) or no (n, nop, No, NO)>  
-    googlesh      = tests_S1           # <Name of the Google Spreadsheet>
+    googlesh      = tests_soil1           # <Name of the Google Spreadsheet>
     share_email   = my_email@email.com # <email to share access to the google spreedsheet>
     duration      = 180                # <Duration of the test in Minutes>
     interval      = 15                 # <Interval between records in seconds>
