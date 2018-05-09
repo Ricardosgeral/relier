@@ -239,16 +239,16 @@ Touch anywhere to go the **Main menu** page.
 You have three main options:
  1. **Settings** - to set the general *inputs*.
  2. **Sensors** - to set the calibration parameters of *analog sensors*.
- 3. **Start** - to initiate right away the test (recording data).
+ 3. **Start** - to initiate right away the test (record data).
  
-You can skip options 1 and 2, case you decide to use 
+You can skip options 1 and 2, case you decide to use the 
 [*inputs ini file*](https://github.com/Ricardosgeral/LerAS#inputs-ini-file). 
  
 ### *3 - General settings*
 ![page3](Nextion/GUI/page3.PNG)
 
-Here, you can edit the main inputs of the test to carry out.
-- *CSV filename* textbox - name of the CSV file.
+Here, you can edit the main inputs of the test to carry out:
+- *CSV filename* textbox - name of the CSV file to be saved.
 - *Google sheets* checkbox - select it, if you want to send data to google sheets.
 - *Spreadsheet* textbox - name of the google spreadsheet (the name of the workbook will be the *CSV filename*).
 - *email* textbox - email to where a link, to access the google spreadsheet, will be sent.
@@ -256,8 +256,9 @@ Here, you can edit the main inputs of the test to carry out.
 - *Record* textbox - interval between records, in seconds.
 - *Number* textbox - number of readings in each record interval, to make an average.
 
+If you push the blue button on top-right corner you will go back to **Main Menu** page
 
-
+There is also a blue button that will direct you to the **Test Type** page.
 
 
 ### *4 - Test Type selection*
