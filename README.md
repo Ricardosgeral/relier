@@ -318,8 +318,8 @@ at constant interval (define in the *Settings*).
 
 If "Google sheets" option has been selected, the first reading can take more than normal (due to the request to access the google API).
 
-If you want to stop the test, prior the test duration defined, 
-just press the *Red circular button*, which will redirect you to the **Stop sensor data recording** confirmation page.
+If you want to stop the test, prior to the test duration defined in settings, 
+just press the *Red button*, which will redirect you to the **Stop sensor data recording** confirmation page.
 
 When the chosen test duration is achieved, the server stops acquiring the data.
 
@@ -328,6 +328,11 @@ Actually, it will not record forever. *'Forever'* should be understood as 2 mont
 
 ### *7 - Stop sensor data recording*
 ![page7](Nextion/320x240/page7-stop0.png)
+
+Here you confirm that you pressed the stop button, just in case! Pressing 
+Green button - > stops recording data and directs to *Credits* page. 
+Red button -> go back to **Sensors readings record** and readings never stopped being registered.
+
 
 
 ## Inputs ini file
