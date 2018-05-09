@@ -281,11 +281,12 @@ It is assumed that there is a linear relation (**y = mx + b**) between the analo
 - Pressure sensors: **x** = output tension (in *mV*); **y** = water pressure (in *mbar*).
 - Turbidity sensor: **x** = output analog number (0 to 32767 - 15 bits ADC, 2^15); **y** = water turbidity number (NTU).
 
-**Calibration** pushbutton 
+***Calibration* pushbutton** to update m and b
 
-If you modify  the *m* and *b* parameters of any of the sensors, you need to push the *Calibration* button, to impose the changes.
+If you modify  the *m* and *b* parameters of any of the sensors, you need to push the *Calibration* button, 
+in order to impose those changes.
 
-**Zero** pushbutton for *'Zeroing'* the water pressures. 
+**Zero pushbutton** for *'Zeroing'* the water pressures. 
 
 This functionality can be used to take into account the normal variations of the atmospheric pressure.
 To use it properly it is necessary, first, to ensure that there is no pressure applied to the sensors (besides the ambient pressure).
