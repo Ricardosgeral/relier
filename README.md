@@ -256,7 +256,7 @@ Here, you can edit the main inputs of the test to carry out:
 - *Record* textbox - interval between records, in seconds.
 - *Number* textbox - number of readings in each record interval, to make an average.
 
-If you push the blue button on top-right corner you will go back to **Main Menu** page
+If you push the blue button on top-right corner you will go back to **Main Menu** page.
 
 There is also a blue button that will direct you to the **Test Type** page.
 
@@ -264,8 +264,25 @@ There is also a blue button that will direct you to the **Test Type** page.
 ### *4 - Test Type selection*
 ![page4](Nextion/GUI/page4.PNG)
 
+This page allow you to select the type of test you want to perform, using the radio buttons.
+Note that, by selecting option <*Hole Erosion Test (HET)*>
+you will not get results of the interface (middle) pressure sensor, 
+since this test only uses two pressure sensors (upstream and downstream).
+If you select *Other*, you have a textbox that can be used to give a name to the test type.
+
+To go back to the **Settings** page, click the return blue button. 
+
 ### *5 - Analog sensors configuration*
 ![page5](Nextion/GUI/page5.PNG)
+
+Well, here is where the calibration parameters of the analog sensors (water pressure and turbidity sensors) is set.
+It is assumed that there is a linear relation (**y = mx + b**) between the analog readings and the measurements. 
+
+- Pressure sensors: **x** = output tension (in *mV*); **y** = pressure (in *mbar*) 
+- Turbidity sensor: **x** = output analog number (0 to 32767 - 15 bits ADC, 2^15); **y** = turbidity number (NTU)
+
+
+
 
 ### *6 - Record sensors readings*
 ![page6](Nextion/GUI/page6.PNG)
