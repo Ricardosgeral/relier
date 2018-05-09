@@ -241,11 +241,9 @@ You have three main Options:
  2. **Sensors** - to set the calibration parameters of *analog sensors*.
  3. **Start** - to start right away the test.
  
-You can skip Options 1 and 2, case you edit the file *inputs.ini*. For that, open a terminal and run
+You can skip Options 1 and 2, case you decide to use 
+[*inputs ini file*](https://github.com/Ricardosgeral/LerAS#inputs-ini-file). 
  
-    $ sudo nano /home/pi/LerAS/inputs.ini  
- 
-then, change the parameters as intended.
  
 ### *3 - General settings*
 ![page3](Nextion/GUI/page3.PNG)
@@ -268,7 +266,11 @@ then, change the parameters as intended.
 
 ## Inputs ini file
 
-
+For that, open a terminal and run
+ 
+    $ sudo nano /home/pi/LerAS/inputs.ini  
+ 
+then, change the parameters as intended.
 
 ## Data collection
 The *Raspberry Pi*, together with the *acquisition system box*, handles the sensors and gets the data from them. 
