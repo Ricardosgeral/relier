@@ -1,7 +1,7 @@
 # *relier - acquisition system*
 ###### Open (*re*)design of an acquisition system for *l*aboratory *i*nternal *er*osion apparatuses 
 
-This project is done by [*Ricardo Correia dos Santos*](https://www.linkedin.com/in/ricardons/) at 
+Project developed by [*Ricardo Correia dos Santos*](https://www.linkedin.com/in/ricardons/) at 
 [Laboratório Nacional de Engenharia Civil - *LNEC*](http://www.lnec.pt/en/), in Lisbon, Portugal.
  
 ### About the author and *relier* project
