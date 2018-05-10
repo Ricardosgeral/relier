@@ -224,7 +224,7 @@ Waiting a while (the normal is 15 to 45 seconds, depending on the server service
 
 
 ### *1 - Credits*
-![page1_red](Nextion/GUI/page1_red.PNG)  ![page1_green](Nextion/GUI/page1_green.PNG)
+![page1_red](Nextion/GUI/page1_red.PNG) ---->>>> ![page1_green](Nextion/GUI/page1_green.PNG)
  
 When this page appears, first, you will see a *red* bar on the top of the screen. Wait (less than 5 seconds).
 That bar should then stay *green*. That means that all is working Ok. You can also see the local *IP address* of the server, 
