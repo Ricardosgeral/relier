@@ -1,4 +1,4 @@
-# *relier - Acquisition System*
+# *relier - acquisition system*
 ###### Open (**re**)design of an acquisition system for **l**aboratory **i**nternal **er**osion apparatuses 
 
 This work has been done by [*Ricardo Correia dos Santos*](https://www.linkedin.com/in/ricardons/) at 
