@@ -164,7 +164,6 @@ sudo systemctl daemon-reload            #reloads systemd
 sudo cp /home/pi/relier/services/rcshut.service /etc/systemd/system/rcshut.service
 sudo systemctl enable rcshut --now
 sudo systemctl start rcshut
-# systemctl status rcshut #if you want to se if its active(running)
 sudo chmod +w /home/pi/relier/shutdown.py
 
 #-----------------------------------------------------------------------------
