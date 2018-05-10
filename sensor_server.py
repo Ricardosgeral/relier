@@ -27,7 +27,7 @@ It also records the time and date of the measure.
 # Libraries required
 from time import sleep
 from analogsensor_thread import AnalogSensor, GAIN
-from DigitalSen_thread import WTemp
+from digitalSen_thread import WTemp
 from datetime import datetime
 import pigpio   # needs to be installed for callback https://www.raspberrypi.org/forums/viewtopic.php?t=66445
 import bme280   # temperature/humidity/pressure sensor BME280 # github.com/rm-hull/bme280: $ sudo pip install RPi.bme280
