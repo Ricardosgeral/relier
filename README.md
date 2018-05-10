@@ -324,7 +324,7 @@ just press the *Red button*, which will redirect you to the **Stop sensor data r
 When the chosen test duration is achieved, the server stops acquiring the data.
 
 **Note:** if you want to record data 'forever', set the *Test time duration* to **0**. 
-Actually, it will not record forever. *'Forever'* should be understood as 2 months (43200 minutes!).
+Actually, it will not record forever. *'Forever'* should be understood as 2 months (86400 minutes!).
 
 ### *7 - Stop sensor data recording*
 ![page7](Nextion/320x240/page7-stop0.png)
