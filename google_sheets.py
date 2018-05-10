@@ -5,10 +5,15 @@
 import pygsheets
 import pandas as pd
 
-# get outh2 credentials
-gc = pygsheets.authorize(service_file='service_creds.json')
-initial_rows = 1000  # default number of rows of the worksheet
-initial_colmn = 15  # default number of columns
+# get credentials
+try:
+    gc = pygsheets.authorize(service_file='service_creds.json')
+    initial_rows = 1000  # default number of rows of the worksheet
+    initial_colmn = 15  # default number of columns
+    google_creds = True
+except:
+    print('Failed google sheets creds')
+    google_creds = False
 
 def spreadsheet_worksheet(ssheet_title, wsheet_title, share_email):
     # get spredsheet instance

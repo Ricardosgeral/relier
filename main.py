@@ -14,6 +14,7 @@ import socket
 import rw_ini as rw
 import write_csv_data
 import google_sheets as gsh
+
 #from led_blink import fast_5blinks as blink5
 from active_buzzer import alert_end
 
@@ -229,7 +230,7 @@ def read_display_write(e_rdw): # read and display data in page "sensors" and wri
 
     # obtain the selected worksheet in the google spreadsheet and share it
     export_google = inp['google_sheets']
-    if export_google in ['yes','Yes','YES','y','Y','yep']:
+    if export_google in ['yes','Yes','YES','y','Y','yep'] and gsh.google_creds == True:
         wks = gsh.spreadsheet_worksheet(ssheet_title=inp['googlesh'],
                                         wsheet_title=inp['filename'],
                                         share_email=inp['share_email'])
@@ -255,7 +256,7 @@ def read_display_write(e_rdw): # read and display data in page "sensors" and wri
             nxlib.nx_setText(ser, ID_elapsed[0], ID_elapsed[1], elapsed)
             ID_autostop = nxApp.get_Ids('sensors', 'txt_autostop')
             nxlib.nx_setText(ser, ID_autostop[0], ID_autostop[1], autostop)
-            if export_google in ['yes', 'Yes', 'YES', 'y', 'Y', 'yep']:
+            if export_google in ['yes', 'Yes', 'YES', 'y', 'Y', 'yep'] and gsh.google_creds == True:
                 gsh.write_gsh(data, row, wks)
                 row += 1
 
