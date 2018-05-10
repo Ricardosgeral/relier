@@ -501,7 +501,7 @@ to check if the google credentials are correct!.
 
 - If the NEXTION touchscreen is not functioning properly or not working at all:
   + first, see the connections, in particular check that: RX (server) <-> TX(screen), and TX(server) <-> RX(screen); 
-  + second, ensure that *serial* is disconnected: `$ sudo raspi-config` > 5 > P6 Serial > * No*;
+  + second, ensure that *serial* is disconnected: `$ sudo raspi-config` > *5* > *P6 Serial* > *No*;
   + third, doing `$ ls -l /dev | grep serial` you should see *serial 0 -> ttyAMA0* (pins 14/15 in UART) and 
   *serial 1 -> ttyS0* (bluetooth in miniuart). By default UART is attributed to Bluetooth and miniuart to pins 14/15 (which has limitations). 
   That's why they are changed during the execution of 
