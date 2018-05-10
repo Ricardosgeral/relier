@@ -8,7 +8,7 @@ import time
 from time import sleep
 import threading
 import py3nextion_lib  as nxlib    # simple python3 library to use nextion device
-import NextionApp as nxApp # initialization of the components
+import nextionApp as nxApp # initialization of the components
 import sensor_server as srv # where data is acquired
 import socket
 import rw_ini as rw

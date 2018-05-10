@@ -465,7 +465,7 @@ So, I've developed my own NEXTION Library for Python 3 (which took me a while to
 This Nextion Library for Python 3 is relatively simple to use. 
 You just need to look at the [py3nextion_lib.py](https://github.com/Ricardosgeral/relier/blob/master/py3nextion_lib.py),
 and use it alongside with another .py file with all the components used in the Nextion Editor 
-(see [NextionApp](https://github.com/Ricardosgeral/relier/blob/master/NextionApp.py)). 
+(see [NextionApp](https://github.com/Ricardosgeral/relier/blob/master/nextionApp.py)). 
 Of course you need to know how to use the Nextion commands. 
 For that, see [instructions set](https://nextion.itead.cc/resources/documents/instruction-set/).
 - Use of the library [*pygsheets*](https://github.com/nithinmurali/pygsheets), alongside with 
