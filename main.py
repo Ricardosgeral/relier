@@ -314,7 +314,7 @@ def input_update(): # update all inputs previous 'analog' and 'sensors' page
 
 def detect_touch(e_rd, e_rdw):
 
-    look_touch = 1  # in seconds
+    look_touch = 0.5  # in seconds
     print("detecting serial every {} second(s) ...".format(look_touch))
 
     while True:
