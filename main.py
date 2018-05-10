@@ -225,7 +225,7 @@ def read_display(e_rd): #read and display data in page "analog"
 def read_display_write(e_rdw): # read and display data in page "sensors" and write to file
     global stop
     #first, check if HET test is selected
-    if inp['testtype'] == "3":  # if HET test is the selection
+    if inp['testtype'] == '3':  # if HET test is the selection
         nxlib.nx_setcmd_2par(ser, 'vis', 'txt_pi', 0)
     else:
         nxlib.nx_setcmd_2par(ser, 'vis', 'txt_pi', 1)
@@ -273,13 +273,6 @@ def read_display_write(e_rdw): # read and display data in page "sensors" and wri
                 row += 1
 
             sleep(int(inp['interval']))  # interval to write down  the readings
-        alert_end()
-        # end_rdw.set()
-        # t_rdw.join()
-        # e_rdw.clear()
-        # nxlib.nx_setcmd_1par(ser, 'page',2)
-        # nxlib.nx_setValue(ser, nxApp.ID_status[0], nxApp.ID_status[1], 1)  # green flag
-        # nxlib.nx_setText(ser, nxApp.ID_ip[0], nxApp.ID_ip[1], ip)
 
 
 ##################
@@ -314,7 +307,7 @@ def input_update(): # update all inputs previous 'analog' and 'sensors' page
 
 def detect_touch(e_rd, e_rdw):
 
-    look_touch = 0.5  # in seconds
+    look_touch = 1  # in seconds
     print("detecting serial every {} second(s) ...".format(look_touch))
 
     while True:
