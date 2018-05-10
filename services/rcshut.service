@@ -4,7 +4,7 @@ Description=set nextion page at shutdown
 [Service]
 Type=oneshot
 RemainAfterExit=true
-ExecStop=/usr/bin/python3.5 /home/pi/LerAS/shutdown.py
+ExecStop=/usr/bin/python3.5 /home/pi/relier/shutdown.py
 
 [Install]
 WantedBy=multi-user.target
