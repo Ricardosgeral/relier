@@ -60,7 +60,7 @@ enable *SSH* in first boot. So, right after installing the raspbian image in the
 3. Copy or move that file into the *Root* of the Micro SD card.
 4. Insert the Micro SD card in the *Raspberry Pi*, and power it on.
 
-Access the *Raspberry Pi* directly (if monitor is available), or via *SSH* (for example, using *Putty*). 
+Access the *Raspberry Pi* directly (if you have a monitor), or via *SSH* (for example, using *Putty*). 
 In this last option, you will need to know the local IP attributed to the *Raspberry Pi*!
 
    **Login**: *pi*   
