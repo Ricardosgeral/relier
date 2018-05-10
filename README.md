@@ -514,9 +514,10 @@ First, you will see a red bar on the top of the screen. Then, that bar should be
  You should see number **48** in the matrix (row 40, column 8). 
  Otherwise, something is not connected correctly, or I2C protocol has not been enabled 
  (the bash file *raspbian-post-install.sh* should have done that).
-- If you want to check if the Linux service units running on reboot/shutdown are active do:
-    
-       
+- If you want to check if the Linux service units running on reboot/shutdown are active
+
+check their status
+
     $ sudo systemctl status rcshut
     $ sudo systemctl status shutdown_button
     
