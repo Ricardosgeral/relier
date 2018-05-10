@@ -1,5 +1,5 @@
 # *relier - Acquisition System*
-###### Acquisition system for laboratory internal erosion apparatuses 
+###### Open (**re**)design of an acquisition system for **l**aboratory **i**nternal **er**osion apparatuses 
 
 This work has been done by [*Ricardo Correia dos Santos*](https://www.linkedin.com/in/ricardons/) at 
 [Laboratório Nacional de Engenharia Civil - *LNEC*](http://www.lnec.pt/en/), in Lisbon, Portugal.
@@ -7,18 +7,18 @@ This work has been done by [*Ricardo Correia dos Santos*](https://www.linkedin.c
 ### About the author and *LerAS* project
 I'm a Civil Engineer, with a master degree in Geotechnical Engineering, and a PhD on experimental investigations on 
 internal erosion in embankment dams.
-
+ 
 Carrying out the laboratory tests on internal erosion in soils, developed in my PhD, 
 requires to continually collect different types of measurements (water pressures, flowrate, temperature, 
 turbidity, ...).
 The measurements had to be registered by hand, by two operators!! 
 Such manual process is tedious and prone to human errors.
 
-So, I've decided to invest time ()and few money), developing a "low budget" acquisition system (hardware and software) that could 
+So, I've decided to invest time (and a few money), developing a "low budget" acquisition system (hardware and software) that could 
 collect data from multiple sensors. 
 *LerAS* was born this way!
 
-Please note that I'm not an expert in informatics, computing, nor in electronics.
+Please note that I'm not an expert in informatics, in computing, nor in electronics.
 I define myself as an enthusiastic self learner. 
 All shown here was developed from my own research, mainly on forums, Github and other websites.
 Thus, it is possible that some things (code, connections,...) could be optimized, or done in a different or better way. 
@@ -29,8 +29,8 @@ All contributions are welcome.
 
 ### Is this for me?
 If you need to do a similar project, you just need to have some DIY skills, for scrapping some materials, figuring out 
-how to assemble some things together, and figuring out how some components work. The 
-instructions given here should also be taken more like guidelines based on what I could do with the materials I had. If 
+how to assemble some things together, and figuring out how some components work. 
+The instructions given here should also be taken more like guidelines based on what cando with the materials I have. If 
 you do not have the exact same hardware components 
 (sensors, ADC, level shifter, touchscreen...), yours will surely work a little different, but as they should do the same 
 things, there will be similarities too. You may have to adjust the code and/or the connections to meet your needs.
@@ -273,8 +273,7 @@ If you select *Other*, you have a textbox that can be used to give a name to the
 To go back to the **Settings** page, click the return blue button. 
 
 ### *5 - Analog sensors configuration*
-![page5](Nextion/GUI/page5.PNG)
-
+![page5](Nextion/GUI/page5.PNG
 Well, here is where the calibration parameters of the analog sensors (water pressure and turbidity sensors) are set.
 It is assumed that there is a linear relation (**y = mx + b**) between the analog readings and the effective measurements. 
 
