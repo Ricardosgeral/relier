@@ -444,7 +444,10 @@ This functionality allows **Live monitoring** of the data being placed in the Go
 - If the *Spreadsheet/Worksheet* provided by the user already exists, the data that was in that worksheet will be deleted (**Attention!**). 
 However, when a new Worksheet name is provided in an already existing Spreadsheet, a new sheet is added. 
 This means that you can have a single Spreadsheet with different tests organized in different Worksheets (preferable).
-- If internet connection is lost during a test, the software will raise an error and stop recording data! (**be aware!**).
+- If there is no internet connection when on start up of the server, even if you select the google sheet checkbutton, 
+no data will be sent to google sheets (**Atention!**). For debugging look at the 
+[troubleshooting](https://github.com/Ricardosgeral/relier#troubleshooting) section. 
+- If internet connection is lost during a test, the software will raise an exception and stop recording data to google sheets! (**be aware!**).
 - Please be aware that, by choosing the 'google sheets' feature, the interval between readings chosen by the user 
 will be increased a couple of seconds, due to the time required to request access the google API.
  
@@ -495,7 +498,8 @@ $ *sudo ./raspbian-post-install.sh*. Ignore it.
 - Don't forget to obtain and replace the content of the file **service_creds.json**, as indicated [above](https://github.com/Ricardosgeral/relier/blob/master/README.md#server-software-raspberry-pi), 
 or the program may not start!
 - The inspection of the **cronlog** file ($ *sudo nano /home/pi/relier/logs/cronlog*) may be helpful for detecting 
-any eventual bugs during the software installation process.
+any eventual bugs during the software installation process, or during start up of the server, for example, 
+to check if the google credentials are correct!.
 
 - After a start up or reboot of the *Raspberry Pi*, you should see a black page in the touchscreen (**Disconnected**). 
 If everything is working properly, after a while (the normal is 15 to 45 seconds) you should see the *Credits* page of *relier*.
