@@ -505,7 +505,7 @@ First, you will see a red bar on the top of the screen. Then, that bar should be
 - If the NEXTION touchscreen is not functioning properly or not working at all:
   + first, see the connections, in particular check that: RX (server) <-> TX(screen), and TX(server) <-> RX(screen); 
   + second, ensure that *serial* is disconnected: $ *sudo raspi-config* > 5 > P6 Serial > * No*;
-  + third, doing $ *ls -l /dev |grep serial* you should see *serial 0 -> ttyAMA0* (pins 14/15 in UART) and 
+  + third, doing $ *ls -l /dev | grep serial* you should see *serial 0 -> ttyAMA0* (pins 14/15 in UART) and 
   *serial 1 -> ttyS0* (bluetooth in miniuart). By default UART is attributed to Bluetooth and miniuart to pins 14/15 (which has limitations). 
   That's why they are changed during the execution of 
   [*raspbian-post-install.sh*](https://github.com/Ricardosgeral/relier/blob/master/bash/raspbian-post-install.sh).
