@@ -2,8 +2,7 @@
 ## Open (*re*)design of an acquisition system for *l*aboratory tests on *i*nternal *er*osion  
 
 Project developed by [*Ricardo Correia dos Santos*](https://www.linkedin.com/in/ricardons/) at 
-[Laboratório Nacional de Engenharia Civil - *LNEC*](http://www.lnec.pt/en/), in Lisbon, Portugal.
- 
+[Laboratório Nacional de Engenharia Civil - *LNEC*](http://www.lnec.pt/en/), in Lisbon, Portugal
 ### About the author and *relier* project
 I'm a Civil Engineer, with a master degree in Geotechnical Engineering, and a PhD on experimental investigations on 
 internal erosion in embankment dams.
@@ -12,7 +11,7 @@ Carrying out the laboratory tests on internal erosion in soils, developed in my 
 requires to continually collect different types of measurements (water pressures, flowrate, temperature, 
 turbidity, ...).
 The measurements had to be registered by hand, by two operators!! 
-Such manual process is tedious and prone to human errors.
+Such manual process is tedious and prone to errors.
 
 So, I've decided to invest time (and a few money), developing a "low budget" acquisition system (hardware and software) that could 
 collect data from multiple sensors. 
