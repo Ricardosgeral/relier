@@ -273,7 +273,8 @@ If you select *Other*, you have a textbox that can be used to give a name to the
 To go back to the **Settings** page, click the return blue button. 
 
 ### *5 - Analog sensors configuration*
-![page5](Nextion/GUI/page5.PNG
+![page5](Nextion/GUI/page5.PNG)
+
 Well, here is where the calibration parameters of the analog sensors (water pressure and turbidity sensors) are set.
 It is assumed that there is a linear relation (**y = mx + b**) between the analog readings and the effective measurements. 
 
