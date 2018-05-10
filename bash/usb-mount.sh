@@ -1,8 +1,7 @@
 #!/bin/bash
 # see https://serverfault.com/questions/766506/automount-usb-drives-with-systemd
 
-# This script is called from our systemd unit file to mount or unmount
-# a USB drive.
+# This script is called from a systemd unit file to mount or unmount a USB drive.
 
 usage()
 {
