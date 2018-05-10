@@ -499,11 +499,6 @@ or the program may not start!
 any eventual bugs during the software installation process, or during start up of the server, for example, 
 to check if the google credentials are correct!.
 
-- After a start up or reboot of the *Raspberry Pi*, you should see a black page in the touchscreen (**Disconnected**). 
-If everything is working properly, after a while (the normal is 15 to 45 seconds) you should see the *Credits* page of *relier*.
-First, you will see a red bar on the top of the screen. Then, that bar should become green. That 
-
-
 - If the NEXTION touchscreen is not functioning properly or not working at all:
   + first, see the connections, in particular check that: RX (server) <-> TX(screen), and TX(server) <-> RX(screen); 
   + second, ensure that *serial* is disconnected: `$ sudo raspi-config` > 5 > P6 Serial > * No*;
