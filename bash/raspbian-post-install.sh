@@ -177,7 +177,6 @@ sudo cp /home/pi/relier/services/shutdown_button.service /etc/systemd/system/shu
 sudo systemctl daemon-reload
 sudo systemctl enable shutdown_button --now
 sudo systemctl start shutdown_button
-# systemctl status shutdown_button #if you want to se if its active(running)
 sudo chmod +w /home/pi/relier/shutdown_button.py
 
 # -----------------------------------------------------------------------------
@@ -197,7 +196,7 @@ sudo grep "$CMD" -q <(crontab -l) || (crontab -l>"$TMPC"; echo "$JOB">>"$TMPC"; 
 # -----------------------------------------------------------------------------
 # make the launcher script an executable
 sudo chmod 755 /home/pi/relier/bash/launcher.sh
-#Create a logs directory:
+echo 'Create a logs directory'
 sudo mkdir /home/pi/relier/logs
 sudo chmod 777 -R /home/pi/relier/logs
 
