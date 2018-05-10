@@ -4,7 +4,7 @@
 This work has been done by [*Ricardo Correia dos Santos*](https://www.linkedin.com/in/ricardons/) at 
 [Laboratório Nacional de Engenharia Civil - *LNEC*](http://www.lnec.pt/en/), in Lisbon, Portugal.
  
-### About the author and *LerAS* project
+### About the author and *relier* project
 I'm a Civil Engineer, with a master degree in Geotechnical Engineering, and a PhD on experimental investigations on 
 internal erosion in embankment dams.
  
@@ -16,7 +16,7 @@ Such manual process is tedious and prone to human errors.
 
 So, I've decided to invest time (and a few money), developing a "low budget" acquisition system (hardware and software) that could 
 collect data from multiple sensors. 
-*LerAS* was born this way!
+*relier* born this way!
 
 Please note that I'm not an expert in informatics, in computing, nor in electronics.
 I define myself as an enthusiastic self learner. 
@@ -41,7 +41,7 @@ and be more helpful.
 
 ## Software installation
 
-The software of *Ler Acquisition System* is composed by two distinct but interconnected parts, 
+The software of *reliar Acquisition System* is composed by two distinct but interconnected parts, 
 running in different *hardware* components, particularly in the:
 1. **Server** (*Raspberry Pi*), which performs the computation tasks, and
 2. **Touchscreen** (*Nextion device*), responsible by the interactivity between the end user and the server.
@@ -74,7 +74,7 @@ and choose your new password.
     
 Then, in the terminal, run the following sequential commands:
     
-    $ cd /tmp && wget https://raw.githubusercontent.com/Ricardosgeral/LerAS/master/bash/raspbian-post-install.sh
+    $ cd /tmp && wget https://raw.githubusercontent.com/Ricardosgeral/relier/master/bash/raspbian-post-install.sh
     $ sudo chmod +x raspbian-post-install.sh && sed -i 's/\r//' raspbian-post-install.sh
     $ sudo ./raspbian-post-install.sh
 
@@ -83,7 +83,7 @@ First, you need to create a developer account following steps 1-4 from these [in
 then, you can get your *Signed Credential*, following steps 5-6 from these [instructions](https://pygsheets.readthedocs.io/en/latest/authorizing.html#signed-credentials). 
 *Copy* your signed credentials, then, do:
 
-    $ sudo nano /home/pi/LerAS/service_creds.json
+    $ sudo nano /home/pi/relier/service_creds.json
     
 and *Past* the signed credentials generated. Ctrl+X, yes and Enter to save file.
 
@@ -101,14 +101,14 @@ The connection between *Nextion* and the *Raspberry Pi* is made via *Serial UART
 The GUI interface of the project was developed in the 
 [Nextion Editor](https://nextion.itead.cc/resources/download/nextion-editor/) (free software - only for windows!).
 Follow the [Nextion Editor Guide](https://nextion.itead.cc/editor_guide/) to learn how to work with it. 
-I've provide the file [LerAS.HMI](https://github.com/Ricardosgeral/LerAS/blob/master/Nextion/HMI/LerAS.HMI) 
+I've provide the file [relier.HMI](https://github.com/Ricardosgeral/relier/blob/master/Nextion/HMI/relier.HMI) 
 developed for this project. The next picture shows some of that file content in Nextion Editor:
 
 ![NextionEditor](Nextion/GUI/Nextion_Editor.PNG)
 
 To upload the code into *Nextion touchscreen* follow these steps:
 
-1. Open the file [LerAS.HMI](https://github.com/Ricardosgeral/LerAS/blob/master/Nextion/HMI/LerAS.HMI) 
+1. Open the file [relier.HMI](https://github.com/Ricardosgeral/relier/blob/master/Nextion/HMI/relier.HMI) 
 with the Nextion Editor.
 2. Press the *Compile* icon in the first top bar, and check that there are no errors.
 3. Go to *File > Open build folder* and copy the *.tft* file produced by the editor (that has the code). 
@@ -149,7 +149,7 @@ So, the *Hardware* is composed by the three main parts:
 
 ### Acquisition system box
 
-+ 1x **PCB with 2 layers** (details to manufacter the *PCB* are shown [below](https://github.com/Ricardosgeral/LerAS/blob/master/README.md#printed-circuit-board-pcb-designedproduced)) [12 €]
++ 1x **PCB with 2 layers** (details to manufacter the *PCB* are shown [below](https://github.com/Ricardosgeral/relier/blob/master/README.md#printed-circuit-board-pcb-designedproduced)) [12 €]
 + 1x [**Nextion touchscreen 2.8"** - NX3224T028](https://nextion.itead.cc/shop-nextion/) [15 €]
 + 1x [**16 Bit I2C ADS1115** Module ADC 4 channel with Pro Gain Amplifier](https://www.aliexpress.com/item/16-Bit-I2C-ADS1115-Module-ADC-4-channel-with-Pro-Gain-Amplifier-RPi-1PCS/32817162654.html?spm=a2g0s.9042311.0.0.KZKf8O) [2€]
 + 1x [**Logic Level Shifter** Bi-Directional 5V to 3.3V](https://www.aliexpress.com/item/5PCS-Logic-Level-Shifter-Bi-Directional-For-Arduino-5V-to-3-3V-Four-Way-Two-Way/32827270848.html?spm=a2g0s.9042311.0.0.PRV9iC) [2€]
@@ -168,25 +168,25 @@ So, the *Hardware* is composed by the three main parts:
 
 #### Printed circuit board (*PCB*) designed/produced
 The design of the 2 layer's *PCB* was developed using [Fritzing](http://www.fritzing.org/). 
-The production files and the *.fzz* file are [here](https://github.com/Ricardosgeral/LerAS/tree/master/Fritzing). 
+The production files and the *.fzz* file are [here](https://github.com/Ricardosgeral/relier/tree/master/Fritzing). 
 The *PCB* was printed by [PCBWay company](https://www.pcbway.com/).
 
 Below, you can see images showing the circuits hooked in the breadboard and in the PCB, as well as the final 
 aspect of each layer individually.
 
 **Fritzing Breadboard view**
-![Breadboard_image](Fritzing/breadboard_LerAS.png)
+![Breadboard_image](Fritzing/breadboard_relier.png)
 
 **Fritzing PCB view**
-![PCB_image](Fritzing/PCB_LerAS.png)
+![PCB_image](Fritzing/PCB_relier.png)
 
 **PCB top layer**
 
-![FinalPCBtop_image](Fritzing/Final_TopPCB_LerAS.JPG)
+![FinalPCBtop_image](Fritzing/Final_TopPCB_relier.JPG)
 
 **PCB Bottom Layer**
 
-![FinalPCBbottom_image](Fritzing/Final_bottomPCB_LerAS.JPG)
+![FinalPCBbottom_image](Fritzing/Final_bottomPCB_relier.JPG)
 
 
 ### Sensors
@@ -242,7 +242,7 @@ You have three main options:
  3. **Start** - to initiate right away the test (record data). Directs to  **Sensors readings record** page.
  
 You can skip options 1 and 2, case you decide to use the 
-[*inputs ini file*](https://github.com/Ricardosgeral/LerAS#inputs-ini-file). 
+[*inputs ini file*](https://github.com/Ricardosgeral/relier#inputs-ini-file). 
  
 ### *3 - General settings*
 ![page3](Nextion/GUI/page3.PNG)
@@ -339,7 +339,7 @@ Here you confirm that you pressed the stop button, just in case! Pressing the:
 It is possible to set *ALL* input parameters by editing the file **inputs.ini**. This avoids setting the inputs 
 interactively in the touchscreen. For that, open a terminal and run the command:
  
-    $ sudo nano /home/pi/LerAS/inputs.ini  
+    $ sudo nano /home/pi/relier/inputs.ini  
  
 then, change the parameters as intended.
 
@@ -376,7 +376,7 @@ with a description of the parameters meaning.
 
 #### Additional notes
 
-- If the user changes the parameters in the interactive way, [*inputs.ini*](https://github.com/Ricardosgeral/LerAS/blob/master/inputs.ini) 
+- If the user changes the parameters in the interactive way, [*inputs.ini*](https://github.com/Ricardosgeral/relier/blob/master/inputs.ini) 
 will be updated, once the server begins to record data (green start button is pressed). 
 So, those selections are kept and may be reused in the next test.
 - Note that the parameters in the *ini* file will not appear always in the same order! 
@@ -463,9 +463,9 @@ will be increased a couple of seconds, due to the time required to request acces
 There is a library developed for Arduino, but I did not want to mix Python and *C* code. 
 So, I've developed my own NEXTION Library for Python 3 (which took me a while to do!).
 This Nextion Library for Python 3 is relatively simple to use. 
-You just need to look at the [py3nextion_lib.py](https://github.com/Ricardosgeral/LerAS/blob/master/py3nextion_lib.py),
+You just need to look at the [py3nextion_lib.py](https://github.com/Ricardosgeral/relier/blob/master/py3nextion_lib.py),
 and use it alongside with another .py file with all the components used in the Nextion Editor 
-(see [NextionApp](https://github.com/Ricardosgeral/LerAS/blob/master/NextionApp.py)). 
+(see [NextionApp](https://github.com/Ricardosgeral/relier/blob/master/NextionApp.py)). 
 Of course you need to know how to use the Nextion commands. 
 For that, see [instructions set](https://nextion.itead.cc/resources/documents/instruction-set/).
 - Use of the library [*pygsheets*](https://github.com/nithinmurali/pygsheets), alongside with 
@@ -491,13 +491,13 @@ using [*crontab*](https://debian-administration.org/article/56/Command_schedulin
 
 - The following warning is expected: *'grep: /dev/fd/63: No such file or directory'* at the end of 
 $ *sudo ./raspbian-post-install.sh*. Ignore it.
-- Don't forget to obtain and replace the content of the file **service_creds.json**, as indicated [above](https://github.com/Ricardosgeral/LerAS/blob/master/README.md#server-software-raspberry-pi), 
+- Don't forget to obtain and replace the content of the file **service_creds.json**, as indicated [above](https://github.com/Ricardosgeral/relier/blob/master/README.md#server-software-raspberry-pi), 
 or the program may not start!
-- The inspection of the **cronlog** file ($ *sudo nano /home/pi/LerAS/logs/cronlog*) may be helpful for detecting 
+- The inspection of the **cronlog** file ($ *sudo nano /home/pi/relier/logs/cronlog*) may be helpful for detecting 
 any eventual bugs during the software installation process.
 
 - After a start up or reboot of the *Raspberry Pi*, you should see a black page in the touchscreen (**Disconnected**). 
-If everything is working properly, after a while (the normal is 15 to 45 seconds) you should see the *Credits* page of *LerAs*.
+If everything is working properly, after a while (the normal is 15 to 45 seconds) you should see the *Credits* page of *relier*.
 First, you will see a red bar on the top of the screen. Then, that bar should become green. That 
 
 
@@ -507,7 +507,7 @@ First, you will see a red bar on the top of the screen. Then, that bar should be
   + third, $ doing *ls -l /dev |grep serial* you should see *serial 0 -> ttyAMA0* (pins 14/15 in UART) and 
   *serial 1 -> ttyS0* (bluetooth in miniuart). By default UART is attributed to Bluetooth and miniuart to pins 14/15 (which has limitations). 
   That's why they are changed during the execution of 
-  [*raspbian-post-install.sh*](https://github.com/Ricardosgeral/LerAS/blob/master/bash/raspbian-post-install.sh).
+  [*raspbian-post-install.sh*](https://github.com/Ricardosgeral/relier/blob/master/bash/raspbian-post-install.sh).
 - To check if the *Analog-to-Digital Converter* (ADC - ADS1115 chip) is properly connected via I2C, you can do 
 **$ sudo i2cdetect -y 1**. 
  You should see number **48** in the matrix (row 40, column 8). 
