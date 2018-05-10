@@ -335,7 +335,7 @@ Here you confirm that you pressed the stop button, just in case! Pressing the:
 - *Red button*   -> go back to **Sensors readings record** page, and readings never stopped being registered.
 
 
-## Inputs ini file
+## *inputs.ini* file
 
 It is possible to set *ALL* input parameters by editing the file **inputs.ini**. This avoids setting the inputs 
 interactively in the touchscreen. For that, open a terminal and run the command:
