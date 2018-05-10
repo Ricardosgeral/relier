@@ -338,8 +338,7 @@ Here you confirm that you pressed the stop button, just in case! Pressing the:
 
 It is possible to set *ALL* input parameters by editing the file **inputs.ini**. This avoids setting the inputs 
 interactively in the touchscreen. For that, open a terminal and run the command:
- 
-    $ sudo nano /home/pi/relier/inputs.ini  
+    `$ sudo nano /home/pi/relier/inputs.ini`  
  
 then, change the parameters as intended.
 
@@ -410,7 +409,7 @@ This will prevent corruption of the Micro SD card and of the USB drive, and incr
 To silently disconnect the server you can either:
    + hold the *red pushbutton* in the back of the *acquisition system box* for more than *7 seconds* (if holden between 3 and 7 seconds, 
    the *Raspberry Pi* will reboot), or 
-   + *$ sudo halt* in a *SSH* terminal session.
+   + `$ sudo halt` in a *SSH* terminal session.
 - If more than one USB drive is plugged in (not recommended!), data will be saved in the *first drive* being found.
 - Data in the *CSV* files is **never deleted** automatically. If the filename already exists in the USB drive or 
 Micro SD card, data is placed in the file but bellow the last row present. This means that multiple tests may be collected 
@@ -493,10 +492,10 @@ using [*crontab*](https://debian-administration.org/article/56/Command_schedulin
 ## Troubleshooting
 
 - The following warning is expected: *'grep: /dev/fd/63: No such file or directory'* at the end of 
-$ *sudo ./raspbian-post-install.sh*. Ignore it.
+`$ sudo ./raspbian-post-install.sh`. Ignore it.
 - Don't forget to obtain and replace the content of the file **service_creds.json**, as indicated [above](https://github.com/Ricardosgeral/relier/blob/master/README.md#server-software-raspberry-pi), 
 or the program may not start!
-- The inspection of the **cronlog** file ($ *sudo nano /home/pi/relier/logs/cronlog*) may be helpful for detecting 
+- The inspection of the **cronlog** file (`$ sudo nano /home/pi/relier/logs/cronlog`) may be helpful for detecting 
 any eventual bugs during the software installation process, or during start up of the server, for example, 
 to check if the google credentials are correct!.
 
@@ -507,22 +506,19 @@ First, you will see a red bar on the top of the screen. Then, that bar should be
 
 - If the NEXTION touchscreen is not functioning properly or not working at all:
   + first, see the connections, in particular check that: RX (server) <-> TX(screen), and TX(server) <-> RX(screen); 
-  + second, ensure that *serial* is disconnected: $ *sudo raspi-config* > 5 > P6 Serial > * No*;
-  + third, doing $ *ls -l /dev | grep serial* you should see *serial 0 -> ttyAMA0* (pins 14/15 in UART) and 
+  + second, ensure that *serial* is disconnected: `$ sudo raspi-config` > 5 > P6 Serial > * No*;
+  + third, doing `$ ls -l /dev | grep serial` you should see *serial 0 -> ttyAMA0* (pins 14/15 in UART) and 
   *serial 1 -> ttyS0* (bluetooth in miniuart). By default UART is attributed to Bluetooth and miniuart to pins 14/15 (which has limitations). 
   That's why they are changed during the execution of 
   [*raspbian-post-install.sh*](https://github.com/Ricardosgeral/relier/blob/master/bash/raspbian-post-install.sh).
 - To check if the *Analog-to-Digital Converter* (ADC - ADS1115 chip) is properly connected via I2C, you can do 
-**$ sudo i2cdetect -y 1**. 
+*`$ sudo i2cdetect -y 1`*. 
  You should see number **48** in the matrix (row 40, column 8). 
  Otherwise, something is not connected correctly, or I2C protocol has not been enabled 
  (the bash file *raspbian-post-install.sh* should have done that).
 - If you want to check if the Linux service units running on reboot/shutdown are active, check their status.
-
-
-    $ sudo systemctl status rcshut
-    
-    $ sudo systemctl status shutdown_button
+    `$ sudo systemctl status rcshut` and 
+    `$ sudo systemctl status shutdown_button`
     
 ctr+D to leave the terminal.
     
