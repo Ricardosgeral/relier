@@ -196,14 +196,14 @@ sudo grep "$CMD" -q <(crontab -l) || (crontab -l>"$TMPC"; echo "$JOB">>"$TMPC"; 
 # => run main.py at start-up of raspberry pi (using a shell script in crontab)
 # -----------------------------------------------------------------------------
 # make the launcher script an executable
-sudo cp /home/pi/relier/bash/launcher.sh /home/pi/relier/launcher.sh
-sudo chmod 755 /home/pi/relier/launcher.sh  # this file should be placed in /home/pi/erosionLab/
-sed -i 's/\r//' /home/pi/relier/launcher.sh
+#sudo cp /home/pi/relier/bash/launcher.sh /home/pi/relier/launcher.sh
+sudo chmod 755 /home/pi/relier/bash/launcher.sh  # this file should be placed in /home/pi/erosionLab/
+#sed -i 's/\r//' /home/pi/relier/bash/launcher.sh
 #Create a logs directory:
 sudo mkdir /home/pi/relier/logs
 sudo chmod 777 -R /home/pi/relier/logs
 
-CMD="sh /home/pi/relier/launcher.sh >/home/pi/relier/logs/cronlog 2>&1"
+CMD="sh /home/pi/relier/bash/launcher.sh >/home/pi/relier/logs/cronlog 2>&1"
 JOB="@reboot $CMD"
 TMPC="mycron2"
 sudo grep "$CMD" -q <(crontab -l) || (crontab -l>"$TMPC"; echo "$JOB">>"$TMPC"; crontab "$TMPC")

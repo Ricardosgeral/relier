@@ -45,8 +45,12 @@ nxlib.nx_setText(ser, nxApp.ID_no_reads[0] , nxApp.ID_no_reads[1] , ini['no_read
 # google_sheets checkbutton
 google_sheets = ini['google_sheets']
 if google_sheets in ['yes','Yes','YES','y','Y','yep']:
-    nxlib.nx_setValue(ser, nxApp.ID_google_sheets[0], nxApp.ID_google_sheets[1], 1)  # value = 1
-else:  # if it's not indicated or if no is indicated
+    if gsh.google_creds == True:  # if google credentials are ok
+        nxlib.nx_setValue(ser, nxApp.ID_google_sheets[0], nxApp.ID_google_sheets[1], 1)  # value = 1
+    else:
+        nxlib.nx_setValue(ser, nxApp.ID_google_sheets[0], nxApp.ID_google_sheets[1], 0)  # value = 0
+
+else:  # if it's not indicated or it's 'no'
     nxlib.nx_setValue(ser, nxApp.ID_google_sheets[0], nxApp.ID_google_sheets[1], 0)  # value = 0
 
 # testtype page
@@ -94,8 +98,13 @@ def input_settings(): # inputs from 'settings' and 'testType' pages
     filename  = nxlib.nx_getText(ser, nxApp.ID_filename[0], nxApp.ID_filename[1])
     googlesh = nxlib.nx_getText(ser, nxApp.ID_googlesh[0], nxApp.ID_googlesh[1])
     share_email = nxlib.nx_getText(ser, nxApp.ID_share_email[0], nxApp.ID_share_email[1])
-    chk_google = nxlib.nx_getValue(ser, nxApp.ID_google_sheets[0], nxApp.ID_google_sheets[1])
-    duration  = nxlib.nx_getText(ser, nxApp.ID_duration[0], nxApp.ID_duration[1])
+    if gsh.google_creds == True:  # if credentials are ok
+        chk_google = nxlib.nx_getValue(ser, nxApp.ID_google_sheets[0], nxApp.ID_google_sheets[1])
+        duration = nxlib.nx_getText(ser, nxApp.ID_duration[0], nxApp.ID_duration[1])
+    else:  # if credentials are not working the check box is not selected
+        chk_google = 0
+        duration = '0'
+
     interval  = nxlib.nx_getText(ser, nxApp.ID_interval[0], nxApp.ID_interval[1])
     no_reads  = nxlib.nx_getText(ser, nxApp.ID_no_reads[0], nxApp.ID_no_reads[1])
     if chk_google == 1:
@@ -238,7 +247,7 @@ def read_display_write(e_rdw): # read and display data in page "sensors" and wri
     e_rdw.wait()
     row = 1
     while end_rdw.is_set() == False:
-        if time.time() < stop+1:
+        if time.time() < stop+int(inp['interval']):
             e_rdw.wait()
             current = time.time()
             elapsed = current - start# restart thread t_rdw
@@ -255,7 +264,10 @@ def read_display_write(e_rdw): # read and display data in page "sensors" and wri
             ID_elapsed = nxApp.get_Ids('sensors', 'txt_duration')
             nxlib.nx_setText(ser, ID_elapsed[0], ID_elapsed[1], elapsed)
             ID_autostop = nxApp.get_Ids('sensors', 'txt_autostop')
-            nxlib.nx_setText(ser, ID_autostop[0], ID_autostop[1], autostop)
+            if int(inp['duration']) == 0:
+                nxlib.nx_setText(ser, ID_autostop[0], ID_autostop[1], '--:--:--')
+            else:
+                nxlib.nx_setText(ser, ID_autostop[0], ID_autostop[1], autostop)
             if export_google in ['yes', 'Yes', 'YES', 'y', 'Y', 'yep'] and gsh.google_creds == True:
                 gsh.write_gsh(data, row, wks)
                 row += 1
@@ -337,8 +349,10 @@ def detect_touch(e_rd, e_rdw):
 
                     e_rdw.set()        #start read_write_display()
                     start = time.time()
-                    stop = start + int(inp['duration']) * 60  # seconds
-
+                    if int(inp['duration']) == 0:
+                        stop = start + 86400 # 'forever', 2 months = 86400 min
+                    else:
+                        stop = start + int(inp['duration']) * 60  # seconds
 
                 elif (pageID_touch,compID_touch) == (5,3):  # button set zero pressures (comp2) in page 5 is pressed
                     # shown up a text component saying: wait ...
