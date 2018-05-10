@@ -510,7 +510,7 @@ to check if the google credentials are correct!.
 *`$ sudo i2cdetect -y 1`*. 
  You should see number **48** in the matrix (row 40, column 8). 
  Otherwise, something is not connected correctly, or I2C protocol has not been enabled 
- (the bash file *raspbian-post-install.sh* should have done that).
+ (the bash file *raspbian-post-install.sh* should have done that!).
 - If you want to check if the Linux service units running on reboot/shutdown are active, check their status.
     `$ sudo systemctl status rcshut` and 
     `$ sudo systemctl status shutdown_button`
