@@ -62,8 +62,8 @@ enable *SSH* in first boot. So, right after installing the raspbian image in the
 Access the *Raspberry Pi* directly (if you have a monitor), or via *SSH* (for example, using *Putty*). 
 In this last option, you will need to know the local IP attributed to the *Raspberry Pi*!
 
-   **Login**: *pi*   
-   **Password**: *raspberry*
+   **Login**: `pi`   
+   **Password**: `raspberry`
 
 It is recommended to change the password after first boot, since *SSH* is enabled!
 
