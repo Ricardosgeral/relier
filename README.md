@@ -519,7 +519,7 @@ First, you will see a red bar on the top of the screen. Then, that bar should be
     $ sudo systemctl status rcshut
     $ sudo systemctl status shutdown_button
     
-ctr+D to leave terminal.
+ctr+D to leave the terminal.
     
 ## Licence
 Copyright (c) 2018 Ricardo Correia dos Santos
