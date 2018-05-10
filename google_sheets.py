@@ -7,7 +7,7 @@ import pandas as pd
 
 # get signed credentials
 try:
-    gc = pygsheets.authorize(service_file='service_creds_copy.json') # remove the _copy part
+    gc = pygsheets.authorize(service_file='service_creds.json') # remove the _copy part
     initial_rows = 1000  # default number of rows of the worksheet
     initial_colmn = 15  # default number of columns
     google_creds = True
