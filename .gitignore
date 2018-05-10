@@ -102,4 +102,4 @@ ENV/
 
 # mypy
 .mypy_cache/
-service_creds.json
+service_creds_copy.json
