@@ -230,7 +230,8 @@ Waiting a while (the normal is 15 to 45 seconds, depending on the server service
  
 When this page appears, first, you will see a *red* bar on the top of the screen. Wait (less than 5 seconds).
 That bar should then stay *green*. That means that all is working Ok. You can also see the local *IP address* of the server, 
-which is useful in case you want to make a remote connection with *Putty*.
+which is useful in case you want to make a remote connection with *Putty*. If the server has no internet, 
+then the following message is shown `No internet connection`.
 
 Touch anywhere to go the **Main menu** page.
  
