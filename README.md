@@ -298,7 +298,8 @@ However, due to the daily  changes of atmospheric pressure (that depends on temp
 the most likely is that they are not null. 
 
 If you push the *Zero* button at this stage (*ie*, with no external pressure applied), 
-you will get a *wait a few seconds* progress bar. After a few seconds, the acquisition system will restart and show the readings.
+you will get a *wait a few seconds* progress bar. After a few seconds, the acquisition system will restart,
+ and show the corrected measurements.
 Now the piezometric pressures should be nearly null. The next figure exemplifies the 'zeroing' procedure, 
 which is done individually for each pressure sensor.
 
