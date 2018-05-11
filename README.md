@@ -469,7 +469,7 @@ More information [here](https://www.raspberrypi.org/forums/viewtopic.php?t=66445
    + Detection of *serial communication* between the server and the Nextion touchscreen. 
    The server needs to check if the touchscreen is pressed, independently of being at the same time doing other tasks. 
    To achieve this it is used *Thread*, alongside with *Event*, both from the threading module. This achievement took me a while to master, and I believe it may be useful to others.
-- *Library for serial communication with the Nextion Device in Python 3* (TX-RX, UART protocol). 
+- *Library for serial communication with the Nextion device in Python 3* (TX-RX, UART protocol). 
 Unfortunately, until the day I'm writing this, a Python library to use Nextion touchscreen was not available.
 There is a good library developed for Arduino, but I did not want to mix Python and *C* code. 
 So, I've developed my own Nextion Library for Python 3 (which took me a while to achieve!).
