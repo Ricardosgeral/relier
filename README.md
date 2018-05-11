@@ -454,8 +454,8 @@ will be increased a couple of seconds, due to the time required to request acces
 ## Achievements that can help the reuse of *Python code*
 
 - Use of the [*ADS1115*](https://www.adafruit.com/product/1085) *Analog to Digital Conversor (ADC)*, to acquire the analog outputs of the pressure sensors and turbidity sensor.
-If you want to use another ADC (e.g., the [MCP3008 (10 bits)](https://www.adafruit.com/product/856)), 
-which is faster but less precise, the Python library needs, of course, to be replaced and the python code should be adapted.
+If you want to use another ADC (e.g., the [MCP3008 (10 bits)](https://www.adafruit.com/product/856), 
+which is faster but less precise), the Python library will need, of course, to be replaced and the python code should be adapted.
 - Use of the [*pigpio library*](http://abyz.me.uk/rpi/pigpio/) to get the readings from the turbine flowmeter (hall-effect sensor), using the function [callback](http://abyz.me.uk/rpi/pigpio/python.html#callback). 
 More information [here](https://www.raspberrypi.org/forums/viewtopic.php?t=66445).
 - *Use of threading (['thread-based parallelism'](https://docs.python.org/3/library/threading.html)), together with [Event objects](https://docs.python.org/3/library/threading.html#event-objects), in Python 3*. Threads are used in three cases: 
