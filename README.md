@@ -86,7 +86,7 @@ then, you need to get your *Signed Credential* (follow steps 5-6 from these [ins
 
     $ sudo nano /home/pi/relier/service_creds.json
     
-and *Past* the signed credentials generated. Ctrl+X, yes and Enter to save file.
+and *Past* the signed credentials. `Ctrl+X`, then `y` and finally `Enter` to save file.
 
     $ sudo reboot
 
@@ -527,9 +527,7 @@ and that you followed all 6 steps in installation of the server software. Don't 
 - If you want to check if the Linux service units running on reboot/shutdown are active, check their status.
     `$ sudo systemctl status rcshut` and 
     `$ sudo systemctl status shutdown_button`
-- No 
-    
-ctr+D to leave the terminal.
+`ctr + D` to leave the terminal.
     
 ## License
 Copyright (c) 2018 Ricardo Correia dos Santos
