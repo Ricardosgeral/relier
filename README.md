@@ -416,7 +416,7 @@ To silently disconnect the server you can either:
 - If more than one USB drive is plugged in (not recommended!), data will be saved in the *first drive* being found.
 - Data in the *CSV* files is ***never deleted*** automatically. If a file with the same name already exists in the USB drive or 
 in the Micro SD card, data is placed in the file but bellow the last row already there. This means that multiple tests may be collected 
-in the same filename (not desirable). I think it is preferable to set each test in an individual file.
+in the same file (not desirable). I think it is preferable to set each test in an individual file.
 
 
 ### Internet connection available (Ethernet or WiFi)
@@ -476,13 +476,13 @@ Unfortunately, until the day I'm writing this, a Python library to use Nextion t
 There is a good library developed for Arduino, but I did not want to mix Python and *C* code. 
 So, I've developed my own Nextion Library for Python 3 (which took me a while to achieve!).
 This library is relatively simple to use, and has margin for improvement. 
-You just need to look at the [py3nextion_lib.py](https://github.com/Ricardosgeral/relier/blob/master/py3nextion_lib.py),
+You just need to look at the [*py3nextion_lib.py*](https://github.com/Ricardosgeral/relier/blob/master/py3nextion_lib.py),
 and use it alongside with [*nextionApp.py*](https://github.com/Ricardosgeral/relier/blob/master/nextionApp.py) 
 all the components (to be accessed by the server) defined in the Nextion Editor.
 Of course, you need to know how to use the Nextion commands.
-For that, see [instructions set](https://nextion.itead.cc/resources/documents/instruction-set/).
+For that, see [*instructions set*](https://nextion.itead.cc/resources/documents/instruction-set/).
 - Use of the library [*pygsheets*](https://github.com/nithinmurali/pygsheets), alongside with 
-library [*pandas*](https://pandas.pydata.org/index.html) to collect data from multiple sensors and write them in google sheets.  
+library [*pandas*](https://pandas.pydata.org/index.html), to collect data from multiple sensors and write them in google sheets.  
 - Use the library [*CSV*](https://docs.python.org/3.6/library/csv.html) to write the data (as dictionary variable) in rows.
 - Use of the library [*configparser*](https://docs.python.org/3/library/configparser.html) to have a *.ini* file 
 with the inputs.  
