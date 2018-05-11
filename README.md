@@ -237,9 +237,9 @@ Touch anywhere to go the **Main menu** page.
 ![page2](Nextion/320x240/page2-menu0.png)
  
 You have three main options:
- 1. __**Settings**__ - to set the general *inputs*. Redirects to **General setting** page
- 2. __**Sensors**__ - to set the calibration parameters of *analog sensors*. Redirects to **Sensors** page
- 3. __**Start**__ - to initiate right away the test (record data). Redirects to  **Sensors readings record** page.
+ 1. ***Settings*** - to set the general *inputs* -> Redirects to **General setting** page
+ 2. ***Sensors*** - to set the calibration parameters of *analog sensors* -> Redirects to **Sensors** page
+ 3. ***Start*** - to initiate right away the test (record data) -> Redirects to  **Sensors readings record** page.
  
 You can skip options 1 and 2, case you decide to use the 
 [*inputs ini file*](https://github.com/Ricardosgeral/relier#inputs-ini-file). 
@@ -249,10 +249,10 @@ You can skip options 1 and 2, case you decide to use the
 
 Here, you can edit the main inputs of the test to carry out:
 - *CSV filename* textbox - name of the CSV file to be saved.
-- *Google sheets* checkbox - select it, if you want to send data to google sheets.
-- *Spreadsheet* textbox - name of the google spreadsheet (the name of the workbook will be the *CSV filename*).
+- *Google sheets* checkbox - select this, if you want to send data to google sheets.
+- *Spreadsheet* textbox - name of the google spreadsheet (the name of the worksheet = *CSV filename*).
 - *email* textbox - email to where a link, to access the google spreadsheet, will be sent.
-- *Test time* textbox - duration of the test, in minutes.
+- *Test time* textbox - duration of the test, in minutes (=0 -> records data 'forever').
 - *Record* textbox - interval between records, in seconds.
 - *Number* textbox - number of readings in each record interval, to make an average.
 
@@ -261,7 +261,7 @@ If you push the blue button on top-right corner you will go back to **Main menu*
 There is also a blue button that will direct you to the **Test type** page.
 
 
-### *4 - Test Type selection*
+### *4 - Test type selection*
 ![page4](Nextion/GUI/page4.PNG)
 
 This page allow you to select the type of test you want to perform, using the radio buttons.
@@ -276,17 +276,17 @@ To go back to the **Settings** page, click the return blue button.
 ![page5](Nextion/GUI/page5.PNG)
 
 Well, here is where the calibration parameters of the analog sensors (water pressure and turbidity sensors) are set.
-It is assumed that there is a linear relation (**y = mx + b**) between the analog readings and the effective measurements. 
+It is assumed that there is a linear relation (***y = mx + b***) between the analog readings and the effective measurements. 
 
-- Pressure sensors: **x** = output tension (in *mV*); **y** = water pressure (in *mbar*).
-- Turbidity sensor: **x** = output analog number (0 to 32767 - 15 bits ADC, 2^15); **y** = water turbidity number (NTU).
+- Pressure sensors: ***x*** = output tension (in *mV*); ***y*** = water pressure (in *mbar*).
+- Turbidity sensor: ***x*** = output analog number (0 to 32767 - 15 bits ADC, 2^15); ***y*** = water turbidity number (NTU).
 
-***Calibration* pushbutton** to update readings
+***Calibration* pushbutton**, to update readings
 
 If you modify  the *m* and *b* parameters of any of the sensors, you need to push the *Calibration* button, 
 in order to see the influence on the pressure and turbidity values.
 
-***Zero* pushbutton** for *'zeroing'* the values of the pressure sensors
+***Zero* pushbutton**, for *'zeroing'* the values of the pressure sensors
 
 This functionality can be used to take into account the normal variations of the atmospheric pressure.
 To use it properly, it is necessary, first, to ensure that there is no pressure applied to the sensors (besides the ambient pressure).
@@ -295,15 +295,15 @@ In such conditions, ideally, the  pressure sensors should indicate zero *mbar*.
 However, due to the daily  changes of atmospheric pressure (that depends on temperature, humidity, altitude, ...), 
 the most likely is that they are not null. 
 
-If you push the *Zero* button at this stage (*i.e.*, no external pressure applied), 
+If you push the *Zero* button at this stage (*ie*, with no external pressure applied), 
 you will get a *wait a few seconds* progress bar. After a few seconds, the acquisition system will restart and show the readings.
 Now the piezometric pressures should be nearly null. The next figure exemplifies the 'zeroing' procedure, 
 which is done individually for each pressure sensor.
 
 ![zeroing](Nextion/GUI/Zeroing_explain.png)
 
-Attention that, for the future tests, it will be necessary to do 'zeroing' process again (if desired). 
-That is, the zero shift (*z*) history is not remembered by the acquisition system. 
+Attention that, for the future tests, it will be necessary to do the 'zeroing' process again (if desired). 
+That is, the history of the zero shift (*z*) is not remembered by the acquisition system. 
 
 When you consider that the analog sensors are conveniently calibrated, you can press the *back blue button* (top-right), 
 which will send you to the **Main menu** page.
