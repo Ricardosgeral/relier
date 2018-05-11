@@ -442,13 +442,13 @@ This functionality allows ***Live monitoring*** of the data being placed in the 
 
 #### Additional notes
 
-- If the *Spreadsheet/Worksheet* provided by the user already exists, the data that was in that worksheet will be deleted (**Attention!**). 
+- If the *Spreadsheet/Worksheet* provided by the user already exists, the data that was in that worksheet will be deleted (***Attention!***). 
 However, when a new Worksheet name is provided in an already existing Spreadsheet, a new sheet is added. 
 This means that you can have a single Spreadsheet with different tests organized in different Worksheets (preferable).
 - If there is no internet connection when on start up of the server, even if you select the google sheet checkbutton, 
-no data will be sent to google sheets (**Attention!**). For debugging look at the 
+no data will be sent to google sheets (***Attention!***). For debugging look at the 
 [troubleshooting](https://github.com/Ricardosgeral/relier#troubleshooting) section. 
-- If internet connection is lost during a test, the software will raise an exception and stop recording data to google sheets! (**Attention!**).
+- If internet connection is lost during a test, the software will raise an exception and stop recording data to google sheets! (***Attention!***).
 - Please be aware that, by choosing the 'google sheets' feature, the interval between readings chosen by the user 
 will be increased a couple of seconds, due to the time required to request access the Google API.
  
@@ -505,7 +505,7 @@ using [*crontab*](https://debian-administration.org/article/56/Command_schedulin
 
 - The following warning is expected: *'grep: /dev/fd/63: No such file or directory'* at the end of 
 `$ sudo ./raspbian-post-install.sh`. Ignore it.
-- Don't forget to obtain and replace the content of the file **service_creds.json**, 
+- Don't forget to obtain and replace the content of the file [*service_creds.json*](https://github.com/Ricardosgeral/relier/blob/master/service_creds.json), 
 as indicated [above](https://github.com/Ricardosgeral/relier/blob/master/README.md#server-software-raspberry-pi), 
 or the program may not start!
 - The inspection of the **cronlog** file (`$ sudo nano /home/pi/relier/logs/cronlog`) may be helpful for detecting 
