@@ -109,7 +109,7 @@ developed for this project. The next picture shows some of that file content in 
 
 To upload the code into *Nextion touchscreen* follow these steps:
 
-1. Open the file [relier.HMI](https://github.com/Ricardosgeral/relier/blob/master/Nextion/HMI/relier.HMI) 
+1. Open the file [*relier.HMI*](https://github.com/Ricardosgeral/relier/blob/master/Nextion/HMI/relier.HMI) 
 with the Nextion Editor.
 2. Press the *Compile* icon in the first top bar, and check that there are no errors.
 3. Go to *File > Open build folder* and copy the *.tft* file produced by the editor (that has the code). 
@@ -126,7 +126,7 @@ and the GUI is set in the touchscreen.
 
 **Note:** Be careful when buying the *NEXTION* screen. Confirm that you are not getting a *TJC* (for Chinese market), 
 which looks identical. 
-This version only works with the Chinese version of the Nextion Editor! You will need to learn Chinese to use it!!!!
+This version only works with the Chinese version of the Nextion Editor! You will need to learn Chinese to use it !!!!
  
  
 ## Hardware
