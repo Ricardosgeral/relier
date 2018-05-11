@@ -417,7 +417,7 @@ Micro SD card, data is placed in the file but bellow the last row present. This 
 in the same filename (not recommended!). It is preferable to set each test in an individual file.
 
 
-### Internet connection available
+### Internet connection available (Ethernet or WiFi)
 
 Data collection is also done locally in CSV format . That is, if a USB drive is plugged in, data goes to USB, otherwise, data goes to the Micro SD card.
 
@@ -444,19 +444,19 @@ This functionality allows **Live monitoring** of the data being placed in the Go
 However, when a new Worksheet name is provided in an already existing Spreadsheet, a new sheet is added. 
 This means that you can have a single Spreadsheet with different tests organized in different Worksheets (preferable).
 - If there is no internet connection when on start up of the server, even if you select the google sheet checkbutton, 
-no data will be sent to google sheets (**Atention!**). For debugging look at the 
+no data will be sent to google sheets (**Attention!**). For debugging look at the 
 [troubleshooting](https://github.com/Ricardosgeral/relier#troubleshooting) section. 
-- If internet connection is lost during a test, the software will raise an exception and stop recording data to google sheets! (**be aware!**).
+- If internet connection is lost during a test, the software will raise an exception and stop recording data to google sheets! (**Attention!**).
 - Please be aware that, by choosing the 'google sheets' feature, the interval between readings chosen by the user 
-will be increased a couple of seconds, due to the time required to request access the google API.
+will be increased a couple of seconds, due to the time required to request access the Google API.
  
 
 ## Achievements that can help the reuse of *Python code*
 
-- Use of the [ADS1115](https://www.adafruit.com/product/1085) *Analog to Digital Conversor (ADC)*, to acquire the analog outputs of the pressure sensors and turbidity sensor.
+- Use of the [*ADS1115*](https://www.adafruit.com/product/1085) *Analog to Digital Conversor (ADC)*, to acquire the analog outputs of the pressure sensors and turbidity sensor.
 If you want to use another ADC (e.g., the [MCP3008 (10 bits)](https://www.adafruit.com/product/856)), 
-which is faster but less precise, the Python libraries and code needs, of course, to be adapted.
-- Use of the [pigpio library](http://abyz.me.uk/rpi/pigpio/) to get the readings from the turbine flowmeter (hall-effect sensor), using the function [callback](http://abyz.me.uk/rpi/pigpio/python.html#callback). 
+which is faster but less precise, the Python library needs, of course, to be replaced and the python code should be adapted.
+- Use of the [*pigpio library*](http://abyz.me.uk/rpi/pigpio/) to get the readings from the turbine flowmeter (hall-effect sensor), using the function [callback](http://abyz.me.uk/rpi/pigpio/python.html#callback). 
 More information [here](https://www.raspberrypi.org/forums/viewtopic.php?t=66445).
 - *Use of threading (['thread-based parallelism'](https://docs.python.org/3/library/threading.html)), together with [Event objects](https://docs.python.org/3/library/threading.html#event-objects), in Python 3*. Threads are used in three cases: 
    + In the handling of the results from *analog sensors*, for "stability". Threads allow to do a mean over a certain period of time 
