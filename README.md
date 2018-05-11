@@ -240,8 +240,8 @@ Touch anywhere to go the **Main menu** page.
  
 You have three main options:
  1. ***Settings*** - to set the general *inputs* -> Redirects to **General setting** page.
- 2. ***Sensors*** - to set the calibration parameters of *analog sensors* -> Redirects to **Sensors** page.
- 3. ***Start*** - to initiate right away the test (record data) -> Redirects to  **Sensors readings record** page.
+ 2. ***Sensors*** - to set the calibration parameters of *analog sensors* -> Redirects to **Set analog sensors** page.
+ 3. ***Start*** - to initiate right away the test (record data) -> Redirects to  **Data record** page.
  
 You can skip options 1 and 2, case you decide to use the file 
 [*inputs.ini* ](https://github.com/Ricardosgeral/relier#inputs-ini-file). 
@@ -263,7 +263,7 @@ If you push the blue button on top-right corner you will go back to **Main menu*
 There is also a blue button that will direct you to the **Test type** page.
 
 
-### *4 - Test type selection*
+### *4 - Test type*
 ![page4](Nextion/GUI/page4.PNG)
 
 This page allow you to select the type of test you want to perform, using the radio buttons.
@@ -274,7 +274,7 @@ If you select *Other*, you have a textbox that can be used to give a name to the
 
 To go back to the **Settings** page, click the return blue button. 
 
-### *5 - Analog sensors configuration*
+### *5 - Set analog sensors*
 ![page5](Nextion/GUI/page5.PNG)
 
 Well, here is where the calibration parameters of the analog sensors (water pressure and turbidity sensors) are set.
@@ -312,7 +312,7 @@ which will send you to the **Main menu** page.
 
 If you want to leave the **Sensor** page, you can also push the *Home* button, which will send you to the **Credits** page.  
 
-### *6 - Sensors readings record*
+### *6 - Data record*
 ![page6](Nextion/GUI/page6.PNG)
 
 This page appears when the *Start* green button is pressed. The various outputs should appear in the screen and update 
