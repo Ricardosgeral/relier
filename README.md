@@ -450,7 +450,7 @@ no data will be sent to google sheets (**Atention!**). For debugging look at the
 will be increased a couple of seconds, due to the time required to request access the google API.
  
 
-## Achievements that can help *Python code reuse*
+## Achievements that can help the reuse of *Python code*
 
 - Use of the [ADS1115](https://www.adafruit.com/product/1085) *Analog to Digital Conversor (ADC)*, to acquire the analog outputs of the pressure sensors and turbidity sensor.
 If you want to use another ADC (e.g., the [MCP3008 (10 bits)](https://www.adafruit.com/product/856)), 
