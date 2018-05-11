@@ -378,7 +378,7 @@ with a description of the parameters meaning.
 #### Additional notes
 
 - If the user changes the parameters in the interactive way, [*inputs.ini*](https://github.com/Ricardosgeral/relier/blob/master/inputs.ini) 
-will be updated, once the server begins to record data (green start button is pressed). 
+will be updated, once the server begins to record data (green start button in **Main menu**). 
 So, those selections are kept and may be reused in the next test.
 - Note that the parameters in the *ini* file will not appear always in the same order! 
 However, they will always appear in there respective sections. 
