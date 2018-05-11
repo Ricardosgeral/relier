@@ -381,7 +381,7 @@ with a description of the parameters meaning.
 will be updated, once the server begins to record data (green start button in **Main menu**). 
 So, those selections are kept and may be reused in the next test.
 - Note that the parameters in the *ini* file will not appear always in the same order! 
-However, they will always appear in there respective sections. 
+However, they will always appear in their respective sections. 
 That is, for example, the parameter *interval* will always appear in section [settings].
 
 
