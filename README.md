@@ -266,13 +266,13 @@ There is also a blue button that will direct you to the **Test type** page.
 ### *4 - Test type*
 ![page4](Nextion/GUI/page4.PNG)
 
-This page allow you to select the type of test you want to perform, using the radio buttons.
+This page allows you to select the type of test you want to perform, using the radio buttons.
 Note that, by selecting option <*Hole Erosion Test (HET)*>
 you will not get results of the interface (middle) pressure sensor, 
 since this test only uses two pressure sensors (upstream and downstream).
 If you select *Other*, you have a textbox that can be used to give a name to the test type.
 
-To go back to the **Settings** page, click the return blue button. 
+To go back to the **General settings** page, click the return blue button. 
 
 ### *5 - Set analog sensors*
 ![page5](Nextion/GUI/page5.PNG)
