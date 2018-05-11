@@ -251,10 +251,10 @@ You can skip options 1 and 2, case you decide to use the file
 
 Here, you can edit the main inputs of the test to carry out:
 - *CSV filename* textbox - name of the CSV file to be saved.
-- *Google sheets* checkbox - select this, if you want to send data to google sheets.
-- *Spreadsheet* textbox - name of the google spreadsheet (the name of the worksheet = *CSV filename*).
-- *email* textbox - email to where a link, to access the google spreadsheet, will be sent.
-- *Test time* textbox - duration of the test, in minutes (=0 -> records data 'forever').
+- *Google sheets* checkbox - select this, if you want to send data to Google sheets.
+- *Spreadsheet* textbox - name of the Google spreadsheet (the name of the worksheet = *CSV filename*).
+- *email* textbox - email to where a link, to access the Google spreadsheet, will be sent.
+- *Test time* textbox - duration of the test, in minutes (if set equal to 0 -> records data 'forever').
 - *Record* textbox - interval between records, in seconds.
 - *Number* textbox - number of readings in each record interval, to make an average.
 
