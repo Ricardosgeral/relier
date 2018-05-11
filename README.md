@@ -81,7 +81,7 @@ Then, in the terminal, run the following sequential commands:
 
 Next, you need to create your *json* file with the google signed credentials.
 First, you need to create a developer account and enable some APIs (follow steps 1-4 from these [instructions](https://pygsheets.readthedocs.io/en/latest/authorizing.html#)), 
-then, you can get your *Signed Credential* (follow steps 5-6 from these [instructions](https://pygsheets.readthedocs.io/en/latest/authorizing.html#signed-credentials)). 
+then, you need to get your *Signed Credential* (follow steps 5-6 from these [instructions](https://pygsheets.readthedocs.io/en/latest/authorizing.html#signed-credentials)). 
 *Copy* your signed credentials, then, do:
 
     $ sudo nano /home/pi/relier/service_creds.json
