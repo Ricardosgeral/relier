@@ -81,16 +81,16 @@ nxlib.nx_setText(ser, nxApp.ID_bturb[0], nxApp.ID_bturb[1],ini['bturb'])
 ##########
 ## display Ip in page 1 of NEXTION
 def get_ip_address():  # get the (local) ip_address of the raspberry pi
-    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    s.connect(("8.8.8.8",80))
-    ip_address = s.getsockname()[0]
-    s.close()
+    try:
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        s.connect(("8.8.8.8",80))
+        ip_address = s.getsockname()[0]
+        s.close()
+    except:
+        ip_address ='No internet connection'
     return ip_address
 
-try:
-    ip = get_ip_address()
-except:
-    ip ='No internet connection'
+ip = get_ip_address()
 nxlib.nx_setText(ser, nxApp.ID_ip[0], nxApp.ID_ip[1], ip)
 print('Current IP: {}'.format(ip))
 
