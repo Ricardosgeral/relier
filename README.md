@@ -414,9 +414,9 @@ To silently disconnect the server you can either:
    the *Raspberry Pi* will reboot), or 
    + `$ sudo halt` in a *SSH* terminal session.
 - If more than one USB drive is plugged in (not recommended!), data will be saved in the *first drive* being found.
-- Data in the *CSV* files is ***never deleted*** automatically. If the filename already exists in the USB drive or 
-Micro SD card, data is placed in the file but bellow the last row present. This means that multiple tests may be collected 
-in the same filename (not recommended!). It is preferable to set each test in an individual file.
+- Data in the *CSV* files is ***never deleted*** automatically. If a file with the same name already exists in the USB drive or 
+in the Micro SD card, data is placed in the file but bellow the last row already there. This means that multiple tests may be collected 
+in the same filename (not desirable). I think it is preferable to set each test in an individual file.
 
 
 ### Internet connection available (Ethernet or WiFi)
