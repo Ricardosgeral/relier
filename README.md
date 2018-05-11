@@ -342,7 +342,7 @@ Here you confirm that you pressed the stop button, just in case! Pressing the:
 
 It is possible to set *ALL* input parameters by editing the file [*inputs.ini*](https://github.com/Ricardosgeral/relier/blob/master/inputs.ini). This avoids setting the inputs 
 interactively in the touchscreen. For that, open a terminal and run the command:
-    `$ sudo nano /home/pi/relier/inputs.ini`  then, change the parameters as intended.
+    `$ sudo nano /home/pi/relier/inputs.ini`, then, change the parameters as intended.
 
 The structure of the ini file comprises 4 sections. Next is an example of an *inputs.ini* file,  
 with a description of the parameters meaning.
