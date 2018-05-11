@@ -522,9 +522,9 @@ and that you followed all 6 steps in installation of the server software. Don't 
   [*raspbian-post-install.sh*](https://github.com/Ricardosgeral/relier/blob/master/bash/raspbian-post-install.sh).
 - To check if the *Analog-to-Digital Converter* (ADC - ADS1115 chip) is properly connected via I2C, you can do 
 *`$ sudo i2cdetect -y 1`*. 
- You should see number **48** in the matrix (row 40, column 8). 
+ You should see number ***48*** in the matrix (row 40, column 8). 
  Otherwise, something is not connected correctly, or I2C protocol has not been enabled 
- (the bash file *raspbian-post-install.sh* should have done that!).
+ (the bash file [*raspbian-post-install.sh*](https://github.com/Ricardosgeral/relier/blob/master/bash/raspbian-post-install.sh) should have done that!).
 - If you want to check if the Linux service units running on reboot/shutdown are active, check their status.
     `$ sudo systemctl status rcshut` and 
     `$ sudo systemctl status shutdown_button`
