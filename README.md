@@ -346,7 +346,7 @@ interactively in the touchscreen. For that, open a terminal and run the command:
  
 then, change the parameters as intended.
 
-The structure of the ini comprises 4 sections. Next is an example of an *inputs.ini* file,  
+The structure of the ini file comprises 4 sections. Next is an example of an *inputs.ini* file,  
 with a description of the parameters meaning.
 
     # inputs.ini example
