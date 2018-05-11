@@ -315,8 +315,8 @@ If you want to leave the **Sensor** page, you can also push the *Home* button, w
 ### *6 - Data record*
 ![page6](Nextion/GUI/page6.PNG)
 
-This page appears when the *Start* green button is pressed. The various outputs should appear in the screen and update 
-at constant interval (define in the *Settings*).
+This page appears when the *Start* green button in **Main menu** is pressed. 
+The data being recorded appears in the screen and is updated at a constant interval (defined in the *Settings*).
 
 If "Google sheets" option has been selected, the first reading can take more than normal (due to the request to access the google API).
 
