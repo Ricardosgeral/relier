@@ -120,7 +120,7 @@ to ensure all files are cleared from the card).
 If you see *Check data.. 100%*, then the code was uploaded successfully.  
 8. Disconnect again the power supply to the screen, and remove the Micro SD card (it will not be necessary anymore) 
 from *Nextion*.
-9. In next power on, the software with the code made by the Nextion Editor is running in the device, 
+9. In next start up, the software with the code made by the Nextion Editor is running in the device, 
 and the GUI is set in the touchscreen.
 
 **Note:** Be careful when buying the *NEXTION* screen. Confirm that you are not getting a *TJC* (for Chinese market), 
@@ -490,10 +490,10 @@ with the inputs.
 (using a [*systemd service*](https://wiki.debian.org/systemd)): 
    + *Reboot*: hold the button more than 3 seconds but less than 7 seconds.
    + *Shutdown*: hold the button more than 7 seconds. Note, that the Raspberry Pi is still powered. 
- To stop the power supply to the server you need to unplug the micro USB cable. 
- To restart the server after a shutdown, just power on the server again.
+ You still need to unplug the micro USB cable, to power off the server. 
+ To restart the server after a shutdown, just start up the server again.
 - Detection of the local *IP address* of the server (if connected to the internet).
-- Start a python script right after power-on or reboot of the server (*Raspberry Pi*), 
+- Start a python script right after start up or reboot of the server (*Raspberry Pi*), 
 using [*crontab*](https://debian-administration.org/article/56/Command_scheduling_with_cron).
 - Enable IC2 and 1-wire GPIO in file */boot/config.txt*.
 - Enable pins 14(TX) and 15(RX) to use UART serial connection (where Nextion device is connected).  
