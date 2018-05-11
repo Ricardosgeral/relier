@@ -135,9 +135,9 @@ Here, the hardware items required, to collect the sensors readings, are indicate
 Instructions about the way those pieces are connected are also presented.
 Just for reference, some links and prices of the components are also presented.
 So, the *Hardware* is composed by the three main parts:
-1. *Server* and its peripherals,
-2. *Acquisition system box*, linking the server and the sensors, and
-3. *Sensors* (4 with analog output and 3 with digital outputs).
+1. **Server** and its peripherals,
+2. **Acquisition system box**, linking the server and the sensors, and
+3. **Sensors** (4 with analog output and 3 with digital outputs).
 
 ### Server and peripherals
 
