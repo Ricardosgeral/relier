@@ -521,7 +521,7 @@ to check if the google credentials are correct!.
     
 ctr+D to leave the terminal.
     
-## Licence
+## License
 Copyright (c) 2018 Ricardo Correia dos Santos
 
-By using this acquisition system (Software and/or Hardware) you agree with the [licence conditions](LICENSE).
+By using this acquisition system (Software and/or Hardware) you agree with the [license conditions](LICENSE).
