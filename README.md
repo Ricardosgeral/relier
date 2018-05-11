@@ -1,5 +1,5 @@
 # *relier - acquisition system*
-## Open (*re*)design of an acquisition system for *l*aboratory tests on *i*nternal *er*osion in soils
+#### Open *RE*design of an acquisition system for *L*aboratory tests on *I*nternal *ER*osion in soils
 
 Project developed by [*Ricardo Correia dos Santos*](https://www.linkedin.com/in/ricardons/) at 
 [Laboratório Nacional de Engenharia Civil - *LNEC*](http://www.lnec.pt/en/), in Lisbon, Portugal
