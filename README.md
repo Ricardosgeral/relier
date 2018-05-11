@@ -485,7 +485,7 @@ For that, see [*instructions set*](https://nextion.itead.cc/resources/documents/
 library [*pandas*](https://pandas.pydata.org/index.html), to collect data from multiple sensors and write them in google sheets.  
 - Use the library [*CSV*](https://docs.python.org/3.6/library/csv.html) to write the data (as dictionary variable) in rows.
 - Use of the library [*configparser*](https://docs.python.org/3/library/configparser.html) to have a *.ini* file 
-with the inputs.  
+with the inputs. 
 - Automatic detection when USB drives are plugged-in (mounted) or removed (unmounted).
  This also implies writing two rules in file *99-local.rules*.
 - Use a single physical momentary pushbutton to reboot/shutdown the server 
