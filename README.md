@@ -1,5 +1,5 @@
 # *relier - acquisition system*
-## Open (*re*)design of an acquisition system for *l*aboratory tests on *i*nternal *er*osion in soils
+### Open (*re*)design of an acquisition system for *l*aboratory tests on *i*nternal *er*osion in soils
 
 Project developed by [*Ricardo Correia dos Santos*](https://www.linkedin.com/in/ricardons/) at 
 [Laboratório Nacional de Engenharia Civil - *LNEC*](http://www.lnec.pt/en/), in Lisbon, Portugal
@@ -468,8 +468,8 @@ More information [here](https://www.raspberrypi.org/forums/viewtopic.php?t=66445
    + Detection of serial connection between the server and the Nextion touchscreen. 
    The server needs to check if the touchscreen is pressed, independently of being at the same time doing other tasks. 
    To achieve this it is used Thread module, alongside with Events from the threading module. This achievement took me a while to master, and I believe it may be useful to others.
-- *Serial communication with the *Nextion Device* in Python 3* (TX-RX UART protocol). Unfortunately, there was not 
-(at least until this day) a Python library to use Nextion touchscreen.
+- *Serial communication with the Nextion Device in Python 3* (TX-RX, UART protocol). Unfortunately, there was not 
+(until the day i'm writing this) a Python library to use Nextion touchscreen.
 There is a library developed for Arduino, but I did not want to mix Python and *C* code. 
 So, I've developed my own Nextion Library for Python 3 (which took me a while to achieve!).
 This library is relatively simple to use, and has margin for improvement. 
