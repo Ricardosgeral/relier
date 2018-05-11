@@ -319,7 +319,7 @@ If you want to leave the **Sensors data record** page, you can also push the *Ho
 This page appears once the *Start* green button in **Main menu** is released. 
 The data being recorded appears in the screen and is updated at a constant rate (interval  defined in the *General settings*).
 
-If "Google sheets" option has been selected, the first reading can take more than normal (due to the request to access the google API).
+If 'Google sheets' option has been selected, the first reading can take more than normal (due to the request to access the google API).
 
 If you want to stop the test, prior to the test duration defined in settings, 
 just press the *Red button*, which will redirect you to the **Stop sensor data recording** confirmation page.
