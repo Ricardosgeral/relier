@@ -70,7 +70,7 @@ It is recommended to change the password after first boot, since *SSH* is enable
     $ passwd 
     
 and choose your new password.
-Next, you will have to connect the *Raspberry Pi* to the internet (via Ethernet cable or WiFi).  
+Next, you will have to connect the *Raspberry Pi* to the internet (via Ethernet cable or [WiFi](https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md)).  
 Then, in the terminal, run the following sequential commands:
     
     $ cd /tmp && wget https://raw.githubusercontent.com/Ricardosgeral/relier/master/bash/raspbian-post-install.sh
