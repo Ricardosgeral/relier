@@ -241,7 +241,7 @@ Touch anywhere to go the **Main menu** page.
 You have three main options:
  1. ***Settings*** - to set the general *inputs* -> Redirects to **General setting** page.
  2. ***Sensors*** - to set the calibration parameters of *analog sensors* -> Redirects to **Set analog sensors** page.
- 3. ***Start*** - to initiate right away the test (record data) -> Redirects to  **Data record** page.
+ 3. ***Start*** - to initiate right away the test (record data) -> Redirects to  **Sensor data record** page.
  
 You can skip options 1 and 2, case you decide to use the file 
 [*inputs.ini* ](https://github.com/Ricardosgeral/relier#inputs-ini-file). 
@@ -312,7 +312,7 @@ which will send you to the **Main menu** page.
 
 If you want to leave the **Sensor** page, you can also push the *Home* button, which will send you to the **Credits** page.  
 
-### *6 - Data record*
+### *6 - Sensor data record*
 ![page6](Nextion/GUI/page6.PNG)
 
 This page appears when the *Start* green button in **Main menu** is pressed. 
