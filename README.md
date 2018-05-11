@@ -414,7 +414,7 @@ To silently disconnect the server you can either:
    the *Raspberry Pi* will reboot), or 
    + `$ sudo halt` in a *SSH* terminal session.
 - If more than one USB drive is plugged in (not recommended!), data will be saved in the *first drive* being found.
-- Data in the *CSV* files is **never deleted** automatically. If the filename already exists in the USB drive or 
+- Data in the *CSV* files is ***never deleted*** automatically. If the filename already exists in the USB drive or 
 Micro SD card, data is placed in the file but bellow the last row present. This means that multiple tests may be collected 
 in the same filename (not recommended!). It is preferable to set each test in an individual file.
 
@@ -423,9 +423,9 @@ in the same filename (not recommended!). It is preferable to set each test in an
 
 Data collection is also done locally in CSV format . That is, if a USB drive is plugged in, data goes to USB, otherwise, data goes to the Micro SD card.
 
-However, **in addition**, it is possible to send data to [Google Sheets](https://www.google.com/sheets/about/), if a valid 
+However, ***in addition***, it is possible to send data to [Google Sheets](https://www.google.com/sheets/about/), if a valid 
 *service_creds.json* file is provided (see instructions in *Software Installation > server* section).
-This functionality allows **Live monitoring** of the data being placed in the Google sheets. 
+This functionality allows ***Live monitoring*** of the data being placed in the Google sheets. 
 
 #### How to enable 'Google sheets'
 1.  Select that option:
