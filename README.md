@@ -90,15 +90,15 @@ and *Past* the signed credentials. `Ctrl+X`, then `y` and finally `Enter` to sav
 
     $ sudo reboot
 
-And that's it, after reboot, the *Raspberry Pi* server should be set properly. 
+And that's it, after reboot, the *Raspberry Pi* is set properly. 
 However, you still need to update the  **touchscreen** software, and set the **hardware** correctly!
 
 
 ### *Touchscreen* software ([Nextion device](https://nextion.itead.cc/))
 
-The touchscreen used is an *HMI - Human Machine Interface*. Note that it does not work like typical TFT or HDMI monitors. 
+The touchscreen used is an *HMI - Human Machine Interface*. Note that, it does not work like typical TFT or HDMI monitors. 
 A code needs to be developed and uploaded to the device using a Micro SD card. 
-The connection between *Nextion* and the *Raspberry Pi* is made via *Serial UART* (RX, TX channels).
+The connection between *Nextion* and the *Raspberry Pi* is made via *Serial UART* (TX and RX channels, pins 14 and 15 in the GPIO).
 The GUI interface of the project was developed in the 
 [Nextion Editor](https://nextion.itead.cc/resources/download/nextion-editor/) (free software - only for windows!).
 Follow the [Nextion Editor Guide](https://nextion.itead.cc/editor_guide/) to learn how to work with it. 
