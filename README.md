@@ -458,22 +458,25 @@ which is faster but less precise, the Python libraries and code needs, of course
 - Use of the [pigpio library](http://abyz.me.uk/rpi/pigpio/) to get the readings from the turbine flowmeter (hall-effect sensor), using the function [callback](http://abyz.me.uk/rpi/pigpio/python.html#callback). 
 More information [here](https://www.raspberrypi.org/forums/viewtopic.php?t=66445).
 - *Use of threading (['thread-based parallelism'](https://docs.python.org/3/library/threading.html)), together with [Event objects](https://docs.python.org/3/library/threading.html#event-objects), in Python 3*. Threads are used in three cases: 
-   + Threads are useful for analog reads, to provide "stability". These allow to perform a mean over a certain period of time 
-   with a shorter delay between samples. This should improve reliability. Thus, the collection of data from the ADC (ADS1115) is done using a [Thread Class object](https://docs.python.org/3/library/threading.html#thread-objects).   
-   + Since temperature sensors take a considerable time between reads (about 1 second), the readings of those sensors is done in multi-tasking. 
-   This ensures that the interval between readings is the one indicated by the user. Treads are here also used as *Class objects*.
-   + Detection of serial connection between the server and the Nextion touchscreen. The server needs to check if the 
-   touchscreen is pressed, independently of being at the same time doing other tasks. 
-   To achieve this it is used Thread, alongside with Events from the threading module. This achievement took me a while to master, and I believe it may be useful to others.
+   + In the handling of the results from analog sensors, for "stability". Threads allow to do a mean over a certain period of time 
+   with a shorter delay between samples. This can in some cases improve the data reliability. Thus, 
+   the collection of readings from the ADC (ADS1115) is done using a [Thread Class object](https://docs.python.org/3/library/threading.html#thread-objects).   
+   + Since temperature sensors take a considerable time between reads (about 1 second), 
+   the readings of those sensors is done in multi-tasking. 
+   This ensures that the interval between readings is the one indicated by the user. 
+   Treads are here also used as *Class objects*.
+   + Detection of serial connection between the server and the Nextion touchscreen. 
+   The server needs to check if the touchscreen is pressed, independently of being at the same time doing other tasks. 
+   To achieve this it is used Thread module, alongside with Events from the threading module. This achievement took me a while to master, and I believe it may be useful to others.
 - *Serial communication with the *Nextion Device* in Python 3* (TX-RX UART protocol). Unfortunately, there was not 
 (at least until this day) a Python library to use Nextion touchscreen.
 There is a library developed for Arduino, but I did not want to mix Python and *C* code. 
-So, I've developed my own NEXTION Library for Python 3 (which took me a while to do!).
-This Nextion Library for Python 3 is relatively simple to use. 
+So, I've developed my own Nextion Library for Python 3 (which took me a while to achieve!).
+This library is relatively simple to use, and has margin for improvement. 
 You just need to look at the [py3nextion_lib.py](https://github.com/Ricardosgeral/relier/blob/master/py3nextion_lib.py),
-and use it alongside with another .py file with all the components used in the Nextion Editor 
-(see [NextionApp](https://github.com/Ricardosgeral/relier/blob/master/nextionApp.py)). 
-Of course you need to know how to use the Nextion commands. 
+and use it alongside with [*nextionApp.py*](https://github.com/Ricardosgeral/relier/blob/master/nextionApp.py) 
+all the components (to be accessed by the server) defined in the Nextion Editor.
+Of course you need to know how to use the Nextion commands.
 For that, see [instructions set](https://nextion.itead.cc/resources/documents/instruction-set/).
 - Use of the library [*pygsheets*](https://github.com/nithinmurali/pygsheets), alongside with 
 library [*pandas*](https://pandas.pydata.org/index.html) to collect data from multiple sensors and write them in google sheets.  
