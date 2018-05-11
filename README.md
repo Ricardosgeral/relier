@@ -454,8 +454,9 @@ will be increased a couple of seconds, due to the time required to request acces
 
 - Use of the [ADS1115](https://www.adafruit.com/product/1085) *Analog to Digital Conversor (ADC)*, to acquire the analog outputs of the pressure sensors and turbidity sensor.
 If you want to use another ADC (e.g., the [MCP3008 (10 bits)](https://www.adafruit.com/product/856)), 
-which is faster but less precise, the Python code needs , of course, to be adapted.
-- Use of the 
+which is faster but less precise, the Python libraries and code needs, of course, to be adapted.
+- Use of the [pigpio library](http://abyz.me.uk/rpi/pigpio/) to get the readings from the turbine flowmeter (hall-effect sensor), using the function [callback](http://abyz.me.uk/rpi/pigpio/python.html#callback). 
+More information [here](https://www.raspberrypi.org/forums/viewtopic.php?t=66445).
 - *Use of threading (['thread-based parallelism'](https://docs.python.org/3/library/threading.html)), together with [Event objects](https://docs.python.org/3/library/threading.html#event-objects), in Python 3*. Threads are used in three cases: 
    + Threads are useful for analog reads, to provide "stability". These allow to perform a mean over a certain period of time 
    with a shorter delay between samples. This should improve reliability. Thus, the collection of data from the ADC (ADS1115) is done using a [Thread Class object](https://docs.python.org/3/library/threading.html#thread-objects).   
