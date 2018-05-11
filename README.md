@@ -3,9 +3,10 @@
 
 Project developed by [*Ricardo Correia dos Santos*](https://www.linkedin.com/in/ricardons/) at 
 [Laboratório Nacional de Engenharia Civil - *LNEC*](http://www.lnec.pt/en/), in Lisbon, Portugal
+
 ### About the author and *relier* project
 I'm a Civil Engineer, with a master degree in Geotechnical Engineering, and a PhD on experimental investigations on 
-internal erosion in embnextionAppankment dams.
+internal erosion in embankment dams.
  
 Carrying out the laboratory tests on internal erosion in soils, developed in my PhD, 
 requires to continually collect different types of measurements (water pressures, flowrate, temperature, 
