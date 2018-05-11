@@ -241,7 +241,7 @@ Touch anywhere to go the **Main menu** page.
 You have three main options:
  1. ***Settings*** - to set the general *inputs* -> Redirects to **General settings** page.
  2. ***Sensors*** - to set the calibration parameters of *analog sensors* -> Redirects to **Set analog sensors** page.
- 3. ***Start*** - to initiate right away the test (record data) -> Redirects to  **Sensor data record** page.
+ 3. ***Start*** - to initiate right away the test -> Redirects to  **Sensor data record** page.
  
 You can skip options 1 and 2, case you decide to use the file 
 [*inputs.ini* ](https://github.com/Ricardosgeral/relier#inputs-ini-file). 
