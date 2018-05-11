@@ -30,7 +30,7 @@ All contributions are welcome.
 ### Is this for me?
 If you need to do a similar project, you just need to have some DIY skills, for scrapping some materials, figuring out 
 how to assemble some things together, and figuring out how some components work. 
-The instructions given here should also be taken more like guidelines based on what cando with the materials I have. If 
+The instructions given here should also be taken more like guidelines based on what can do with the materials I have. If 
 you do not have the exact same hardware components 
 (sensors, ADC, level shifter, touchscreen...), yours will surely work a little different, but as they should do the same 
 things, there will be similarities too. You may have to adjust the code and/or the connections to meet your needs.
