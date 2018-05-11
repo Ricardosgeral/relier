@@ -353,7 +353,7 @@ with a description of the parameters meaning.
     google_sheets = yes             # <yes (y, yep, Yes, YES) or no (n, nop, No, NO)>  
     googlesh      = tests_soilX     # <Name of the Google Spreadsheet>
     share_email   = email@email.com # <email to share access to the google spreedsheet>
-    duration      = 180             # <Duration of the test in Minutes>
+    duration      = 180             # <Duration of the test in Minutes> if duration = 0 will run 'forever'
     interval      = 15              # <Interval between records in seconds>
     no_reads      = 5               # <Number of readings per interval (analog sensors only)>: In this example an average between 15/5=3 values is made.
 
