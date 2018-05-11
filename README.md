@@ -102,7 +102,7 @@ The connection between *Nextion* and the *Raspberry Pi* is made via *Serial UART
 The GUI interface of the project was developed in the 
 [Nextion Editor](https://nextion.itead.cc/resources/download/nextion-editor/) (free software - only for windows!).
 Follow the [Nextion Editor Guide](https://nextion.itead.cc/editor_guide/) to learn how to work with it. 
-I've provide the file [relier.HMI](https://github.com/Ricardosgeral/relier/blob/master/Nextion/HMI/relier.HMI) 
+I've provide the file [*relier.HMI*](https://github.com/Ricardosgeral/relier/blob/master/Nextion/HMI/relier.HMI) 
 developed for this project. The next picture shows some of that file content in Nextion Editor:
 
 ![NextionEditor](Nextion/GUI/Nextion_Editor.PNG)
