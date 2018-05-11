@@ -286,7 +286,7 @@ It is assumed that there is a linear relation (***y = mx + b***) between the ana
 ***Calibration* pushbutton**, to update readings
 
 If you modify  the *m* and *b* parameters of any of the sensors, you need to push the *Calibration* button, 
-in order to see the influence on the pressure and turbidity values.
+in order to see the influence on the pressure and/or turbidity values.
 
 ***Zero* pushbutton**, for *'zeroing'* the values of the pressure sensors
 
