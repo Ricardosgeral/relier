@@ -239,7 +239,7 @@ Touch anywhere to go the **Main menu** page.
 ![page2](Nextion/320x240/page2-menu0.png)
  
 You have three main options:
- 1. ***Settings*** - to set the general *inputs* -> Redirects to **General setting** page.
+ 1. ***Settings*** - to set the general *inputs* -> Redirects to **General settings** page.
  2. ***Sensors*** - to set the calibration parameters of *analog sensors* -> Redirects to **Set analog sensors** page.
  3. ***Start*** - to initiate right away the test (record data) -> Redirects to  **Sensor data record** page.
  
