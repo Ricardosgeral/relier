@@ -61,7 +61,7 @@ enable *SSH* in first boot. So, right after installing the raspbian image in the
 4. Insert the Micro SD card in the *Raspberry Pi*, and power it on.
 
 Access the *Raspberry Pi* directly (if you have a monitor), or via *SSH* (for example, using *Putty*). 
-In this last option, you will need to know the local IP attributed to the *Raspberry Pi*! The default login should be:
+In this last option, you will require internet and need to know the local IP attributed to the *Raspberry Pi*! The default login should be:
 
    username: `pi`   
    password: `raspberry`
@@ -71,6 +71,7 @@ It is recommended to change the password after first boot, since *SSH* is enable
     $ passwd 
     
 and choose your new password.
+
 Next, you will have to connect the *Raspberry Pi* to the internet (via Ethernet cable or [WiFi](https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md)).  
 Then, in the terminal, run the following sequential commands:
     
@@ -79,8 +80,8 @@ Then, in the terminal, run the following sequential commands:
     $ sudo ./raspbian-post-install.sh
 
 Next, you need to create your *json* file with the google signed credentials.
-First, you need to create a developer account following steps 1-4 from these [instructions](https://pygsheets.readthedocs.io/en/latest/authorizing.html#), 
-then, you can get your *Signed Credential*, following steps 5-6 from these [instructions](https://pygsheets.readthedocs.io/en/latest/authorizing.html#signed-credentials). 
+First, you need to create a developer account and enable some APIs, following steps 1-4 (from these [instructions](https://pygsheets.readthedocs.io/en/latest/authorizing.html#)), 
+then, you can get your *Signed Credential*, following steps 5-6 (from these [instructions](https://pygsheets.readthedocs.io/en/latest/authorizing.html#signed-credentials)). 
 *Copy* your signed credentials, then, do:
 
     $ sudo nano /home/pi/relier/service_creds.json
