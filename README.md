@@ -527,7 +527,7 @@ and that you followed all 6 steps in installation of the server software. Don't 
 - If you want to check if the Linux service units running on reboot/shutdown are active, check their status.
     `$ sudo systemctl status rcshut` and 
     `$ sudo systemctl status shutdown_button`
-`ctr + D` to leave the terminal.
+`Ctr + D` to leave the terminal.
     
 ## License
 Copyright (c) 2018 Ricardo Correia dos Santos
