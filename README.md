@@ -393,10 +393,10 @@ on whether or not an internet connection is available, and whether or not a USB 
 ### No internet connection
 Data is only stored locally in the *CSV* format and has two possible ways to go:
   
-1. **No USB drive** is plugged in  ->
+1. *No USB drive* is plugged in  ->
    Data are stored *only* on the Micro SD card, inside folder **/srv/EROSTESTS**. 
 
-2. A USB is plugged in ->
+2. A *USB is plugged in* ->
    Data are stored *only* on the **USB_root_directory**. 
 
 #### Additional notes
