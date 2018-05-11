@@ -41,7 +41,7 @@ and be more helpful.
 
 ## Software installation
 
-The software of *reliar Acquisition System* is composed by two distinct but interconnected parts, 
+The software of *reliar acquisition system* is composed by two distinct but interconnected major parts, 
 running in different *hardware* components, particularly in the:
 1. **Server** (*Raspberry Pi*), which performs the computation tasks, and
 2. **Touchscreen** (*Nextion device*), responsible by the interactivity between the end user and the server.
@@ -56,12 +56,12 @@ Most of the code is written in *Python v3.5.3*, and a few scripts are written in
 **Note:** If no monitor is available (headless *Raspberry Pi*), you have to do the following 4 simple steps to 
 enable *SSH* in first boot. So, right after installing the raspbian image in the  Micro SD card:
 1. Create an empty file (in Windows use notepad, in a Linux terminal use command *touch*, in Mac use TextEdit).
-2. Save the file with name: **ssh** (preferentially with no extension, but *ssh.txt* should also work).
+2. Save the file with name: ***ssh*** (preferentially with no extension, but *ssh.txt* should also work).
 3. Copy or move that file into the *Root* of the Micro SD card.
 4. Insert the Micro SD card in the *Raspberry Pi*, and power it on.
 
 Access the *Raspberry Pi* directly (if you have a monitor), or via *SSH* (for example, using *Putty*). 
-In this last option, you will need to know the local IP attributed to the *Raspberry Pi*!
+In this last option, you will need to know the local IP attributed to the *Raspberry Pi*! The default login should be:
 
    username: `pi`   
    password: `raspberry`
@@ -503,13 +503,15 @@ using [*crontab*](https://debian-administration.org/article/56/Command_schedulin
 
 - The following warning is expected: *'grep: /dev/fd/63: No such file or directory'* at the end of 
 `$ sudo ./raspbian-post-install.sh`. Ignore it.
-- Don't forget to obtain and replace the content of the file **service_creds.json**, as indicated [above](https://github.com/Ricardosgeral/relier/blob/master/README.md#server-software-raspberry-pi), 
+- Don't forget to obtain and replace the content of the file **service_creds.json**, 
+as indicated [above](https://github.com/Ricardosgeral/relier/blob/master/README.md#server-software-raspberry-pi), 
 or the program may not start!
 - The inspection of the **cronlog** file (`$ sudo nano /home/pi/relier/logs/cronlog`) may be helpful for detecting 
 any eventual bugs during the software installation process, or during start up of the server, for example, 
 to check if the google credentials are correct!.
-
-- If the NEXTION touchscreen is not functioning properly or not working at all:
+- *'Problem: Google signed Credentials*, in this case, confirm that you have an internet connection,
+and that you followed all 6 steps in installation of the server software. Don't forget to enable the 'Drive API' (step 4).
+- If the Nextion touchscreen is not functioning properly or not working at all:
   + first, see the connections, in particular check that: RX (server) <-> TX(screen), and TX(server) <-> RX(screen); 
   + second, ensure that *serial* is disconnected: `$ sudo raspi-config` > *5* > *P6 Serial* > *No*;
   + third, doing `$ ls -l /dev | grep serial` you should see *serial 0 -> ttyAMA0* (pins 14/15 in UART) and 
@@ -524,6 +526,7 @@ to check if the google credentials are correct!.
 - If you want to check if the Linux service units running on reboot/shutdown are active, check their status.
     `$ sudo systemctl status rcshut` and 
     `$ sudo systemctl status shutdown_button`
+- No 
     
 ctr+D to leave the terminal.
     
