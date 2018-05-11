@@ -241,7 +241,7 @@ Touch anywhere to go the **Main menu** page.
 You have three main options:
  1. ***Settings*** - to set the general *inputs* -> Redirects to **General settings** page.
  2. ***Sensors*** - to set calibration parameters of *analog sensors* -> Redirects to **Set analog sensors** page.
- 3. ***Start*** - to initiate right away the test -> Redirects to  **Sensor data record** page.
+ 3. ***Start*** - to initiate right away the test -> Redirects to  **Sensors data record** page.
  
 You can skip options 1 and 2, case you decide to use the file
 [*inputs.ini* ](https://github.com/Ricardosgeral/relier#inputs-ini-file). 
@@ -311,9 +311,9 @@ That is, the history of the zero shift (*z*) is not remembered by the acquisitio
 When you consider that the analog sensors are conveniently calibrated, you can press the *back blue button* (top-right), 
 which will send you to the **Main menu** page.
 
-If you want to leave the **Sensor** page, you can also push the *Home* button, which will send you to the **Credits** page.  
+If you want to leave the **Sensors data record** page, you can also push the *Home* button, which will send you to the **Credits** page.  
 
-### *6 - Sensor data record*
+### *6 - Sensors data record*
 ![page6](Nextion/GUI/page6.PNG)
 
 This page appears when the *Start* green button in **Main menu** is pressed. 
@@ -329,13 +329,13 @@ When the chosen test duration is achieved, the server stops acquiring the data.
 **Note:** if you want to record data 'forever', set the *Test time duration* to **0**. 
 Actually, it will not record forever. *'Forever'* should be understood as 2 months (86400 minutes!).
 
-### *7 - Stop sensor data recording*
+### *7 - Stop sensors data recording*
 ![page7](Nextion/320x240/page7-stop0.png)
 
 Here you confirm that you pressed the stop button, just in case! Pressing the:
 
 - *Green button* -> stops recording data and directs to **Credits** page. 
-- *Red button*   -> go back to **Sensors readings record** page, and readings never stopped being registered.
+- *Red button*   -> go back to **Sensors data record** page, and readings never stopped being registered.
 
 
 ## *inputs.ini* file
