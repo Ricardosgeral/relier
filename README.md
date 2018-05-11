@@ -237,9 +237,9 @@ Touch anywhere to go the **Main menu** page.
 ![page2](Nextion/320x240/page2-menu0.png)
  
 You have three main options:
- 1. **Settings** - to set the general *inputs*.
- 2. **Sensors** - to set the calibration parameters of *analog sensors*.
- 3. **Start** - to initiate right away the test (record data). Directs to  **Sensors readings record** page.
+ 1. __**Settings**__ - to set the general *inputs*. Redirects to **General setting** page
+ 2. __**Sensors**__ - to set the calibration parameters of *analog sensors*. Redirects to **Sensors** page
+ 3. __**Start**__ - to initiate right away the test (record data). Redirects to  **Sensors readings record** page.
  
 You can skip options 1 and 2, case you decide to use the 
 [*inputs ini file*](https://github.com/Ricardosgeral/relier#inputs-ini-file). 
@@ -256,9 +256,9 @@ Here, you can edit the main inputs of the test to carry out:
 - *Record* textbox - interval between records, in seconds.
 - *Number* textbox - number of readings in each record interval, to make an average.
 
-If you push the blue button on top-right corner you will go back to **Main Menu** page.
+If you push the blue button on top-right corner you will go back to **Main menu** page.
 
-There is also a blue button that will direct you to the **Test Type** page.
+There is also a blue button that will direct you to the **Test type** page.
 
 
 ### *4 - Test Type selection*
@@ -459,25 +459,25 @@ which is faster but less precise, the Python libraries and code needs, of course
 - Use of the [pigpio library](http://abyz.me.uk/rpi/pigpio/) to get the readings from the turbine flowmeter (hall-effect sensor), using the function [callback](http://abyz.me.uk/rpi/pigpio/python.html#callback). 
 More information [here](https://www.raspberrypi.org/forums/viewtopic.php?t=66445).
 - *Use of threading (['thread-based parallelism'](https://docs.python.org/3/library/threading.html)), together with [Event objects](https://docs.python.org/3/library/threading.html#event-objects), in Python 3*. Threads are used in three cases: 
-   + In the handling of the results from analog sensors, for "stability". Threads allow to do a mean over a certain period of time 
+   + In the handling of the results from *analog sensors*, for "stability". Threads allow to do a mean over a certain period of time 
    with a shorter delay between samples. This can in some cases improve the data reliability. Thus, 
    the collection of readings from the ADC (ADS1115) is done using a [Thread Class object](https://docs.python.org/3/library/threading.html#thread-objects).   
-   + Since temperature sensors take a considerable time between reads (about 1 second), 
+   + Since *temperature sensors* take a considerable time between reads (about 1 second), 
    the readings of those sensors is done in multi-tasking. 
    This ensures that the interval between readings is the one indicated by the user. 
    Treads are here also used as *Class objects*.
-   + Detection of serial connection between the server and the Nextion touchscreen. 
+   + Detection of *serial communication* between the server and the Nextion touchscreen. 
    The server needs to check if the touchscreen is pressed, independently of being at the same time doing other tasks. 
-   To achieve this it is used Thread module, alongside with Events from the threading module. This achievement took me a while to master, and I believe it may be useful to others.
-- *Serial communication with the Nextion Device in Python 3* (TX-RX, UART protocol). Unfortunately, there was not 
-(until the day i'm writing this) a Python library to use Nextion touchscreen.
-There is a library developed for Arduino, but I did not want to mix Python and *C* code. 
+   To achieve this it is used *Thread*, alongside with *Event*, both from the threading module. This achievement took me a while to master, and I believe it may be useful to others.
+- *Library for serial communication with the Nextion Device in Python 3* (TX-RX, UART protocol). 
+Unfortunately, until the day I'm writing this, a Python library to use Nextion touchscreen was not available.
+There is a good library developed for Arduino, but I did not want to mix Python and *C* code. 
 So, I've developed my own Nextion Library for Python 3 (which took me a while to achieve!).
 This library is relatively simple to use, and has margin for improvement. 
 You just need to look at the [py3nextion_lib.py](https://github.com/Ricardosgeral/relier/blob/master/py3nextion_lib.py),
 and use it alongside with [*nextionApp.py*](https://github.com/Ricardosgeral/relier/blob/master/nextionApp.py) 
 all the components (to be accessed by the server) defined in the Nextion Editor.
-Of course you need to know how to use the Nextion commands.
+Of course, you need to know how to use the Nextion commands.
 For that, see [instructions set](https://nextion.itead.cc/resources/documents/instruction-set/).
 - Use of the library [*pygsheets*](https://github.com/nithinmurali/pygsheets), alongside with 
 library [*pandas*](https://pandas.pydata.org/index.html) to collect data from multiple sensors and write them in google sheets.  
@@ -490,7 +490,8 @@ with the inputs.
 (using a [*systemd service*](https://wiki.debian.org/systemd)): 
    + *Reboot*: hold the button more than 3 seconds but less than 7 seconds.
    + *Shutdown*: hold the button more than 7 seconds. Note, that the Raspberry Pi is still powered. 
- To stop power supply you need to unplug the micro USB cable. To restart the server after a shutdown, just power it on again.
+ To stop the power supply to the server you need to unplug the micro USB cable. 
+ To restart the server after a shutdown, just power on the server again.
 - Detection of the local *IP address* of the server (if connected to the internet).
 - Start a python script right after power-on or reboot of the server (*Raspberry Pi*), 
 using [*crontab*](https://debian-administration.org/article/56/Command_scheduling_with_cron).
