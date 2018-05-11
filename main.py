@@ -87,8 +87,10 @@ def get_ip_address():  # get the (local) ip_address of the raspberry pi
     s.close()
     return ip_address
 
-ip = get_ip_address()
-
+try:
+    ip = get_ip_address()
+except:
+    ip ='No internet connection'
 nxlib.nx_setText(ser, nxApp.ID_ip[0], nxApp.ID_ip[1], ip)
 print('Current IP: {}'.format(ip))
 
