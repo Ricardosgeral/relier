@@ -316,7 +316,7 @@ If you want to leave the **Sensors data record** page, you can also push the *Ho
 ### *6 - Sensors data record*
 ![page6](Nextion/GUI/page6.PNG)
 
-This page appears when the *Start* green button in **Main menu** is pressed. 
+This page appears once the *Start* green button in **Main menu** is released. 
 The data being recorded appears in the screen and is updated at a constant interval (defined in the *Settings*).
 
 If "Google sheets" option has been selected, the first reading can take more than normal (due to the request to access the google API).
