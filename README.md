@@ -231,7 +231,7 @@ Waiting a while (the normal is 15 to 45 seconds, depending on the server service
 First, you will see a *red* bar on the top of the screen. Wait (less than 5 seconds).
 That bar should then stay *green*. That means that all is working Ok. You can also see the local *IP address* of the server, 
 which is useful in case you want to make a remote connection with *Putty*. If the server has no internet, 
-then the following message is shown: `No internet connection`.
+then the following message is displayed: `No internet connection`.
 
 Touch anywhere to go the **Main menu** page.
  
@@ -239,12 +239,12 @@ Touch anywhere to go the **Main menu** page.
 ![page2](Nextion/320x240/page2-menu0.png)
  
 You have three main options:
- 1. ***Settings*** - to set the general *inputs* -> Redirects to **General setting** page
- 2. ***Sensors*** - to set the calibration parameters of *analog sensors* -> Redirects to **Sensors** page
+ 1. ***Settings*** - to set the general *inputs* -> Redirects to **General setting** page.
+ 2. ***Sensors*** - to set the calibration parameters of *analog sensors* -> Redirects to **Sensors** page.
  3. ***Start*** - to initiate right away the test (record data) -> Redirects to  **Sensors readings record** page.
  
-You can skip options 1 and 2, case you decide to use the 
-[*inputs ini file*](https://github.com/Ricardosgeral/relier#inputs-ini-file). 
+You can skip options 1 and 2, case you decide to use the file 
+[*inputs.ini* ](https://github.com/Ricardosgeral/relier#inputs-ini-file). 
  
 ### *3 - General settings*
 ![page3](Nextion/GUI/page3.PNG)
