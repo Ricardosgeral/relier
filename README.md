@@ -218,7 +218,7 @@ Almost all of the sensors are connected to the acquisition system box via the mi
 
 ## Usage of the *Graphical User Interface (GUI)*
  
-The *GUI* pages displayed in the touchscreen (*Nextion device*), and the way the should be use, are shown next.
+The *GUI* pages displayed in the touchscreen (*Nextion device*), and the way they should be use, are shown next.
  
 ### *0 - Disconnected*
 ![page0](Nextion/320x240/page0-shutdown.png)
