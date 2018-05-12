@@ -303,7 +303,7 @@ If you push the *Zero* button at this stage (*ie*, with no external pressure app
 you will get a *wait a few seconds* progress bar. After a few seconds, the acquisition system will restart,
  and show the corrected measurements.
 Now the piezometric pressures should be nearly null. The next figure exemplifies the '*zeroing*' procedure, 
-which is done at the same time in all pressure sensor.
+which is done in all pressure sensons simultaneously.
 
 ![zeroing](Nextion/GUI/Zeroing_explain.png)
 
@@ -423,7 +423,8 @@ in the same file (not desirable). I think it is preferable to set each test in a
 
 ### Internet connection available (Ethernet or WiFi)
 
-Data collection is also done locally in CSV format . That is, if a USB drive is plugged in, data goes to USB, otherwise, data goes to the Micro SD card.
+Data collection is also done locally in CSV format. 
+That is, if a USB drive is plugged in, data goes to USB drive, otherwise, data goes to the Micro SD card.
 
 However, ***in addition***, it is possible to send data to [Google Sheets](https://www.google.com/sheets/about/), if a valid 
 *service_creds.json* file is provided (see instructions in *Software Installation > server* section).
