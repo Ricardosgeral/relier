@@ -449,7 +449,7 @@ This functionality allows ***Live monitoring*** of the data being placed in the 
 However, when a new Worksheet name is provided in an already existing Spreadsheet, a new sheet is added. 
 This means that you can have a single Spreadsheet with different tests organized in different Worksheets (preferable).
 - If there is no internet connection when on start up of the server, even if you select the google sheet checkbutton, 
-no data will be sent to google sheets (***Attention***). For debugging look at the 
+no data will be sent to google sheets (***Attention!***). For debugging look at the 
 [troubleshooting](https://github.com/Ricardosgeral/relier#troubleshooting) section. 
 - If internet connection is lost during a test, the software will raise an exception and stop recording data to google sheets! (***Attention!***).
 - Please be aware that, by choosing the 'google sheets' feature, the interval between readings chosen by the user 
