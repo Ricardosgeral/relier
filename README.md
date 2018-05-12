@@ -224,7 +224,7 @@ The *GUI* pages displayed in the touchscreen (*Nextion device*), and the way the
 ![page0](Nextion/320x240/page0-shutdown.png)
 
 After a start up or reboot of the *Raspberry Pi*, you should see this **Disconnected** black page. 
-Waiting a while (the normal is 15 to 45 seconds, depending on the server services) you should see the **Credits** page. 
+Waiting a while (the normal is 15 to 45 seconds, depending on the pending server services) you should see the **Credits** page. 
 
 
 ### *1 - Credits*
