@@ -43,7 +43,7 @@ and be more helpful.
 
 The software of *reliar acquisition system* is composed by two distinct but interconnected major parts, 
 running in different *hardware* components, particularly in the:
-1. **Server** (*Raspberry Pi*), which performs the computation tasks, and
+1. **Server** (*Raspberry Pi 3B*), which performs the computation tasks, and
 2. **Touchscreen** (*Nextion device*), responsible by the interactivity between the end user and the server.
 
 
