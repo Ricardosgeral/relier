@@ -278,7 +278,7 @@ To go back to the **General settings** page, click the return blue button.
 ![page5](Nextion/GUI/page5.PNG)
 
 Well, here is where the calibration parameters of the analog sensors (water pressure and turbidity sensors) are set.
-It is assumed that there is a linear relation (***y = mx + b***) between the analog readings and the effective measurements. 
+It is assumed a linear relation (***y = mx + b***) between the analog readings and the effective measurements. 
 
 - Pressure sensors: ***x*** = output tension (in *mV*); ***y*** = water pressure (in *mbar*).
 - Turbidity sensor: ***x*** = output analog number (0 to 32767 - 15 bits ADC, 2^15); ***y*** = water turbidity number (NTU).
