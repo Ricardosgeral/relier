@@ -427,7 +427,7 @@ Data collection is also done locally in CSV format.
 That is, if a USB drive is plugged in, data goes to USB drive, otherwise, data goes to the Micro SD card.
 
 However, ***in addition***, it is possible to send data to [Google Sheets](https://www.google.com/sheets/about/), if a valid 
-*service_creds.json* file is provided (see instructions in *Software Installation > server* section).
+*service_creds.json* file is provided (see instructions in *Software installation > server sofrware*).
 This functionality allows ***Live monitoring*** of the data being placed in the Google sheets. 
 
 #### How to enable 'Google sheets'
