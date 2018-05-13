@@ -355,7 +355,7 @@ with a description of the parameters meaning.
     filename      = soilX_n01       # <Name of the CSV file> and (if google_sheets = yes) <Name of the Worksheet of Google Spreadsheet>
     google_sheets = yes             # <yes (y, yep, Yes, YES) or no (n, nop, No, NO)>  
     googlesh      = tests_soilX     # <Name of the Google Spreadsheet>
-    share_email   = email@email.com # <email to share access to the google spreedsheet>
+    share_email   = email@email.com # <email to share access to the Google spreedsheet>
     duration      = 180             # <Duration of the test in Minutes> if duration = 0 will run 'forever'
     interval      = 15              # <Interval between records in seconds>
     no_reads      = 5               # <Number of readings per interval (analog sensors only)>: In this example an average between 15/5=3 values is made.
@@ -448,11 +448,11 @@ This functionality allows ***Live monitoring*** of the data being placed in the 
 - If the *Spreadsheet/Worksheet* provided by the user already exists, the data that was in that worksheet will be deleted (***Attention***). 
 However, when a new Worksheet name is provided in an already existing Spreadsheet, a new sheet is added. 
 This means that you can have a single Spreadsheet with different tests organized in different Worksheets (preferable).
-- If there is no internet connection when on start up of the server, even if you select the google sheet checkbutton, 
-no data will be sent to google sheets (***Attention***). For debugging look at the 
+- If there is no internet connection when on start up of the server, even if you select the Google sheet checkbutton, 
+no data will be sent to Google sheets (***Attention***). For debugging look at the 
 [troubleshooting](https://github.com/Ricardosgeral/relier#troubleshooting) section. 
-- If internet connection is lost during a test, the software will raise an exception and stop recording data to google sheets! (***Attention***).
-- Please be aware that, by choosing the 'google sheets' feature, the interval between readings chosen by the user 
+- If internet connection is lost during a test, the software will raise an exception and stop recording data to Google sheets! (***Attention***).
+- Please be aware that, by choosing the 'Google sheets' feature, the interval between readings chosen by the user 
 will be increased a couple of seconds, due to the time required to request access the Google API.
  
 
@@ -481,11 +481,11 @@ So, I've developed my own Nextion Library for Python 3 (which took me a while to
 This library is relatively simple to use, and has margin for improvement. 
 You just need to look at the [*py3nextion_lib.py*](https://github.com/Ricardosgeral/relier/blob/master/py3nextion_lib.py),
 and use it alongside with [*nextionApp.py*](https://github.com/Ricardosgeral/relier/blob/master/nextionApp.py) 
-all the components (to be accessed by the server) defined in the Nextion Editor.
+that has all the components (to be accessed by the server) defined in the Nextion Editor.
 Of course, you need to know how to use the Nextion commands.
 For that, see [*instructions set*](https://nextion.itead.cc/resources/documents/instruction-set/).
 - Use of the library [*pygsheets*](https://github.com/nithinmurali/pygsheets), alongside with 
-library [*pandas*](https://pandas.pydata.org/index.html), to collect data from multiple sensors and write them in google sheets.  
+library [*pandas*](https://pandas.pydata.org/index.html), to collect data from multiple sensors and write them in Google sheets.  
 - Use the library [*CSV*](https://docs.python.org/3.6/library/csv.html) to write the data (as dictionary variable) in rows.
 - Use of the library [*configparser*](https://docs.python.org/3/library/configparser.html) to have a *.ini* file 
 with the inputs. 
@@ -513,7 +513,7 @@ as indicated [above](https://github.com/Ricardosgeral/relier/blob/master/README.
 or the program may not start!
 - The inspection of the **cronlog** file (`$ sudo nano /home/pi/relier/logs/cronlog`) may be helpful for detecting 
 any eventual bugs during the software installation process, or during start up of the server, for example, 
-to check if the google credentials are correct!.
+to check if the Google credentials are correct!.
 - *'Problem: Google signed Credentials*, in this case, confirm that you have an internet connection,
 and that you followed all 6 steps in installation of the server software. Don't forget to enable the 'Drive API' (step 4).
 - If the Nextion touchscreen is not functioning properly or not working at all:
