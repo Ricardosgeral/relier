@@ -496,7 +496,7 @@ with the inputs.
    + *Reboot*: hold the button more than 3 seconds but less than 7 seconds.
    + *Shutdown*: hold the button more than 7 seconds. Note, that the Raspberry Pi is still powered. 
  You still need to unplug the micro USB cable, to power off the server. 
- To restart the server after a shutdown, just start up the server again.
+ To restart the server after a shutdown, just power up the server again.
 - Detection of the local *IP address* of the server (if connected to the internet).
 - Start a python script right after start up or reboot of the server (*Raspberry Pi*), 
 using [*crontab*](https://debian-administration.org/article/56/Command_scheduling_with_cron).
