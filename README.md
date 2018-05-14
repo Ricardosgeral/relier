@@ -202,7 +202,7 @@ The following ***'low cost' sensors*** were used:
 + 1x [Waterproof DS18B20 digital temperature sensor (probe)](https://www.aliexpress.com/snapshot/0.html?spm=a2g0s.9042311.0.0.oXghXt&orderId=505161631680030&productId=32675444739) [<1€]
 + 1x [BME280 Digital Sensor, Humidity Temperature and Barometric Pressure Sensor](https://www.aliexpress.com/item/3In1-BME280-GY-BME280-Digital-Sensor-SPI-I2C-Humidity-Temperature-and-Barometric-Pressure-Sensor-Module-1/32659765502.html?spm=a2g0s.9042311.0.0.oXghXt) [3 €]
 
-Almost all of the sensors are connected to the acquisition system box via the mini aviator (circular) plugs. An exception is the 
+Most of the sensors are connected to the acquisition system box via the mini aviator (circular) plugs. An exception is the 
 *BME280* chip, which is soldered directly into the PCB.
 
 #### Other components that may be useful
