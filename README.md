@@ -369,11 +369,11 @@ with a description of the parameters meaning.
     othername     = testtype_name   # < Name of the test type> only relevant when testtype = 4
 
     [analog]                        # Equation of the straight lines for analog sensors: y = m x + b (m is the slope and b the y intercept)
-    mu            = 0.0862          # <Upstream pressure sensor> [ pu(bar) = mu tension_u(Volts) + bu ] 
+    mu            = 0.0862          # <Upstream pressure sensor> [ pu(mbar) = mu tension_u(mV) + bu ] 
     bu            = -0.0432
-    mi            = 0.0898          # <Interface pressure sensor> [ pi(bar) = mi tension_i(Volts) + bi ]
+    mi            = 0.0898          # <Interface pressure sensor> [ pi(mbar) = mi tension_i(mV) + bi ]
     bi            = -0.0596
-    md            = 0.0898          # <Downstream pressure sensor> [ pd(bar) = md tension_d(Volts) + bu ]
+    md            = 0.0898          # <Downstream pressure sensor> [ pd(mbar) = md tension_d(mV) + bu ]
     bd            = -0.0596
     mturb         = -0.0429         # <Turbidity sensor> [ turbidity(NTU) = mturb analog_no + bturb ]
     bturb         = 1413.289
