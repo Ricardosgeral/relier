@@ -393,8 +393,7 @@ but may appear at any position inside that section.
 
 
 ## Data collection
-The *Raspberry Pi*, together with the *acquisition system box*, handles the sensors and gets the data from them. 
-The data is collected once the green start button in page **Main menu** is pressed. 
+The *Raspberry Pi*, together with the *acquisition system box*, handles the sensors and gets the data from them.  
 The location where data will be collected is defined  by the user, and depends
 on whether or not an internet connection is available, and whether or not a USB drive is plugged in.
 
