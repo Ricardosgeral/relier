@@ -98,7 +98,7 @@ However, you still need to update the  **touchscreen** software, and set the **h
 
 The graphical user interface (GUI) runs on a [*Nextion*](https://nextion.itead.cc/) smart touchscreen, 
 also referred as an *HMI - Human Machine Interface*. 
-Note that, it does not work like typical TFT or HDMI monitors. 
+Note that, this device does not work like typical TFT or HDMI monitors. 
 A code needs to be developed and uploaded to the device using a Micro SD card. 
 The connection between *Nextion device* and the *Raspberry Pi* is made via 
 [*Serial UART*](https://www.allaboutcircuits.com/technical-articles/back-to-basics-the-universal-asynchronous-receiver-transmitter-uart/), 
