@@ -48,7 +48,7 @@ running in different *hardware* components, particularly in the:
 
 
 ### Server software (*Raspberry Pi*)
-These instructions should be carried out after a fresh installation of *Raspbian* image in a Micro SD card 
+The server is a Raspberry Pi 3B. These instructions should be carried out after a fresh installation of *Raspbian* image in a Micro SD card 
 (see [instructions](https://www.raspberrypi.org/documentation/installation/installing-images/README.md)). 
 I've used [2018-04-18-raspian-stretch](http://downloads.raspberrypi.org/raspbian/images/raspbian-2018-04-19/). 
 Most of the code is written in *Python v3.5.3*, and a few scripts are written in *Bash v4.4.12(1)*.
