@@ -47,7 +47,7 @@ running in different *hardware* components, particularly in the:
 2. **Touchscreen** (*Nextion device*), responsible by the interactivity between the end user and the server.
 
 
-### Server software (*Raspberry Pi*)
+### Server software
 The server is a Raspberry Pi 3B. These instructions should be carried out after a fresh installation of *Raspbian* image in a Micro SD card 
 (see [instructions](https://www.raspberrypi.org/documentation/installation/installing-images/README.md)). 
 I've used [2018-04-18-raspian-stretch](http://downloads.raspberrypi.org/raspbian/images/raspbian-2018-04-19/). 
@@ -94,9 +94,10 @@ And that's it, after reboot, the *Raspberry Pi* is set properly.
 However, you still need to update the  **touchscreen** software, and set the **hardware** correctly!
 
 
-### *Touchscreen* software ([Nextion device](https://nextion.itead.cc/))
+### *Touchscreen* software
 
-The *Nextion device* is a smart touchscreen, also referred as an *HMI - Human Machine Interface*. 
+The [*Nextion device*](https://nextion.itead.cc/) is a smart touchscreen, 
+also referred as an *HMI - Human Machine Interface*. 
 Note that, it does not work like typical TFT or HDMI monitors. 
 A code needs to be developed and uploaded to the device using a Micro SD card. 
 The connection between *Nextion device* and the *Raspberry Pi* is made via *Serial UART* 
