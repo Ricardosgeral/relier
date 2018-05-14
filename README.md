@@ -133,7 +133,7 @@ This version only works with the Chinese version of the Nextion Editor! You will
  
 ## Hardware
 
-The hardware items required, to collect the sensors readings, are indicated. 
+The hardware items required to make the *relier* acquisition system are indicated. 
 Instructions about the way those pieces are connected are also presented.
 Just for reference, some links and prices of the components are also presented.
 So, the *Hardware* is composed by these three main parts:
