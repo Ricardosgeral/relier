@@ -536,7 +536,13 @@ and that you followed all 6 steps in installation of the server software. Don't 
     `$ sudo systemctl status shutdown_button`
     
     `Ctr + D ` to leave the terminal.
-    
+
+## Acknowledgements
+My thanks to António Timóteo for his work on cutting the openings in the acquisition aluminium box. 
+Also, my thanks to João Paixão for the soldering of the smaller and difficult parts 
+(wires of the mini aviator plugs and the pines in the ADC and of the level shifter).
+
+
 ## License
 Copyright (c) 2018 Ricardo Correia dos Santos
 
