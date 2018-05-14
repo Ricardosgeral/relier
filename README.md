@@ -119,7 +119,7 @@ with the Nextion Editor.
 4. Past the file into a Micro SD card ***without*** any files (first I recommend using the windows format tool, 
 to ensure all files are cleared from the card).
 5. Disconnect the power supply to *Nextion*.
-6. Insert the Micro SD card (with only one tft file) in the slot on the back of the device.
+6. Insert the Micro SD card in the slot on the back of the device.
 7. Reconnect the power supply to *Nextion*. You should see the *SD card update* status. 
 If you see *Check data.. 100%*, then the code was uploaded successfully.  
 8. Disconnect again the power supply to the screen, and remove the Micro SD card (it will not be necessary anymore) 
