@@ -252,7 +252,7 @@ You can skip options 1 and 2, case you decide to use the file
 ### *3 - General settings*
 ![page3](Nextion/GUI/page3.PNG)
 
-Here, you can edit the main inputs of the test to carry out:
+Here, you can edit the test inputs:
 - *CSV filename* textbox - name of the CSV file to be saved.
 - *Google sheets* checkbox - select this, if you want to send data to Google sheets.
 - *Spreadsheet* textbox - name of the Google spreadsheet (the name of the worksheet = *CSV filename*).
