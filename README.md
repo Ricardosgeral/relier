@@ -219,7 +219,7 @@ Most of the sensors are connected to the acquisition system box via the mini avi
 
 ## *Graphical User Interface (GUI)*: usage
  
-The *GUI* pages displayed in the touchscreen (*Nextion device*), and its usage, are shown next.
+The *GUI* pages displayed in the touchscreen (*Nextion device*), and their usage, are shown next.
  
 ### *0 - Disconnected*
 ![page0](Nextion/320x240/page0-shutdown.png)
