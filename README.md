@@ -243,7 +243,7 @@ Touch anywhere to go the **Main menu** page.
  
 You have three main options:
  1. ***Settings*** - to set the *test inputs* -> Redirects to **General settings** page.
- 2. ***Sensors*** - to set *calibration inputs* of the analog sensors -> Redirects to **Set analog sensors** page.
+ 2. ***Sensors*** - to set the *calibration inputs* of analog sensors -> Redirects to **Set analog sensors** page.
  3. ***Start*** - to initiate right away the test -> Redirects to  **Sensors data record** page.
  
 You can skip options 1 and 2, case you decide to use the file
