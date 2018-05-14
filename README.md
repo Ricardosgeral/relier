@@ -126,7 +126,7 @@ If you see `*Check data.. 100%*`, then the code was uploaded successfully.
 9. In next start up, the software with the code made by the Nextion Editor is running in the device, 
 and the GUI is set on the touchscreen.
 
-**Note:** Be careful when buying the *Nextion* device. Confirm that you are not getting a *TJC* (for Chinese market), 
+**Note:** Be careful when buying the *Nextion* device. Confirm that you are not getting a *TJC* (for the Chinese market), 
 which looks identical. 
 This version only works with the Chinese version of the Nextion Editor! You will need to learn Chinese to use it !!!!
  
