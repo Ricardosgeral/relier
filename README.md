@@ -431,7 +431,7 @@ That is, if a USB drive is plugged in, data goes to the USB drive, otherwise, da
 
 However, ***in addition***, it is possible to send data to [Google Sheets](https://www.google.com/sheets/about/), if a valid 
 *service_creds.json* file is provided (see instructions in *Software installation > server sofrware*).
-This functionality allows ***Live monitoring*** of the data being placed in the Google sheets. 
+This functionality allows ***Live monitoring*** of the data. 
 
 #### How to enable 'Google sheets'
 1.  Select that option:
