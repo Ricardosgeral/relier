@@ -124,7 +124,7 @@ to ensure all files are cleared from the card).
 If you see `*Check data.. 100%*`, then the code was uploaded successfully.  
 8. Disconnect again the power supply to the screen, and remove the Micro SD card (it will not be necessary anymore).
 9. In next start up, the software with the code made by the Nextion Editor is running in the device, 
-and the GUI is set in the touchscreen.
+and the GUI is set on the touchscreen.
 
 **Note:** Be careful when buying the *Nextion* screen. Confirm that you are not getting a *TJC* (for Chinese market), 
 which looks identical. 
