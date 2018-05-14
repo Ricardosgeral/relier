@@ -454,7 +454,8 @@ This means that you can have a single Spreadsheet with different tests organized
 - If there is no internet connection on start up of the server, data will not be, of course, sent to Google sheets, 
 even if you select the Google sheet checkbutton (***Attention***). For debugging look at the 
 [troubleshooting](https://github.com/Ricardosgeral/relier#troubleshooting) section. 
-- If internet connection is lost during a test, the software will raise an exception and stop recording data to Google sheets! (***Attention***).
+- If internet connection is lost during a test, the software will raise an exception and stop recording data to Google sheets, 
+but it continue to record data locally (USB drive or micro SD card).
 - Please be aware that, by choosing the 'Google sheets' feature, the interval between readings chosen by the user 
 will be increased a couple of seconds, due to the time required to request access the Google API.
  
