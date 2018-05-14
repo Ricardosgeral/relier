@@ -136,7 +136,8 @@ This version only works with the Chinese version of the Nextion Editor! You will
 The hardware components required to make the *relier* acquisition system are indicated. 
 Instructions about the way those pieces are connected are also presented.
 Just for reference, some links and prices of the components are also presented.
-So, the *Hardware* is composed by these three main parts:
+
+The *Hardware* is composed by these three main parts:
 1. ***Server*** and its peripherals,
 2. ***Acquisition system box***, linking the server and the sensors, and
 3. ***Sensors*** (4 with analog output and 3 with digital outputs).
