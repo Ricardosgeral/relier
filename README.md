@@ -96,7 +96,7 @@ However, you still need to update the  **touchscreen** software, and set the **h
 
 ### *Touchscreen* software
 
-The graphical user interface (GUI) runs on a [*Nextion device*](https://nextion.itead.cc/), which is a smart touchscreen, 
+The graphical user interface (GUI) runs on a [*Nextion*](https://nextion.itead.cc/) smart touchscreen, 
 also referred as an *HMI - Human Machine Interface*. 
 Note that, it does not work like typical TFT or HDMI monitors. 
 A code needs to be developed and uploaded to the device using a Micro SD card. 
