@@ -458,7 +458,7 @@ even if you select the Google sheet checkbutton (***Attention***). For debugging
 but it will continue to record data locally (USB drive or micro SD card).
 - Please be aware that, by choosing the 'Google sheets' feature, the interval between readings chosen by the user 
 will be increased a couple of seconds, due to the time required to request access the Google API. 
-If you need interval between readings smaller than 8 seconds, or you require a more rigorous interval between readings, 
+If you need an interval between readings smaller than 8 seconds, or you require an always constant interval between readings, 
 please disable the 'Google sheets' feature.
  
 
@@ -474,7 +474,7 @@ Threads are used in this project in three cases:
    + In the handling of the results from *analog sensors*, for "stability". Threads allow to do a mean over a certain period of time 
    with a shorter delay between samples. This can in some cases improve the data reliability. Thus, 
    the collection of readings from the ADC (ADS1115) is done using a [Thread Class object](https://docs.python.org/3/library/threading.html#thread-objects).   
-   + Since *temperature sensors* take a considerable time between reads (about 1 second), 
+   + Since *temperature sensors* take some time between reads (about 1 second), 
    the readings of those sensors is done in multi-tasking. 
    This ensures that the interval between readings is the one indicated by the user. 
    Treads are here also used as *Class objects*.
