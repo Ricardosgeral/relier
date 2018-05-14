@@ -311,10 +311,10 @@ which is done in all pressure sensons simultaneously.
 Attention that, for the future tests, it will be necessary to do the '*zeroing*' process once again (if desired). 
 That is, the history of the zero shift (*z*) is not remembered by the acquisition system. 
 
-When you consider that the analog sensors are conveniently calibrated, you can press the *back blue button* (top-right), 
+c) When you consider that the analog sensors are conveniently calibrated, you can press the *back blue button* (top-right), 
 which will send you to the **Main menu** page.
 
-If you want to leave the **Sensors data record** page, you can also push the *Home* button, which will send you to the **Credits** page.  
+d) If you want to leave the **Sensors data record** page, you can also push the *Home* button, which will send you to the **Credits** page.  
 
 ### *6 - Sensors data record*
 ![page6](Nextion/GUI/page6.PNG)
