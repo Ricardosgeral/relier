@@ -547,7 +547,7 @@ and that you followed all 6 steps in installation of the server software. Don't 
 ## Acknowledgements
 My thanks to *António Timóteo* (LNEC-DG technician) for his work on cutting the openings in the acquisition aluminium box. 
 Also, my thanks to *João Paixão* (LNEC-CIC technician) for soldering the smaller and more difficult parts 
-(wires of the mini aviator plugs and the pines in the ADC and of the level shifter).
+(cup terminals of the mini aviator plugs and the pines in the ADC and of the level shifter).
 
 
 ## License
