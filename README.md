@@ -411,8 +411,8 @@ Data is only stored locally in the *CSV* format and has two possible ways to go:
 - The name of the *CSV* file is defined by the user, either using:
    + the *touchscreen GUI*, in **General settings** page, or  
    + the *inputs.ini* file, modifying the parameter *filename*.
-- Before removing a USB drive or the Micro SD card it is ***strongly*** recommended to gently shutdown the *Raspberry Pi* 
-and then unplug the power supply.
+- Before removing a USB drive or the Micro SD card it is ***strongly*** recommended to gently shutdown the *Raspberry Pi*, 
+and unplug the power supply.
 This will prevent corruption of the Micro SD card and of the USB drive, and increase their life span. 
 To silently disconnect the server you can either:
    + hold the *red pushbutton* in the back of the *acquisition system box* for more than *7 seconds* (if holden between 3 and 7 seconds, 
@@ -426,8 +426,8 @@ in the same file (not desirable). I think it is preferable to set each test in a
 
 ### Internet connection available (Ethernet or WiFi)
 
-Data collection is also done locally in CSV format. 
-That is, if a USB drive is plugged in, data goes to USB drive, otherwise, data goes to the Micro SD card.
+Data collection is also done locally in *CSV* format. 
+That is, if a USB drive is plugged in, data goes to the USB drive, otherwise, data goes to the Micro SD card.
 
 However, ***in addition***, it is possible to send data to [Google Sheets](https://www.google.com/sheets/about/), if a valid 
 *service_creds.json* file is provided (see instructions in *Software installation > server sofrware*).
