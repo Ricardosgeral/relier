@@ -457,7 +457,9 @@ even if you select the Google sheet checkbutton (***Attention***). For debugging
 - If internet connection is lost during a test, the software will raise an exception and stop recording data to Google sheets, 
 but it will continue to record data locally (USB drive or micro SD card).
 - Please be aware that, by choosing the 'Google sheets' feature, the interval between readings chosen by the user 
-will be increased a couple of seconds, due to the time required to request access the Google API.
+will be increased a couple of seconds, due to the time required to request access the Google API. 
+If you need interval between readings smaller than 8 seconds, or you require a more rigorous interval between readings, 
+please disable the 'Google sheets' feature.
  
 
 ## Achievements that can help the reuse of *Python code*
