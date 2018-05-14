@@ -242,8 +242,8 @@ Touch anywhere to go the **Main menu** page.
 ![page2](Nextion/320x240/page2-menu0.png)
  
 You have three main options:
- 1. ***Settings*** - to set the test *inputs* -> Redirects to **General settings** page.
- 2. ***Sensors*** - to set calibration parameters of the *analog sensors* -> Redirects to **Set analog sensors** page.
+ 1. ***Settings*** - to set the test *main inputs* -> Redirects to **General settings** page.
+ 2. ***Sensors*** - to set *calibration inputs* of the analog sensors -> Redirects to **Set analog sensors** page.
  3. ***Start*** - to initiate right away the test -> Redirects to  **Sensors data record** page.
  
 You can skip options 1 and 2, case you decide to use the file
