@@ -101,8 +101,8 @@ also referred as an *HMI - Human Machine Interface*.
 Note that, it does not work like typical TFT or HDMI monitors. 
 A code needs to be developed and uploaded to the device using a Micro SD card. 
 The connection between *Nextion device* and the *Raspberry Pi* is made via 
-[*Serial UART*](https://www.allaboutcircuits.com/technical-articles/back-to-basics-the-universal-asynchronous-receiver-transmitter-uart/) 
-(TX and RX channels, pins 14 and 15 in the GPIO).
+[*Serial UART*](https://www.allaboutcircuits.com/technical-articles/back-to-basics-the-universal-asynchronous-receiver-transmitter-uart/), 
+in pins GPIO14(TXD) and GPIO15(RXD) (in all Raspberry models).
 The GUI interface of the project was developed in the *UART* , 
 that is, via serial communication in pins GPIO14(TXD) and GPIO15 (RXD) (in all Raspberry models).
 [Nextion Editor](https://nextion.itead.cc/resources/download/nextion-editor/) (free software - only for windows!).
