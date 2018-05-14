@@ -427,7 +427,7 @@ in the same file (not desirable). I think it is preferable to set each test in a
 ### Internet connection available (Ethernet or WiFi)
 
 Data collection is also done locally in *CSV* format. 
-That is, if a USB drive is plugged in, data goes to the USB drive, otherwise, data goes to the Micro SD card.
+That is, if a USB drive is plugged in, data goes to the USB drive, otherwise, data goes to the Micro SD card in the server.
 
 However, ***in addition***, it is possible to send data to [Google Sheets](https://www.google.com/sheets/about/), if a valid 
 *service_creds.json* file is provided (see instructions in *Software installation > server sofrware*).
@@ -439,10 +439,10 @@ This functionality allows ***Live monitoring*** of the data being placed in the 
    - In *inputs.ini* file > ensure that *google_sheets = yes*.
    
 2. Provide names for the *Spreadsheet* and for the *Worksheet*:
-   - In the *touchscreen GUI* > *Settings*  > *Spreadsheet* (the *Worksheet* name = *CSV filename*), or
+   - In the *touchscreen GUI* > *Settings*  > *Spreadsheet* (*Worksheet* name = *CSV filename*), or
    - In *inputs.ini* file > Spreadsheet name = *googlesh*, and Worksheet name = *filename*.
 
-3. Provide a valid email, since a link to access the spreadsheet will be shared via email at the start of each test.
+3. Provide a valid email, since a link to access the spreadsheet will be shared via email at the start of the test.
    - In the *touchscreen GUI* > *Settings* > Add email, or
    - In *inputs.ini* file > use parameter *share_email*.
 
