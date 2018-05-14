@@ -395,7 +395,7 @@ but may appear at any position inside that section.
 ## Data collection
 The *Raspberry Pi*, together with the *acquisition system box*, handles the sensors and gets the data from them.  
 The location where data will be collected is defined  by the user, and depends
-on whether or not an internet connection is available, and whether or not a USB drive is plugged in.
+on whether an internet connection is available, and whether a USB drive is plugged in.
 
 ### No internet connection
 Data is only stored locally in the *CSV* format and has two possible ways to go:
