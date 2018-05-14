@@ -9,13 +9,13 @@ I'm a Civil Engineer, with a master degree in Geotechnical Engineering, and a Ph
 internal erosion in embankment dams.
  
 Carrying out the laboratory tests on internal erosion in soils, developed in my PhD, 
-requires to continually collect different types of measurements (water pressures, flowrate, temperature, 
+requires to simultaneously collect different types of measurements (water pressures, flowrate, temperature, 
 turbidity, ...).
-The measurements had to be registered by hand, by two operators!! 
+The measurements had to be registered by hand, in regular intervals, by two operators!! 
 Such manual process is tedious and prone to errors.
 
-So, I've decided to invest time (and a few money), developing a "low budget" acquisition system (hardware and software) that could 
-collect data from multiple sensors. 
+So, I've decided to invest time developing a "low budget" acquisition system (hardware and software) that could 
+collect data automatically from multiple sensors. 
 *relier* born this way!
 
 Please note that I'm not an expert in informatics, in computing, nor in electronics.
@@ -30,7 +30,7 @@ All contributions are welcome.
 ### Is this for me?
 If you need to do a similar project, you just need to have some DIY skills, for scrapping some materials, figuring out 
 how to assemble some things together, and figuring out how some components work. 
-The instructions given here should also be taken more like guidelines based on what can do with the materials I have. If 
+The instructions given here should also be taken more like guidelines based on what I can do with the materials I had. If 
 you do not have the exact same hardware components 
 (sensors, ADC, level shifter, touchscreen...), yours will surely work a little different, but as they should do the same 
 things, there will be similarities too. You may have to adjust the code and/or the connections to meet your needs.
@@ -42,7 +42,7 @@ and be more helpful.
 ## Software installation
 
 The software of *reliar acquisition system* is composed by two distinct but interconnected major parts, 
-running in different *hardware* components, particularly in the:
+running in two different *hardware* components, particularly in the:
 1. **Server** (*Raspberry Pi 3B*), which performs the computation tasks, and
 2. **Touchscreen** (*Nextion device*), responsible by the interactivity between the end user and the server.
 
@@ -53,22 +53,23 @@ The server is a Raspberry Pi 3B. These instructions should be carried out after 
 I've used [2018-04-18-raspian-stretch](http://downloads.raspberrypi.org/raspbian/images/raspbian-2018-04-19/). 
 Most of the code is written in *Python v3.5.3*, and a few scripts are written in *Bash v4.4.12(1)*.
 
-**Note:** If no monitor is available (headless *Raspberry Pi*), you have to do the following 4 simple steps to 
-enable *SSH* in first boot. So, right after installing the raspbian image in the  Micro SD card:
+**Note:** If no monitor is available (set up a *Raspberry Pi* headless), you have to do the following 4 simple steps to 
+enable *SSH* in first boot. So, right after installing the Raspbian image in the  Micro SD card:
 1. Create an empty file (in Windows use notepad, in a Linux terminal use command *touch*, in Mac use TextEdit).
 2. Save the file with name: ***ssh*** (preferentially with no extension, but *ssh.txt* should also work).
-3. Copy or move that file into the *Root* of the Micro SD card.
+3. Copy or move that file into the *Root* of the Micro SD card, where Raspbian is installed.
 4. Insert the Micro SD card in the *Raspberry Pi*, and power it on.
 
-Access the *Raspberry Pi* directly (if you have a monitor), or via *SSH* (for example, using *Putty*). 
-In this last option, you will require internet and need to know the local IP attributed to the *Raspberry Pi*! The default login should be:
+Access the *Raspberry Pi* directly (if you have a monitor), or via *SSH* (for example, using [*Putty*](https://www.putty.org/)). 
+In this last option, you will require an internet connection and need to know the local IP attributed to the *Raspberry Pi*! 
+The default login parameters should be:
 
    username: `pi`   
    password: `raspberry`
 
 It is recommended to change the password after first boot, since *SSH* is enabled!
 
-    $ passwd 
+    $ passwd
     
 and choose your new password.
 
@@ -80,7 +81,7 @@ Then, in the terminal, run the following sequential commands:
     $ sudo ./raspbian-post-install.sh
 
 Next, you need to get your *json* file with the Google signed credentials.
-First, you need to create a project in the developer console and enable some APIs (follow steps 1 to 4 from these [instructions](https://pygsheets.readthedocs.io/en/latest/authorizing.html#)), 
+For that, you need to create a project in the developer console and enable some APIs (follow steps 1 to 4 from these [instructions](https://pygsheets.readthedocs.io/en/latest/authorizing.html#)), 
 then, get the *Signed Credential* (follow steps 5 and 6 from these [instructions](https://pygsheets.readthedocs.io/en/latest/authorizing.html#signed-credentials)). 
 *Copy* your signed credentials, then, do:
 
@@ -98,10 +99,10 @@ However, you still need to update the  **touchscreen** software, and set the **h
 
 The graphical user interface (GUI) runs on a [*Nextion device*](https://nextion.itead.cc/), which is a smart touchscreen, 
 also referred as an *HMI - Human Machine Interface*. 
-Note that, it does not work like typical TFT or HDMI monitors. 
+Note that, this device does not work like typical TFT or HDMI monitors. 
 A code needs to be developed and uploaded to the device using a Micro SD card. 
-The connection between *Nextion device* and the *Raspberry Pi* is made via *Serial UART* 
-(TX and RX channels, pins 14 and 15 in the GPIO).
+The connection between *Nextion device* and the *Raspberry Pi* is made via *UART*(Universal asynchronous receiver-transmitter), 
+that is, via serial communication in pins GPIO14(TXD) and GPIO15 (RXD) (in all Raspberry models).
 The GUI interface of the project was developed in the 
 [Nextion Editor](https://nextion.itead.cc/resources/download/nextion-editor/) (free software - only for windows!).
 Follow the [Nextion Editor Guide](https://nextion.itead.cc/editor_guide/) to learn how to work with it. 
