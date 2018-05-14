@@ -537,13 +537,14 @@ and that you followed all 6 steps in installation of the server software. Don't 
     
     `Ctr + D ` to leave the terminal.
 
+
 ## Acknowledgements
-My thanks to António Timóteo for his work on cutting the openings in the acquisition aluminium box. 
-Also, my thanks to João Paixão for soldering the smaller and more difficult parts 
+My thanks to *António Timóteo* for his work on cutting the openings in the acquisition aluminium box. 
+Also, my thanks to *João Paixão* for soldering the smaller and more difficult parts 
 (wires of the mini aviator plugs and the pines in the ADC and of the level shifter).
 
 
 ## License
 Copyright (c) 2018 Ricardo Correia dos Santos
 
-By using this acquisition system (Software and/or Hardware) you agree with the [license conditions](LICENSE).
+See the [license conditions](LICENSE).
