@@ -102,7 +102,7 @@ Note that, it does not work like typical TFT or HDMI monitors.
 A code needs to be developed and uploaded to the device using a Micro SD card. 
 The connection between *Nextion device* and the *Raspberry Pi* is made via 
 [*Serial UART*](https://www.allaboutcircuits.com/technical-articles/back-to-basics-the-universal-asynchronous-receiver-transmitter-uart/), 
-that is, via serial communication in pins GPIO14(TXD) and GPIO15(RXD) (in all Raspberry models).
+that is, via serial communication in pins GPIO14 (TXD) and GPIO15 (RXD) (in all Raspberry models).
 [Nextion Editor](https://nextion.itead.cc/resources/download/nextion-editor/) (free software - only for windows!).
 Follow the [Nextion Editor Guide](https://nextion.itead.cc/editor_guide/) to learn how to work with it. 
 I've provide the file [*relier.HMI*](https://github.com/Ricardosgeral/relier/blob/master/Nextion/HMI/relier.HMI) 
