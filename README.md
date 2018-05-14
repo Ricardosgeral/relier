@@ -60,16 +60,15 @@ enable *SSH* in first boot. So, right after installing the Raspbian image in the
 3. Copy or move that file into the *Root* of the Micro SD card, where Raspbian is installed.
 4. Insert the Micro SD card in the *Raspberry Pi*, and power it on.
 
-Access the *Raspberry Pi* directly (if you have a monitor), or via *SSH* (for example, using [*Putty*](https://www.putty.org/)). 
-In this last option, you will require an internet connection and need to know the local IP attributed to the *Raspberry Pi*! 
-The default login parameters should be:
+Access the *Raspberry Pi* directly (if you have a monitor), or via *SSH* (for example, using *Putty*). 
+In this last option, you will require internet and need to know the local IP attributed to the *Raspberry Pi*! The default login should be:
 
    username: `pi`   
    password: `raspberry`
 
 It is recommended to change the password after first boot, since *SSH* is enabled!
 
-    $ passwd
+    $ passwd 
     
 and choose your new password.
 
@@ -80,9 +79,9 @@ Then, in the terminal, run the following sequential commands:
     $ sudo chmod +x raspbian-post-install.sh && sed -i 's/\r//' raspbian-post-install.sh
     $ sudo ./raspbian-post-install.sh
 
-Next, you should get your *json* file with the Google signed credentials.
-For that, you need to create a project in the developer console and enable some APIs (follow steps 1 to 4 from these [instructions](https://pygsheets.readthedocs.io/en/latest/authorizing.html#)), 
-then, get the *Signed credentials* (follow steps 5 and 6 from these [instructions](https://pygsheets.readthedocs.io/en/latest/authorizing.html#signed-credentials)). 
+Next, you need to get your *json* file with the Google signed credentials.
+First, you need to create a project in the developer console and enable some APIs (follow steps 1 to 4 from these [instructions](https://pygsheets.readthedocs.io/en/latest/authorizing.html#)), 
+then, get the *Signed Credential* (follow steps 5 and 6 from these [instructions](https://pygsheets.readthedocs.io/en/latest/authorizing.html#signed-credentials)). 
 *Copy* your signed credentials, then, do:
 
     $ sudo nano /home/pi/relier/service_creds.json
@@ -99,11 +98,13 @@ However, you still need to update the  **touchscreen** software, and set the **h
 
 The graphical user interface (GUI) runs on a [*Nextion device*](https://nextion.itead.cc/), which is a smart touchscreen, 
 also referred as an *HMI - Human Machine Interface*. 
-Note that, this device does not work like typical TFT or HDMI monitors. 
+Note that, it does not work like typical TFT or HDMI monitors. 
 A code needs to be developed and uploaded to the device using a Micro SD card. 
-The connection between *Nextion device* and the *Raspberry Pi* is made via *UART*(Universal asynchronous receiver-transmitter), 
+The connection between *Nextion device* and the *Raspberry Pi* is made via 
+[*Serial UART*](https://www.allaboutcircuits.com/technical-articles/back-to-basics-the-universal-asynchronous-receiver-transmitter-uart/) 
+(TX and RX channels, pins 14 and 15 in the GPIO).
+The GUI interface of the project was developed in the *UART* , 
 that is, via serial communication in pins GPIO14(TXD) and GPIO15 (RXD) (in all Raspberry models).
-The GUI interface of the project was developed in the 
 [Nextion Editor](https://nextion.itead.cc/resources/download/nextion-editor/) (free software - only for windows!).
 Follow the [Nextion Editor Guide](https://nextion.itead.cc/editor_guide/) to learn how to work with it. 
 I've provide the file [*relier.HMI*](https://github.com/Ricardosgeral/relier/blob/master/Nextion/HMI/relier.HMI) 
