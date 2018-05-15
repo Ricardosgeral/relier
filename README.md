@@ -473,7 +473,7 @@ which is faster but less precise), the Python library will need, of course, to b
 More information [here](https://www.raspberrypi.org/forums/viewtopic.php?t=66445).
 - *Use of threading (['thread-based parallelism'](https://docs.python.org/3/library/threading.html)), together with [Event objects](https://docs.python.org/3/library/threading.html#event-objects), in Python 3*. 
 Threads are used in this project in three cases: 
-   + In the handling of the results from *analog sensors*, for "stability". Threads allow to do a mean over a certain period of time 
+   + In the handling of the results from *analog sensors*, for data 'stability'. Threads allow to do a mean over a certain period of time 
    with a shorter delay between samples. This can in some cases improve the data reliability. Thus, 
    the collection of readings from the ADC (ADS1115) is done using a [Thread Class object](https://docs.python.org/3/library/threading.html#thread-objects).   
    + Since *temperature sensors* take some time between reads (about 1 second), 
