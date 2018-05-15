@@ -220,7 +220,7 @@ Most of the sensors are connected to the acquisition system box via the mini avi
 + Tools to make the openings in the aluminum box (*e.g.* a mini Drill DIY set should be enough) 
 + Precision screwdriver set
 
-## *Graphical User Interface (GUI)*: usage
+## Graphical User Interface (GUI): usage
  
 The *GUI* pages displayed in the touchscreen (*Nextion device*), and their usage, are shown next.
  
