@@ -118,14 +118,14 @@ To upload the code into *Nextion touchscreen* follow these steps:
 1. Open the file [*relier.HMI*](https://github.com/Ricardosgeral/relier/blob/master/Nextion/HMI/relier.HMI) 
 with the Nextion Editor.
 2. Press the *Compile* icon in the first top bar, and check that there are no errors.
-3. Go to *File > Open build folder* and copy the *.tft* file produced by the editor (that has the code). 
-4. Past the file into a Micro SD card ***without*** any files (first I recommend using the windows format tool, 
+3. Go to *File > Open build folder* and copy the *relier.tft* file produced by the editor (that has the code). 
+4. Past the file into a micro SD card ***without*** any files (first I recommend using the windows format tool, 
 to ensure all files are cleared from the card).
 5. Disconnect the power supply to *Nextion*.
-6. Insert the Micro SD card in the slot on the back of the device.
+6. Insert the micro SD card in the slot on the back of the device.
 7. Reconnect the power supply to *Nextion*. You should see the *SD card update* status. 
 If you see `Check data.. 100%`, the code was uploaded successfully.  
-8. Disconnect again the power supply to the screen, and remove the Micro SD card (it will not be necessary anymore).
+8. Disconnect again the power supply to the screen, and remove the micro SD card (it will not be necessary anymore).
 9. In next start up, the software with the code made by the Nextion Editor is running in the device, 
 and the GUI is set on the touchscreen.
 
@@ -148,7 +148,7 @@ The *Hardware* is composed by the:
 ### Server and peripherals
 
 + 1x [***Raspberry Pi 3 model B***](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) [35 €]
-+ 1x [Micro SD card (8 GB is enough)](https://www.aliexpress.com/item/SAMSUNG-Micro-SD-Card-256G-128GB-64gb-32g-100M-s-Class10-U3-4K-UHD-Memory-card/32813615707.html?spm=a2g0s.9042311.0.0.Xdt3Ob) [12 €]
++ 1x [micro SD card (8 GB is enough)](https://www.aliexpress.com/item/SAMSUNG-Micro-SD-Card-256G-128GB-64gb-32g-100M-s-Class10-U3-4K-UHD-Memory-card/32813615707.html?spm=a2g0s.9042311.0.0.Xdt3Ob) [12 €]
 + 1x [Raspberry Pi Universal Power Supply or equivalent](https://www.raspberrypi.org/products/raspberry-pi-universal-power-supply/) [15 €]
 + 1x [Raspberry Pi GPIO 40 pin cable](https://www.aliexpress.com/item/Raspberry-pi-B-raspberry-PI-GPIO-40-pin-cable/32809594049.html?spm=2114.search0104.8.35.5790121bpoCIAu&transAbTest=ae803_2&priceBeautifyAB=0) [3 €]
 + 1x [Raspberry Pi case](https://www.aliexpress.com/item/Best-Selling-Clear-Case-for-Raspberry-Pi-3-Model-B-Clear-by-SB-Components-Plastic-Protective/32738665641.html?spm=a2g0s.9042311.0.0.A8JBGc) [2 €] (optional!)
@@ -160,7 +160,7 @@ The *Hardware* is composed by the:
 + 1x [***Nextion touchscreen 2.8"*** - NX3224T028](https://www.itead.cc/nextion-nx3224t028-1932.html) [16 €]
 + 1x [***16 Bit I2C ADS1115*** Module ADC 4 channel with Pro Gain Amplifier](https://www.aliexpress.com/item/16-Bit-I2C-ADS1115-Module-ADC-4-channel-with-Pro-Gain-Amplifier-RPi-1PCS/32817162654.html?spm=a2g0s.9042311.0.0.KZKf8O) [2 €]
 + 1x [***Logic Level Shifter*** Bi-Directional 5V to 3.3V](https://www.aliexpress.com/item/5PCS-Logic-Level-Shifter-Bi-Directional-For-Arduino-5V-to-3-3V-Four-Way-Two-Way/32827270848.html?spm=a2g0s.9042311.0.0.PRV9iC) [2 €]
-+ 1x Micro SD card (>128 MB, only required for installation) [< 1 €]
++ 1x micro SD card (>128 MB, only required for installation) [< 1 €]
 + 1x [88x38x100mm aluminum box profile with enclosure for PCB](https://www.aliexpress.com/item/Free-shipping88-38-100mm-width-x-high-x-length-aluminum-extrusion-box-profile-enclosure-for-PCB/32800855972.html?spm=a2g0s.9042311.0.0.Wvmz38) [6 €]
 + 6x [8mm Male & Female Connector miniature Aviation Plug M8 Circular Socket+Plug](https://www.aliexpress.com/item/1PCS-AP049-YC8-2-3-4-5-6-7Pin-8mm-Male-Female-Connector-miniature-Aviation-Plug/32845374887.html?spm=a2g0s.9042311.0.0.6sphAY) [6x4= 24 €]
 + 6x [XH2.54 3-Pins connectors with right angle Male for PCB - Header+Housing+Terminal](https://www.aliexpress.com/item/XH2-54-2P-3P-4P-5P-6P-7P-8P-9P-10P-11P-12P-13P-14P-15P/32793262315.html?spm=a2g0s.9042311.0.0.DEz5gr) [3 €]
@@ -212,7 +212,7 @@ Most of the sensors are connected to the acquisition system box via the mini avi
 + Breadboard(s)
 + [T-cobbler for raspberry pi](https://www.aliexpress.com/item/830-tie-points-MB102-breadboard-40Pin-Rainbow-Cable-GPIO-T-Cobbler-Plus-Breakout-Board-Kit-for/32673580640.html?spm=2114.search0104.3.9.6581309ai8NJdY&ws_ab_test=searchweb0_0,searchweb201602_1_10152_10151_10065_10344_10068_10342_10343_5722611_10340_10341_10698_10696_5722911_5722811_10084_5722711_10083_10618_10304_10307_10301_5711211_10059_308_100031_10103_10624_10623_10622_10621_10620_5711311_5722511,searchweb201603_32,ppcSwitch_5&algo_expid=3ed88c37-67f1-4fe2-a688-b3983db90ff7-1&algo_pvid=3ed88c37-67f1-4fe2-a688-b3983db90ff7&transAbTest=ae803_2&priceBeautifyAB=0)
 + DuPont jumper wires
-+ Micro SD adapter
++ micro SD adapter
  
 #### Additional tools required for the assemblage of the PCB and AS box
 + Cable wire Stripper/Crimping Plier
@@ -405,7 +405,7 @@ on whether an internet connection is available, and whether a USB drive is plugg
 Data is only stored locally in the *CSV* format and has two possible ways to go:
   
 1. *No USB drive* is plugged in  ->
-   Data are stored *only* on the Micro SD card, inside folder **/srv/EROSTESTS**. 
+   Data are stored *only* on the micro SD card, inside folder **/srv/EROSTESTS**. 
 
 2. A *USB is plugged in* ->
    Data are stored *only* on the **USB_root_directory**. 
@@ -415,23 +415,23 @@ Data is only stored locally in the *CSV* format and has two possible ways to go:
 - The name of the *CSV* file is defined by the user, either using:
    + the *touchscreen GUI*, in **General settings** page, or  
    + the *inputs.ini* file, modifying the parameter *filename*.
-- Before removing a USB drive or the Micro SD card it is ***strongly*** recommended to gently shutdown the *Raspberry Pi*, 
+- Before removing a USB drive or the micro SD card it is ***strongly*** recommended to gently shutdown the *Raspberry Pi*, 
 and unplug the power supply.
-This will prevent corruption of the Micro SD card and of the USB drive, and increase their life span. 
+This will prevent corruption of the micro SD card and of the USB drive, and increase their life span. 
 To silently disconnect the server you can either:
    + hold the *red pushbutton* in the back of the *acquisition system box* for more than *7 seconds* (if holden between 3 and 7 seconds, 
    the *Raspberry Pi* will reboot), or 
    + `$ sudo halt` in a *SSH* terminal session.
 - If more than one USB drive is plugged in (not recommended!), data will be saved in the *first drive* being found.
 - Data in the *CSV* files is ***never deleted*** automatically. If a file with the same name already exists in the USB drive or 
-in the Micro SD card, data is placed in the file but bellow the last row already there. This means that multiple tests may be collected 
+in the micro SD card, data is placed in the file but bellow the last row already there. This means that multiple tests may be collected 
 in the same file (not desirable). I think it is preferable to set each test in an individual file.
 
 
 ### Internet connection available (Ethernet or WiFi)
 
 Data collection is also done locally in *CSV* format. 
-That is, if a USB drive is plugged in, data goes to the USB drive, otherwise, data goes to the Micro SD card in the server.
+That is, if a USB drive is plugged in, data goes to the USB drive, otherwise, data goes to the micro SD card in the server.
 
 However, ***in addition***, it is possible to send data to [Google Sheets](https://www.google.com/sheets/about/), if a valid 
 *service_creds.json* file is provided (see instructions in *Software installation > server sofrware*).
