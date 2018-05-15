@@ -15,7 +15,7 @@ requires to simultaneously collect different types of measurements (water pressu
 The measurements had to be registered by hand, in regular intervals, by two operators!! 
 Such manual process is tedious and prone to errors.
 
-So, I've decided to invest time developing a "low budget" acquisition system (hardware and software) that could 
+So, I've decided to invest time developing a 'low budget' acquisition system (hardware and software) that could 
 collect data automatically from multiple sensors. 
 *relier* born this way!
 
@@ -255,7 +255,7 @@ You can skip options 1 and 2, case you decide to use the file
 
 Here, you can edit the test inputs:
 - *CSV filename* textbox - name of the CSV file to be saved.
-- *Google sheets* checkbox - select this, if you want to send data to Google sheets.
+- *Google Sheets* checkbox - select this, if you want to send data to Google Sheets.
 - *Spreadsheet* textbox - name of the Google spreadsheet (the name of the worksheet = *CSV filename*).
 - *email* textbox - email to where a link, to access the Google spreadsheet, will be sent.
 - *Test time* textbox - duration of the test, in minutes (if set equal to 0 -> records data 'forever').
@@ -323,7 +323,7 @@ d) Pushing the *Home* button will send you to the **Credits** page.
 This page appears once the *Start* green button in **Main menu** is released. 
 The data being recorded appears in the screen and is updated at a constant rate (interval  defined in the *General settings*).
 
-If 'Google sheets' option has been selected, the first reading can take more than normal (due to the request to access the google API).
+If 'Google Sheets' option has been selected, the first reading can take more than normal (due to the request to access the Google API).
 
 If you want to stop the test, prior to the test duration defined in settings, 
 just press the *Red button*, which will redirect you to the **Stop sensor data recording** confirmation page.
@@ -359,7 +359,7 @@ with a description of the parameters meaning.
 [settings]
 filename      = soilX_n01       # <Name of the CSV file> and (if google_sheets = yes) <Name of the Worksheet of Google Spreadsheet>
 google_sheets = yes             # <yes (y, yep, Yes, YES) or no (n, nop, No, NO)>  
-googlesh      = tests_soilX     # <Name of the Google Spreadsheet>
+googlesh      = tests_soilX     # <Name of the Google spreadsheet>
 share_email   = email@email.com # <email to share access to the Google spreedsheet>
 duration      = 180             # <Duration of the test in Minutes> if duration = 0 will run 'forever'
 interval      = 15              # <Interval between records in seconds>
@@ -435,7 +435,7 @@ However, ***in addition***, it is possible to send data to [Google Sheets](https
 *service_creds.json* file is provided (see instructions in *Software installation > server sofrware*).
 This functionality allows ***Live monitoring*** of the data. 
 
-#### How to enable 'Google sheets'
+#### How to enable 'Google Sheets'
 1.  Select that option:
    - In the *touchscreen GUI* > *Settings* > activate the (only) checkbox, or
    - In *inputs.ini* file > ensure that *google_sheets = yes*.
@@ -453,15 +453,15 @@ This functionality allows ***Live monitoring*** of the data.
 - If the *Spreadsheet/Worksheet* provided by the user already exists, the data that was in that worksheet will be *deleted* (***Attention***). 
 However, when a new Worksheet name is provided in an already existing Spreadsheet, a new sheet is added. 
 This means that you can have a single Spreadsheet with different tests organized in different Worksheets (preferable).
-- If there is no internet connection on start up of the server, data will not be, of course, sent to Google sheets, 
-even if you select the Google sheet checkbutton (***Attention***). For debugging look at the 
+- If there is no internet connection on start up of the server, data will not be, of course, sent to Google Sheets, 
+even if you select the Google Sheets checkbutton (***Attention***). For debugging look at the 
 [troubleshooting](https://github.com/Ricardosgeral/relier#troubleshooting) section. 
-- If internet connection is lost during a test, the software will raise an exception and stop recording data to Google sheets, 
+- If internet connection is lost during a test, the software will raise an exception and stop recording data to Google Sheets, 
 but it will continue to record data locally (USB drive or micro SD card).
-- Please be aware that, by choosing the 'Google sheets' feature, the interval between readings chosen by the user 
+- Please be aware that, by choosing the 'Google Sheets' feature, the interval between readings chosen by the user 
 will be increased a couple of seconds, due to the time required to request access the Google API. 
 If you need an interval between readings smaller than 8 seconds, or you require an always constant interval between readings, 
-please disable the 'Google sheets' feature.
+please disable the 'Google Sheets' feature.
  
 
 ## Achievements that can help the reuse of *Python code*
@@ -494,7 +494,7 @@ that has all the components (to be accessed by the server) defined in the Nextio
 Of course, you need to know how to use the Nextion commands.
 For that, see the [*instructions set*](https://nextion.itead.cc/resources/documents/instruction-set/).
 - Use of the library [*pygsheets*](https://github.com/nithinmurali/pygsheets), alongside with 
-library [*pandas*](https://pandas.pydata.org/index.html), to collect data from multiple sensors and write them in Google sheets.  
+library [*pandas*](https://pandas.pydata.org/index.html), to collect data from multiple sensors and write them in Google Sheets.  
 - Use the library [*CSV*](https://docs.python.org/3.6/library/csv.html) to write the data (as dictionary variable) in rows.
 - Use of the library [*configparser*](https://docs.python.org/3/library/configparser.html) to have a *.ini* file 
 with the inputs. 
