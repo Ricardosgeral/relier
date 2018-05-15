@@ -58,22 +58,23 @@ Most of the code is written in *Python v3.5.3*, and a few scripts are written in
 enable *SSH* in first boot. So, right after installing the Raspbian image in the  Micro SD card:
 1. Create an empty file (in Windows use notepad, in a Linux terminal use command *touch*, in Mac use TextEdit).
 2. Save the file with name: ***ssh*** (preferentially with no extension, but *ssh.txt* should also work).
-3. Copy or move that file into the *Root* of the Micro SD card, where Raspbian is installed.
-4. Insert the Micro SD card in the *Raspberry Pi*, and power it on.
+3. Copy or move that file into the ***root*** of the Micro SD card, where Raspbian is installed.
+4. Insert the Micro SD card into the *Raspberry Pi*, and power it on.
 
-Access the *Raspberry Pi* directly (if you have a monitor), or via *SSH* (for example, using *Putty*). 
-In this last option, you will require internet and need to know the local IP attributed to the *Raspberry Pi*! The default login should be:
+Access the *Raspberry Pi* directly (if you have a monitor), or via *SSH* (for example, using [*Putty*](https://www.putty.org/). 
+In this last option, you will require an internet connection, and need to know the local IP attributed to the *Raspberry Pi*! 
+The default login should be:
 
    username: `pi`   
    password: `raspberry`
 
-It is recommended to change the password after first boot, since *SSH* is enabled!
+It is recommended to change the password after first boot, since *SSH* is enabled! For that write
 
     $ passwd 
     
 and choose your new password.
 
-Next, you will have to connect the *Raspberry Pi* to the internet (via Ethernet cable or [WiFi](https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md)).  
+Now, if you haven't done it yet, you will have to connect the *Raspberry Pi* to the internet (via Ethernet cable or [WiFi](https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md)).  
 Then, in the terminal, run the following sequential commands:
     
     $ cd /tmp && wget https://raw.githubusercontent.com/Ricardosgeral/relier/master/bash/raspbian-post-install.sh
