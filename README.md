@@ -353,7 +353,7 @@ and change the parameters as intended.
 The structure of the ini file comprises 4 sections. Next is an example of an *inputs.ini* file,  
 with a description of the parameters meaning.
 
-### Example of *inputs.ini* file
+### Example of file *inputs.ini* 
 ```
 [settings]
 filename      = soilX_n01       # <Name of the CSV file> and (if google_sheets = yes) <Name of the Worksheet of Google Spreadsheet>
