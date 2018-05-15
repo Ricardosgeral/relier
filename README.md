@@ -84,11 +84,11 @@ Then, in the terminal, run the following sequential commands:
 Next, you need to get your *json* file with the Google signed credentials.
 First, you need to create a project in the developer console and enable some APIs (follow steps 1 to 4 from these [instructions](https://pygsheets.readthedocs.io/en/latest/authorizing.html#)), 
 then, get the *Signed credentials* (follow steps 5 and 6 from these [instructions](https://pygsheets.readthedocs.io/en/latest/authorizing.html#signed-credentials)). 
-*Copy* your signed credentials, then, do:
+*Copy* your Signed credentials, then, do:
 
     $ sudo nano /home/pi/relier/service_creds.json
     
-and *Past* the signed credentials. `Ctrl+X`, then `y` and finally `Enter` to save file.
+and *Past* the Signed credentials. `Ctrl+X`, then `y` and finally `Enter` to save file.
 
     $ sudo reboot
 
@@ -105,7 +105,8 @@ A code needs to be developed and uploaded to the device using a Micro SD card.
 The connection between *Nextion device* and the *Raspberry Pi* is made via 
 [*Serial UART*](https://www.allaboutcircuits.com/technical-articles/back-to-basics-the-universal-asynchronous-receiver-transmitter-uart/), 
 that is, via serial communication in pins GPIO14 (TXD) and GPIO15 (RXD) (in all Raspberry models).
-The GUI was developed in the [Nextion Editor](https://nextion.itead.cc/resources/download/nextion-editor/) (free software - only for windows!).
+
+The GUI needs to be developed in the [Nextion Editor](https://nextion.itead.cc/resources/download/nextion-editor/) (free software - only for windows!).
 Follow the [Nextion Editor Guide](https://nextion.itead.cc/editor_guide/) to learn how to work with it. 
 I've provide the file [*relier.HMI*](https://github.com/Ricardosgeral/relier/blob/master/Nextion/HMI/relier.HMI) 
 developed for this project. The next picture shows the Nextion Editor with the project file.
