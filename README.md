@@ -541,7 +541,6 @@ and that you followed all 6 steps in installation of the server software. Don't 
  $ sudo systemctl status rcshut
  $ sudo systemctl status shutdown_button
 ```   
- 
    `Ctr + D ` to leave the terminal.
 
 
