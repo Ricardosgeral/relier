@@ -341,7 +341,7 @@ Here you confirm that you pressed the stop button, just in case! Pressing the:
 - *Red button*   -> go back to **Sensors data record** page, and readings never stopped being registered.
 
 
-## *inputs.ini* file
+## *inputs.ini*
 
 It is possible to set *ALL* (test and calibration) inputs by editing the file [*inputs.ini*](https://github.com/Ricardosgeral/relier/blob/master/inputs.ini). This avoids setting the inputs 
 interactively in the touchscreen. For that, open a terminal and run the command:
