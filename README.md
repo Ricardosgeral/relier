@@ -536,12 +536,13 @@ and that you followed all 6 steps in installation of the server software. Don't 
  Otherwise, something is not connected correctly, or I2C protocol has not been enabled 
  (the bash file [*raspbian-post-install.sh*](https://github.com/Ricardosgeral/relier/blob/master/bash/raspbian-post-install.sh) should have done that!).
 - If you want to check if the Linux service units running on reboot/shutdown are active, check their status.
-    
-    `$ sudo systemctl status rcshut` 
-    
-    `$ sudo systemctl status shutdown_button`
-    
-    `Ctr + D ` to leave the terminal.
+ 
+ ```
+    $ sudo systemctl status rcshut` 
+    $ sudo systemctl status shutdown_button`
+```   
+ 
+`Ctr + D ` to leave the terminal.
 
 
 ## Acknowledgements
