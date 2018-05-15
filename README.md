@@ -5,12 +5,13 @@ Project developed by [*Ricardo Correia dos Santos*](https://www.linkedin.com/in/
 [Laboratório Nacional de Engenharia Civil - *LNEC*](http://www.lnec.pt/en/), in Lisbon, Portugal
 
 ### About the author and the *relier* project
-I'm a Civil Engineer, with a master degree in Geotechnical Engineering, and a PhD on experimental investigations on 
-internal erosion in embankment dams.
+I'm a Civil Engineer, with a [master degree](https://www.researchgate.net/publication/273715929_Enquadramento_das_analises_de_riscos_em_Geotecnia) 
+in risk analysis in Geotechnical Engineering, and a [PhD](https://www.researchgate.net/publication/265396445_Experimental_investigation_on_limitation_of_the_progression_of_internal_erosion_in_zoned_dams?_sg=TYpuvUDlOEmsy1nkmycUNZZQmLHo34eFR1un5kQBsel1Ih6m8itcptNphw4q33ZLbFPsnKm5uX3PfaJmW1fljV7_goXnxDN4Ne4RwewR.OOCKioxBNPJoOd0B8BiFk4-Dqk849OZdMI_lxDR_IRduPQ88ovShdBBoVm34ZNhMTA_UT3M8PANv1KdYr7rMXg) 
+on internal erosion in embankment dams.
  
-Carrying out the laboratory tests on internal erosion in soils, developed in my PhD, 
-requires to simultaneously collect different types of measurements (water pressures, flowrate, temperature, 
-turbidity, ...).
+Carrying out the [laboratory tests on internal erosion in soils](https://www.researchgate.net/publication/317742058_Limitation_of_the_progression_of_internal_erosion_in_zoned_dams), 
+developed in my PhD, 
+requires to simultaneously collect different types of measurements (water pressures, flowrate, temperature, turbidity, ...).
 The measurements had to be registered by hand, in regular intervals, by two operators!! 
 Such manual process is tedious and prone to errors.
 
