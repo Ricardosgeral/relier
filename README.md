@@ -353,33 +353,35 @@ and change the parameters as intended.
 The structure of the ini file comprises 4 sections. Next is an example of an *inputs.ini* file,  
 with a description of the parameters meaning.
 
-    # inputs.ini example
-    
-    [settings]
-    filename      = soilX_n01       # <Name of the CSV file> and (if google_sheets = yes) <Name of the Worksheet of Google Spreadsheet>
-    google_sheets = yes             # <yes (y, yep, Yes, YES) or no (n, nop, No, NO)>  
-    googlesh      = tests_soilX     # <Name of the Google Spreadsheet>
-    share_email   = email@email.com # <email to share access to the Google spreedsheet>
-    duration      = 180             # <Duration of the test in Minutes> if duration = 0 will run 'forever'
-    interval      = 15              # <Interval between records in seconds>
-    no_reads      = 5               # <Number of readings per interval (analog sensors only)>: In this example an average between 15/5=3 values is made.
+*inputs.ini*
+```
 
-    [testtype]
-    testtype      = 1               # <1 to 4>  1-HET; 2-FLET; 3-CFET; 4-OTHER
-    othername     = testtype_name   # < Name of the test type> only relevant when testtype = 4
+[settings]
+filename      = soilX_n01       # <Name of the CSV file> and (if google_sheets = yes) <Name of the Worksheet of Google Spreadsheet>
+google_sheets = yes             # <yes (y, yep, Yes, YES) or no (n, nop, No, NO)>  
+googlesh      = tests_soilX     # <Name of the Google Spreadsheet>
+share_email   = email@email.com # <email to share access to the Google spreedsheet>
+duration      = 180             # <Duration of the test in Minutes> if duration = 0 will run 'forever'
+interval      = 15              # <Interval between records in seconds>
+no_reads      = 5               # <Number of readings per interval (analog sensors only)>: In this example an average between 15/5=3 values is made.
 
-    [analog]                        # Equation of the straight lines for analog sensors: y = m x + b (m is the slope and b the y intercept)
-    mu            = 0.0862          # <Upstream pressure sensor> [ pu(mbar) = mu tension_u(mV) + bu ] 
-    bu            = -0.0432
-    mi            = 0.0898          # <Interface pressure sensor> [ pi(mbar) = mi tension_i(mV) + bi ]
-    bi            = -0.0596
-    md            = 0.0898          # <Downstream pressure sensor> [ pd(mbar) = md tension_d(mV) + bu ]
-    bd            = -0.0596
-    mturb         = -0.0429         # <Turbidity sensor> [ turbidity(NTU) = mturb analog_no + bturb ]
-    bturb         = 1413.289
+[testtype]
+testtype      = 1               # <1 to 4>  1-HET; 2-FLET; 3-CFET; 4-OTHER
+othername     = testtype_name   # < Name of the test type> only relevant when testtype = 4
 
-    [other]
-    lastip        = 193.136.108.75  # This parameter is not editable! It's an indication of the server IP in the last test 
+[analog]                        # Equation of the straight lines for analog sensors: y = m x + b (m is the slope and b the y intercept)
+mu            = 0.0862          # <Upstream pressure sensor> [ pu(mbar) = mu tension_u(mV) + bu ] 
+bu            = -0.0432
+mi            = 0.0898          # <Interface pressure sensor> [ pi(mbar) = mi tension_i(mV) + bi ]
+bi            = -0.0596
+md            = 0.0898          # <Downstream pressure sensor> [ pd(mbar) = md tension_d(mV) + bu ]
+bd            = -0.0596
+mturb         = -0.0429         # <Turbidity sensor> [ turbidity(NTU) = mturb analog_no + bturb ]
+bturb         = 1413.289
+
+[other]
+lastip        = 193.136.108.75  # This parameter is not editable! It's an indication of the server IP in the last test 
+```
 
 #### Additional notes
 
