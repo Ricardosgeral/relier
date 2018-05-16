@@ -506,8 +506,9 @@ with the inputs.
  This also implies writing two rules in file *99-local.rules*.
 - Combined Restart / Shutdown Button for Raspberry Pi 
 (using a [*systemd service*](https://wiki.debian.org/systemd)) more info see [shutdown_button](https://github.com/scruss/shutdown_button): 
-   + *Reboot*: hold the button more than 3 seconds but less than 7 seconds.
-   + *Shutdown*: hold the button more than 7 seconds. Note, that the Raspberry Pi is still powered. 
+   + *Reboot*: hold the button more than 3 seconds but less than 7 seconds. The red LED blinks fast 10x and then the RPi reboots. 
+   + *Shutdown*: hold the button more than 7 seconds. Before shutdown, the red LED first blinks 5x. 
+   Note, that the Raspberry Pi is still powered. 
  You still need to unplug the micro USB cable, to power off the server. 
  To restart the server after a shutdown, just power up the server again.
 - Detection of the local *IP address* of the server (if connected to the internet).

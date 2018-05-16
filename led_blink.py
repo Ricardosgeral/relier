@@ -1,6 +1,5 @@
 import RPi.GPIO as GPIO
 import time
-from time import sleep
 
 LedPin = 21  # pin18 GPIO24
 
@@ -26,17 +25,17 @@ def fast_5blinks():
         blink(0.05)
     destroy()
 
-def shutdown_led():
+def reboot_led():
     setup()
-    for i in range(7):
+    for i in range(10):
         blink(0.05)
 
     blink(2)
     destroy()
 
-def reboot_led():
+def shutdown_led():
     setup()
-    for i in range(3):
+    for i in range(5):
         blink(0.5)
     destroy()
 
