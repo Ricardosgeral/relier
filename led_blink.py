@@ -39,7 +39,7 @@ def shutdown_led():
         blink(0.5)
     destroy()
 
-
+blink(0.001)
 #if __name__ == '__main__':  # Program start from here
 #setup()
 #     try:
