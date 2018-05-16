@@ -1,7 +1,8 @@
 import RPi.GPIO as GPIO
 import time
+from time import sleep
 
-LedPin = 18  # pin18 GPIO24
+LedPin = 40  # pin18 GPIO24
 
 def setup():
     GPIO.setmode(GPIO.BOARD)  # Numbers GPIOs by physical location
@@ -25,9 +26,27 @@ def fast_5blinks():
         blink(0.05)
     destroy()
 
+def shutdown_led():
+    setup()
+    for i in range(7):
+        blink(0.05)
+
+    blink(2)
+    destroy()
+
+def reboot_led():
+    setup()
+    for i in range(3):
+        blink(0.5)
+    destroy()
+
+
 #if __name__ == '__main__':  # Program start from here
-#     setup()
+#setup()
 #     try:
-#         blink(0.1)
+#shutdown_led()
+#sleep(2)
+#reboot_led()
+
 #     except KeyboardInterrupt:  # When 'Ctrl+C' is pressed, the child program destroy() will be  executed.
-#         destroy()
+#destroy()
