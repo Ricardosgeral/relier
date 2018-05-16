@@ -504,8 +504,8 @@ library [*pandas*](https://pandas.pydata.org/index.html), to collect data from m
 with the inputs. 
 - Automatic detection when USB drives are plugged-in (mounted) or removed (unmounted).
  This also implies writing two rules in file *99-local.rules*.
-- Use a single physical momentary pushbutton to reboot/shutdown the server 
-(using a [*systemd service*](https://wiki.debian.org/systemd)): 
+- Combined Restart / Shutdown Button for Raspberry Pi 
+(using a [*systemd service*](https://wiki.debian.org/systemd)) more info see [shutdown_button](https://github.com/scruss/shutdown_button): 
    + *Reboot*: hold the button more than 3 seconds but less than 7 seconds.
    + *Shutdown*: hold the button more than 7 seconds. Note, that the Raspberry Pi is still powered. 
  You still need to unplug the micro USB cable, to power off the server. 

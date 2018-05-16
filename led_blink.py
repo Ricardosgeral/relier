@@ -2,10 +2,10 @@ import RPi.GPIO as GPIO
 import time
 from time import sleep
 
-LedPin = 40  # pin18 GPIO24
+LedPin = 21  # pin18 GPIO24
 
 def setup():
-    GPIO.setmode(GPIO.BOARD)  # Numbers GPIOs by physical location
+    GPIO.setmode(GPIO.BCM)  # Numbers GPIOs by physical location
     GPIO.setup(LedPin, GPIO.OUT)  # Set LedPin's mode is output
     GPIO.output(LedPin, GPIO.HIGH)  # Set LedPin high(+3.3V) to turn on led
 

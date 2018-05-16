@@ -18,10 +18,10 @@ held_for=0.0
 
 def rls():
     global held_for
-    if (held_for > 7.0):  # if button is helded for more than 7 seconds -> Shutdown: useful to disconnect the pi
+    if held_for > 7.0:  # if button is helded for more than 7 seconds -> Shutdown: useful to disconnect the pi
         LED.shutdown_led()
         check_call(['/sbin/poweroff'])
-    elif (held_for > 3.0): # if helded for more than 3 seconds - > reboot: useful if there any abnormal code error
+    elif held_for > 3.0: # if helded for more than 3 seconds - > reboot: useful if there any abnormal code error
         LED.reboot_led()
         check_call(['/sbin/reboot'])
     else:
@@ -33,7 +33,6 @@ def hld():
     global held_for
     # need to use max() as held_time resets to zero on last callback
     held_for = max(held_for, button.held_time + button.hold_time)
-
 button=Button(use_button, hold_time=1.0, hold_repeat=True)
 button.when_held = hld
 button.when_released = rls
