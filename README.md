@@ -241,7 +241,8 @@ First, you will see a *red* bar on the top of the screen. Wait (less than 5 seco
 That bar should then stay *green*. That means that all is working Ok. You can also see the local *IP address* of the server, 
 which is useful in case you want to make a remote connection. If the server has no internet, 
 then the following message is displayed: `No internet connection`.
-Touch over that bottom area of the screen to update the IP status, case the internet connection has changed (e.g. insert an Ethernet cable).  
+To update the IP status case the internet connection changed (e.g., insertion of Ethernet cable, connection to WiFi, ...), 
+wait a couple of seconds, then touch on top of the IP message, at the bottom area of the screen.  
 
 Touch anywhere else on the screen to go the **Main menu** page.
  
@@ -550,7 +551,9 @@ and that you followed all 6 steps in installation of the server software. Don't 
  $ sudo systemctl status shutdown_button
 ```   
    `Ctr + D ` to leave the terminal.
+- If you, by any reason (e.g., for debugging), need to stop the python scripts, open a terminal and type
 
+   ```$ sudo pkill -9 python ```  
 
 ## Acknowledgements
 My thanks to *António Timóteo* (LNEC-DG technician) for his work on cutting the openings in the acquisition aluminium box. 

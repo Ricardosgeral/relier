@@ -15,7 +15,6 @@ def on():
 def off():
     GPIO.output(LedPin, GPIO.LOW)  # led off
 
-
 def blink(x):
 
     GPIO.output(LedPin, GPIO.HIGH)  # led on
