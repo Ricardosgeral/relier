@@ -55,7 +55,7 @@ def write_data(data, data_file):
             if not file_exists:
                 writer.writeheader()    # file doesn't exist yet, write a header
             writer.writerow(data)       #writes the data in a new blank line
-
+        os.chmod(path, 0o777)
     else:
         # If storage USB device available
         # Create the full path to the file on the device
@@ -68,3 +68,4 @@ def write_data(data, data_file):
             if not file_exists:
                 writer.writeheader()
             writer.writerow(data)
+        #os.chmod(path, 0o777)
