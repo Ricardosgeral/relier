@@ -14,8 +14,7 @@ import socket
 import rw_ini as rw
 import write_csv_data
 import google_sheets as gsh
-
-#from led_blink import fast_5blinks as blink5
+import led_blink as LED
 from active_buzzer import alert_end
 
 ######### make connection to serial UART to read/write NEXTION
@@ -248,13 +247,13 @@ def read_display_write(e_rdw): # read and display data in page "sensors" and wri
 
     e_rdw.wait()
     row = 1
-    while end_rdw.is_set() == False:
+    while end_rdw.is_set() == False and time.time() < stop+int(inp['interval']):
         if time.time() < stop+int(inp['interval']):
             e_rdw.wait()
             current = time.time()
             elapsed = current - start# restart thread t_rdw
             elapsed = time.strftime("%H:%M:%S", time.gmtime(elapsed))
-            autostop =  time.strftime("%H:%M:%S", time.gmtime(stop))
+            autostop =  time.strftime("%H:%M:%S", time.localtime(stop))
             print("write running")
             data=srv.get_data(int(inp['interval']),
                               float(inp['mu']), float(inp['mi']), float(inp['md']),
@@ -263,6 +262,8 @@ def read_display_write(e_rdw): # read and display data in page "sensors" and wri
                               zerou, zeroi, zerod, inp['testtype'])
             display_sensors(data)  # display in NEXTION monitor
             write_csv_data.write_data(data = data, data_file = inp['filename'])
+            LED.write_data()
+
             ID_elapsed = nxApp.get_Ids('sensors', 'txt_duration')
             nxlib.nx_setText(ser, ID_elapsed[0], ID_elapsed[1], elapsed)
             ID_autostop = nxApp.get_Ids('sensors', 'txt_autostop')
@@ -275,7 +276,13 @@ def read_display_write(e_rdw): # read and display data in page "sensors" and wri
                 row += 1
 
             sleep(int(inp['interval']))  # interval to write down  the readings
+    LED.fast_5blinks()
+    end_rdw.set()
+    e_rdw.clear()
 
+    nxlib.nx_setcmd_1par(ser, 'page', 'credits')
+    nxlib.nx_setValue(ser, nxApp.ID_status[0], nxApp.ID_status[1], 1)  # green flag
+    nxlib.nx_setText(ser, nxApp.ID_ip[0], nxApp.ID_ip[1], ip)
 
 ##################
 
@@ -311,7 +318,7 @@ def detect_touch(e_rd, e_rdw):
 
     look_touch = 1  # in seconds
     print("detecting serial every {} second(s) ...".format(look_touch))
-
+    global t_rdw
     while True:
         try:
             touch=ser.read_until(EndCom)
@@ -408,6 +415,8 @@ def detect_touch(e_rd, e_rdw):
                     end_rdw.set()
                     t_rdw.join()
                     e_rdw.clear()
+
+                    LED.fast_5blinks()
 
                     nxlib.nx_setValue(ser, nxApp.ID_status[0], nxApp.ID_status[1], 1)  # green flag
                     nxlib.nx_setText(ser, nxApp.ID_ip[0], nxApp.ID_ip[1], ip)

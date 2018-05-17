@@ -19,6 +19,11 @@ def destroy():
     GPIO.output(LedPin, GPIO.LOW)  # led off
     GPIO.cleanup()  # Release resource
 
+def write_data():
+    setup()
+    blink(0.005)
+    destroy()
+
 def fast_5blinks():
     setup()
     for i in range(5):
@@ -29,8 +34,6 @@ def reboot_led():
     setup()
     for i in range(10):
         blink(0.05)
-
-    blink(2)
     destroy()
 
 def shutdown_led():
@@ -39,7 +42,6 @@ def shutdown_led():
         blink(0.5)
     destroy()
 
-blink(0.001)
 #if __name__ == '__main__':  # Program start from here
 #setup()
 #     try:
