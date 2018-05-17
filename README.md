@@ -241,8 +241,9 @@ First, you will see a *red* bar on the top of the screen. Wait (less than 5 seco
 That bar should then stay *green*. That means that all is working Ok. You can also see the local *IP address* of the server, 
 which is useful in case you want to make a remote connection. If the server has no internet, 
 then the following message is displayed: `No internet connection`.
+Touch over that bottom area of the screen to update the IP status, case the internet connection has changed (e.g. insert an Ethernet cable).  
 
-Touch anywhere to go the **Main menu** page.
+Touch anywhere else on the screen to go the **Main menu** page.
  
 ### *2 - Main menu*
 ![page2](Nextion/320x240/page2-menu0.png)
