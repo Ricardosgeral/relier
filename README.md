@@ -554,10 +554,11 @@ and that you followed all 6 steps in installation of the server software. Don't 
  $ sudo systemctl status shutdown_button
 ```   
    `Ctr + D ` to leave the terminal.
-- If you, by any reason (e.g., for debugging), need to stop the python scripts that run on startup of the server, open a terminal and type
+- If you, by any reason (e.g., for debugging), need to stop the python scripts that run on startup of the server, 
+open a terminal and write:
  ```
  $ sudo pkill -9 python
- ```  
+ ```
 
 ## Acknowledgements
 My thanks to *António Timóteo* (LNEC-DG technician) for his work on cutting the openings in the acquisition aluminium box. 
