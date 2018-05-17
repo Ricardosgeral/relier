@@ -280,8 +280,8 @@ def read_display_write(e_rdw): # read and display data in page "sensors" and wri
     LED.fast_5blinks()
     end_rdw.set()
     e_rdw.clear()
-
     nxlib.nx_setcmd_1par(ser, 'page', 'credits')
+    ip = get_ip_address()
     nxlib.nx_setValue(ser, nxApp.ID_status[0], nxApp.ID_status[1], 1)  # green flag
     nxlib.nx_setText(ser, nxApp.ID_ip[0], nxApp.ID_ip[1], ip)
 
@@ -329,7 +329,11 @@ def detect_touch(e_rd, e_rdw):
                 event_touch = touch[3]
                 print("page= {}, component= {}, event= {}".format(pageID_touch,compID_touch,event_touch))
 
-                if (pageID_touch, compID_touch) == (2, 2):  # button set analog sensors (comp2) in page 2 is pressed
+                if (pageID_touch, compID_touch) == (1, 2):  # ip refresh (comp2) in page 1 is pressed
+                    ip=get_ip_address()
+                    nxlib.nx_setText(ser, nxApp.ID_ip[0], nxApp.ID_ip[1], ip)
+
+                elif (pageID_touch, compID_touch) == (2, 2):  # button set analog sensors (comp2) in page 2 is pressed
                     end_rd.clear()
                     input_update()
                     srv.init(int(inp['interval']),int(inp['no_reads']))
@@ -412,13 +416,21 @@ def detect_touch(e_rd, e_rdw):
                     t_rd.join()
                     e_rd.clear()
 
+                elif (pageID_touch,compID_touch) == (5,2):  # Home button leave analog sensors page (comp 2) in page 5 is pressed
+                    end_rd.set()
+                    t_rd.join()
+                    e_rd.clear()
+                    ip = get_ip_address()
+                    nxlib.nx_setValue(ser, nxApp.ID_status[0], nxApp.ID_status[1], 1)  # green flag
+                    nxlib.nx_setText(ser, nxApp.ID_ip[0], nxApp.ID_ip[1], ip)
+
                 elif (pageID_touch,compID_touch) == (7,1):  # button confirm exit (comp 1) in page 7 is pressed
                     end_rdw.set()
                     t_rdw.join()
                     e_rdw.clear()
 
                     LED.fast_5blinks()
-
+                    ip = get_ip_address()
                     nxlib.nx_setValue(ser, nxApp.ID_status[0], nxApp.ID_status[1], 1)  # green flag
                     nxlib.nx_setText(ser, nxApp.ID_ip[0], nxApp.ID_ip[1], ip)
 
