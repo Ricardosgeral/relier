@@ -79,7 +79,7 @@ sudo pip3 install configparser
 sudo pip3 install adafruit-ads1x15
 sudo pip3 install RPi.bme280
 sudo pip3 install w1thermsensor
-sudo pip3 install --upgrade pyasn1-modules
+sudo pip3 install --upgrade pyasn1-modules # required for pandas but don't know why!!!
 echo 'Done.'
 
 # -----------------------------------------------------------------------------
