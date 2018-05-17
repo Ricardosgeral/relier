@@ -421,7 +421,7 @@ Data is only stored locally in the *CSV* format and has two possible ways to go:
 and unplug the power supply.
 This will prevent corruption of the micro SD card and of the USB drive, and increase their life span. 
 To silently disconnect the server you can either:
-   + hold the *red pushbutton* in the back of the *acquisition system box* for more than *7 seconds* (if holden between 3 and 7 seconds, 
+   + hold the *red pushbutton* in the back of the *acquisition system box* for more than *6 seconds* (if holden between 2 and 6 seconds, 
    the *Raspberry Pi* will reboot), or 
    + `$ sudo halt` in a *SSH* terminal session.
 - If more than one USB drive is plugged in (not recommended!), data will be saved in the *first drive* being found.
@@ -506,8 +506,8 @@ with the inputs.
  This also implies writing two rules in file *99-local.rules*.
 - Combined Restart / Shutdown Button for Raspberry Pi 
 (using a [*systemd service*](https://wiki.debian.org/systemd)) more info see [shutdown_button](https://github.com/scruss/shutdown_button): 
-   + *Reboot*: hold the button more than 3 seconds but less than 7 seconds. The red LED blinks fast 10x and then the RPi reboots. 
-   + *Shutdown*: hold the button more than 7 seconds. Before shutdown, the red LED first blinks 5x. 
+   + *Reboot*: hold the button more than 2 seconds but less than 6 seconds. The red LED blinks fast 10x and then the RPi reboots. 
+   + *Shutdown*: hold the button more than 6 seconds. Before shutdown, the red LED first blinks 5x. 
    Note, that the Raspberry Pi is still powered. 
  You still need to unplug the micro USB cable, to power off the server. 
  To restart the server after a shutdown, just power up the server again.

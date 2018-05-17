@@ -8,6 +8,14 @@ def setup():
     GPIO.setup(LedPin, GPIO.OUT)  # Set LedPin's mode is output
     GPIO.output(LedPin, GPIO.HIGH)  # Set LedPin high(+3.3V) to turn on led
 
+
+def on():
+    GPIO.output(LedPin, GPIO.HIGH)  # led on
+
+def off():
+    GPIO.output(LedPin, GPIO.LOW)  # led off
+
+
 def blink(x):
 
     GPIO.output(LedPin, GPIO.HIGH)  # led on
@@ -23,6 +31,15 @@ def write_data():
     setup()
     blink(0.005)
     destroy()
+
+def led_on():
+    setup()
+    on()
+
+def led_off():
+    off()
+    destroy()
+
 
 def fast_5blinks():
     setup()

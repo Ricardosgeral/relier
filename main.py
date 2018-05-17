@@ -249,6 +249,7 @@ def read_display_write(e_rdw): # read and display data in page "sensors" and wri
     row = 1
     while end_rdw.is_set() == False and time.time() < stop+int(inp['interval']):
         if time.time() < stop+int(inp['interval']):
+            LED.led_on()
             e_rdw.wait()
             current = time.time()
             elapsed = current - start# restart thread t_rdw
@@ -262,7 +263,7 @@ def read_display_write(e_rdw): # read and display data in page "sensors" and wri
                               zerou, zeroi, zerod, inp['testtype'])
             display_sensors(data)  # display in NEXTION monitor
             write_csv_data.write_data(data = data, data_file = inp['filename'])
-            LED.write_data()
+
 
             ID_elapsed = nxApp.get_Ids('sensors', 'txt_duration')
             nxlib.nx_setText(ser, ID_elapsed[0], ID_elapsed[1], elapsed)
@@ -274,7 +275,7 @@ def read_display_write(e_rdw): # read and display data in page "sensors" and wri
             if export_google in ['yes', 'Yes', 'YES', 'y', 'Y', 'yep'] and gsh.google_creds == True:
                 gsh.write_gsh(data, row, wks)
                 row += 1
-
+            LED.led_off()
             sleep(int(inp['interval']))  # interval to write down  the readings
     LED.fast_5blinks()
     end_rdw.set()
