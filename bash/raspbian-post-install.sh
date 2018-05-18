@@ -92,6 +92,7 @@ echo '---------------------'
 echo '>>> Enable SSH and VNC'
 sudo raspi-config nonint do_ssh 0
 sudo raspi-config nonint do_vnc 0
+echo 'Done.'
 #
 echo  '--------------------------------------------------'
 echo  '=> Configurations for serial, 1-Wire, I2C and UART'
@@ -139,6 +140,7 @@ fi
 #
 #Stop Bluetooth modem to use UART
 sudo systemctl disable hciuart
+echo 'Done.'
 #
 echo  '----------------------------------------------------------------'
 echo  '=> Create systemd unit file for hotplugging (mount/unmount) usb'
@@ -159,6 +161,8 @@ sudo udevadm control -l debug           #allows debugging (tail –f /var/log/sy
 sudo udevadm control --reload-rules     #reloads rules
 sudo systemctl daemon-reload            #reloads systemd
 #
+echo 'Done.'
+#
 echo '--------------------------------------------------------'
 echo ' => Create systemd unit file to run at shutdown/reboot'
 echo ' -------------------------------------------------------'
@@ -168,6 +172,7 @@ sudo cp /home/pi/relier/services/rcshut.service /etc/systemd/system/rcshut.servi
 sudo systemctl enable rcshut --now
 sudo systemctl start rcshut
 sudo chmod +w /home/pi/relier/shutdown.py
+echo 'Done.'
 #
 echo  '----------------------------------------------------------------'
 echo  '=> Create systemd unit file to control shutdown/restart button'
@@ -180,6 +185,7 @@ sudo systemctl daemon-reload
 sudo systemctl enable shutdown_button --now
 sudo systemctl start shutdown_button
 sudo chmod +w /home/pi/relier/shutdown_button.py
+echo 'Done.'
 #
 echo  '---------------------------------------------------------'
 echo  '=> Configurations of cron tab (files to run at startup)'
@@ -192,6 +198,7 @@ CMD="/usr/bin/pigpiod"
 JOB="@reboot $CMD"
 TMPC="mycron1"
 sudo grep "$CMD" -q <(crontab -l) || (crontab -l>"$TMPC"; echo "$JOB">>"$TMPC"; crontab "$TMPC")
+echo 'Done.'
 #
 echo  '-----------------------------------------------------------------------------'
 echo  '=> run main.py at start-up of raspberry pi (using a shell script in crontab)'
@@ -206,6 +213,7 @@ CMD="sh /home/pi/relier/bash/launcher.sh >/home/pi/relier/logs/cronlog 2>&1"
 JOB="@reboot $CMD"
 TMPC="mycron2"
 sudo grep "$CMD" -q <(crontab -l) || (crontab -l>"$TMPC"; echo "$JOB">>"$TMPC"; crontab "$TMPC")
+echo 'Done.'
 #
 echo  '--------------------'
 echo  '=> Final reboot'
