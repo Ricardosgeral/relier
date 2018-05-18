@@ -271,8 +271,7 @@ Here, you can edit interactively the test inputs:
 - *Record* textbox - interval between records, in seconds.
 - *Number* textbox - number of readings in each record interval (for analog outputs only).
 
-Pressing the blue button on top-right corner goes back to **Main menu** page.
-
+Pressing the blue button on top-right corner goes back to **Main menu** page. 
 There is also a blue button that allows the user to select the **Test type**.
 
 
