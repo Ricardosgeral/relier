@@ -81,7 +81,7 @@ Then, in the terminal, run the following sequential commands:
     $ sudo chmod +x raspbian-post-install.sh && sed -i 's/\r//' raspbian-post-install.sh
     $ sudo ./raspbian-post-install.sh
 
-Grab a big cup of tea! After automatic rebooting, you need to get your *json* file with the Google Signed credentials.
+Prepare a big cup of tea, this will take time! After automatic rebooting, you need to get your *json* file with the Google Signed credentials.
 First, you need to create a project in the developer console and enable some APIs (follow steps 1 to 4 from these [instructions](https://pygsheets.readthedocs.io/en/latest/authorizing.html#)), 
 then, get the *Signed credentials* (follow steps 5 and 6 from these [instructions](https://pygsheets.readthedocs.io/en/latest/authorizing.html#signed-credentials)). 
 *Copy* your Signed credentials, then, do:
