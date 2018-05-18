@@ -93,7 +93,7 @@ and *Past* the Signed credentials. `Ctrl+X`, then `y` and finally `Enter` to sav
     $ sudo reboot
 
 And that's it, after reboot, the *Raspberry Pi* is set properly. 
-However, you still need to update the  **touchscreen** software, and set the **hardware** correctly!
+However, you still need to update the  **Touchscreen software** , and set the **Hardware** correctly!
 
 **Note:** During installation of the server software, [VNC](https://www.realvnc.com/en/raspberrypi/) is also enabled, 
 case you want to use it. 
