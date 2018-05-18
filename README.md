@@ -262,10 +262,10 @@ You can skip options 1 and 2, case you decide to use the file
 ### *3 - General settings*
 ![page3](Nextion/GUI/page3.PNG)
 
-Here, you can edit the test inputs:
+Here, you can edit interactively the test inputs:
 - *CSV filename* textbox - name of the CSV file to be saved.
-- *Google Sheets* checkbox - select this, if you want to send data to Google Sheets.
-- *Spreadsheet* textbox - name of the Google spreadsheet (the name of the worksheet = *CSV filename*).
+- *Google Sheets* checkbox - select it, to send data to Google Sheets during the test.
+- *Spreadsheet* textbox - name of the Google spreadsheet (worksheet name = *CSV filename*).
 - *email* textbox - email to where a link, to access the Google spreadsheet, will be sent.
 - *Test time* textbox - duration of the test, in minutes (if set equal to 0 >> records data 'forever').
 - *Record* textbox - interval between records, in seconds.
