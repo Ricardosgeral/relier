@@ -295,14 +295,8 @@ It is assumed a linear relation (***y = mx + b***) between the analog readings a
 | sensor              | x (analog)     | y (digital)       |
 |:--------------------|:---------------|:------------------|
 | Pressure transducer | tension (*mV*) | pressure (*mbar*) |
-| Turbidity           | 0 to 32767     | turbidity no.(NTU)|
+| Turbidity           | 0 to 32767 (15 bits ADC >> 2^15))    | turbidity no.(NTU)|
 
-The ADC (ADS1115 has 15 bits >> 2^15)
-
-
-
-- Pressure sensors: ***x*** = output  <> ***y*** = water pressure (in ).
-- Turbidity sensor: ***x*** = output analog number (0 to 32767 - 15 bits ADC, 2^15) <> ***y*** = water turbidity number (NTU).
 
 a) ***Calibration* pushbutton**, to update readings
 
