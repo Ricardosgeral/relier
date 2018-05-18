@@ -284,7 +284,7 @@ Note that, selecting the option <<Hole Erosion Test (HET)>>
 since HET only uses two pressure sensors (upstream and downstream).
 If you select *Other*, you have a textbox that can be used to give a name to the test type.
 
-To go back to the **General settings** page, click the return blue button. 
+To go back to the **General settings** page, click the blue return button. 
 
 ### *5 - Set analog sensors*
 ![page5](Nextion/GUI/page5.PNG)
