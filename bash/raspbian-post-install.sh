@@ -73,8 +73,8 @@ echo 'Done.'
 # -----------------------------------------------------------------------------
 echo '=> Install developer packages'
 sudo apt-get update
-sudo pip3 install "holoviews[recommended]"
-sudo apt-get install -y python3-pandas
+sudo pip3 install "holoviews[extras]"
+#sudo apt-get install -y python3-pandas
 sudo pip3 install pygsheets
 sudo pip3 install configparser
 sudo pip3 install adafruit-ads1x15
