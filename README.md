@@ -289,7 +289,7 @@ To go back to the **General settings** page, click the blue return button.
 ### *5 - Set analog sensors*
 ![page5](Nextion/GUI/page5.PNG)
 
-Well, here is where the calibration parameters of the analog sensors (water pressure and turbidity sensors) are set.
+This page is used to set the calibration parameters of the analog sensors (water pressure and turbidity sensors).
 It is assumed a linear relation (***y = mx + b***) between the analog readings and the effective measurements. 
 
 - Pressure sensors: ***x*** = output tension (in *mV*); ***y*** = water pressure (in *mbar*).
