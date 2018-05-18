@@ -269,11 +269,11 @@ Here, you can edit interactively the test inputs:
 - *email* textbox - email to where a link, to access the Google spreadsheet, will be sent.
 - *Test time* textbox - duration of the test, in minutes ( = 0 >> records data 'forever').
 - *Record* textbox - interval between records, in seconds.
-- *Number* textbox - number of readings in each record interval, to make an average.
+- *Number* textbox - number of readings in each record interval (for analog outputs only).
 
-If you push the blue button on top-right corner you will go back to **Main menu** page.
+Pressing the blue button on top-right corner goes back to **Main menu** page.
 
-There is also a blue button that will direct you to the **Test type** page.
+There is also a blue button that allows the user to select the **Test type**.
 
 
 ### *4 - Test type*
