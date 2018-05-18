@@ -291,7 +291,16 @@ To go back to the **General settings** page, click the blue return button.
 
 This page is used to set the calibration parameters of the analog sensors (pressure and turbidity sensors).
 It is assumed a linear relation (***y = mx + b***) between the analog readings and the effective measurements. 
-- Pressure sensors: ***x*** = output tension (in *mV*) <> ***y*** = water pressure (in *mbar*).
+
+| sensor              | x (analog)     | y (digital)      |
+|:--------------------|:---------------|:-----------------|
+| Pressure transducer | tension (*mV*) | pressure (*mbar*)|
+| Turbidity           | 0 to 32767 *    | turbidityNTU    |
+* The ADC (ADS1115 is a 15 bits conversor >> 2^15)
+
+
+
+- Pressure sensors: ***x*** = output  <> ***y*** = water pressure (in ).
 - Turbidity sensor: ***x*** = output analog number (0 to 32767 - 15 bits ADC, 2^15) <> ***y*** = water turbidity number (NTU).
 
 a) ***Calibration* pushbutton**, to update readings
