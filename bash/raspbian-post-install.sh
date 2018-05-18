@@ -77,6 +77,7 @@ sudo apt-get update
 sudo apt-get install -y python3-pandas
 sudo pip3 install pygsheets
 sudo pip3 install --upgrade pyasn1-modules # required for pysheets !!!
+sudo pip3 install bokeh
 #sudo pip3 install "holoviews[extras]"     # experimental! do not install
 sudo pip3 install configparser
 sudo pip3 install https://github.com/nithinmurali/pygsheets/archive/master.zip
