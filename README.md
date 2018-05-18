@@ -296,6 +296,7 @@ It is assumed a linear relation (***y = mx + b***) between the analog readings a
 |:--------------------|:---------------|:------------------|
 | Pressure transducer | tension (*mV*) | pressure (*mbar*) |
 | Turbidity           | 0 to 32767*    | turbidity no.(NTU)|
+
 * The ADC (ADS1115 has 15 bits >> 2^15)
 
 
