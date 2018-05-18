@@ -18,6 +18,7 @@ clear
 echo '------------------------------------------------------------------------'
 echo '=> Raspbian post-install script for relier... pick a very hot cup of tea'
 echo '------------------------------------------------------------------------'
+echo '               '
 #
 echo '---------------------------'
 echo '=> System update/upgrade   '
