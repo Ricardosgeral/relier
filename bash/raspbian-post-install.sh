@@ -15,22 +15,23 @@ if [ "$(id -u)" != 0 ]; then
 fi
 clear
 
-echo '-------------------------------------------------------------------------'
+echo '------------------------------------------------------------------------'
 echo '=> Raspbian post-install script for relier... pick a very hot cup of tea'
-echo '-------------------------------------------------------------------------'
+echo '------------------------------------------------------------------------'
+echo '------------------------------------------------------------------------'
 
-# -----------------------------------------------------------------------------
-# => System update/upgrade
-# -----------------------------------------------------------------------------
+echo '---------------------------'
+echo '=> System update/upgrade   '
+echo '---------------------------'
 echo '=> Update repository information'
 sudo apt-get update -qq
 echo '=> Performe system upgrade'
 sudo apt-get dist-upgrade -y
 echo 'Done.'
 
-# -----------------------------------------------------------------------------
-# => Folder to save the data values from sensors csv (comma separated values)
-# -----------------------------------------------------------------------------
+echo  '---------------------------------------------------------------------------'
+echo  '=> Folder to save the data values from sensors csv (comma separated values)'
+echo  '---------------------------------------------------------------------------'
 
 if [ -d "/srv/EROSTESTS/" ]; then
     echo 'Directory /srv/EROSTESTS/ already exists'
@@ -49,9 +50,9 @@ sudo chmod -R 777 /srv/EROSTESTS
 sudo chown pi:pi /media/pi
 sudo chmod -R 777 /media/pi
 
-# -----------------------------------------------------------------------------
-# => Get files from gibhub
-# -----------------------------------------------------------------------------
+echo '------------------------------'
+echo ' => Get repository from Gibhub'
+echo ' -----------------------------'
 
 if [ -d "/home/pi/relier" ]; then
     sudo rm -R /home/pi/relier
@@ -61,16 +62,16 @@ git clone https://github.com/Ricardosgeral/relier.git /home/pi/relier
 sudo chown -R pi: /home/pi/relier
 sudo chmod 777 -R relier/
 
-# ----------------------------------------------------------------------------
-# => Install system utilities
-# ----------------------------------------------------------------------------
+echo  '---------------------------'
+echo  '=> Install system utilities'
+echo  '---------------------------'
 echo '=> Install system utilities'
 #sudo apt-get install -y .....whatever you want e.g. latex
 echo 'Done.'
 
-# -----------------------------------------------------------------------------
-# => Install developer packages (python 3.5)
-# -----------------------------------------------------------------------------
+echo  '------------------------------------------'
+echo  '=> Install developer packages (python 3.5)'
+echo  '------------------------------------------'
 echo '=> Install developer packages'
 sudo apt-get update
 sudo pip3 install "holoviews[extras]"
@@ -83,17 +84,17 @@ sudo pip3 install w1thermsensor
 #sudo pip3 install --upgrade pyasn1-modules # required for pandas but don't know why!!!
 echo 'Done.'
 
-# -----------------------------------------------------------------------------
-# => Enable SSH and VNC
-# -----------------------------------------------------------------------------
+echo '---------------------'
+echo '=> Enable SSH and VNC'
+echo '---------------------'
 
 echo '>>> Enable SSH and VNC'
 sudo raspi-config nonint do_ssh 0
 sudo raspi-config nonint do_vnc 0
 
-# -----------------------------------------------------------------------------
-# => Configurations for serial, 1-Wire, I2C and UART
-# -----------------------------------------------------------------------------
+echo  '--------------------------------------------------'
+echo  '=> Configurations for serial, 1-Wire, I2C and UART'
+echo  '--------------------------------------------------'
 
 # enable 1-Wire GPIO on Raspberry Pi
 echo '>>> Enable 1-Wire GPIO (w1)'
@@ -138,9 +139,9 @@ fi
 #Stop Bluetooth modem to use UART
 sudo systemctl disable hciuart
 
-# -----------------------------------------------------------------------------
-# => Create systemd unit file for hotplugging (mount/unmount) usb
-# -----------------------------------------------------------------------------
+echo  '----------------------------------------------------------------'
+echo  '=> Create systemd unit file for hotplugging (mount/unmount) usb'
+echo  '----------------------------------------------------------------'
 
 #Create a script to run at power up
 sudo cp /home/pi/relier/bash/usb-mount.sh /usr/local/bin/usb-mount.sh
@@ -157,9 +158,9 @@ sudo udevadm control -l debug           #allows debugging (tail –f /var/log/sy
 sudo udevadm control --reload-rules     #reloads rules
 sudo systemctl daemon-reload            #reloads systemd
 
-#-----------------------------------------------------------------------------
-# => Create systemd unit file to run at shutdown/reboot
-# -----------------------------------------------------------------------------
+echo '--------------------------------------------------------'
+echo ' => Create systemd unit file to run at shutdown/reboot'
+echo ' -------------------------------------------------------'
 
 #Create a script to run at shutdown/reboot
 sudo cp /home/pi/relier/services/rcshut.service /etc/systemd/system/rcshut.service
@@ -167,9 +168,9 @@ sudo systemctl enable rcshut --now
 sudo systemctl start rcshut
 sudo chmod +w /home/pi/relier/shutdown.py
 
-#-----------------------------------------------------------------------------
-# => Create systemd unit file to control shutdown/restart button
-# -----------------------------------------------------------------------------
+echo  '----------------------------------------------------------------'
+echo  '=> Create systemd unit file to control shutdown/restart button'
+echo  '----------------------------------------------------------------'
 
 #Create a script to run at shutdown/reboot
 #sudo apt install python3-gpiozero this should be not needed because is already in raspbian now
@@ -179,9 +180,9 @@ sudo systemctl enable shutdown_button --now
 sudo systemctl start shutdown_button
 sudo chmod +w /home/pi/relier/shutdown_button.py
 
-# -----------------------------------------------------------------------------
-# => Configurations of cron tab (files to run at startup)
-# -----------------------------------------------------------------------------
+echo  '---------------------------------------------------------'
+echo  '=> Configurations of cron tab (files to run at startup)'
+echo  '---------------------------------------------------------'
 
 # First remove all cron's
 crontab -r
@@ -191,9 +192,9 @@ JOB="@reboot $CMD"
 TMPC="mycron1"
 sudo grep "$CMD" -q <(crontab -l) || (crontab -l>"$TMPC"; echo "$JOB">>"$TMPC"; crontab "$TMPC")
 #
-# -----------------------------------------------------------------------------
-# => run main.py at start-up of raspberry pi (using a shell script in crontab)
-# -----------------------------------------------------------------------------
+echo  '-----------------------------------------------------------------------------'
+echo  '=> run main.py at start-up of raspberry pi (using a shell script in crontab)'
+echo  '-----------------------------------------------------------------------------'
 # make the launcher script an executable
 sudo chmod 755 /home/pi/relier/bash/launcher.sh
 echo 'Create a logs directory'
@@ -205,13 +206,13 @@ JOB="@reboot $CMD"
 TMPC="mycron2"
 sudo grep "$CMD" -q <(crontab -l) || (crontab -l>"$TMPC"; echo "$JOB">>"$TMPC"; crontab "$TMPC")
 
-# -----------------------------------------------------------------------------
-# => Final reboot
-# -----------------------------------------------------------------------------
+echo  '--------------------'
+echo  '=> Final reboot'
+echo  '--------------------'
 
 if [ -f "/tmp/raspbian-post-install.sh" ]; then
 sudo rm /tmp/raspbian-post-install.sh
 fi
-echo '>>> Rebooting'
+echo '>> Rebooting'
 
 sudo reboot
