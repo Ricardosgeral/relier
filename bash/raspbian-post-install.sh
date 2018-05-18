@@ -75,9 +75,10 @@ echo  '------------------------------------------'
 echo '=> Install developer packages'
 sudo apt-get update
 #sudo apt-get install -y python3-pandas
-sudo pip3 install pygsheets
+#sudo pip3 install pygsheets
 sudo pip3 install "holoviews[extras]"
 sudo pip3 install configparser
+sudo pip3 install https://github.com/nithinmurali/pygsheets/archive/master.zip
 sudo pip3 install adafruit-ads1x15
 sudo pip3 install RPi.bme280
 sudo pip3 install w1thermsensor
