@@ -267,7 +267,7 @@ Here, you can edit the test inputs:
 - *Google Sheets* checkbox - select this, if you want to send data to Google Sheets.
 - *Spreadsheet* textbox - name of the Google spreadsheet (the name of the worksheet = *CSV filename*).
 - *email* textbox - email to where a link, to access the Google spreadsheet, will be sent.
-- *Test time* textbox - duration of the test, in minutes (if set equal to 0 -> records data 'forever').
+- *Test time* textbox - duration of the test, in minutes (if set equal to 0 >> records data 'forever').
 - *Record* textbox - interval between records, in seconds.
 - *Number* textbox - number of readings in each record interval, to make an average.
 
@@ -347,8 +347,8 @@ Actually, it will not record forever. *'Forever'* should be understood as 2 mont
 
 Here you confirm that you pressed the stop button, just in case! Pressing the:
 
-- *Green button* -> stops recording data and directs to **Credits** page. 
-- *Red button*   -> go back to **Sensors data record** page, and readings never stopped being registered.
+- *Green button* >> stops recording data and directs to **Credits** page. 
+- *Red button*   >> go back to **Sensors data record** page, and readings never stopped being registered.
 
 
 ## *inputs.ini*
@@ -411,10 +411,10 @@ on whether an internet connection is available, and whether a USB drive is plugg
 ### No internet connection
 Data is only stored locally in the *CSV* format and has two possible ways to go:
   
-1. *No USB drive* is plugged in  ->
+1. *No USB drive* is plugged in  >>
    Data are stored *only* on the micro SD card, inside folder **/srv/EROSTESTS**. 
 
-2. A *USB is plugged in* ->
+2. A *USB is plugged in* >>
    Data are stored *only* on the **USB_root_directory**. 
 
 #### Additional notes
@@ -538,8 +538,8 @@ and that you followed all 6 steps in installation of the server software. Don't 
 - If the Nextion touchscreen is not functioning properly or not working at all:
   + first, see the connections, in particular check that: RX (server) <-> TX(screen), and TX(server) <-> RX(screen); 
   + second, ensure that *serial* is disconnected: `$ sudo raspi-config` > *5* > *P6 Serial* > *No*;
-  + third, doing `$ ls -l /dev | grep serial` you should see *serial 0 -> ttyAMA0* (pins 14/15 in UART) and 
-  *serial 1 -> ttyS0* (bluetooth in miniuart). By default UART is attributed to Bluetooth and miniuart to pins 14/15 (which has limitations). 
+  + third, doing `$ ls -l /dev | grep serial` you should see *serial 0 >> ttyAMA0* (pins 14/15 in UART) and 
+  *serial 1 >> ttyS0* (bluetooth in miniuart). By default UART is attributed to Bluetooth and miniuart to pins 14/15 (which has limitations). 
   That's why they are changed during the execution of 
   [*raspbian-post-install.sh*](https://github.com/Ricardosgeral/relier/blob/master/bash/raspbian-post-install.sh).
 - To check if the *Analog-to-Digital Converter* (ADC - ADS1115 chip) is properly connected via I2C, you can do 
