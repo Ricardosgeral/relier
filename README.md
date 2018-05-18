@@ -295,7 +295,7 @@ It is assumed a linear relation (***y = mx + b***) between the analog readings a
 | Sensors             | ***x*** (analog from ADC)    | ***y*** (digital measurements) |
 |:--------------------|:-----------------------------|:-------------------------------|
 | Pressure transducer | voltage (*mV*)               | pressure (*mbar*)              |
-| Turbidity           | 0 to 32767 (15 bits >> 2^15))| turbidity (NTU)                |
+| Turbidity           | 0 to 32767 (15 bits >> 2^15) | turbidity (NTU)                |
 
 
 a) ***Calibration* pushbutton**, to update readings
