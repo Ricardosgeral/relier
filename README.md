@@ -267,7 +267,7 @@ Here, you can edit interactively the test inputs:
 - *Google Sheets* checkbox - select it, to send data to Google Sheets during the test.
 - *Spreadsheet* textbox - name of the Google spreadsheet (worksheet name = *CSV filename*).
 - *email* textbox - email to where a link, to access the Google spreadsheet, will be sent.
-- *Test time* textbox - duration of the test, in minutes (if set equal to 0 >> records data 'forever').
+- *Test time* textbox - duration of the test, in minutes ( = 0 >> records data 'forever').
 - *Record* textbox - interval between records, in seconds.
 - *Number* textbox - number of readings in each record interval, to make an average.
 
