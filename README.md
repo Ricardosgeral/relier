@@ -299,12 +299,12 @@ It is assumed a linear relation (***y = mx + b***) between the analog readings a
 | Turbidity           | 0 to 32767 (15 bits >> 2^15) | turbidity (NTU)                |
 
 
-a) ***Calibration* pushbutton**: to update readings
+a) ***Calibration* pushbutton**: to update readings.
 
 If you modify  the *m* and *b* parameters of any of the sensors, you need to push the *Calibration* button, 
 in order to see the influence on the pressure and/or turbidity values.
 
-b) ***Zero* pushbutton**: for *'zeroing'* the values of the pressure sensors
+b) ***Zero* pushbutton**: for *'zeroing'* the values of the pressure sensors.
 
 This functionality can be used to take into account the normal variations of the atmospheric pressure.
 To use it properly, it is necessary, first, to ensure that *no pressure* is applied to the sensors (besides the ambient pressure).
