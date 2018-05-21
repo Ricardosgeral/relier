@@ -263,7 +263,7 @@ parameters of the analog sensors, specified in that file, are accurate enough.
 ![page3](Nextion/GUI/page3.PNG)
 
 Here, you can edit interactively the test inputs:
-- *CSV filename* textbox - name of the CSV file to be saved.
+- *CSV filename* textbox - name of the CSV file were test data is saved.
 - *Google Sheets* checkbox - select it, to send data to Google Sheets during the test.
 - *Spreadsheet* textbox - name of the Google spreadsheet (worksheet name = *CSV filename*).
 - *email* textbox - email to where a link, to access the Google spreadsheet, will be sent.
