@@ -138,7 +138,7 @@ This version only works with the Chinese version of the Nextion Editor! You will
  
 ## Hardware
 
-The hardware components required to make the *relier* acquisition system are indicated here. 
+The hardware components required to make the ***relier*** *acquisition system* are indicated here. 
 Instructions about the way those components are connected are also presented.
 Just for reference, some links and prices of the components are also presented.
 
