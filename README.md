@@ -190,11 +190,9 @@ aspect of each PCB layer individually.
 ![PCB_image](Fritzing/PCB_relier.png)
 
 **PCB: top layer**
-
 ![FinalPCBtop_image](Fritzing/Final_TopPCB_relier.JPG)
 
 **PCB: bottom Layer**
-
 ![FinalPCBbottom_image](Fritzing/Final_bottomPCB_relier.JPG)
 
 
