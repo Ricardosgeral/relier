@@ -181,7 +181,7 @@ The production files and the *.fzz* file are [here](https://github.com/Ricardosg
 The *PCB* was printed by [PCBWay company](https://www.pcbway.com/).
 
 Below, you can see images showing the circuits hooked in the breadboard and in the PCB, as well as the final 
-aspect of each layer individually.
+aspect of each PCB layer individually.
 
 **Fritzing: breadboard view**
 ![Breadboard_image](Fritzing/breadboard_relier.png)
