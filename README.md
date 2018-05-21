@@ -502,7 +502,9 @@ So, I've developed my own Nextion Library for Python 3 (which took me a while to
 This library is relatively simple to use, and has margin for improvement. 
 You just need to look at the [*py3nextion_lib.py*](https://github.com/Ricardosgeral/relier/blob/master/py3nextion_lib.py),
 and use it alongside with [*nextionApp.py*](https://github.com/Ricardosgeral/relier/blob/master/nextionApp.py) 
-that has all the components (to be accessed by the server) defined in the Nextion Editor.
+that has all the components (to be accessed by the server) defined in the Nextion Editor. 
+Function *detect_touch()* in [main.py](https://github.com/Ricardosgeral/relier/blob/master/main.py)
+is responsible for the the continuous listening of the Nextion return bits, and the following actions.
 Of course, you need to know how to use the Nextion commands.
 For that, see the [*instructions set*](https://nextion.itead.cc/resources/documents/instruction-set/).
 - Use of the library [*pygsheets*](https://github.com/nithinmurali/pygsheets), alongside with 
