@@ -255,7 +255,7 @@ You have three main options:
  2. ***Sensors***: set the *calibration inputs* of analog sensors >> Redirects to **Set analog sensors** page.
  3. ***Start***: initiate the test right away >> Redirects to  **Sensors data record** page.
  
-You can skip options 1 and 2, case you use the file
+You can skip options 1 and/or 2, case you use the file
 [*inputs.ini* ](https://github.com/Ricardosgeral/relier#inputs-ini-file), and you are confident that the calibration
 parameters of the analog sensors, specified in that file, are accurate enough. 
  
