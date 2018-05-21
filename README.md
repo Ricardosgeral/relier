@@ -227,7 +227,7 @@ The *GUI* pages displayed in the touchscreen (*Nextion device*), and their usage
 ### *0 - Disconnected*
 ![page0](Nextion/320x240/page0-shutdown.png)
 
-After a start up or reboot of the *Raspberry Pi*, you should see this **Disconnected** black page. 
+Right after a start up or reboot of the *Raspberry Pi*, you should see this **Disconnected** black page. 
 Waiting a while (tipically 20 seconds, but can vary from 15 to 60 seconds, depending on the pending Debian services) 
 you should see the **Credits** page. 
 
@@ -236,7 +236,7 @@ you should see the **Credits** page.
 ![page1_red](Nextion/GUI/page1_red.PNG) ![page1_green](Nextion/GUI/page1_green.PNG)
  
 First, you will see a *red* bar on the top of the screen. Wait (less than 5 seconds).
-That bar should then stay *green*. That means that all is working Ok. You can also see the local *IP address* of the server, 
+After some server checks that bar should then stay *green*. That means that all is working Ok. You can also see the local *IP address* of the server, 
 which is useful in case you want to make a remote connection. 
 
 If the server has no internet, 
