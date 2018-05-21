@@ -51,7 +51,7 @@ running in two different *hardware* components, particularly in the:
 ### Server software
 The server is a Raspberry Pi 3 model B. These instructions should be carried out after a fresh installation of *Raspbian* image in a Micro SD card 
 (see [instructions](https://www.raspberrypi.org/documentation/installation/installing-images/README.md)). 
-I've used [2018-04-18-raspian-stretch](http://downloads.raspberrypi.org/raspbian/images/raspbian-2018-04-19/). 
+The server has been tested with [2018-04-18-raspian-stretch](http://downloads.raspberrypi.org/raspbian/images/raspbian-2018-04-19/). 
 Most of the code is written in *Python v3.5.3*, and a few scripts are written in *Bash v4.4.12(1)*.
 
 **Note:** If no monitor is available (set up a *Raspberry Pi* headless), you have to do the following 4 simple steps to 
