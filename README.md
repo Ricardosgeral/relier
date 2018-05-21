@@ -509,7 +509,7 @@ Of course, you need to know how to use the Nextion commands.
 For that, see the [*instructions set*](https://nextion.itead.cc/resources/documents/instruction-set/).
 - Use of the library [*pygsheets*](https://github.com/nithinmurali/pygsheets), alongside with 
 library [*pandas*](https://pandas.pydata.org/index.html), to collect data from multiple sensors and send them to Google Sheets.  
-- Use the library [*CSV*](https://docs.python.org/3.6/library/csv.html) to write the data (as dictionary variable) in rows.
+- Use the library [*CSV*](https://docs.python.org/3.6/library/csv.html) to write the data (as dictionary) in rows.
 - Use of the library [*configparser*](https://docs.python.org/3/library/configparser.html) to have a *.ini* file 
 with the inputs. 
 - Automatic detection when USB drives are plugged-in (mounted) or removed (unmounted).
