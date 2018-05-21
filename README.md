@@ -498,7 +498,7 @@ Threads are used in this project in three cases:
 - *Library for serial communication with the Nextion device in Python 3* (TX-RX, UART protocol). 
 Unfortunately, until the day I'm writing this, a Python library to use Nextion touchscreen was not available.
 There is a good library developed for Arduino, but I did not want to mix Python and *C* code. 
-So, I've developed my own Nextion Library for Python 3 (which took me a while to achieve!).
+So, I've developed my own Nextion Library for Python 3 (which took me a while to achieve !).
 This library is relatively simple to use, and has margin for improvement. 
 You just need to look at the [*py3nextion_lib.py*](https://github.com/Ricardosgeral/relier/blob/master/py3nextion_lib.py),
 and use it alongside with [*nextionApp.py*](https://github.com/Ricardosgeral/relier/blob/master/nextionApp.py) 
