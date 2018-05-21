@@ -264,7 +264,7 @@ parameters of the analog sensors, specified in that file, are accurate enough.
 
 Here, you can edit interactively the test inputs:
 - *CSV filename* textbox - name of the CSV file were test data is saved.
-- *Google Sheets* checkbox - select it, to send data to Google Sheets during the test.
+- *Google Sheets* checkbox - select it, to send test data to Google Sheets during the test.
 - *Spreadsheet* textbox - name of the Google spreadsheet (worksheet name = *CSV filename*).
 - *email* textbox - email to where a link, to access the Google spreadsheet, will be sent.
 - *Test time* textbox - duration of the test, in minutes ( = 0 >> records data 'forever').
