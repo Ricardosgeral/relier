@@ -558,8 +558,8 @@ and that you followed all 6 steps in installation of the server software. Don't 
  $ sudo systemctl status shutdown_button
  ```   
    `Ctr + D ` to leave the terminal.
-- If you, by any reason (e.g., for debugging), need to stop the python scripts that run on startup of the server, 
-open a terminal and write:
+- If you, by any reason (e.g., for debugging), need to stop all the python scripts that are running from startup of the server, 
+open a terminal and execute:
  ```
  $ sudo pkill -9 python
  ```
