@@ -183,17 +183,17 @@ The *PCB* was printed by [PCBWay company](https://www.pcbway.com/).
 Below, you can see images showing the circuits hooked in the breadboard and in the PCB, as well as the final 
 aspect of each layer individually.
 
-**Fritzing breadboard view**
+**Fritzing: breadboard view**
 ![Breadboard_image](Fritzing/breadboard_relier.png)
 
-**Fritzing PCB view**
+**Fritzing: PCB view**
 ![PCB_image](Fritzing/PCB_relier.png)
 
-**PCB top layer**
+**PCB: top layer**
 
 ![FinalPCBtop_image](Fritzing/Final_TopPCB_relier.JPG)
 
-**PCB bottom Layer**
+**PCB: bottom Layer**
 
 ![FinalPCBbottom_image](Fritzing/Final_bottomPCB_relier.JPG)
 
