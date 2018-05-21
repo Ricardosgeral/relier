@@ -321,8 +321,8 @@ which is done in all pressure sensors simultaneously.
 
 ![zeroing](Nextion/GUI/Zeroing_explain.png)
 
-***Attention***: the '*zeroing*' process (if desired) should be done at the beginning of each test, 
- since the history of the zero shift (*z*) is not remembered by the acquisition system. 
+***Attention***: the '*zeroing*' process (if desired !) should be done at the beginning of each test, 
+ since the history of the zero shift (*z*) is not (intentionally) remembered by the acquisition system. 
 
 c) When you consider that the analog sensors are conveniently calibrated, you can press the *back blue button* (top-right), 
 which will send you to the **Main menu** page.
