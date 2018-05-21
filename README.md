@@ -314,8 +314,8 @@ However, due to the influence of barometric pressure, temperature, humidity, and
 the most likely is that they are not zero. 
 
 If you push the *Zero* button at this stage (*ie*, with no external pressure applied), 
-you will get a *wait a few seconds* progress bar. After a few seconds, the acquisition system will restart,
- and show the corrected measurements.
+you will get a *wait a few seconds* progress bar. After a few seconds, the readings will show up again,
+ and show the corrected values.
 Now the piezometric pressures should be nearly null. The next figure exemplifies the '*zeroing*' procedure, 
 which is done in all pressure sensons simultaneously.
 
