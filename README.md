@@ -538,7 +538,7 @@ or the program may not start!
 - The inspection of the **cronlog** file (`$ sudo nano /home/pi/relier/logs/cronlog`) may be helpful for detecting 
 any eventual bugs during the software installation process, or during start up of the server, for example, 
 to check if the Google credentials are correct!.
-- *'Problem: Google signed Credentials*. In this case, confirm that you have an internet connection,
+- *'Problem: Google signed Credentials'*. In this case, confirm that you have an internet connection,
 and that you followed all 6 steps in installation of the server software. Don't forget to enable the 'Drive API' (step 4).
 - If the Nextion touchscreen is not functioning properly or not working at all:
   + first, see the connections, in particular check that: RX (server) <-> TX(screen), and TX(server) <-> RX(screen); 
