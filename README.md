@@ -23,8 +23,8 @@ Please note that I'm not an expert in informatics, in computing, nor in electron
 I define myself as an enthusiastic self learner. 
 All shown here was developed from my own research, mainly on forums, Github and other websites.
 Thus, it is possible that some things (code, connections,...) could be optimized, or done in a different or better way. 
-Yet, *relier* acquisition system performs as intended.
-You can report bugs, suggest enhancements, or even fork the project on Github. 
+Yet, ****relier*** acquisition system* performs as intended.
+You can report bugs, suggest enhancements, or even fork the project on [Github](https://github.com/Ricardosgeral/relier). 
 All contributions are welcome.
 
 
