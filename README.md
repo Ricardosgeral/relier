@@ -465,7 +465,7 @@ This functionality allows ***Live data streaming***.
 - If the *Spreadsheet/Worksheet* provided by the user already exists, the data that was in that worksheet will be *deleted* (***Attention***). 
 However, when a new Worksheet name is provided in an already existing Spreadsheet, a new sheet is added. 
 This means that you can have a single Spreadsheet with different tests organized in different Worksheets (preferable).
-- If there is no internet connection on start up of the server, data will not be, of course, sent to Google Sheets, 
+- If there is no internet connection, data will not be, of course, sent to Google Sheets, 
 even if you select the Google Sheets checkbutton (***Attention***). For debugging look at the 
 [troubleshooting](https://github.com/Ricardosgeral/relier#troubleshooting) section. 
 - If internet connection is lost during a test, the software will raise an exception and stop recording data to Google Sheets, 
