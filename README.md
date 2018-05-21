@@ -236,7 +236,8 @@ you should see the **Credits** page.
 ![page1_red](Nextion/GUI/page1_red.PNG) ![page1_green](Nextion/GUI/page1_green.PNG)
  
 First, you will see a *red* bar on the top of the screen. Wait (less than 5 seconds).
-After some server checks that bar should then stay *green*. That means that all is working Ok. You can also see the local *IP address* of the server, 
+After some server checks that bar should then stay *green*. That means that server and communication with the touchscreen are working Ok. 
+You can also see the local *IP address* of the server, 
 which is useful in case you want to make a remote connection. 
 
 If the server has no internet, 
