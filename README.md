@@ -317,7 +317,7 @@ If you push the *Zero* button at this stage (*ie*, with no external pressure app
 you will get a *wait a few seconds* progress bar. After a few seconds, the readings will show up again,
  and show the corrected values.
 Now the piezometric pressures should be nearly null. The next figure exemplifies the '*zeroing*' procedure, 
-which is done in all pressure sensons simultaneously.
+which is done in all pressure sensors simultaneously.
 
 ![zeroing](Nextion/GUI/Zeroing_explain.png)
 
