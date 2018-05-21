@@ -309,7 +309,7 @@ b) ***Zero* pushbutton**, for *'zeroing'* the values of the pressure sensors
 This functionality can be used to take into account the normal variations of the atmospheric pressure.
 To use it properly, it is necessary, first, to ensure that *no pressure* is applied to the sensors (besides the ambient pressure).
 
-In such conditions, ideally, for the factory calibration parameters, the  pressure sensors should indicate zero *mbar*. 
+In such conditions, ideally, for the factory calibration parameters, the  pressure sensors should indicate null *mbar*. 
 However, due to the daily  changes of atmospheric pressure (that depends on temperature, humidity, altitude, ...), 
 the most likely is that they are not null. 
 
