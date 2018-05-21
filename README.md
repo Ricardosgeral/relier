@@ -541,7 +541,7 @@ to check if the Google credentials are correct!.
 - *'Problem: Google signed Credentials'*. In this case, confirm that you have an internet connection,
 and that you followed all 6 steps in installation of the server software. Don't forget to enable the 'Drive API' (step 4).
 - If the Nextion touchscreen is not functioning properly or not working at all:
-  + first, see the connections, in particular check that: RX (server) <-> TX(screen), and TX(server) <-> RX(screen); 
+  + first, see the connections, in particular check that: RX (server) <-> TX (screen), and TX (server) <-> RX (screen); 
   + second, ensure that *serial* is disconnected: `$ sudo raspi-config` > *5* > *P6 Serial* > *No*;
   + third, doing `$ ls -l /dev | grep serial` you should see *serial 0 >> ttyAMA0* (pins 14/15 in UART) and 
   *serial 1 >> ttyS0* (bluetooth in miniuart). By default UART is attributed to Bluetooth and miniuart to pins 14/15 (which has limitations). 
