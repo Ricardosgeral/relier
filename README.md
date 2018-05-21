@@ -23,7 +23,7 @@ Please note that I'm not an expert in informatics, in computing, nor in electron
 I define myself as an enthusiastic self learner. 
 All shown here was developed from my own research, mainly on forums, Github and other websites.
 Thus, it is possible that some things (code, connections,...) could be optimized, or done in a different or better way. 
-Yet, ****relier*** acquisition system* performs as intended.
+Yet, ***relier*** *acquisition system* performs as intended.
 You can report bugs, suggest enhancements, or even fork the project on [Github](https://github.com/Ricardosgeral/relier). 
 All contributions are welcome.
 
@@ -42,7 +42,7 @@ and be more helpful.
 
 ## Software installation
 
-The software of *reliar acquisition system* is composed by two distinct but interconnected major parts, 
+The software of  ***reliar*** *acquisition system* is composed by two distinct but interconnected major parts, 
 running in two different *hardware* components, particularly in the:
 1. **Server** (*Raspberry Pi 3B*), which performs the computation tasks, and
 2. **Touchscreen** (*Nextion device*), responsible by the interactivity between the end user and the server.
