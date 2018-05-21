@@ -244,7 +244,7 @@ If the server has no internet,
 then the following message is displayed: `No internet connection`.
 
 To update the IP status case the internet connection has been changed (e.g., insertion of an Ethernet cable, connection to WiFi, ...), 
-wait a couple of seconds, then touch on top of the IP message (bottom of the screen). 
+wait a couple of seconds, then touch on the IP message (bottom of the screen). 
 Touch anywhere else on the screen to go the **Main menu** page.
  
 ### *2 - Main menu*
