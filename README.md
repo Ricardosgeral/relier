@@ -62,7 +62,7 @@ enable *SSH* in first boot. So, right after installing the Raspbian image in the
 4. Insert the Micro SD card into the *Raspberry Pi*, and power it on.
 
 Access the *Raspberry Pi* directly (if you have a monitor), or via *SSH* (for example, using [*Putty*](https://www.putty.org/)). 
-In this last option, you will require an internet connection, and need to know the local IP attributed to the *Raspberry Pi*! 
+In this last option, you will require an internet connection, and need to know the local IP attributed to the *Raspberry Pi* ! 
 The default login should be:
 
    username: `pi`   
