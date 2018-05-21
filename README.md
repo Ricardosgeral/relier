@@ -311,7 +311,7 @@ To use it properly, it is necessary, first, to ensure that *no pressure* is appl
 
 In such conditions, ideally, assuming the factory calibration parameters, the readings from the pressure sensors should indicate null *mbar*. 
 However, due to the influence of barometric pressure, temperature, humidity, and others, 
-the most likely is that they are not null. 
+the most likely is that they are not zero. 
 
 If you push the *Zero* button at this stage (*ie*, with no external pressure applied), 
 you will get a *wait a few seconds* progress bar. After a few seconds, the acquisition system will restart,
