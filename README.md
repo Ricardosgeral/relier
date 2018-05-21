@@ -310,7 +310,7 @@ This functionality can be used to take into account the normal variations of the
 To use it properly, it is necessary, first, to ensure that *no pressure* is applied to the sensors (besides the ambient pressure).
 
 In such conditions, ideally, assuming the factory calibration parameters, the readings from the pressure sensors should indicate null *mbar*. 
-However, due to the influence of barometric pressure, temperature, humidity, and others, 
+However, due to the influence of barometric pressure, ambient temperature, humidity, and others, 
 the most likely is that they are not zero. 
 
 If you push the *Zero* button at this stage (*ie*, with no external pressure applied), 
