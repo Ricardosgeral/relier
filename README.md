@@ -54,7 +54,7 @@ The server is a Raspberry Pi 3 model B. These instructions should be carried out
 The server has been tested with [2018-04-18-raspian-stretch](http://downloads.raspberrypi.org/raspbian/images/raspbian-2018-04-19/). 
 Most of the code is written in *Python v3.5.3*, and a few scripts are written in *Bash v4.4.12(1)*.
 
-**Note:** If no monitor is available (set up a *Raspberry Pi* headless), you have to do the following 4 simple steps to 
+**Note:** If no monitor is available (*Raspberry Pi* headless setup), you have to do the following 4 simple steps to 
 enable *SSH* in first boot. So, right after installing the Raspbian image in the  Micro SD card:
 1. Create an empty file (in Windows use notepad, in a Linux terminal use command *touch*, in Mac use TextEdit).
 2. Save the file with name: ***ssh*** (preferentially with no extension, but *ssh.txt* should also work).
