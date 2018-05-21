@@ -322,7 +322,7 @@ which is done in all pressure sensors simultaneously.
 ![zeroing](Nextion/GUI/Zeroing_explain.png)
 
 ***Attention***: the '*zeroing*' process (if desired !) should be done at the beginning of each test, 
- since the history of the zero shift (*z*) is not (intentionally) remembered by the acquisition system. 
+ since the history of the zero shift, *z*, is not (intentionally) remembered by the acquisition system. 
 
 
 
