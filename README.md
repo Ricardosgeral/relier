@@ -401,7 +401,7 @@ lastip        = 193.136.108.75  # This parameter is not editable! It's an indica
 
 - If the user changes the parameters in the interactive way, [*inputs.ini*](https://github.com/Ricardosgeral/relier/blob/master/inputs.ini) 
 will be updated, once the server begins to record data (green start button in **Main menu**). 
-So, those selections are kept and may be reused in the next test.
+So, those selections are kept and are reused in the next test.
 - Note that the parameters in the *ini* file will not appear always in the same order! 
 However, they will always appear in their respective sections. 
 That is, for example, the parameter *interval* will always appear in section [settings], 
