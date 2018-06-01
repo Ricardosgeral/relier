@@ -220,7 +220,6 @@ def read_display(e_rd): #read and display data in page "analog"
                            float(inp['mturb']), float(inp['bturb']), zerou, zeroi, zerod, inp['testtype'])
         display_analog(data)
         sleep(int(inp['interval']))
-
 ##################
 
 def read_display_write(e_rdw): # read and display data in page "sensors" and write to file
@@ -247,6 +246,7 @@ def read_display_write(e_rdw): # read and display data in page "sensors" and wri
 
     e_rdw.wait()
     row = 1
+    zero_vol = 0
     while end_rdw.is_set() == False and time.time() < stop+int(inp['interval']):
         if time.time() < stop+int(inp['interval']):
             LED.led_on()
@@ -261,6 +261,9 @@ def read_display_write(e_rdw): # read and display data in page "sensors" and wri
                               float(inp['bu']), float(inp['bi']), float(inp['bd']),
                               float(inp['mturb']), float(inp['bturb']),
                               zerou, zeroi, zerod, inp['testtype'])
+            if current < start+1:
+                zero_vol= data['liters']
+            data['liters'] = data['liters']-zero_vol
             display_sensors(data)  # display in NEXTION monitor
             write_csv_data.write_data(data = data, data_file = inp['filename'])
 
