@@ -182,8 +182,9 @@ Latest version of *PCB* is v2.
 The *PCB* was printed by [PCBWay company](https://www.pcbway.com/).
 
 Below, you can see images showing the circuits hooked in the breadboard and in the PCB, as well as the final 
-aspect of each *PCB* layer individually. If you need a guide for the 40 GPIO pins numbering of the Raspberry Pi, look at
-[GPIOrpi3](https://www.raspberrypi-spy.co.uk/2012/06/simple-guide-to-the-rpi-gpio-header-and-pins/#prettyPhoto/1/)
+aspect of each *PCB* layer individually. 
+[Here](https://www.raspberrypi-spy.co.uk/2012/06/simple-guide-to-the-rpi-gpio-header-and-pins/#prettyPhoto/1/)
+you can see the numbering of the 40 GPIO pins of the Raspberry Pi used.
 
 **Fritzing: breadboard view**
 ![Breadboard_image](Fritzing/production/v2/relierv2_bb.png)
