@@ -51,9 +51,9 @@ def write_data(data, data_file):
 
         path = os.path.join('/srv/EROSTESTS', csv_file)  #create first the /srv/EROSTESTS/
         file_exists = os.path.isfile(path)  # sets to TRUE if file exists otherwise FALSE
-
+        #os.chmod(path, 0o777)
         rw.write_ini_path(path)
-        os.chmod(path, 0o777)
+
 
         with open(path, 'a', newline='') as f: # if the file exists data will be added below after a black line
             writer = DictWriter(f, fieldnames)
@@ -66,7 +66,7 @@ def write_data(data, data_file):
         path = os.path.join(path, csv_file)
         file_exists = os.path.isfile(path)
         rw.write_ini_path(path)
-        os.chmod(path, 0o777)
+        #os.chmod(path, 0o777)
 
         with open(path, 'a', newline='') as f:# if the file exists data will be added below after a black line
             writer = DictWriter(f, fieldnames)
