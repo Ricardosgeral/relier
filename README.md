@@ -196,6 +196,7 @@ aspect of each PCB layer individually.
 ![PCBbottom_image](Fritzing/production/v2/relierv2_pcb_bottomlayer.png)
 
 **Fritzing: scheme**
+
 ![PCB_image](Fritzing/production/v2/relierv2_schem.png)
 
 ### Sensors
