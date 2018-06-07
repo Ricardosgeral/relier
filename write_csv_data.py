@@ -5,6 +5,8 @@
 from find_usb import find_dev
 from csv import DictWriter, DictReader # write csv data file
 import os
+import rw_ini as rw
+
 
 def write_data(data, data_file):
     """Write data in the file (usb or if not available in SD card).
@@ -47,25 +49,27 @@ def write_data(data, data_file):
         # don't forget to do 1st:   sudo mkdir /srv/sensors
         #                           sudo chmod - R 777 / srv / sensors
 
-        path = os.path.join('/srv/EROSTESTS', csv_file)  #create first the /srv/sensor
+        path = os.path.join('/srv/EROSTESTS', csv_file)  #create first the /srv/EROSTESTS/
         file_exists = os.path.isfile(path)  # sets to TRUE if file exists otherwise FALSE
+
+        rw.write_ini_path(path)
+        os.chmod(path, 0o777)
 
         with open(path, 'a', newline='') as f: # if the file exists data will be added below after a black line
             writer = DictWriter(f, fieldnames)
             if not file_exists:
                 writer.writeheader()    # file doesn't exist yet, write a header
             writer.writerow(data)       #writes the data in a new blank line
-        os.chmod(path, 0o777)
     else:
         # If storage USB device available
         # Create the full path to the file on the device
         path = os.path.join(path, csv_file)
-
         file_exists = os.path.isfile(path)
+        rw.write_ini_path(path)
+        os.chmod(path, 0o777)
 
         with open(path, 'a', newline='') as f:# if the file exists data will be added below after a black line
             writer = DictWriter(f, fieldnames)
             if not file_exists:
                 writer.writeheader()
             writer.writerow(data)
-        #os.chmod(path, 0o777)

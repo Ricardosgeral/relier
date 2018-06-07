@@ -72,7 +72,15 @@ def write_ini(filename, googlesh, share_email, google_sheets, duration, interval
                         'bturb': bturb,
                         }
 
-    config['other'] = {'lastip': lastip}
+    config['ip'] = {'lastip': lastip}
 
+    with open('inputs.ini', 'w') as configfile:
+        config.write(configfile)
+
+
+#write in the ini file only the pathname (useful for dash)
+def write_ini_path(path):
+
+    config['path'] = {'lastpath': path}
     with open('inputs.ini', 'w') as configfile:
         config.write(configfile)

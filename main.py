@@ -264,10 +264,10 @@ def read_display_write(e_rdw): # read and display data in page "sensors" and wri
             if current < start+1:
                 zero_vol= data['liters']
             data['liters'] = data['liters']-zero_vol
-            display_sensors(data)  # display in NEXTION monitor
+
             write_csv_data.write_data(data = data, data_file = inp['filename'])
 
-
+            display_sensors(data)  # display in NEXTION monitor
             ID_elapsed = nxApp.get_Ids('sensors', 'txt_duration')
             nxlib.nx_setText(ser, ID_elapsed[0], ID_elapsed[1], elapsed)
             ID_autostop = nxApp.get_Ids('sensors', 'txt_autostop')
