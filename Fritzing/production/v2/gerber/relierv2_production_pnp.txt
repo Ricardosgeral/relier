@@ -1,0 +1,52 @@
+*Pick And Place List
+*Company=
+*Author=
+*eMail=
+*
+*Project=relierv2_production
+*Date=00:28:24
+*CreatedBy=Fritzing 0.9.3b.04.19.5c895d327c44a3114e5fcc9d8260daf0cbb52806
+*
+*
+*Coordinates in mm, always center of component
+*Origin 0/0=Lower left corner of PCB
+*Rotation in degree (0-360, math. pos.)
+*
+*No;Value;Package;X;Y;Rotation;Side;Name
+1;20k;THT;18.0501;-8.42968;-90;Bottom;20k
+2;;;75.7801;-18.7397;-90;Bottom;Buzzer
+3;;THT;31.5403;-43.2899;0;Bottom;40pines RPi3
+4;;;45.2754;-12.1885;0;Bottom;TXT1
+5;150;THT;77.5501;-41.5497;90;Bottom;220O
+6;;THT;7.55006;-31.4697;0;Bottom;Nextion
+7;;THT;31.0501;-18.7397;-90;Bottom;GND/3.3/5V
+8;;;74.4224;-30.8344;0;Bottom;TXT3
+9;;5 mm [THT];68.9741;-43.2397;0;Bottom;RGB led
+10;;;50.442;-27.0803;0;Bottom;IMG2
+11;;THT;75.5659;-7.75781;-90;Bottom;Turb
+12;;THT;47.0501;-37.2397;-90;Bottom;GND/GPIO6/13
+13;;;48.1504;-13.5811;0;Bottom;TXT1
+14;;THT;8.06578;-7.75781;-90;Bottom;WTemp
+15;10k;THT;10.7401;-12.7397;0;Bottom;10k
+16;;;75.9129;-32.6779;0;Bottom;TXT3
+17;;THT;62.0658;-7.75781;-90;Bottom;Pd
+18;;;55.1443;-25.7473;0;Bottom;lnec
+19;;;43.4188;-1.42612;0;Bottom;TXT4
+20;;;75.0483;-28.4897;0;Bottom;TXT2
+21;;THT;68.7801;-25.7397;-90;Bottom;Button
+22;;Breakout board;28.0867;-29.5051;0;Bottom;Logic Level Converter
+23;;THT;49.0257;-7.75781;-90;Bottom;Pi
+24;;THT;24.9857;-7.75781;-90;Bottom;Flow
+25;;;43.5325;-3.1257;0;Bottom;TXT4
+26;;;65.2875;-13.8852;0;Bottom;IMG1
+27;;;50.4775;-15.5508;0;Bottom;TXT4
+28;;;10.2448;-23.7174;0;Bottom;TXT5
+29;;;6.72225;-18.6449;0;Bottom;fritzing
+30;;THT;37.0657;-7.75781;-90;Bottom;Pu
+31;220;THT;68.2401;-38.2397;0;Bottom;220O
+32;220;THT;72.2401;-35.2397;0;Bottom;220O
+33;10k;THT;26.2401;-13.7397;0;Bottom;10k
+34;;;11.0501;-29.7397;0;Bottom;Via1
+35;;;10.0017;-20.0097;90;Bottom;BME280
+36;;;75.8169;-26.7135;0;Bottom;TXT2
+37;;;51.2401;-25.4072;0;Bottom;ADC:ADS1115
