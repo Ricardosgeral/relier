@@ -190,10 +190,10 @@ aspect of each PCB layer individually.
 ![PCB_image](Fritzing/production/v2/relierv2_pcb.png)
 
 **PCB: top layer**
-![FinalPCBtop_image](Fritzing/production/relierv2_pcb_toplayer.png)
+![PCBtop_image](Fritzing/production/relierv2_pcb_toplayer)
 
 **PCB: bottom Layer**
-![FinalPCBbottom_image](Fritzing/production/relierv2_pcb_bottomlayer.png)
+![PCBbottom_image](Fritzing/production/relierv2_pcb_bottomlayer)
 
 **Fritzing: scheme**
 ![PCB_image](Fritzing/production/v2/relierv2_schem.png)
