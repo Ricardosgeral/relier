@@ -184,17 +184,19 @@ Below, you can see images showing the circuits hooked in the breadboard and in t
 aspect of each PCB layer individually.
 
 **Fritzing: breadboard view**
-![Breadboard_image](Fritzing/breadboard_relier.png)
+![Breadboard_image](Fritzing/production/v2/relierv2_bb.png)
 
 **Fritzing: PCB view**
-![PCB_image](Fritzing/PCB_relier.png)
+![PCB_image](Fritzing/production/v2/relierv2_pcb.png)
 
 **PCB: top layer**
-![FinalPCBtop_image](Fritzing/Final_TopPCB_relier.JPG)
+![FinalPCBtop_image](Fritzing/production/relierv2_pcb_toplayer.png)
 
 **PCB: bottom Layer**
-![FinalPCBbottom_image](Fritzing/Final_bottomPCB_relier.JPG)
+![FinalPCBbottom_image](Fritzing/production/relierv2_pcb_bottomlayer.png)
 
+**Fritzing: scheme**
+![PCB_image](Fritzing/production/v2/relierv2_schem.png)
 
 ### Sensors
 
