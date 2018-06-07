@@ -58,8 +58,8 @@ def write_data(data, data_file):
         with open(path, 'a', newline='') as f: # if the file exists data will be added below after a black line
             writer = DictWriter(f, fieldnames)
             if not file_exists:
-                writer.writeheader()     # file doesn't exist yet, write a header
-            writer.writerow(data)        #writes the data in a new blank line
+                writer.writeheader()    # file doesn't exist yet, write a header
+            writer.writerow(data)       #writes the data in a new blank line
     else:
         # If storage USB device available
         # Create the full path to the file on the device
