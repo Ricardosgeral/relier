@@ -288,7 +288,7 @@ This page allows you to select the type of test you want to perform.
 Note that, selecting the option <Hole Erosion Test (HET)>,
 ***no*** data of the interface (middle) pressure sensor will be acquired, 
 since HET only uses two pressure sensors (upstream and downstream).
-If you select <Other_>, you have a textbox that can be used to give a name to the test type. 
+If you select <Other...>, you have a textbox that can be used to give a name to the test type. 
 In this case, test data from all sensors is recorded.
 
 To go back to the **General settings** page, click the blue return button. 
