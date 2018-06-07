@@ -178,11 +178,12 @@ The *Hardware* is composed by the:
 #### Printed circuit board (*PCB*) designed/produced
 The design of the 2 layer's *PCB* was developed using [Fritzing](http://www.fritzing.org/). 
 The production files and the *.fzz* file are [here](https://github.com/Ricardosgeral/relier/tree/master/Fritzing). 
-Latest version of PCB is v2. 
+Latest version of *PCB* is v2. 
 The *PCB* was printed by [PCBWay company](https://www.pcbway.com/).
 
 Below, you can see images showing the circuits hooked in the breadboard and in the PCB, as well as the final 
-aspect of each PCB layer individually.
+aspect of each *PCB* layer individually. If you need a guide for the 40 GPIO pins numbering of the Raspberry Pi, look at
+[GPIOrpi3](https://www.raspberrypi-spy.co.uk/2012/06/simple-guide-to-the-rpi-gpio-header-and-pins/#prettyPhoto/1/)
 
 **Fritzing: breadboard view**
 ![Breadboard_image](Fritzing/production/v2/relierv2_bb.png)
