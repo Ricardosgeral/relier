@@ -261,9 +261,11 @@ def read_display_write(e_rdw): # read and display data in page "sensors" and wri
                               float(inp['bu']), float(inp['bi']), float(inp['bd']),
                               float(inp['mturb']), float(inp['bturb']),
                               zerou, zeroi, zerod, inp['testtype'])
-            if current < start+1:
+            if current < start+2:   # zero flowrate at start.
                 zero_vol= data['liters']
+                data['flow'] = 0
             data['liters'] = data['liters']-zero_vol
+
 
             write_csv_data.write_data(data = data, data_file = inp['filename'])
 
