@@ -231,6 +231,8 @@ sudo rm Python-3.6.5.tar.xz
 sudo pip3.6 install --upgrade pip
 sudo pip3.6 install numpy
 sudo pip3.6 install pandas
+sudo pip3.6 install pandas
+sudo pip3.6 install configparser
 sudo pip3.6 install dash==0.21.1  # The core dash backend
 sudo pip3.6 install dash-renderer==0.13.0  # The dash front-end
 sudo pip3.6 install dash-html-components==0.11.0  # HTML components
