@@ -77,7 +77,7 @@ sudo apt-get update
 sudo apt-get install -y python3-pandas
 # install python3.6
 #If one of the packages cannot be found, try a newer version number (e.g. libdb5.4-dev instead of libdb5.3-dev).
-sudo apt-get install build-essential tk-dev libncurses5-dev libncursesw5-dev libreadline6-dev libdb5.3-dev libgdbm-dev libsqlite3-dev libssl-dev libbz2-dev libexpat1-dev liblzma-dev zlib1g-dev
+sudo apt-get -y install build-essential tk-dev libncurses5-dev libncursesw5-dev libreadline6-dev libdb5.3-dev libgdbm-dev libsqlite3-dev libssl-dev libbz2-dev libexpat1-dev liblzma-dev zlib1g-dev
 sudo wget https://www.python.org/ftp/python/3.6.5/Python-3.6.5.tar.xz
 sudo tar xf Python-3.6.5.tar.xz
 sudo cd Python-3.6.5
@@ -224,9 +224,9 @@ TMPC="mycron2"
 sudo grep "$CMD" -q <(crontab -l) || (crontab -l>"$TMPC"; echo "$JOB">>"$TMPC"; crontab "$TMPC")
 echo 'Done.'
 #
-echo  '--------------------'
-echo  '=> Install python3.6'
-echo  '--------------------'
+echo  '----------------------------------------------------'
+echo  '=> Install python3.6 and Dash (works with python3.6)'
+echo  '----------------------------------------------------'
 #
 #If one of the packages cannot be found, try a newer version number (e.g. libdb5.4-dev instead of libdb5.3-dev).
 sudo apt-get install build-essential tk-dev libncurses5-dev libncursesw5-dev libreadline6-dev libdb5.3-dev libgdbm-dev libsqlite3-dev libssl-dev libbz2-dev libexpat1-dev liblzma-dev zlib1g-dev
