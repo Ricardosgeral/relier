@@ -215,9 +215,9 @@ TMPC="mycron2"
 sudo grep "$CMD" -q <(crontab -l) || (crontab -l>"$TMPC"; echo "$JOB">>"$TMPC"; crontab "$TMPC")
 echo 'Done.'
 #
-echo  '----------------------------------------------------'
-echo  '=> Install python3.6  (for Dash and pandas with python3.6)'
-echo  '----------------------------------------------------'
+echo  '--------------------------------'
+echo  '=> Install python3.6  (for Dash)'
+echo  '--------------------------------'
 #
 #If one of the packages cannot be found, try a newer version number (e.g. libdb5.4-dev instead of libdb5.3-dev).
 sudo apt-get -y install build-essential tk-dev libncurses5-dev libncursesw5-dev libreadline6-dev libdb5.3-dev libgdbm-dev libsqlite3-dev libssl-dev libbz2-dev libexpat1-dev liblzma-dev zlib1g-dev
