@@ -11,7 +11,7 @@ on internal erosion in embankment dams.
  
 Carrying out the [laboratory tests on internal erosion in soils](https://www.researchgate.net/publication/317742058_Limitation_of_the_progression_of_internal_erosion_in_zoned_dams), 
 developed in my PhD, 
-requires to simultaneously collect different types of measurements (water pressures, flowrate, temperature, turbidity, ...).
+requires to simultaneously collect different types of measurements (water pressures, flow rate, temperature, turbidity, ...).
 The measurements had to be registered by hand, in regular intervals, by two operators!! 
 Such manual process is tedious and prone to errors.
 
@@ -42,7 +42,7 @@ and be more helpful.
 
 ## Software installation
 
-The software of  ***reliar*** *acquisition system* is composed by two distinct but interconnected major parts, 
+The software of  ***relier*** *acquisition system* is composed by two distinct but interconnected major parts,
 running in two different *hardware* components, particularly in the:
 1. **Server** (*Raspberry Pi 3B*), which performs the computation tasks, and
 2. **Touchscreen** (*Nextion device*), responsible by the interactivity between the end user and the server.
@@ -81,7 +81,7 @@ Then, in the terminal, run the following sequential commands:
     $ sudo chmod +x raspbian-post-install.sh && sed -i 's/\r//' raspbian-post-install.sh
     $ sudo ./raspbian-post-install.sh
 
-Prepare a big cup of tea, since this will take time! After automatic rebooting, you need to get your *json* file with the Google Signed credentials.
+Prepare a big cup of hot tea, since this will take a lot of time (>1h)! After automatic rebooting, you need to get your *json* file with the Google Signed credentials.
 First, you need to create a project in the developer console and enable some APIs (follow steps 1 to 4 from these [instructions](https://pygsheets.readthedocs.io/en/latest/authorizing.html#)), 
 then, get the *Signed credentials* (follow steps 5 and 6 from these [instructions](https://pygsheets.readthedocs.io/en/latest/authorizing.html#signed-credentials)). 
 *Copy* your Signed credentials, then, do:
