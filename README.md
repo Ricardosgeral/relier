@@ -348,7 +348,8 @@ If 'Google Sheets' option has been selected, the first reading can take more tha
 If you want to stop the test, prior to the test duration defined in settings, 
 just press the *Red button*, which will redirect you to the **Stop sensor data recording** confirmation page.
 
-When the chosen test duration is achieved, the server stops acquiring the data.
+When the chosen test duration is achieved, the server stops acquiring the data. 
+The buzz emits some sounds (SOS in morse code! :) ), and screen is set to *Credits* page.
 
 **Note:** if you want to record data 'forever', set the *Test time duration* to **0**. 
 Actually, it will not record forever. *'Forever'* should be understood as 2 months (86400 minutes!).
