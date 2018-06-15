@@ -3,7 +3,7 @@ from time import sleep
 import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
-buzzpin=18
+buzzpin=12 # (GPIO18)
 GPIO.setup(buzzpin,GPIO.OUT)
 loop = 2 # number of morse code loops
 
