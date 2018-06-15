@@ -1,6 +1,6 @@
 import RPi.GPIO as GPIO
 import time
-
+from time import sleep
 LedPin = 21  # pin18 GPIO24
 
 def setup():
@@ -58,12 +58,12 @@ def shutdown_led():
         blink(0.5)
     destroy()
 
-#if __name__ == '__main__':  # Program start from here
-#setup()
-#     try:
-#shutdown_led()
-#sleep(2)
-#reboot_led()
+if __name__ == '__main__':  # Program start from here
+    setup()
+    try:
+        shutdown_led()
+        sleep(2)
+        reboot_led()
 
-#     except KeyboardInterrupt:  # When 'Ctrl+C' is pressed, the child program destroy() will be  executed.
-#destroy()
+    except KeyboardInterrupt:  # When 'Ctrl+C' is pressed, the child program destroy() will be  executed.
+        destroy()

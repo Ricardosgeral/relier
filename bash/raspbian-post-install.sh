@@ -62,18 +62,13 @@ git clone https://github.com/Ricardosgeral/relier.git /home/pi/relier
 sudo chown -R pi: /home/pi/relier
 sudo chmod 777 -R relier/
 #
-echo  '---------------------------'
-echo  '=> Install system utilities'
-echo  '---------------------------'
-echo '=> Install system utilities'
-#sudo apt-get install -y .....whatever you want e.g. latex
-echo 'Done.'
-#
 echo  '------------------------------------------'
 echo  '=> Install developer packages (python 3.5)'
 echo  '------------------------------------------'
 echo '=> Install developer packages'
 #
+
+sudo apt-get install -y python3-pandas
 sudo pip3 install --upgrade pip
 sudo pip3 install pygsheets
 sudo pip3 install --upgrade oauth2client
@@ -230,7 +225,6 @@ sudo rm -r Python-3.6.5
 sudo rm Python-3.6.5.tar.xz
 sudo pip3.6 install --upgrade pip
 sudo pip3.6 install numpy
-sudo pip3.6 install pandas
 sudo pip3.6 install pandas
 sudo pip3.6 install configparser
 sudo pip3.6 install dash==0.21.1  # The core dash backend

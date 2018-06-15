@@ -15,7 +15,7 @@ import rw_ini as rw
 import write_csv_data
 import google_sheets as gsh
 import led_blink as LED
-from active_buzzer import alert_end
+from endbips import test_end # for Buzzer
 
 ######### make connection to serial UART to read/write NEXTION
 ser = serial.Serial(port='/dev/ttyAMA0', baudrate = 38400,
@@ -282,7 +282,9 @@ def read_display_write(e_rdw): # read and display data in page "sensors" and wri
                 row += 1
             LED.led_off()
             sleep(int(inp['interval']))  # interval to write down  the readings
-    LED.fast_5blinks()
+    test_end() # morse code sounds to alert for final test
+
+
     end_rdw.set()
     e_rdw.clear()
     nxlib.nx_setcmd_1par(ser, 'page', 'credits')
