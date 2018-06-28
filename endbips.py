@@ -1,6 +1,7 @@
 #import os
 from time import sleep
 import RPi.GPIO as GPIO
+
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 buzzpin=12 # (GPIO18)
@@ -9,6 +10,9 @@ loop = 2 # number of morse code loops
 
 def morsecode_bips ():
     #Dot Dot Dot
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(buzzpin, GPIO.OUT)
+
     GPIO.output(buzzpin,GPIO.HIGH)
     sleep(.1)
     GPIO.output(buzzpin,GPIO.LOW)
@@ -53,4 +57,4 @@ def test_end():
         morsecode_bips ()
 
 #os.system('clear')
-test_end()
+#test_end()

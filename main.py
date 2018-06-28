@@ -16,6 +16,7 @@ import write_csv_data
 import google_sheets as gsh
 import led_blink as LED
 from endbips import test_end # for Buzzer
+import database as db
 
 ######### make connection to serial UART to read/write NEXTION
 ser = serial.Serial(port='/dev/ttyAMA0', baudrate = 38400,
@@ -244,6 +245,21 @@ def read_display_write(e_rdw): # read and display data in page "sensors" and wri
                                         wsheet_title=inp['filename'],
                                         share_email=inp['share_email'])
 
+
+    # connect to databases and clean data from tables
+    # deletes all data from the tables in the database
+    db.cur.execute("DELETE FROM testdata;")
+    db.cur.execute("DELETE FROM testinputs;")
+
+    # insert a new row in the database in Heroku
+    db.cur.execute("INSERT INTO testinputs (start, test_name, rec_interval, test_type, mu, bu, mi, bi, md, bd, mturb, bturb) "
+                   "VALUES (CURRENT_TIMESTAMP, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);",[ inp['filename'], inp['interval'], inp['testtype'],
+                                                               inp['mu'],inp['bu'],inp['mi'],inp['bi'],inp['md'],inp['bd'],
+                                                               inp['mturb'], inp['bturb'] ])
+
+    db.con.commit()
+    db.cur.execute('rollback;')
+
     e_rdw.wait()
     row = 1
     zero_vol = 0
@@ -269,6 +285,17 @@ def read_display_write(e_rdw): # read and display data in page "sensors" and wri
 
             write_csv_data.write_data(data = data, data_file = inp['filename'])
 
+
+            #insert a new row in the database in Heroku
+            db.cur.execute("INSERT INTO testdata(date_time, duration, mmH2O_up, mmH2O_int, mmH2O_down, turb, flow, volume) "
+                           "VALUES(to_timestamp('{} {}', 'YYYY-MM-DD HH24:MI:SS') ,%s,{},{},{},{},{},{});".format(
+                                data['date'], data['time'],
+                                data['mmH2O_up'],data['mmH2O_int'],data['mmH2O_down'],data['ntu_turb'],data['flow'],
+                                data['liters'],inp['interval']),
+                                [elapsed,]
+                          )
+
+
             display_sensors(data)  # display in NEXTION monitor
             ID_elapsed = nxApp.get_Ids('sensors', 'txt_duration')
             nxlib.nx_setText(ser, ID_elapsed[0], ID_elapsed[1], elapsed)
@@ -281,9 +308,11 @@ def read_display_write(e_rdw): # read and display data in page "sensors" and wri
                 gsh.write_gsh(data, row, wks)
                 row += 1
             LED.led_off()
-            sleep(int(inp['interval']))  # interval to write down  the readings
+            sleep(float(inp['interval'])-0.15)  # interval to write down  the readings--  NOTE: -0.15 s because of the time to write values in the database
     test_end() # morse code sounds to alert for final test
 
+    #disconnect from database
+    db.close_db()
 
     end_rdw.set()
     e_rdw.clear()
