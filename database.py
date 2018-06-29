@@ -1,6 +1,6 @@
 import psycopg2 as p
 
-#credentials of database in Heroku  # can obtain it from $ heroku config
+#credentials of database in Heroku  # to obtain it $ heroku config, or look in https://data.heroku.com/  -> database -> settings -> Database Credentials -> URI
 DATABASE_URL = 'postgres://thdhsoxbktdpux:93abf552793c4d495574746f31eefe83af6935549860f618394d7ba66e657482@ec2-23-23-245-89.compute-1.amazonaws.com:5432/d32aeuhq8264kf'
 
 import urllib.parse as urlparse
