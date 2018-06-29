@@ -308,7 +308,7 @@ def read_display_write(e_rdw): # read and display data in page "sensors" and wri
                 gsh.write_gsh(data, row, wks)
                 row += 1
             LED.led_off()
-            sleep(float(inp['interval'])-0.15)  # interval to write down  the readings--  NOTE: -0.15 s because of the time to write values in the database
+            sleep(float(inp['interval'])-0.14)  # interval to write down  the readings--  NOTE: -0.14 s because of the time to write values in the database
     test_end() # morse code sounds to alert for final test
 
     #disconnect from database
