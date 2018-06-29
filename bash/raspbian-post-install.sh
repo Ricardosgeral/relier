@@ -79,8 +79,7 @@ sudo pip3 install adafruit-ads1x15
 sudo pip3 install RPi.bme280
 sudo pip3 install smbus2
 sudo pip3 install w1thermsensor
-curl https://cli-assets.heroku.com/install-ubuntu.sh | sh  # this installs HEROKU which will be necessary to install relier-web
-
+curl https://cli-assets.heroku.com/install-ubuntu.sh | sh  # this installs HEROKU which will be necessary to relier-web
 echo 'Done.'
 #
 echo '---------------------'
