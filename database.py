@@ -1,16 +1,26 @@
 import psycopg2 as p
 
-#credentials of database in Heroku
-Host = 'ec2-23-21-216-174.compute-1.amazonaws.com'
-Database = 'dbtnt5r45pnmr4'
-User = 'jqgxlpscxtevqg'
-Port = '5432'
-Password = '1430e8562fbf6d737b0561164e8f88c9d8622e3ff866e434705bd29d9fa2cdf4'
-URI = 'postgres://jqgxlpscxtevqg:1430e8562fbf6d737b0561164e8f88c9d8622e3ff866e434705bd29d9fa2cdf4@ec2-23-21-216-174.compute-1.amazonaws.com:5432/dbtnt5r45pnmr4'
-Heroku_CLI = 'heroku pg:psql postgresql-transparent-52313 --app relier-dash'
+#credentials of database in Heroku  # can obtain it from $ heroku config
+DATABASE_URL = 'postgres://thdhsoxbktdpux:93abf552793c4d495574746f31eefe83af6935549860f618394d7ba66e657482@ec2-23-23-245-89.compute-1.amazonaws.com:5432/d32aeuhq8264kf'
+
+import urllib.parse as urlparse
+import os
+
+url = urlparse.urlparse(DATABASE_URL)
+dbname = url.path[1:]
+user = url.username
+password = url.password
+host = url.hostname
+port = url.port
 
 try:
-    con = p.connect(dbname=Database, user=User, password=Password, host=Host)
+    con = p.connect(
+        dbname=dbname,
+        user=user,
+        password=password,
+        host=host,
+        port=port)
+
     cur = con.cursor() # as list
 except:
     print('No connection with Heroku database! DB is local and NO live data streaming!')
