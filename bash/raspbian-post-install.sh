@@ -212,6 +212,26 @@ TMPC="mycron2"
 sudo grep "$CMD" -q <(crontab -l) || (crontab -l>"$TMPC"; echo "$JOB">>"$TMPC"; crontab "$TMPC")
 echo 'Done.'
 #
+#
+echo  '-----------------------------------------------------------------------------'
+echo  '=> Get Docker (required to deploy relier-web)'
+echo  '-----------------------------------------------------------------------------'
+# from  https://www.marksei.com/docker-on-raspberry-pi-raspbian/
+sudo apt-get install \
+     apt-transport-https \
+     ca-certificates \
+     curl \
+     gnupg2 \
+     software-properties-common
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+echo "deb [arch=armhf] https://download.docker.com/linux/debian \
+     $(lsb_release -cs) stable" | \
+     sudo tee /etc/apt/sources.list.d/docker.list
+sudo apt-get update
+sudo apt-get install docker-ce
+systemctl enable --now docker
+#
+#
 echo  '--------------------'
 echo  '=> Final reboot'
 echo  '--------------------'
