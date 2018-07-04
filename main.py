@@ -246,19 +246,25 @@ def read_display_write(e_rdw): # read and display data in page "sensors" and wri
                                         share_email=inp['share_email'])
 
 
+
+
     # connect to databases and clean data from tables
     # deletes all data from the tables in the database
-    db.cur.execute("DELETE FROM testdata;")
-    db.cur.execute("DELETE FROM testinputs;")
+
+    con, cur = db.connect_db()
+
+
+    cur.execute("DELETE FROM testdata;")
+    cur.execute("DELETE FROM testinputs;")
 
     # insert a new row in the database in Heroku
-    db.cur.execute("INSERT INTO testinputs (start, test_name, rec_interval, test_type, mu, bu, mi, bi, md, bd, mturb, bturb) "
+    cur.execute("INSERT INTO testinputs (start, test_name, rec_interval, test_type, mu, bu, mi, bi, md, bd, mturb, bturb) "
                    "VALUES (CURRENT_TIMESTAMP, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);",[ inp['filename'], inp['interval'], inp['testtype'],
                                                                inp['mu'],inp['bu'],inp['mi'],inp['bi'],inp['md'],inp['bd'],
                                                                inp['mturb'], inp['bturb'] ])
 
-    db.con.commit()
-    db.cur.execute('rollback;')
+    con.commit()
+    cur.execute('rollback;')
 
     e_rdw.wait()
     row = 1
@@ -287,7 +293,7 @@ def read_display_write(e_rdw): # read and display data in page "sensors" and wri
 
 
             #insert a new row in the database in Heroku
-            db.cur.execute("INSERT INTO testdata(date_time, duration, mmH2O_up, mmH2O_int, mmH2O_down, turb, flow, volume) "
+            cur.execute("INSERT INTO testdata(date_time, duration, mmH2O_up, mmH2O_int, mmH2O_down, turb, flow, volume) "
                            "VALUES(to_timestamp('{} {}', 'YYYY-MM-DD HH24:MI:SS') ,%s,{},{},{},{},{},{});".format(
                                 data['date'], data['time'],
                                 data['mmH2O_up'],data['mmH2O_int'],data['mmH2O_down'],data['ntu_turb'],data['flow'],
@@ -312,7 +318,8 @@ def read_display_write(e_rdw): # read and display data in page "sensors" and wri
     test_end() # morse code sounds to alert for final test
 
     #disconnect from database
-    db.close_db()
+    cur.close()
+    con.close()
 
     end_rdw.set()
     e_rdw.clear()

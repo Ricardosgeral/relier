@@ -1,7 +1,7 @@
 import psycopg2 as p
 
 #credentials of database in Heroku  # to obtain it $ heroku config, or look in https://data.heroku.com/  -> database -> settings -> Database Credentials -> URI
-DATABASE_URL = 'postgres://thdhsoxbktdpux:93abf552793c4d495574746f31eefe83af6935549860f618394d7ba66e657482@ec2-23-23-245-89.compute-1.amazonaws.com:5432/d32aeuhq8264kf'
+DATABASE_URL = 'postgres://hlbcdpgodkfldl:f0253bdc62e52a14bbe6f27e1dcafca89cf2d7b2c98737c75db9d629e5ccff30@ec2-54-225-230-142.compute-1.amazonaws.com:5432/d8cev46m80dc9d'
 
 import urllib.parse as urlparse
 import os
@@ -13,52 +13,49 @@ password = url.password
 host = url.hostname
 port = url.port
 
-try:
-    con = p.connect(
-        dbname=dbname,
-        user=user,
-        password=password,
-        host=host,
-        port=port)
+def connect_db():
+    try:
+        con = p.connect(
+            dbname=dbname,
+            user=user,
+            password=password,
+            host=host,
+            port=port)
 
-    cur = con.cursor() # as list
-except:
-    print('No connection with Heroku database! DB is local and NO live data streaming!')
-    con= p.connect(dbname='testdata_local', user='relier', password='relier-dash', host='localhost')
-    cur= con.cursor() # as list
+        cur = con.cursor() # as list
+    except:
+        print('No connection with Heroku database! DB is local and NO live data streaming!')
+        con= p.connect(dbname='testdata_local', user='relier', password='relier-dash', host='localhost')
+        cur= con.cursor() # as list
 
-#create table (only first time) with the data results
-try:
-    cur.execute("CREATE TABLE testdata ("
-                 "id serial PRIMARY KEY, "
-                 "date_time timestamp,"
-                 "duration interval, "
-                 "mmH2O_up integer, "
-                 "mmH2O_int integer, "
-                 "mmH2O_down integer, "
-                 "turb float, "
-                 "flow float, "
-                 "volume integer);")
-    con.commit()
-    print('Database table for test results created!')
-except:
-    print('Database table for results already exists! Cleared!')
-    cur.execute('rollback;')
+    #create table (only first time) with the data results
+    try:
+        cur.execute("CREATE TABLE testdata ("
+                     "id serial PRIMARY KEY, "
+                     "date_time timestamp,"
+                     "duration interval, "
+                     "mmH2O_up integer, "
+                     "mmH2O_int integer, "
+                     "mmH2O_down integer, "
+                     "turb float, "
+                     "flow float, "
+                     "volume integer);")
+        con.commit()
+        print('Database table for test results created!')
+    except:
+        print('Database table for results already exists! Data will be cleared!')
+        cur.execute('rollback;')
 
-#create a table to parse test relevant inputs to  heroku app
-try:
-    cur.execute("CREATE TABLE testinputs (start timestamp, test_name varchar, rec_interval integer, test_type integer, "
-                "mu float, bu float,mi float, bi float,md float, bd float,mturb float, bturb float);")
-    con.commit()
-    print('Database table for test inputs created!')
-except:
-    print('Database table for inputs already exists! Cleared!')
-    cur.execute('rollback;')
+    #create a table to parse test relevant inputs to  heroku app
+    try:
+        cur.execute("CREATE TABLE testinputs (start timestamp, test_name varchar(255), rec_interval integer, test_type integer, "
+                    "mu float, bu float,mi float, bi float,md float, bd float,mturb float, bturb float);")
+        con.commit()
+        print('Database table for test inputs created!')
+    except:
+        print('Database table for inputs already exists! Data will be cleared!')
+        cur.execute('rollback;')
 
 
-
-#close connection
-def close_db():
-    cur.close()
-    con.close()
+    return con, cur
 
