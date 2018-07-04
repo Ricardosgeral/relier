@@ -8,7 +8,7 @@
 # A raspbian post-install script for relier (Erosion Laboratory Test Software) server
 # Usage: see README.md https://github.com/Ricardosgeral/relier/blob/master/README.md
 #
-# check if sudo is used
+# make  sure that you use sudo to run this script
 if [ "$(id -u)" != 0 ]; then
   echo 'Sorry, you need to run this script with sudo'
   exit 1
