@@ -30,7 +30,7 @@ from analogsensor_thread import AnalogSensor, GAIN
 from digitalSen_thread import WTemp
 from datetime import datetime
 import pigpio   # needs to be installed for callback https://www.raspberrypi.org/forums/viewtopic.php?t=66445
-import bme280   # temperature/humidity/pressure sensor BME280 # github.com/rm-hull/bme280: $ sudo pip install RPi.bme280
+import BME280   # temperature/humidity/pressure sensor BME280 # github.com/rm-hull/bme280: $ sudo pip install RPi.bme280
 import smbus2   # required for bme280
 import Adafruit_ADS1x15  # Analogic digital conversor ADS 15 bit 2^15-1=32767 (needs to be installed using pip3)
 adc = Adafruit_ADS1x15.ADS1115(address=0x48, busnum=1)  # address of ADC See in -- sudo i2cdetect -y 1
@@ -203,7 +203,7 @@ def get_data(interval, mu, mi, md, bu, bi, bd, mturb, bturb, zerou, zeroi, zerod
 
     # (BME280) Air temperature + pressure + humidity
     try:
-        b = bme280.sample(bus, address)
+        b = BME280.sample(bus, address)
         air_temp     = str(b.temperature)
         air_pressure = str(b.pressure)
         air_humidity = str(b.humidity)
