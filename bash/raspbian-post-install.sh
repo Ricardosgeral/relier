@@ -211,8 +211,6 @@ TMPC="mycron2"
 sudo grep "$CMD" -q <(crontab -l) || (crontab -l>"$TMPC"; echo "$JOB">>"$TMPC"; crontab "$TMPC")
 echo 'Done.'
 #
-#
-#
 echo  '--------------------'
 echo  '=> Final reboot'
 echo  '--------------------'
