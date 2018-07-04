@@ -7,7 +7,7 @@
 #  and a shutdown function on one GPIO button
 # scruss - 2017-10
 
-use_button=22
+use_button=17
 
 from gpiozero import Button
 from signal import pause
