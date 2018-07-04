@@ -67,7 +67,6 @@ echo  '=> Install developer packages (python 3.5)'
 echo  '------------------------------------------'
 echo '=> Install developer packages'
 #
-
 sudo apt-get install -y python3-pandas
 sudo pip3 install --upgrade pip
 sudo pip3 install pygsheets
