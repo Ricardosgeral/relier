@@ -224,7 +224,7 @@ def read_display(e_rd): #read and display data in page "analog"
 ##################
 
 def read_display_write(e_rdw): # read and display data in page "sensors" and write to file
-    global stop
+    global stop, con, cur
     #first, check if HET test is selected
     if inp['testtype'] == '3':  # if HET test is the selection
         nxlib.nx_setcmd_2par(ser, 'vis', 'txt_pi', 0)
@@ -245,26 +245,6 @@ def read_display_write(e_rdw): # read and display data in page "sensors" and wri
                                         wsheet_title=inp['filename'],
                                         share_email=inp['share_email'])
 
-
-
-
-    # connect to databases and clean data from tables
-    # deletes all data from the tables in the database
-
-    con, cur = db.connect_db()
-
-
-    cur.execute("DELETE FROM testdata;")
-    cur.execute("DELETE FROM testinputs;")
-
-    # insert a new row in the database in Heroku
-    cur.execute("INSERT INTO testinputs (start, test_name, rec_interval, test_type, mu, bu, mi, bi, md, bd, mturb, bturb) "
-                   "VALUES (CURRENT_TIMESTAMP, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);",[ inp['filename'], inp['interval'], inp['testtype'],
-                                                               inp['mu'],inp['bu'],inp['mi'],inp['bi'],inp['md'],inp['bd'],
-                                                               inp['mturb'], inp['bturb'] ])
-
-    con.commit()
-    cur.execute('rollback;')
 
     e_rdw.wait()
     row = 1
@@ -317,7 +297,7 @@ def read_display_write(e_rdw): # read and display data in page "sensors" and wri
             sleep(float(inp['interval'])-0.14)  # interval to write down  the readings--  NOTE: -0.14 s because of the time to write values in the database
     test_end() # morse code sounds to alert for final test
 
-    #disconnect from database
+    # disconnect from database
     cur.close()
     con.close()
 
@@ -389,13 +369,33 @@ def detect_touch(e_rd, e_rdw):
 
                 elif (pageID_touch,compID_touch) == (2,3):  # button start record (comp3) in page 2 is pressed
                     end_rdw.clear()
-                    global start, stop
+                    global start, stop, con, cur
                     input_update()
                     srv.init(int(inp['interval']),
                              int(inp['no_reads']))
                     t_rdw = threading.Thread(target=read_display_write, name='Read/Write/Display', args=(e_rdw,))
                     t_rdw.start()
                     sleep(1)  # necessary to allow enough time to start the 1º read of the ads1115 and sensor temp
+
+                    # connect to databases and clean data from tables
+                    # deletes all data from the tables in the database
+
+                    con, cur = db.connect_db()
+
+                    cur.execute("DELETE FROM testdata;")
+                    cur.execute("DELETE FROM testinputs;")
+
+                    # insert a new row in the database in Heroku
+                    cur.execute(
+                        "INSERT INTO testinputs (start, test_name, rec_interval, test_type, mu, bu, mi, bi, md, bd, mturb, bturb) "
+                        "VALUES (CURRENT_TIMESTAMP, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);",
+                        [inp['filename'], inp['interval'], inp['testtype'],
+                         inp['mu'], inp['bu'], inp['mi'], inp['bi'], inp['md'], inp['bd'],
+                         inp['mturb'], inp['bturb']])
+
+                    con.commit()
+                    cur.execute('rollback;')
+
 
                     e_rdw.set()        #start read_write_display()
                     start = time.time()
@@ -476,6 +476,10 @@ def detect_touch(e_rd, e_rdw):
                     ip = get_ip_address()
                     nxlib.nx_setValue(ser, nxApp.ID_status[0], nxApp.ID_status[1], 1)  # green flag
                     nxlib.nx_setText(ser, nxApp.ID_ip[0], nxApp.ID_ip[1], ip)
+
+                    # disconnect from database
+                    cur.close()
+                    con.close()
 
             sleep(look_touch)  ### timeout the bigger the larger the chance of missing a push
         except:
