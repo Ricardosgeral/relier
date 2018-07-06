@@ -12,7 +12,7 @@ use_button=17
 from gpiozero import Button
 from signal import pause
 from subprocess import check_call
-import led_blink as LED
+import RGBled as LED
 
 held_for=0.0
 

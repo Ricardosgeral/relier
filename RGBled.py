@@ -5,18 +5,18 @@
 
 import RPi.GPIO as GPIO
 from time import sleep
-redPin = 36    # GPIO16
-greenPin = 40  # GPIO21
-bluePin = 37   # GPIO26
+redPin = 16    # GPIO16 pin 16
+greenPin = 21  # GPIO21 pin 40
+bluePin = 26   # GPIO26 pin 37
 
 def blink(pin):
-    GPIO.setmode(GPIO.BOARD)
+    GPIO.setmode(GPIO.BCM)
     GPIO.setwarnings(False)
     GPIO.setup(pin, GPIO.OUT)
     GPIO.output(pin, GPIO.HIGH)
 
 def turnOff(pin):
-    GPIO.setmode(GPIO.BOARD)
+    GPIO.setmode(GPIO.BCM)
     GPIO.setup(pin, GPIO.OUT)
     GPIO.output(pin, GPIO.LOW)
 
@@ -72,11 +72,25 @@ def whiteOff():
     turnOff(greenPin)
     turnOff(bluePin)
 
+def shutdown_led(): #10 fast red flashes
+    for i in range(10):
+        redOn()
+        sleep(0.1)
+        redOff()
+        sleep(0.1)
+
+def reboot_led(): #10 fast blue flashes
+    for i in range(10):
+        blueOn()
+        sleep(0.1)
+        blueOff()
+        sleep(0.1)
+reboot_led()
+
+def main():
 #print("""Ensure the following GPIO connections: R-36, G-40, B-37
 #Colors: Red, Green, Blue, Yellow, Cyan, Magenta, and White
 #Use the format: color on/color off""")
-
-def main():
     while True:
         cmd = input("-->")
 

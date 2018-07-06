@@ -168,7 +168,7 @@ The *Hardware* is composed by the:
 + 6x [XH2.54 3-Pins connectors with right angle Male for PCB - Header+Housing+Terminal](https://www.aliexpress.com/item/XH2-54-2P-3P-4P-5P-6P-7P-8P-9P-10P-11P-12P-13P-14P-15P/32793262315.html?spm=a2g0s.9042311.0.0.DEz5gr) [3 €]
 + 1x [2.54mm 2x20 DC3 40 Pin Right Angle Male for PCB](https://www.aliexpress.com/item/10pcs-2-54mm-2x20-DC3-40-Pin-Right-Angle-Male-Shrouded-PCB-IDC-Socket-Box-header/32597308721.html?spm=a2g0s.9042311.0.0.y1HFgb) [4 €]
 + 1x [Momentary pushbutton switch 3A Reset Button](https://www.aliexpress.com/item/10pcs-Momentary-Push-Button-Switch-12mm-Momentary-pushbutton-switches-3A-125VAC-1-5A-250VAC-Reset-Button/32802331189.html?spm=a2g0s.9042311.0.0.1PWJGq) [2 €]
-+ 1x 3 mm LED [< 1 €]
++ 1x 3 mm RGB LED [< 1 €]
 + 1x Active Buzzer Alarm 5 V  [< 1 €]
 + 3x 10 kΩ carbon film resistor [< 1 €]
 + 1x 20 kΩ carbon film resistor [< 1 €]
@@ -341,7 +341,8 @@ Pushing the *Home* button will send you to the **Credits** page.
 ![page6](Nextion/GUI/page6.PNG)
 
 This page appears once the *Start* green button in **Main menu** is released. 
-The data being recorded appears in the screen and is updated at a constant rate (interval  defined in the *General settings*).
+Each time the acquisition systems records a set of values, the LED will blink with a green color.
+After a couple of seconds, the data being recorded appears in the screen and is updated at a constant rate (interval  defined in the *General settings*).
 
 If 'Google Sheets' option has been selected, the first reading can take more than normal (due to the request to access the Google API).
 
@@ -525,8 +526,8 @@ with the inputs.
  This also implies writing two rules in file *99-local.rules*.
 - Combined Restart / Shutdown Button for Raspberry Pi 
 (using a [*systemd service*](https://wiki.debian.org/systemd)) more info see [shutdown_button](https://github.com/scruss/shutdown_button): 
-   + *Reboot*: hold the button more than 2 seconds but less than 5 seconds. The red LED blinks fast 10x and then the RPi reboots. 
-   + *Shutdown*: hold the button more than 5 seconds. Before shutdown, the red LED first blinks 5x. 
+   + *Reboot*: hold the button more than half second but less than 3 seconds. The LED blinks with blue color and then the RPi reboots. 
+   + *Shutdown*: hold the button more than 3 seconds. The LED blinks with red color and then the RPi shutdowns.
    Note, that the Raspberry Pi is still powered. 
  You still need to unplug the micro USB cable, to power off the server. 
  To restart the server after a shutdown, just power up the server again.

@@ -14,7 +14,7 @@ import socket
 import rw_ini as rw
 import write_csv_data
 import google_sheets as gsh
-import led_blink as LED
+import RGBled as LED
 from endbips import test_end # for Buzzer
 import database as db
 
@@ -251,7 +251,7 @@ def read_display_write(e_rdw): # read and display data in page "sensors" and wri
     zero_vol = 0
     while end_rdw.is_set() == False and time.time() < stop+int(inp['interval']):
         if time.time() < stop+int(inp['interval']):
-            LED.led_on()
+            LED.greenOn()
             e_rdw.wait()
             current = time.time()
             elapsed = current - start# restart thread t_rdw
@@ -293,7 +293,7 @@ def read_display_write(e_rdw): # read and display data in page "sensors" and wri
             if export_google in ['yes', 'Yes', 'YES', 'y', 'Y', 'yep'] and gsh.google_creds == True:
                 gsh.write_gsh(data, row, wks)
                 row += 1
-            LED.led_off()
+            LED.greenOff()
             sleep(float(inp['interval'])-0.14)  # interval to write down  the readings--  NOTE: -0.14 s because of the time to write values in the database
     test_end() # morse code sounds to alert for final test
 
@@ -472,7 +472,10 @@ def detect_touch(e_rd, e_rdw):
                     t_rdw.join()
                     e_rdw.clear()
 
-                    LED.fast_5blinks()
+                    LED.magentaOn()
+                    sleep(1)
+                    LED.magentaOff()
+
                     ip = get_ip_address()
                     nxlib.nx_setValue(ser, nxApp.ID_status[0], nxApp.ID_status[1], 1)  # green flag
                     nxlib.nx_setText(ser, nxApp.ID_ip[0], nxApp.ID_ip[1], ip)
