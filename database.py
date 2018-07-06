@@ -47,14 +47,13 @@ def connect_db():
 
     #create a table to parse test relevant inputs to  heroku app
     try:
-        cur.execute("CREATE TABLE testinputs (start timestamp, test_name text(), rec_interval integer, test_type integer, "
+        cur.execute("CREATE TABLE testinputs (start timestamp, test_name text, rec_interval integer, test_type integer, "
                     "mu float, bu float,mi float, bi float,md float, bd float,mturb float, bturb float);")
         con.commit()
         print('Database table for test inputs created!')
     except:
         print('Database table for inputs already exists! Data will be cleared!')
         cur.execute('rollback;')
-
 
     return con, cur
 

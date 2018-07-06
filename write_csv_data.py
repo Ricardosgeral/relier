@@ -34,9 +34,9 @@ def write_data(data, data_file):
                     'liters',
                     'water_temp',
                     'air_temp',
-                    'air_pressure',
-                    'air_humidity',
-                ]
+                    'air_hum',
+                    'air_pres',
+    ]
 
     #Put csv extention if not present
     if data_file[-4:] != '.csv':

@@ -177,12 +177,12 @@ def display_sensors(data):   #outputs
     nxlib.nx_setText(ser, nxApp.ID_pi[0], nxApp.ID_pi[1],str(data['mmH2O_int']))
     nxlib.nx_setText(ser, nxApp.ID_pd[0], nxApp.ID_pd[1],str(data['mmH2O_down']))
     nxlib.nx_setText(ser, nxApp.ID_turb[0], nxApp.ID_turb[1],str(data['ntu_turb']))
-    nxlib.nx_setText(ser, nxApp.ID_tw[0], nxApp.ID_tw[1],str(data['water_temp']))
     nxlib.nx_setText(ser, nxApp.ID_liters[0], nxApp.ID_liters[1],str(data['liters']))
     nxlib.nx_setText(ser, nxApp.ID_flow[0], nxApp.ID_flow[1],str(data['flow']))
-    # nxlib.nx_setText(ser, ID_ta[0], ID_ta[1],str(data['air_temp']))
-    # nxlib.nx_setText(ser, ID_hd[0], ID_hd[1],str(data['air_hum']))
-    # nxlib.nx_setText(ser, ID_pa[0], ID_pa[1],str(data['air_press']))
+    nxlib.nx_setText(ser, nxApp.ID_tw[0], nxApp.ID_tw[1],str(data['water_temp']))
+    nxlib.nx_setText(ser, nxApp.ID_ta[0], nxApp.ID_ta[1],str(data['air_temp']))
+    nxlib.nx_setText(ser, nxApp.ID_hd[0], nxApp.ID_hd[1],str(data['air_hum']))
+    nxlib.nx_setText(ser, nxApp.ID_pa[0], nxApp.ID_pa[1],str(data['air_pres']))
 
 
 #DEFAULT INPUTS #####################

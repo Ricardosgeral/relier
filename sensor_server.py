@@ -27,11 +27,9 @@ It also records the time and date of the measure.
 # Libraries required
 from time import sleep
 from analogsensor_thread import AnalogSensor, GAIN
-from digitalSen_thread import WTemp
+from digitalSen_thread import D_Temp
 from datetime import datetime
 import pigpio   # needs to be installed for callback https://www.raspberrypi.org/forums/viewtopic.php?t=66445
-import BME280   # temperature/humidity/pressure sensor BME280 # github.com/rm-hull/bme280: $ sudo pip install RPi.bme280
-import smbus2   # required for bme280
 import Adafruit_ADS1x15  # Analogic digital conversor ADS 15 bit 2^15-1=32767 (needs to be installed using pip3)
 adc = Adafruit_ADS1x15.ADS1115(address=0x48, busnum=1)  # address of ADC See in -- sudo i2cdetect -y 1
 
@@ -74,22 +72,17 @@ pi.set_mode(FLOW_ch, pigpio.INPUT)
 pi.set_pull_up_down(FLOW_ch, pigpio.PUD_UP)
 callback = pi.callback(FLOW_ch) # default tally (contagem) callback
 
-# for the temp+humidity+barometric pressure (BME280)
-address = 0x76
-port = 1
-bus = smbus2.SMBus(port) # needed for bme280
-#bme280.load_calibration_params(bus, address)  # ?Don't understand this!
 
 # Global variables
 analog_sensor = None
-wtemp_sensor = None
+d_temp_sensor = None
 global zerou, zeroi, zerod  # to zero the piezometric pressures (datum)
 tempTread_flag = False
 analogTread_flag = False
 
 def init(interval, no_reads):
     global analog_sensor
-    global wtemp_sensor
+    global d_temp_sensor
     global pulses
 
     pulses = 0      #starts the counting of pulses of the flowmeter
@@ -97,10 +90,10 @@ def init(interval, no_reads):
 
     #create the threads ('parallel' calculations for analog sensors and temp sensors)
     global tempTread_flag
-    if tempTread_flag == False:  # avoids having multiple threats wtemp_sensor running
-        wtemp_sensor = WTemp(interval - 0.1)  # the sensor takes +-0.750s to read. so it's placed in a thread)
-        wtemp_sensor.name = "temp_sensors"  #give a name to thread for better debugging
-        wtemp_sensor.start()
+    if tempTread_flag == False:  # avoids having multiple threats d_temp_sensor running
+        d_temp_sensor = D_Temp(interval - 0.1)  # the sensor takes +-0.750s to read. so it's placed in a thread)
+        d_temp_sensor.name = "dig temp sensors"  #give a name to thread for better debugging
+        d_temp_sensor.start()
         tempTread_flag = True
 
     global analogTread_flag
@@ -144,15 +137,15 @@ def get_data(interval, mu, mi, md, bu, bi, bd, mturb, bturb, zerou, zeroi, zerod
         turb (int): the analog value of the turbidity (from 0 to 32768).
         water_temp (float): the temperature of the water in Celsius.
         air_temp (float): the ambient temperature in Celsius.
-        air_pressure (float): the barometric pressure in Pascal.
-        air_humidity (float): the ambient humidity in %
+        air_hum (float): the ambient humidity in %
+        air_pres (float): the barometric pressure in Pascal.
 
     Returns:
         dict: The data in the order of the fieldnames.
 
     """
     global analog_sensor
-    global wtemp_sensor
+    global d_temp_sensor
     global pulses
 
     # Date (DD-MM-YYY) and time (HH:MM:SS)
@@ -160,13 +153,20 @@ def get_data(interval, mu, mi, md, bu, bi, bd, mturb, bturb, zerou, zeroi, zerod
     time_ = '{:%H:%M:%S}'.format(d)
     date_ = '{:%Y-%m-%d}'.format(d)
 
-    # (DS18B) Water temperature
+    # (DS18B) Water temperature + BME280
     try:
-        water_temp = wtemp_sensor.read_temp()
+        water_temp, air_temp, air_hum, air_pres = d_temp_sensor.read_d_temp()
         if water_temp == 0: # due to the reading time of the sensor the first reading may not be possible
             water_temp = 0
+        if air_temp == 0:
+            air_hum = 0
+            air_pres = 0
     except:
         water_temp = 0
+        air_temp = 0
+        air_hum = 0
+        air_pres = 0
+
 
     #flowmeter
     pulses_last = pulses
@@ -201,16 +201,6 @@ def get_data(interval, mu, mi, md, bu, bi, bd, mturb, bturb, zerou, zeroi, zerod
     turb = analog[TURB_ch]
     ntu_turb = mturb*turb + bturb
 
-    # (BME280) Air temperature + pressure + humidity
-    try:
-        b = BME280.sample(bus, address)
-        air_temp     = str(b.temperature)
-        air_pressure = str(b.pressure)
-        air_humidity = str(b.humidity)
-    except:
-        air_temp = 0
-        air_pressure = 0
-        air_humidity = 0
 
     return {
         'date':         date_,
@@ -229,9 +219,10 @@ def get_data(interval, mu, mi, md, bu, bi, bd, mturb, bturb, zerou, zeroi, zerod
         'flow':         round(flowrate,2),
         'liters':       round(total_liters),
         'water_temp':   round(water_temp,1),
-        'air_temp':     air_temp,
-        'air_pressure': air_pressure,
-        'air_humidity': air_humidity
+        'air_temp':     round(air_temp,1),
+        'air_hum':      round(air_hum,1),
+        'air_pres':     round(air_pres),
+
     }
 
 #
