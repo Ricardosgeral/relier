@@ -24,11 +24,11 @@ def line2(x1,y1,x2,y2):  #x = volts ; y = psi 32767
     #print("Line Solution is y = {m}x + {c}".format(m=m, c=c))
     return round(m,4), round(c,4)
 
-pu= line2(0.501,0,  4.5,5)
+pu= line2(0.495,0,  4.5,5)
 print(pu)
-pi= line2(0.5,0,  4.5,5)
+pi= line2(0.495,0,  4.5,5)
 print(pi)
-pd= line2(0.538,0,  4.5,15)
+pd= line2(0.493,0,  4.5,5)
 print(pd)
-turb= line2(32767,100,  800,20000)  #analog, #NTU
+turb= line2(30000,100,  3000,2000)  #analog, #NTU
 print(turb)

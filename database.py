@@ -29,9 +29,10 @@ def connect_db():
 
     #create table (only first time) with the data results
     try:
+        #cur.execute("SET timezone = 'Europe/Lisbon Portugal';") # https://www.postgresql.org/docs/8.1/static/datetime-keywords.html
         cur.execute("CREATE TABLE testdata ("
                      "id serial PRIMARY KEY, "
-                     "date_time timestamp,"
+                     "date_time timestamptz,"
                      "duration interval, "
                      "mmH2O_up integer, "
                      "mmH2O_int integer, "
@@ -47,7 +48,7 @@ def connect_db():
 
     #create a table to parse test relevant inputs to  heroku app
     try:
-        cur.execute("CREATE TABLE testinputs (start timestamp, test_name text, rec_interval integer, test_type integer, "
+        cur.execute("CREATE TABLE testinputs (start timestamptz, test_name text, rec_interval integer, test_type integer, "
                     "mu float, bu float,mi float, bi float,md float, bd float,mturb float, bturb float);")
         con.commit()
         print('Database table for test inputs created!')

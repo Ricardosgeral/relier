@@ -271,9 +271,9 @@ def read_display_write(e_rdw): # read and display data in page "sensors" and wri
 
             write_csv_data.write_data(data = data, data_file = inp['filename'])
 
-
-            #insert a new row in the database in Heroku
-            cur.execute("INSERT INTO testdata(date_time, duration, mmH2O_up, mmH2O_int, mmH2O_down, turb, flow, volume) "
+            if get_ip_address() != 'No internet connection':
+            #insert a new row in the database in Heroku (only when there is internet)
+                cur.execute("INSERT INTO testdata(date_time, duration, mmH2O_up, mmH2O_int, mmH2O_down, turb, flow, volume) "
                            "VALUES(to_timestamp('{} {}', 'YYYY-MM-DD HH24:MI:SS') ,%s,{},{},{},{},{},{});".format(
                                 data['date'], data['time'],
                                 data['mmH2O_up'],data['mmH2O_int'],data['mmH2O_down'],data['ntu_turb'],data['flow'],
@@ -295,7 +295,6 @@ def read_display_write(e_rdw): # read and display data in page "sensors" and wri
                 row += 1
             LED.greenOff()
             sleep(float(inp['interval'])-0.14)  # interval to write down  the readings--  NOTE: -0.14 s because of the time to write values in the database
-    test_end() # morse code sounds to alert for final test
 
     # disconnect from database
     cur.close()
@@ -303,6 +302,9 @@ def read_display_write(e_rdw): # read and display data in page "sensors" and wri
 
     end_rdw.set()
     e_rdw.clear()
+
+    test_end() # morse code sounds to alert for final test
+
     nxlib.nx_setcmd_1par(ser, 'page', 'credits')
     ip = get_ip_address()
     nxlib.nx_setValue(ser, nxApp.ID_status[0], nxApp.ID_status[1], 1)  # green flag
@@ -379,23 +381,24 @@ def detect_touch(e_rd, e_rdw):
 
                     # connect to databases and clean data from tables
                     # deletes all data from the tables in the database
+                    try:
+                        con, cur = db.connect_db()
 
-                    con, cur = db.connect_db()
+                        cur.execute("DELETE FROM testdata;")
+                        cur.execute("DELETE FROM testinputs;")
 
-                    cur.execute("DELETE FROM testdata;")
-                    cur.execute("DELETE FROM testinputs;")
+                        # insert a new row in the database in Heroku
+                        cur.execute(
+                            "INSERT INTO testinputs (start, test_name, rec_interval, test_type, mu, bu, mi, bi, md, bd, mturb, bturb) "
+                            "VALUES (to_timestamp('{}', 'YYYY-MM-DD HH24:MI') , %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);".format(datetime.datetime.now()),
+                            [inp['filename'], inp['interval'], inp['testtype'],
+                             inp['mu'], inp['bu'], inp['mi'], inp['bi'], inp['md'], inp['bd'],
+                             inp['mturb'], inp['bturb']])
 
-                    # insert a new row in the database in Heroku
-                    cur.execute(
-                        "INSERT INTO testinputs (start, test_name, rec_interval, test_type, mu, bu, mi, bi, md, bd, mturb, bturb) "
-                        "VALUES (CURRENT_TIMESTAMP, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);",
-                        [inp['filename'], inp['interval'], inp['testtype'],
-                         inp['mu'], inp['bu'], inp['mi'], inp['bi'], inp['md'], inp['bd'],
-                         inp['mturb'], inp['bturb']])
-
-                    con.commit()
-                    cur.execute('rollback;')
-
+                        con.commit()
+                        cur.execute('rollback;')
+                    except:
+                        pass
 
                     e_rdw.set()        #start read_write_display()
                     start = time.time()
