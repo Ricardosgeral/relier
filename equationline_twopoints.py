@@ -24,7 +24,7 @@ def line2(x1,y1,x2,y2):  #x = volts ; y = psi 32767
     #print("Line Solution is y = {m}x + {c}".format(m=m, c=c))
     return round(m,4), round(c,4)
 
-pu= line2(0.495,0,  4.5,5)
+pu= line2(0.510015,0,  4.0216,4.35113)
 print(pu)
 pi= line2(0.495,0,  4.5,5)
 print(pi)

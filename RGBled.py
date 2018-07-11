@@ -85,7 +85,6 @@ def reboot_led(): #10 fast blue flashes
         sleep(0.1)
         blueOff()
         sleep(0.1)
-reboot_led()
 
 def main():
 #print("""Ensure the following GPIO connections: R-36, G-40, B-37
