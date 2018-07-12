@@ -29,6 +29,7 @@ from time import sleep
 from analogsensor_thread import AnalogSensor, GAIN
 from digitalSen_thread import D_Temp
 from datetime import datetime
+from math import log as log
 import pigpio   # needs to be installed for callback https://www.raspberrypi.org/forums/viewtopic.php?t=66445
 import Adafruit_ADS1x15  # Analogic digital conversor ADS 15 bit 2^15-1=32767 (needs to be installed using pip3)
 adc = Adafruit_ADS1x15.ADS1115(address=0x48, busnum=1)  # address of ADC See in -- sudo i2cdetect -y 1
@@ -198,8 +199,8 @@ def get_data(interval, mu, mi, md, bu, bi, bd, mturb, bturb, zerou, zeroi, zerod
         bar[PRESSINT_ch]= 0
         mmH2O[PRESSINT_ch]= 0
 
-    turb = analog[TURB_ch]
-    ntu_turb = mturb*turb + bturb
+    turb_analog = analog[TURB_ch]           # analog 0 to 32767
+    turb = mturb*log(turb_analog) + bturb   # grams/liter  y=m.ln(x) + b     base e
 
 
     return {
@@ -215,7 +216,7 @@ def get_data(interval, mu, mi, md, bu, bi, bd, mturb, bturb, zerou, zeroi, zerod
         'mmH2O_int':    round(mmH2O[PRESSINT_ch]),
         'mmH2O_down':   round(mmH2O[PRESSDW_ch]),
         'ana_turb':     round(analog[TURB_ch]), #analog number
-        'ntu_turb':     round(ntu_turb),
+        'turb':     round(turb),
         'flow':         round(flowrate,2),
         'liters':       round(total_liters),
         'water_temp':   round(water_temp,1),

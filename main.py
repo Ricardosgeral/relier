@@ -166,7 +166,7 @@ def display_analog(data):  #outputs
     nxlib.nx_setText(ser, nxApp.ID_baru[0], nxApp.ID_baru[1],str(data['bar_up']*1000))
     nxlib.nx_setText(ser, nxApp.ID_bari[0], nxApp.ID_bari[1],str(data['bar_int']*1000))
     nxlib.nx_setText(ser, nxApp.ID_bard[0], nxApp.ID_bard[1],str(data['bar_down']*1000))
-    nxlib.nx_setText(ser, nxApp.ID_ntu[0],  nxApp.ID_ntu[1],str(data['ntu_turb']))
+    nxlib.nx_setText(ser, nxApp.ID_ntu[0],  nxApp.ID_ntu[1],str(data['turb']))
 
 def display_sensors(data):   #outputs
     now = datetime.datetime.now()
@@ -176,7 +176,7 @@ def display_sensors(data):   #outputs
     nxlib.nx_setText(ser, nxApp.ID_pu[0], nxApp.ID_pu[1],str(data['mmH2O_up']))
     nxlib.nx_setText(ser, nxApp.ID_pi[0], nxApp.ID_pi[1],str(data['mmH2O_int']))
     nxlib.nx_setText(ser, nxApp.ID_pd[0], nxApp.ID_pd[1],str(data['mmH2O_down']))
-    nxlib.nx_setText(ser, nxApp.ID_turb[0], nxApp.ID_turb[1],str(data['ntu_turb']))
+    nxlib.nx_setText(ser, nxApp.ID_turb[0], nxApp.ID_turb[1],str(data['turb']))
     nxlib.nx_setText(ser, nxApp.ID_liters[0], nxApp.ID_liters[1],str(data['liters']))
     nxlib.nx_setText(ser, nxApp.ID_flow[0], nxApp.ID_flow[1],str(data['flow']))
     nxlib.nx_setText(ser, nxApp.ID_tw[0], nxApp.ID_tw[1],str(data['water_temp']))
@@ -271,12 +271,14 @@ def read_display_write(e_rdw): # read and display data in page "sensors" and wri
 
             write_csv_data.write_data(data = data, data_file = inp['filename'])
 
-            if get_ip_address() != 'No internet connection':
+            ip = get_ip_address()
+
+            if ip != 'No internet connection':
             #insert a new row in the database in Heroku (only when there is internet)
                 cur.execute("INSERT INTO testdata(date_time, duration, mmH2O_up, mmH2O_int, mmH2O_down, turb, flow, volume) "
                            "VALUES(to_timestamp('{} {}', 'YYYY-MM-DD HH24:MI:SS') ,%s,{},{},{},{},{},{});".format(
                                 data['date'], data['time'],
-                                data['mmH2O_up'],data['mmH2O_int'],data['mmH2O_down'],data['ntu_turb'],data['flow'],
+                                data['mmH2O_up'],data['mmH2O_int'],data['mmH2O_down'],data['turb'],data['flow'],
                                 data['liters'],inp['interval']),
                                 [elapsed,]
                           )
@@ -294,7 +296,13 @@ def read_display_write(e_rdw): # read and display data in page "sensors" and wri
                 gsh.write_gsh(data, row, wks)
                 row += 1
             LED.greenOff()
-            sleep(float(inp['interval'])-0.14)  # interval to write down  the readings--  NOTE: -0.14 s because of the time to write values in the database
+
+            if ip != 'No internet connection':
+                delay = 0.16 # interval to write down  the readings--  NOTE: -0.16 s because of the time to write values in the database
+            else:
+                delay=0
+
+            sleep(float(inp['interval'])-delay)
 
     # disconnect from database
     cur.close()

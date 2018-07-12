@@ -29,7 +29,7 @@ def write_data(data, data_file):
                     'mmH2O_int',
                     'mmH2O_down',
                     'ana_turb', # analog number
-                    'ntu_turb',
+                    'turb',     # grams of soil/cm3 of water
                     'flow',
                     'liters',
                     'water_temp',
