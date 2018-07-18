@@ -312,10 +312,10 @@ This page is used to set the calibration parameters of the analog sensors (press
 For the pressure sensors a linear relation, between the analog readings and the effective measurements, is assumed. 
 For the turbidity sensor a logarithmic (Napier base) relation is assumed. ***m*** and ***b*** are the calibration parameters.
 
-| Sensors             | ***x*** (analog from ADC)    | ***y*** (digital measurements) | Relation y = f(x)      |
-|:--------------------|:-----------------------------|:-------------------------------|-----------------------|
-| Pressure transducer | voltage (*mV*)               | pressure (*mbar*)              | ***y = mx + b***      |
-| Turbidity           | 0 to 32767 (15 bits >> 2^15) | turbidity (g/cm^3)             | ***y = m ln(x) + b*** |
+| Sensors             | ***x*** (analog from ADC)    | ***y*** (measurements) | Relation y = f(x)      |
+|:--------------------|:-----------------------------|:-----------------------|------------------------|
+| Pressure transducer | voltage (*mV*)               | pressure (*mbar*)      | ***y = mx + b***       |
+| Turbidity           | 0 to 32767 (15 bits >> 2^15) | turbidity (g/cm^3)     | ***y = m ln(x) + b***  |
 
 
 a) ***Calibration* pushbutton**: to update readings.
