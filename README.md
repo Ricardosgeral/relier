@@ -309,13 +309,13 @@ To go back to the **General settings** page, click the blue return button.
 ![page5](Nextion/GUI/page5.PNG)
 
 This page is used to set the calibration parameters of the analog sensors (pressure and turbidity sensors).
-For the pressure sensors is assumed a linear relation (***y = mx + b***) between the analog readings and the effective measurements. 
-For the turbidity sensor a logarithmic (Napier base) relation (***y = m ln(x) + b***) is assumed.
+For the pressure sensors a linear relation, between the analog readings and the effective measurements, is assumed. 
+For the turbidity sensor a logarithmic (Napier base) relation is assumed. ***m*** and ***b*** are the calibration parameters.
 
-| Sensors             | ***x*** (analog from ADC)    | ***y*** (digital measurements) | Relation          |
-|:--------------------|:-----------------------------|:-------------------------------|-------------------|
-| Pressure transducer | voltage (*mV*)               | pressure (*mbar*)              | y = mx + b        |
-| Turbidity           | 0 to 32767 (15 bits >> 2^15) | turbidity (g/cm^3)             | y = m ln(x) + b   |
+| Sensors             | ***x*** (analog from ADC)    | ***y*** (digital measurements) | Relation y = f(x)      |
+|:--------------------|:-----------------------------|:-------------------------------|-----------------------|
+| Pressure transducer | voltage (*mV*)               | pressure (*mbar*)              | ***y = mx + b***      |
+| Turbidity           | 0 to 32767 (15 bits >> 2^15) | turbidity (g/cm^3)             | ***y = m ln(x) + b*** |
 
 
 a) ***Calibration* pushbutton**: to update readings.
@@ -354,19 +354,21 @@ Pushing the *Home* button will send you to the **Credits** page.
 ![page6](Nextion/GUI/page6.PNG)
 
 This page appears once the *Start* green button in **Main menu** is released. 
-Each time the acquisition systems records a set of values, the LED will blink with a green color.
-After a couple of seconds, the data being recorded appears in the screen and is updated at a constant rate (interval  defined in the *General settings*).
+After a couple of seconds, the data being recorded appears in the screen and is updated at a constant rate (*interval* input parameter).
 
 If 'Google Sheets' option has been selected, the first reading can take more than normal (due to the request to access the Google API).
+
+Each time the acquisition system records a set of values, the LED will blink with a green color.
 
 If you want to stop the test, prior to the test duration defined in settings, 
 just press the *Red button*, which will redirect you to the **Stop sensor data recording** confirmation page.
 
 When the chosen test duration is achieved, the server stops acquiring the data. 
-The buzz emits some sounds (SOS in morse code! :) ), and screen is set to *Credits* page.
+The buzz emits some sounds (SOS in morse code! :) ), and the screen is sent to *Credits* page.
 
-**Note:** if you want to record data 'forever', set the *Test time duration* to **0**. 
-Actually, it will not record forever. *'Forever'* should be understood as 2 months (86400 minutes!).
+**Note:** if you want to record data 'forever', set the *Test time duration* input parameter to **0**. 
+Actually, it will not record indefinitely. *'Forever'* should be understood as 2 months (86400 minutes!).
+
 
 ### *7 - Stop sensors data recording*
 ![page7](Nextion/320x240/page7-stop0.png)
@@ -374,8 +376,19 @@ Actually, it will not record forever. *'Forever'* should be understood as 2 mont
 Here you confirm that you pressed the stop button, just in case! Pressing the:
 
 - *Green button* >> stops recording data and directs to **Credits** page. 
-- *Red button*   >> go back to **Sensors data record** page, and readings never stopped being registered.
+- *Red button*   >> go back to **Sensors data record** page, and readings never stopped being registered. Buzzer should also alert for the end of the test.
 
+
+## Web live streaming of data
+
+In GitHub repository [relier-web](https://github.com/Ricardosgeral/relier-web) 
+you can find all the required files to deploy  a python app to the internet.
+In that way you can live view the test results acquired by ***relier*** from any device connected to the internet 
+(smartphone, tablet, laptop, ...).
+
+This is the look of the app that will be accessed at a site https://<APP_NAME> (you will choose the <APP_NAME>)
+ 
+![relier-web](https://github.com/Ricardosgeral/relier-web/images/website.png)
 
 ## *inputs.ini*
 
