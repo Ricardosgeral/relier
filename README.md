@@ -371,7 +371,7 @@ Actually, it will not record indefinitely. *'Forever'* should be understood as 2
 
 
 ### *7 - Stop sensors data recording*
-![page7](Nextion/320x240/page7-stop0.png)
+![page7](Nextion/320x240/relier_page7-stop0.png)
 
 Here you confirm that you pressed the stop button, just in case! Pressing the:
 
@@ -388,7 +388,7 @@ In that way you can live view the test results acquired by ***relier*** from any
 
 This is the look of the app that will be accessed at a site https://<APP_NAME> (you will choose the <APP_NAME>)
  
-![relier-web](https://github.com/Ricardosgeral/relier-web/images/website.png)
+![relier-web](https://github.com/Ricardosgeral/relier-web/blob/master/images/website.png)
 
 ## *inputs.ini*
 
