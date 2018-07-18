@@ -16,13 +16,13 @@ The measurements had to be registered by hand, in regular intervals, by two oper
 Such manual process is tedious and prone to errors.
 
 So, I've decided to invest time developing a 'low budget' acquisition system (hardware and software) that could 
-collect data automatically from multiple sensors. 
+collect data automatically from multiple analog and digital output sensors. 
 *relier* born this way!
 
 Please note that I'm not an expert in informatics, in computing, nor in electronics.
 I define myself as an enthusiastic self learner. 
 All shown here was developed from my own research, mainly on forums, Github and other websites.
-Thus, it is possible that some things (code, connections,...) could be optimized, or done in a different or better way. 
+Thus, it is possible that some things (code, connections, methods...) could be optimized, or done in a different or better way. 
 Yet, ***relier*** *acquisition system* performs as intended.
 You can report bugs, suggest enhancements, or even fork the project on [Github](https://github.com/Ricardosgeral/relier). 
 All contributions are welcome.
@@ -30,8 +30,8 @@ All contributions are welcome.
 
 ### Is this for me?
 If you need to do a similar project, you just need to have some DIY skills, for scrapping some materials, figuring out 
-how to assemble some things together, and figuring out how some components work. 
-The instructions given here should also be taken more like guidelines based on what I can do with the materials I had. If 
+how to assemble some things together, and investigate how some components work. 
+The instructions given here should also be taken more like guidelines based on "what I can do with the materials I have". If 
 you do not have the exact same hardware components 
 (sensors, ADC, level shifter, touchscreen...), yours will surely work a little different, but as they should do the same 
 things, there will be similarities too. You may have to adjust the code and/or the connections to meet your needs.
@@ -58,30 +58,41 @@ Most of the code is written in *Python v3.5.3*, and a few scripts are written in
 enable *SSH* in first boot. So, right after installing the Raspbian image in the  Micro SD card:
 1. Create an empty file (in Windows use notepad, in a Linux terminal use command *touch*, in Mac use TextEdit).
 2. Save the file with name: ***ssh*** (preferentially with no extension, but *ssh.txt* should also work).
-3. Copy or move that file into the ***root*** of the Micro SD card, where Raspbian is installed.
+3. Copy or move that file into the ***root*** of the Micro SD card, where Raspbian image is installed.
 4. Insert the Micro SD card into the *Raspberry Pi*, and power it on.
 
 Access the *Raspberry Pi* directly (if you have a monitor), or via *SSH* (for example, using [*Putty*](https://www.putty.org/)). 
 In this last option, you will require an internet connection, and need to know the local IP attributed to the *Raspberry Pi* ! 
-The default login should be:
+The default login parameters should be:
 
    username: `pi`   
    password: `raspberry`
 
-It is recommended to change the password after first boot, since *SSH* is enabled! For that write
+It is recommended to change the password after first boot, since *SSH* is enabled! For that write down in the terminal
 
     $ passwd 
     
 and choose your new password.
 
-Now, if you haven't done it yet, you will have to connect the *Raspberry Pi* to the internet (via Ethernet cable or [WiFi](https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md)).  
+Now, if you haven't done it yet, you need to connect the *Raspberry Pi* to the internet (via Ethernet cable or [WiFi](https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md)).  
 Then, in the terminal, run the following sequential commands:
     
     $ cd /tmp && wget https://raw.githubusercontent.com/Ricardosgeral/relier/master/bash/raspbian-post-install.sh
     $ sudo chmod +x raspbian-post-install.sh && sed -i 's/\r//' raspbian-post-install.sh
     $ sudo ./raspbian-post-install.sh
 
-Prepare a big cup of hot tea, since this will take a lot of time (>1h)! After automatic rebooting, you need to get your *json* file with the Google Signed credentials.
+Prepare a big cup of hot tea, since this can take some minutes ! The raspberry should reboot automatically!
+
+**Note:** During installation of the server, [VNC](https://www.realvnc.com/en/raspberrypi/) is also enabled, 
+case you want to use it. 
+
+
+#### Google Credentials
+
+***relier AS*** has the ability to send the main test results to google sheets, but, for that, it requires some configurations.
+If you don't need this feature you can skip it.
+
+After reboot of the RPI, you need to get your *json* file with your Google Signed credentials.
 First, you need to create a project in the developer console and enable some APIs (follow steps 1 to 4 from these [instructions](https://pygsheets.readthedocs.io/en/latest/authorizing.html#)), 
 then, get the *Signed credentials* (follow steps 5 and 6 from these [instructions](https://pygsheets.readthedocs.io/en/latest/authorizing.html#signed-credentials)). 
 *Copy* your Signed credentials, then, do:
@@ -92,11 +103,11 @@ and *Past* the Signed credentials. `Ctrl+X`, then `y` and finally `Enter` to sav
 
     $ sudo reboot
 
+
+
 And that's it, after reboot, the *Raspberry Pi* is set properly. 
 However, you still need to update the  **Touchscreen software**, and set the **Hardware** correctly!
 
-**Note:** During installation of the server software, [VNC](https://www.realvnc.com/en/raspberrypi/) is also enabled, 
-case you want to use it. 
 
 ### *Touchscreen* software
 
@@ -131,9 +142,9 @@ If you see `Check data.. 100%`, the code was uploaded successfully.
 9. In next start up, the software with the code made by the Nextion Editor is running in the device, 
 and the GUI is set on the touchscreen.
 
-**Note:** Be careful when buying the *Nextion* device. Confirm that you are not getting a *TJC* (for the Chinese market), 
+**Note:** Be very careful when buying the *Nextion* device. Confirm that you are not getting a *TJC* (for the Chinese market), 
 which looks identical. 
-This version only works with the Chinese version of the Nextion Editor! You will need to learn Chinese to use it !!!!
+*TJC* screens only work with the Chinese version of the Nextion Editor! You will need to learn Chinese to use it !!!!
  
  
 ## Hardware
@@ -212,18 +223,19 @@ The following ***'low cost' sensors*** were used:
 + 1x [BME280 Digital Sensor, Humidity, Temperature and Barometric Pressure Sensor](https://www.aliexpress.com/item/3In1-BME280-GY-BME280-Digital-Sensor-SPI-I2C-Humidity-Temperature-and-Barometric-Pressure-Sensor-Module-1/32659765502.html?spm=a2g0s.9042311.0.0.oXghXt) [3 €]
 
 Most of the sensors are connected to the acquisition system box via the mini aviator (circular) plugs. An exception is the 
-*BME280* chip, which is soldered directly into the PCB.
+*BME280* chip, which is soldered directly into the PCB. If possible this sensor should be placed facing the exterior of the AS box, 
+to minimize the influence of the heat generated by the monitor.
 
-#### Other components that may be useful
+#### Other components that may be useful for debugging
 + Breadboard(s)
 + [T-cobbler for raspberry pi](https://www.aliexpress.com/item/830-tie-points-MB102-breadboard-40Pin-Rainbow-Cable-GPIO-T-Cobbler-Plus-Breakout-Board-Kit-for/32673580640.html?spm=2114.search0104.3.9.6581309ai8NJdY&ws_ab_test=searchweb0_0,searchweb201602_1_10152_10151_10065_10344_10068_10342_10343_5722611_10340_10341_10698_10696_5722911_5722811_10084_5722711_10083_10618_10304_10307_10301_5711211_10059_308_100031_10103_10624_10623_10622_10621_10620_5711311_5722511,searchweb201603_32,ppcSwitch_5&algo_expid=3ed88c37-67f1-4fe2-a688-b3983db90ff7-1&algo_pvid=3ed88c37-67f1-4fe2-a688-b3983db90ff7&transAbTest=ae803_2&priceBeautifyAB=0)
 + DuPont jumper wires
 + Micro SD adapter
  
 #### Additional tools required for the assemblage of the PCB and AS box
-+ Cable wire Stripper/Crimping Plier
++ Wire Stripper/Crimping tool
 + Soldering iron + sold
-+ Tools to make the openings in the aluminum box (*e.g.* a mini Drill DIY set should be enough) 
++ Tools to make the openings in the aluminum box (*e.g.* a mini Drill DIY set) 
 + Precision screwdriver set
 
 ## Graphical User Interface (GUI): How to use
@@ -234,20 +246,20 @@ The *GUI* pages displayed in the touchscreen (*Nextion device*), and their usage
 ![page0](Nextion/320x240/page0-shutdown.png)
 
 Right after a start up or reboot of the *Raspberry Pi*, you should see this **Disconnected** black page. 
-Waiting a while (tipically 20 seconds, but can vary from 15 to 60 seconds, depending on the pending Debian services) 
+Waiting a while (tipically 20 seconds, but can vary from 15 to 60 seconds, depending on the pending OS services) 
 you should see the **Credits** page. 
+In that process you should see fast blink of the led (with purple color) placed in the AS box.
 
 
 ### *1 - Credits*
 ![page1_red](Nextion/GUI/page1_red.PNG) ![page1_green](Nextion/GUI/page1_green.PNG)
  
 First, you will see a *red* bar on the top of the screen. Wait (less than 5 seconds).
-After some server checks that bar should then stay *green*. That means that server and communication with the touchscreen are working Ok. 
+After some server checks the bar should then stay *green*, meaning that the server and touchscreen are working Ok. 
 You can also see the local *IP address* of the server, 
 which is useful in case you want to make a remote connection. 
 
-If the server has no internet, 
-then the following message is displayed: `No internet connection`.
+If the server has no internet, then the following message is displayed: `No internet connection`.
 
 To update the IP status case the internet connection has been changed (e.g., insertion of an Ethernet cable, connection to WiFi, ...), 
 wait a couple of seconds, then touch on the IP message (bottom of the screen). 
@@ -270,9 +282,9 @@ parameters of the analog sensors, specified in that file, are accurate enough.
 
 Here, you can edit interactively the test inputs:
 - *CSV filename* textbox - name of the CSV file were test data is saved.
-- *Google Sheets* checkbox - select it, to send test data to Google Sheets during the test.
-- *Spreadsheet* textbox - name of the Google spreadsheet (worksheet name = *CSV filename*).
-- *email* textbox - email to where a link, to access the Google spreadsheet, will be sent.
+- *Google Sheets* checkbox - select it, to send test data to Google Sheets during the test. Disable it if you haven't configured the google credentials.
+- *Spreadsheet* textbox - name of the Google spreadsheet (worksheet name = *CSV filename*). Not used if *google sheets* checkbox is disabled.
+- *email* textbox - email to where a link, to access the Google spreadsheet, will be sent. Not used if *google sheets* checkbox is disabled.
 - *Test time* textbox - duration of the test, in minutes ( = 0 >> records data 'forever').
 - *Record* textbox - interval between records, in seconds.
 - *Number* textbox - number of readings in each record interval (for analog outputs only).
@@ -284,7 +296,7 @@ There is also a blue button that allows the user to select the **Test type**.
 ### *4 - Test type*
 ![page4](Nextion/GUI/page4.PNG)
 
-This page allows you to select the type of test you want to perform.
+This page allows the selection of the type of test you want to perform.
 Note that, selecting the option <Hole Erosion Test (HET)>,
 ***no*** data of the interface (middle) pressure sensor will be acquired, 
 since HET only uses two pressure sensors (upstream and downstream).
@@ -297,12 +309,13 @@ To go back to the **General settings** page, click the blue return button.
 ![page5](Nextion/GUI/page5.PNG)
 
 This page is used to set the calibration parameters of the analog sensors (pressure and turbidity sensors).
-It is assumed a linear relation (***y = mx + b***) between the analog readings and the effective measurements. 
+For the pressure sensors is assumed a linear relation (***y = mx + b***) between the analog readings and the effective measurements. 
+For the turbidity sensor a logarithmic (Napier base) relation (***y = m ln(x) + b***) is assumed.
 
-| Sensors             | ***x*** (analog from ADC)    | ***y*** (digital measurements) |
-|:--------------------|:-----------------------------|:-------------------------------|
-| Pressure transducer | voltage (*mV*)               | pressure (*mbar*)              |
-| Turbidity           | 0 to 32767 (15 bits >> 2^15) | turbidity (NTU)                |
+| Sensors             | ***x*** (analog from ADC)    | ***y*** (digital measurements) | Relation          |
+|:--------------------|:-----------------------------|:-------------------------------|-------------------|
+| Pressure transducer | voltage (*mV*)               | pressure (*mbar*)              | y = mx + b        |
+| Turbidity           | 0 to 32767 (15 bits >> 2^15) | turbidity (g/cm^3)             | y = m ln(x) + b   |
 
 
 a) ***Calibration* pushbutton**: to update readings.
