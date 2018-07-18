@@ -379,7 +379,7 @@ Here you confirm that you pressed the stop button, just in case! Pressing the:
 - *Red button*   >> go back to **Sensors data record** page, and readings never stopped being registered. Buzzer should also alert for the end of the test.
 
 
-## Web live streaming of data
+## Web live streaming of data from sensors
 
 In GitHub repository [relier-web](https://github.com/Ricardosgeral/relier-web) 
 you can find all the required files to deploy  a python app to the internet.
