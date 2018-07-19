@@ -1,7 +1,12 @@
 .idea/
 *.xml
 auxiliar/
-Media/videos/
+*.MP4
+*.mp4
+*.avi
+*.H.246
+*.wmv
+Media/videos
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
