@@ -104,10 +104,8 @@ and *Past* the Signed credentials. `Ctrl+X`, then `y` and finally `Enter` to sav
     $ sudo reboot
 
 
-
 And that's it, after reboot, the *Raspberry Pi* is set properly. 
 However, you still need to update the  **Touchscreen software**, and set the **Hardware** correctly!
-
 
 ### *Touchscreen* software
 
@@ -157,6 +155,11 @@ The *Hardware* is composed by the:
 1. ***Server*** and its peripherals,
 2. ***Acquisition system box***, linking the server and the sensors, and
 3. ***Sensors*** (4 with analog outputs, and 3 with digital outputs).
+
+The following picture shows all the hardware involved.
+
+![Hardware](Media/images/00%20-%20relier%20AS.jpg)
+
 
 ### Server and peripherals
 
