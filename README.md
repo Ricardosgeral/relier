@@ -165,7 +165,6 @@ The following picture shows all the hardware involved.
 You can find more pictures and an overview video in this GitHub repo in [Media folder](/Media).
 
 
-
 ### Server and peripherals
 
 + 1x [***Raspberry Pi 3 model B***](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) [35 €]
