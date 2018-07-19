@@ -219,7 +219,7 @@ def get_data(interval, mu, mi, md, bu, bi, bd, mturb, bturb, zerou, zeroi, zerod
         'mmH2O_int':    round(mmH2O[PRESSINT_ch]),
         'mmH2O_down':   round(mmH2O[PRESSDW_ch]),
         'ana_turb':     round(analog[TURB_ch]), #analog number
-        'turb':     round(turb,2),
+        'turb':         round(turb,2),
         'flow':         round(flowrate,2),
         'liters':       round(total_liters),
         'water_temp':   round(water_temp,1),
