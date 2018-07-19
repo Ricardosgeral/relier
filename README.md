@@ -19,6 +19,8 @@ So, I've decided to invest time developing a 'low budget' acquisition system (ha
 collect data automatically from multiple analog and digital output sensors. 
 *relier* born this way!
 
+You can find pictures and an overview video of relier AS in this GitHub repo in [Media folder](/Media).
+
 Please note that I'm not an expert in informatics, in computing, nor in electronics.
 I define myself as an enthusiastic self learner. 
 All shown here was developed from my own research, mainly on forums, Github and other websites.
@@ -159,6 +161,8 @@ The *Hardware* is composed by the:
 The following picture shows all the hardware involved.
 
 ![Hardware](Media/images/00%20-%20relier%20AS.jpg)
+
+
 
 
 ### Server and peripherals
