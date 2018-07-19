@@ -59,8 +59,8 @@ def write_gsh(data, row, wks):
                   # 'v_up', 'v_int', 'v_down',
                   # 'bar_up', 'bar_int', 'bar_down',
                   'mmH2O_up', 'mmH2O_int', 'mmH2O_down',
-                  'ana_turb', 'ntu_turb', 'flow', 'liters',
-                  # 'water_temp', 'air_temp', 'air_pressure', 'air_humidity'
+                  'ana_turb', 'turb', 'flow', 'liters',
+                  'water_temp' #, 'air_temp', 'air_pressure', 'air_humidity'
                   ]
 
     df = pd.DataFrame(columns=fieldnames)
@@ -69,8 +69,8 @@ def write_gsh(data, row, wks):
                  #data['v_up'], data['v_int'], data['v_down'],
                  #data['bar_up'], data['bar_int'], data['bar_down'],
                  data['mmH2O_up'], data['mmH2O_int'], data['mmH2O_down'],
-                 data['ana_turb'], data['ntu_turb'], data['flow'], data['liters'],
-                 #data['water_temp', data['air_temp', data['air_pressure', data['air_humidity'
+                 data['ana_turb'], data['turb'], data['flow'], data['liters'],
+                 data['water_temp'] #, data['air_temp'], data['air_pressure'], data['air_humidity]'
                 ]
     df.index = df.index + 1
 
