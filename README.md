@@ -188,10 +188,11 @@ You can find more pictures and an overview video in this GitHub repo in [Media f
 + 1x [Momentary pushbutton switch 3A Reset Button](https://www.aliexpress.com/item/10pcs-Momentary-Push-Button-Switch-12mm-Momentary-pushbutton-switches-3A-125VAC-1-5A-250VAC-Reset-Button/32802331189.html?spm=a2g0s.9042311.0.0.1PWJGq) [2 €]
 + 1x 5 mm RGB LED [< 1 €]
 + 1x Active Buzzer Alarm 5 V  [< 1 €]
-+ 3x 10 kΩ carbon film resistor [< 1 €]
++ 3x 220 Ω carbon film resistor [< 1 €]
++ 2x 10 kΩ carbon film resistor [< 1 €]
 + 1x 20 kΩ carbon film resistor [< 1 €]
 + 1x 4 pins Male Single Row Pin Header Strip [< 1 €]
-+ 6 x 5 cm *shielded* cable with 3 wires [< 1 €]
++ 6 x 5 cm cable with 3 wires [< 1 €]
 
 #### Printed circuit board (*PCB*) designed/produced
 The design of the 2 layer's *PCB* was developed using [Fritzing](http://www.fritzing.org/). 
