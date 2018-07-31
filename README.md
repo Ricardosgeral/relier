@@ -274,7 +274,7 @@ wait a couple of seconds, then touch on the IP message (bottom of the screen).
 Touch anywhere else on the screen to go the **Main menu** page.
  
 ### *2 - Main menu*
-![page2](Nextion/320x240/page2-menu0.png)
+![page2](Nextion/320x240/relier_page2-menu1.png)
  
 You have three main options:
  1. ***Settings***: set the *test inputs* >> Redirects to **General settings** page.
