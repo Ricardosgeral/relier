@@ -4,31 +4,10 @@
 Project developed by [*Ricardo Correia dos Santos*](https://www.linkedin.com/in/ricardons/) at 
 [Laboratório Nacional de Engenharia Civil - *LNEC*](http://www.lnec.pt/en/), in Lisbon, Portugal
 
-### About the author and the *relier* project
-I'm a Civil Engineer, with a [master degree](https://www.researchgate.net/publication/273715929_Enquadramento_das_analises_de_riscos_em_Geotecnia) 
-in risk analysis in Geotechnical Engineering, and a [PhD](https://www.researchgate.net/publication/265396445_Experimental_investigation_on_limitation_of_the_progression_of_internal_erosion_in_zoned_dams?_sg=TYpuvUDlOEmsy1nkmycUNZZQmLHo34eFR1un5kQBsel1Ih6m8itcptNphw4q33ZLbFPsnKm5uX3PfaJmW1fljV7_goXnxDN4Ne4RwewR.OOCKioxBNPJoOd0B8BiFk4-Dqk849OZdMI_lxDR_IRduPQ88ovShdBBoVm34ZNhMTA_UT3M8PANv1KdYr7rMXg) 
-on internal erosion in embankment dams.
- 
-Carrying out the [laboratory tests on internal erosion in soils](https://www.researchgate.net/publication/317742058_Limitation_of_the_progression_of_internal_erosion_in_zoned_dams), 
-developed in my PhD, 
-requires to simultaneously collect different types of measurements (water pressures, flow rate, temperature, turbidity, ...).
-The measurements had to be registered by hand, in regular intervals, by two operators!! 
-Such manual process is tedious and prone to errors.
 
-So, I've decided to invest time developing a 'low budget' acquisition system (hardware and software) that could 
-collect data automatically from multiple analog and digital output sensors. 
-*relier* born this way!
-
+***relier AS*** is a 'low budget' acquisition system (hardware and software), that 
+collects data automatically from multiple analog and digital output sensors, used in laboratory tests on soil erosion. 
 You can find pictures and an overview video of ***relier AS*** in this GitHub repo in [Media folder](/Media).
-
-Please note that I'm not an expert in informatics, in computing, nor in electronics.
-I define myself as an enthusiastic self learner. 
-All shown here was developed from my own research, mainly on forums, Github and other websites.
-Thus, it is possible that some things (code, connections, methods...) could be optimized, or done in a different or better way. 
-Yet, ***relier*** *acquisition system* performs as intended.
-You can report bugs, suggest enhancements, or even fork the project on [Github](https://github.com/Ricardosgeral/relier). 
-All contributions are welcome.
-
 
 ### Is this for me?
 If you need to do a similar project, you just need to have some DIY skills, for scrapping some materials, figuring out 
@@ -614,6 +593,30 @@ open a terminal and execute:
  ```
  $ sudo pkill -9 python
  ```
+
+
+### About the author and the *relier* project
+I'm a Civil Engineer, with a [master degree](https://www.researchgate.net/publication/273715929_Enquadramento_das_analises_de_riscos_em_Geotecnia) 
+in risk analysis in Geotechnical Engineering, and a [PhD](https://www.researchgate.net/publication/265396445_Experimental_investigation_on_limitation_of_the_progression_of_internal_erosion_in_zoned_dams?_sg=TYpuvUDlOEmsy1nkmycUNZZQmLHo34eFR1un5kQBsel1Ih6m8itcptNphw4q33ZLbFPsnKm5uX3PfaJmW1fljV7_goXnxDN4Ne4RwewR.OOCKioxBNPJoOd0B8BiFk4-Dqk849OZdMI_lxDR_IRduPQ88ovShdBBoVm34ZNhMTA_UT3M8PANv1KdYr7rMXg) 
+on internal erosion in embankment dams.
+ 
+Carrying out the [laboratory tests on internal erosion in soils](https://www.researchgate.net/publication/317742058_Limitation_of_the_progression_of_internal_erosion_in_zoned_dams), 
+developed in my PhD, 
+requires to simultaneously collect different types of measurements (water pressures, flow rate, temperature, turbidity, ...).
+The measurements had to be registered by hand, in regular intervals, by two operators!! 
+Such manual process is tedious and prone to errors.
+
+So, I've decided to invest time developing a 'low budget' acquisition system (hardware and software) that could 
+collect data automatically from multiple analog and digital output sensors. 
+*relier* born this way!
+
+Please note that I'm not an expert in informatics, in computing, nor in electronics.
+I define myself as an enthusiastic self learner. 
+All shown here was developed from my own research, mainly on forums, Github and other websites.
+Thus, it is possible that some things (code, connections, methods...) could be optimized, or done in a different or better way. 
+Yet, ***relier*** *acquisition system* performs as intended.
+You can report bugs, suggest enhancements, or even fork the project on [Github](https://github.com/Ricardosgeral/relier). 
+All contributions are welcome.
 
 ## Acknowledgements
 My thanks to *António Timóteo* (LNEC-DG technician) for his work on cutting the openings in the acquisition aluminium box. 
