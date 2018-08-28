@@ -208,20 +208,20 @@ aspect of each *PCB* layer individually.
 you can see the numbering of the 40 GPIO pins of the Raspberry Pi used.
 
 **Fritzing: breadboard view**
-![Breadboard_image](Fritzing/v3-hat/relierv3_hat_bb.png)
+![Breadboard_image](Fritzing/v3-hat/images/relierv3_hat_bb.png)
 
 **Fritzing: PCB view**
-![PCB_image](Fritzing/v3-hat/relierv3_hat_pcb.png)
+![PCB_image](Fritzing/v3-hat/images/relierv3_hat_pcb.png)
 
 **PCB: top layer**
-![PCBtop_image](Fritzing/v3-hat/relierv3_pcb_toplayer.png)
+![PCBtop_image](Fritzing/v3-hat/images/relierv3_pcb_toplayer.png)
 
 **PCB: bottom Layer**
-![PCBbottom_image](Fritzing/v3-hat/relierv3_pcb_bottomlayer.png)
+![PCBbottom_image](Fritzing/v3-hat/images/relierv3_pcb_bottomlayer.png)
 
 **Fritzing: scheme**
 
-![PCB_image](Fritzing/v3-hat/relierv3_hat_schem.png)
+![PCB_image](Fritzing/v3-hat/images/relierv3_hat_schem.png)
 
 ### Sensors
 
