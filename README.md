@@ -195,12 +195,12 @@ You can find more pictures and an overview video in this GitHub repo in [Media f
 + 6 x 5 cm cable with 3 wires [< 1 €]
 
 
-### Printed circuit board (*PCB*) designed/produced
-This PCB links together the server, the touchscreen and the sensors. 
+### Custom *PCB* design
+This PCB (Printed circuit board) links together the server, the touchscreen and the sensors. 
 The design of the 2 layer's *PCB* was developed using [Fritzing](http://www.fritzing.org/). 
 The production files and the *.fzz* file are [here](https://github.com/Ricardosgeral/relier/tree/master/Fritzing). 
 Latest version of *PCB* is v3. 
-The *PCB* was printed by [PCBWay company](https://www.pcbway.com/).
+The *PCB* was produced/printed by [PCBWay company](https://www.pcbway.com/).
 
 Below, you can see images showing the circuits hooked in the breadboard and in the PCB, as well as the final 
 aspect of each *PCB* layer individually. 
