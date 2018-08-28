@@ -34,7 +34,7 @@ The main *Hardware* is composed by the:
 
 The server, the touchscreen and the custom PCB are placed inside an aluminum enclosure [(88x38x100mm box profile)](https://www.aliexpress.com/item/Free-shipping88-38-100mm-width-x-high-x-length-aluminum-extrusion-box-profile-enclosure-for-PCB/32800855972.html?spm=a2g0s.9042311.0.0.Wvmz38) [6 €].
 
-The following picture shows all the hardware involved.
+The following picture shows the main hardware involved.
 
 ![Hardware](Media/images/00%20-%20relier%20AS.jpg)
 
@@ -51,7 +51,7 @@ You can find more pictures and an overview video in this GitHub repository in [M
 
 #### For the custom Raspberry Pi Hat (shield)
 
-+ 1x Custom PBC (design details [below](https://github.com/Ricardosgeral/relier/blob/master/README.md#printed-circuit-board-pcb-designedproduced)) [12 €]
++ 1x Custom PBC (design details [below](https://github.com/Ricardosgeral/relier/blob/master/README.md#custom-pcb-design-2-layers)) [12 €]
 + 1x [***16 Bit I2C ADS1115*** Module ADC 4 channel with Pro Gain Amplifier](https://www.aliexpress.com/item/16-Bit-I2C-ADS1115-Module-ADC-4-channel-with-Pro-Gain-Amplifier-RPi-1PCS/32817162654.html?spm=a2g0s.9042311.0.0.KZKf8O) [2 €]
 + 1x [***Logic Level Shifter*** Bi-Directional 5V to 3.3V](https://www.aliexpress.com/item/5PCS-Logic-Level-Shifter-Bi-Directional-For-Arduino-5V-to-3-3V-Four-Way-Two-Way/32827270848.html?spm=a2g0s.9042311.0.0.PRV9iC) [2 €]
 + 6x [8mm Male & Female Connector miniature Aviation Plug M8 Circular Socket+Plug](https://www.aliexpress.com/item/1PCS-AP049-YC8-2-3-4-5-6-7Pin-8mm-Male-Female-Connector-miniature-Aviation-Plug/32845374887.html?spm=a2g0s.9042311.0.0.6sphAY) [6x4= 24 €]
