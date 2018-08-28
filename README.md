@@ -159,7 +159,7 @@ The fundamental *Hardware* is composed by the:
 3. ***2 layers PCB (Raspberry custom hat)*** (design details [below](https://github.com/Ricardosgeral/relier/blob/master/README.md#printed-circuit-board-pcb-designedproduced)) [12 €], and
 4. ***Sensors*** (4 with analog outputs, and 3 with digital outputs).
 
-The server, the touchscreen and the custom PCB are placed inside an aluminum enclosure [(88x38x100mm box profile)](https://www.aliexpress.com/item/Free-shipping88-38-100mm-width-x-high-x-length-aluminum-extrusion-box-profile-enclosure-for-PCB/32800855972.html?spm=a2g0s.9042311.0.0.Wvmz38) [6 €]
+The server, the touchscreen and the custom PCB are placed inside an aluminum enclosure [(88x38x100mm box profile)](https://www.aliexpress.com/item/Free-shipping88-38-100mm-width-x-high-x-length-aluminum-extrusion-box-profile-enclosure-for-PCB/32800855972.html?spm=a2g0s.9042311.0.0.Wvmz38) [6 €].
 
 The following picture shows all the hardware involved.
 
@@ -178,7 +178,7 @@ You can find more pictures and an overview video in this GitHub repo in [Media f
 + 1x micro SD card (>128 MB, only required for installation) [< 5 €]
 
 
-#### For the custom 2 layers PCB (raspberry hat) 
+#### For the  2 layers custom PCB (raspberry hat) 
 
 + 1x [***16 Bit I2C ADS1115*** Module ADC 4 channel with Pro Gain Amplifier](https://www.aliexpress.com/item/16-Bit-I2C-ADS1115-Module-ADC-4-channel-with-Pro-Gain-Amplifier-RPi-1PCS/32817162654.html?spm=a2g0s.9042311.0.0.KZKf8O) [2 €]
 + 1x [***Logic Level Shifter*** Bi-Directional 5V to 3.3V](https://www.aliexpress.com/item/5PCS-Logic-Level-Shifter-Bi-Directional-For-Arduino-5V-to-3-3V-Four-Way-Two-Way/32827270848.html?spm=a2g0s.9042311.0.0.PRV9iC) [2 €]
@@ -195,10 +195,11 @@ You can find more pictures and an overview video in this GitHub repo in [Media f
 + 6 x 5 cm cable with 3 wires [< 1 €]
 
 
-#### Printed circuit board (*PCB*) designed/produced
+### Printed circuit board (*PCB*) designed/produced
+This PCB links together the server, the touchscreen and the sensors. 
 The design of the 2 layer's *PCB* was developed using [Fritzing](http://www.fritzing.org/). 
 The production files and the *.fzz* file are [here](https://github.com/Ricardosgeral/relier/tree/master/Fritzing). 
-Latest version of *PCB* is v2. 
+Latest version of *PCB* is v3. 
 The *PCB* was printed by [PCBWay company](https://www.pcbway.com/).
 
 Below, you can see images showing the circuits hooked in the breadboard and in the PCB, as well as the final 
@@ -207,20 +208,20 @@ aspect of each *PCB* layer individually.
 you can see the numbering of the 40 GPIO pins of the Raspberry Pi used.
 
 **Fritzing: breadboard view**
-![Breadboard_image](Fritzing/production/v2/relierv2_bb.png)
+![Breadboard_image](Fritzing/v3-hat/relierv3_hat_bb.png)
 
 **Fritzing: PCB view**
-![PCB_image](Fritzing/production/v2/relierv2_pcb.png)
+![PCB_image](Fritzing/v3-hat/relierv3_hat_pcb.png)
 
 **PCB: top layer**
-![PCBtop_image](Fritzing/production/v2/relierv2_pcb_toplayer.png)
+![PCBtop_image](Fritzing/v3-hat/relierv3_pcb_toplayer.png)
 
 **PCB: bottom Layer**
-![PCBbottom_image](Fritzing/production/v2/relierv2_pcb_bottomlayer.png)
+![PCBbottom_image](Fritzing/v3-hat/relierv3_pcb_bottomlayer.png)
 
 **Fritzing: scheme**
 
-![PCB_image](Fritzing/production/v2/relierv2_schem.png)
+![PCB_image](Fritzing/v3-hat/relierv3_hat_schem.png)
 
 ### Sensors
 
