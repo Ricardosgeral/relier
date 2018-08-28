@@ -6,8 +6,7 @@ Project developed by [*Ricardo Correia dos Santos*](https://www.linkedin.com/in/
 
 
 ***relier AS*** is an open 'low budget' acquisition system (hardware and software), that automatically
-collects data from multiple analog and digital output sensors, commonly used in laboratory tests on soil erosion. 
-You can find pictures and an overview video of ***relier AS*** in this GitHub repo in [Media folder](/Media).
+collects data from multiple analog and digital output sensors, which are commonly used in laboratory tests on soil erosion. 
 
 ### Is this for me?
 If you need to do a similar project, you just need to have some DIY skills, for scrapping some materials, figuring out 
@@ -21,12 +20,110 @@ Feel free to contact me if you manage to get it working with different component
 and be more helpful. 
 
 
+## Hardware
+
+The hardware components required to make the ***relier*** *acquisition system* are indicated here. 
+Instructions about the way those components are connected are also presented.
+For reference, some links and prices of the components used are also presented.
+
+The main *Hardware* is composed by the:
+1. ***Server*** [Raspberry Pi 3 model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) [35 €],
+2. ***Touchscreen***[Nextion 2.8" - NX3224T028](https://www.itead.cc/nextion-nx3224t028-1932.html) [16 €]
+3. ***2 layers custom PCB (Raspberry  hat)*** (design details [below](https://github.com/Ricardosgeral/relier/blob/master/README.md#printed-circuit-board-pcb-designedproduced)) [12 €], and
+4. ***Sensors*** (4 with analog outputs, and 3 with digital outputs).
+
+The server, the touchscreen and the custom PCB are placed inside an aluminum enclosure [(88x38x100mm box profile)](https://www.aliexpress.com/item/Free-shipping88-38-100mm-width-x-high-x-length-aluminum-extrusion-box-profile-enclosure-for-PCB/32800855972.html?spm=a2g0s.9042311.0.0.Wvmz38) [6 €].
+
+The following picture shows all the hardware involved.
+
+![Hardware](Media/images/00%20-%20relier%20AS.jpg)
+
+You can find more pictures and an overview video in this GitHub repository in [Media folder](/Media).
+
+### Additional hardware 
+#### For the Raspberry Pi server
+
++ 1x [micro SD card (> 8 GB)](https://www.aliexpress.com/item/SAMSUNG-Micro-SD-Card-256G-128GB-64gb-32g-100M-s-Class10-U3-4K-UHD-Memory-card/32813615707.html?spm=a2g0s.9042311.0.0.Xdt3Ob) [12 €]
++ 1x [Raspberry Pi Universal Power Supply or equivalent](https://www.raspberrypi.org/products/raspberry-pi-universal-power-supply/) [15 €]
+
+#### For the Nextion touchscreen
++ 1x micro SD card (>128 MB, only required for installation) [< 5 €]
+
+#### For the  2 layers custom PCB (raspberry hat) 
+
++ 1x [***16 Bit I2C ADS1115*** Module ADC 4 channel with Pro Gain Amplifier](https://www.aliexpress.com/item/16-Bit-I2C-ADS1115-Module-ADC-4-channel-with-Pro-Gain-Amplifier-RPi-1PCS/32817162654.html?spm=a2g0s.9042311.0.0.KZKf8O) [2 €]
++ 1x [***Logic Level Shifter*** Bi-Directional 5V to 3.3V](https://www.aliexpress.com/item/5PCS-Logic-Level-Shifter-Bi-Directional-For-Arduino-5V-to-3-3V-Four-Way-Two-Way/32827270848.html?spm=a2g0s.9042311.0.0.PRV9iC) [2 €]
++ 6x [8mm Male & Female Connector miniature Aviation Plug M8 Circular Socket+Plug](https://www.aliexpress.com/item/1PCS-AP049-YC8-2-3-4-5-6-7Pin-8mm-Male-Female-Connector-miniature-Aviation-Plug/32845374887.html?spm=a2g0s.9042311.0.0.6sphAY) [6x4= 24 €]
++ 6x [XH2.54 3-Pins connectors with right angle Male for PCB - Header+Housing+Terminal](https://www.aliexpress.com/item/XH2-54-2P-3P-4P-5P-6P-7P-8P-9P-10P-11P-12P-13P-14P-15P/32793262315.html?spm=a2g0s.9042311.0.0.DEz5gr) [3 €]
++ 1x [2.54mm 2x20 DC3 40 Pin Right Angle Male for PCB](https://www.aliexpress.com/item/10pcs-2-54mm-2x20-DC3-40-Pin-Right-Angle-Male-Shrouded-PCB-IDC-Socket-Box-header/32597308721.html?spm=a2g0s.9042311.0.0.y1HFgb) [4 €]
++ 1x [Momentary pushbutton switch 3A Reset Button](https://www.aliexpress.com/item/10pcs-Momentary-Push-Button-Switch-12mm-Momentary-pushbutton-switches-3A-125VAC-1-5A-250VAC-Reset-Button/32802331189.html?spm=a2g0s.9042311.0.0.1PWJGq) [2 €]
++ 1x 5 mm RGB LED [< 1 €]
++ 1x Active Buzzer Alarm 5 V  [< 1 €]
++ 3x 220 Ω carbon film resistor [< 1 €]
++ 2x 10 kΩ carbon film resistor [< 1 €]
++ 1x 20 kΩ carbon film resistor [< 1 €]
++ 1x 4 pins Male Single Row Pin Header Strip [< 1 €]
++ 6 x 5 cm cable with 3 wires [< 1 €]
+
+### Custom *PCB* design
+This PCB (Printed circuit board) links together the server, the touchscreen and the sensors. 
+The design of the 2 layer's *PCB* was developed using [Fritzing](http://www.fritzing.org/). 
+The production files and the *.fzz* file are [here](https://github.com/Ricardosgeral/relier/tree/master/Fritzing). 
+Latest version of *PCB* is v3. 
+The *PCB* was produced/printed by [PCBWay company](https://www.pcbway.com/).
+
+Below, you can see images showing the circuits hooked in the breadboard and in the PCB, as well as the final 
+aspect of each *PCB* layer individually. 
+[Here](https://www.raspberrypi-spy.co.uk/2012/06/simple-guide-to-the-rpi-gpio-header-and-pins/#prettyPhoto/1/)
+you can see the numbering of the 40 GPIO pins of the Raspberry Pi used.
+
+**Fritzing: breadboard view**
+![Breadboard_image](Fritzing/v3-hat/images/relierv3_hat_bb.png)
+
+**Fritzing: PCB view**
+
+![PCB_image](Fritzing/v3-hat/images/relierv3_hat_pcb.png)
+
+**PCB: bottom Layer**
+![PCBbottom_image](Fritzing/v3-hat/images/relierv3_pcb_bottomlayer.png)
+
+**PCB: top layer**
+![PCBtop_image](Fritzing/v3-hat/images/relierv3_pcb_toplayer.png)
+
+**Fritzing: scheme**
+
+![PCB_image](Fritzing/v3-hat/images/relierv3_hat_schem.png)
+
+### Sensors
+
+The following ***'low cost' sensors*** were used:
++ 3x [***Analog Pressure Transducer Transmitter Sensor***, 0-5psi 0.5-5V](https://www.aliexpress.com/item/1Pc-Pressure-Transducer-Sender-Stainless-Steel-for-Oil-Fuel-Air-Water-5psi-CSL2017/32814346612.html?spm=2114.search0104.3.34.61855791WWOsT5&ws_ab_test=searchweb0_0,searchweb201602_1_10152_10151_10065_10344_10068_10342_10343_5722611_10340_10341_10698_10696_5722911_5722811_10084_5722711_10083_10618_10304_10307_10301_5711211_10059_308_100031_10103_10624_10623_10622_10621_10620_5711311_5722511,searchweb201603_32,ppcSwitch_5&algo_expid=a59a0ef4-feff-4b1a-b341-8883ad49d5dc-5&algo_pvid=a59a0ef4-feff-4b1a-b341-8883ad49d5dc&transAbTest=ae803_2&priceBeautifyAB=0) [3x13= 39 €]
++ 1x [***Digital Turbine Flow Sensor***, 1.5" DN40 2~200L/min](https://www.aliexpress.com/item/1-5-DN40-2-200L-min-water-Plastic-Hall-Turbine-flow-sensor-industry-meter/32445746581.html?spm=a2g0s.9042311.0.0.lPAUbg) [13 €]
++ 1x [***Analog Turbidity Sensor***, 5V 40mA](https://www.aliexpress.com/item/DFRobot-Gravity-Analog-Digital-Turbidity-Sensor-5V-40mA-DC-support-both-signal-output-compatible-with-arduino/32595773560.html?spm=a2g0s.9042311.0.0.dGtxdp) [9 €]
++ 1x [Waterproof DS18B20 digital Temperature Sensor (probe)](https://www.aliexpress.com/snapshot/0.html?spm=a2g0s.9042311.0.0.oXghXt&orderId=505161631680030&productId=32675444739) [<1€]
++ 1x [BME280 Digital Sensor, Humidity, Temperature and Barometric Pressure Sensor](https://www.aliexpress.com/item/3In1-BME280-GY-BME280-Digital-Sensor-SPI-I2C-Humidity-Temperature-and-Barometric-Pressure-Sensor-Module-1/32659765502.html?spm=a2g0s.9042311.0.0.oXghXt) [3 €]
+
+Most of the sensors are connected to the acquisition system box via the mini aviator (circular) plugs. An exception is the 
+*BME280* chip, which is soldered directly into the PCB. If possible this chip should be placed with the sensor pointing to the exterior of the AS box (with an opening), 
+to minimize the influence of the heat generated by the monitor!
+
+#### Other components that may be useful for debugging
++ Breadboard(s)
++ [T-cobbler for raspberry pi](https://www.aliexpress.com/item/830-tie-points-MB102-breadboard-40Pin-Rainbow-Cable-GPIO-T-Cobbler-Plus-Breakout-Board-Kit-for/32673580640.html?spm=2114.search0104.3.9.6581309ai8NJdY&ws_ab_test=searchweb0_0,searchweb201602_1_10152_10151_10065_10344_10068_10342_10343_5722611_10340_10341_10698_10696_5722911_5722811_10084_5722711_10083_10618_10304_10307_10301_5711211_10059_308_100031_10103_10624_10623_10622_10621_10620_5711311_5722511,searchweb201603_32,ppcSwitch_5&algo_expid=3ed88c37-67f1-4fe2-a688-b3983db90ff7-1&algo_pvid=3ed88c37-67f1-4fe2-a688-b3983db90ff7&transAbTest=ae803_2&priceBeautifyAB=0)
++ DuPont jumper wires
++ Micro SD adapter
+ 
+#### Additional tools required for the assemblage of the PCB and enclosure
++ Wire Stripper/Crimping tools
++ Soldering iron + sold
++ Tools to make the openings in the aluminum box (*eg* a mini Drill DIY set) 
++ Precision screwdriver set
+
 ## Software installation
 
-The software of  ***relier*** *acquisition system* is composed by two distinct but interconnected major parts,
-running in two different *hardware* components, particularly in the:
-1. **Server** (*Raspberry Pi 3B*), which performs the computation tasks, and
-2. **Touchscreen** (*Nextion device*), responsible by the interactivity between the end user and the server.
+The software of  ***relier*** *acquisition system* is composed by two distinct but interconnected parts, particularly the:
+1. **Server software** (*running in the Raspberry Pi 3B*), which performs the computation tasks, and
+2. **Touchscreen software** (*in the Nextion device*), responsible by the interactivity between the end user and the server.
 
 
 ### Server software
@@ -86,7 +183,7 @@ and *Past* the Signed credentials. `Ctrl+X`, then `y` and finally `Enter` to sav
 
 
 And that's it, after reboot, the *Raspberry Pi* is set properly. 
-However, you still need to update the  **Touchscreen software**, and set the **Hardware** correctly!
+However, you still need to update the  **Touchscreen software**!
 
 ### *Touchscreen* software
 
@@ -105,7 +202,7 @@ developed for this project. The next picture shows the Nextion Editor with the p
 
 ![NextionEditor](Nextion/GUI/Nextion_Editor.PNG)
 
-To upload the code into *Nextion touchscreen* follow these steps:
+To upload the code into *Nextion device touchscreen* follow these steps:
 
 1. Open the file [*relier.HMI*](https://github.com/Ricardosgeral/relier/blob/master/Nextion/HMI/relier.HMI) 
 with the Nextion Editor.
@@ -125,108 +222,6 @@ and the GUI is set on the touchscreen.
 which looks identical. 
 *TJC* screens only work with the Chinese version of the Nextion Editor! You will need to learn Chinese to use it !!!!
  
- 
-## Hardware
-
-The hardware components required to make the ***relier*** *acquisition system* are indicated here. 
-Instructions about the way those components are connected are also presented.
-Just for reference, some links and prices of the components are also presented.
-
-The fundamental *Hardware* is composed by the:
-1. ***Server*** [Raspberry Pi 3 model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) [35 €],
-2. ***Touchscreen***[Nextion 2.8" - NX3224T028](https://www.itead.cc/nextion-nx3224t028-1932.html) [16 €]
-3. ***2 layers custom PCB (Raspberry  hat)*** (design details [below](https://github.com/Ricardosgeral/relier/blob/master/README.md#printed-circuit-board-pcb-designedproduced)) [12 €], and
-4. ***Sensors*** (4 with analog outputs, and 3 with digital outputs).
-
-The server, the touchscreen and the custom PCB are placed inside an aluminum enclosure [(88x38x100mm box profile)](https://www.aliexpress.com/item/Free-shipping88-38-100mm-width-x-high-x-length-aluminum-extrusion-box-profile-enclosure-for-PCB/32800855972.html?spm=a2g0s.9042311.0.0.Wvmz38) [6 €].
-
-The following picture shows all the hardware involved.
-
-![Hardware](Media/images/00%20-%20relier%20AS.jpg)
-
-You can find more pictures and an overview video in this GitHub repo in [Media folder](/Media).
-
-
-### Additional hardware 
-#### For the Raspberry Pi server
-
-+ 1x [micro SD card (> 8 GB)](https://www.aliexpress.com/item/SAMSUNG-Micro-SD-Card-256G-128GB-64gb-32g-100M-s-Class10-U3-4K-UHD-Memory-card/32813615707.html?spm=a2g0s.9042311.0.0.Xdt3Ob) [12 €]
-+ 1x [Raspberry Pi Universal Power Supply or equivalent](https://www.raspberrypi.org/products/raspberry-pi-universal-power-supply/) [15 €]
-
-#### For the Nextion touchscreen
-+ 1x micro SD card (>128 MB, only required for installation) [< 5 €]
-
-
-#### For the  2 layers custom PCB (raspberry hat) 
-
-+ 1x [***16 Bit I2C ADS1115*** Module ADC 4 channel with Pro Gain Amplifier](https://www.aliexpress.com/item/16-Bit-I2C-ADS1115-Module-ADC-4-channel-with-Pro-Gain-Amplifier-RPi-1PCS/32817162654.html?spm=a2g0s.9042311.0.0.KZKf8O) [2 €]
-+ 1x [***Logic Level Shifter*** Bi-Directional 5V to 3.3V](https://www.aliexpress.com/item/5PCS-Logic-Level-Shifter-Bi-Directional-For-Arduino-5V-to-3-3V-Four-Way-Two-Way/32827270848.html?spm=a2g0s.9042311.0.0.PRV9iC) [2 €]
-+ 6x [8mm Male & Female Connector miniature Aviation Plug M8 Circular Socket+Plug](https://www.aliexpress.com/item/1PCS-AP049-YC8-2-3-4-5-6-7Pin-8mm-Male-Female-Connector-miniature-Aviation-Plug/32845374887.html?spm=a2g0s.9042311.0.0.6sphAY) [6x4= 24 €]
-+ 6x [XH2.54 3-Pins connectors with right angle Male for PCB - Header+Housing+Terminal](https://www.aliexpress.com/item/XH2-54-2P-3P-4P-5P-6P-7P-8P-9P-10P-11P-12P-13P-14P-15P/32793262315.html?spm=a2g0s.9042311.0.0.DEz5gr) [3 €]
-+ 1x [2.54mm 2x20 DC3 40 Pin Right Angle Male for PCB](https://www.aliexpress.com/item/10pcs-2-54mm-2x20-DC3-40-Pin-Right-Angle-Male-Shrouded-PCB-IDC-Socket-Box-header/32597308721.html?spm=a2g0s.9042311.0.0.y1HFgb) [4 €]
-+ 1x [Momentary pushbutton switch 3A Reset Button](https://www.aliexpress.com/item/10pcs-Momentary-Push-Button-Switch-12mm-Momentary-pushbutton-switches-3A-125VAC-1-5A-250VAC-Reset-Button/32802331189.html?spm=a2g0s.9042311.0.0.1PWJGq) [2 €]
-+ 1x 5 mm RGB LED [< 1 €]
-+ 1x Active Buzzer Alarm 5 V  [< 1 €]
-+ 3x 220 Ω carbon film resistor [< 1 €]
-+ 2x 10 kΩ carbon film resistor [< 1 €]
-+ 1x 20 kΩ carbon film resistor [< 1 €]
-+ 1x 4 pins Male Single Row Pin Header Strip [< 1 €]
-+ 6 x 5 cm cable with 3 wires [< 1 €]
-
-
-### Custom *PCB* design
-This PCB (Printed circuit board) links together the server, the touchscreen and the sensors. 
-The design of the 2 layer's *PCB* was developed using [Fritzing](http://www.fritzing.org/). 
-The production files and the *.fzz* file are [here](https://github.com/Ricardosgeral/relier/tree/master/Fritzing). 
-Latest version of *PCB* is v3. 
-The *PCB* was produced/printed by [PCBWay company](https://www.pcbway.com/).
-
-Below, you can see images showing the circuits hooked in the breadboard and in the PCB, as well as the final 
-aspect of each *PCB* layer individually. 
-[Here](https://www.raspberrypi-spy.co.uk/2012/06/simple-guide-to-the-rpi-gpio-header-and-pins/#prettyPhoto/1/)
-you can see the numbering of the 40 GPIO pins of the Raspberry Pi used.
-
-**Fritzing: breadboard view**
-![Breadboard_image](Fritzing/v3-hat/images/relierv3_hat_bb.png)
-
-**Fritzing: PCB view**
-
-![PCB_image](Fritzing/v3-hat/images/relierv3_hat_pcb.png)
-
-**PCB: bottom Layer**
-![PCBbottom_image](Fritzing/v3-hat/images/relierv3_pcb_bottomlayer.png)
-
-**PCB: top layer**
-![PCBtop_image](Fritzing/v3-hat/images/relierv3_pcb_toplayer.png)
-
-**Fritzing: scheme**
-
-![PCB_image](Fritzing/v3-hat/images/relierv3_hat_schem.png)
-
-### Sensors
-
-The following ***'low cost' sensors*** were used:
-+ 3x [***Analog Pressure Transducer Transmitter Sensor***, 0-5psi 0.5-5V](https://www.aliexpress.com/item/1Pc-Pressure-Transducer-Sender-Stainless-Steel-for-Oil-Fuel-Air-Water-5psi-CSL2017/32814346612.html?spm=2114.search0104.3.34.61855791WWOsT5&ws_ab_test=searchweb0_0,searchweb201602_1_10152_10151_10065_10344_10068_10342_10343_5722611_10340_10341_10698_10696_5722911_5722811_10084_5722711_10083_10618_10304_10307_10301_5711211_10059_308_100031_10103_10624_10623_10622_10621_10620_5711311_5722511,searchweb201603_32,ppcSwitch_5&algo_expid=a59a0ef4-feff-4b1a-b341-8883ad49d5dc-5&algo_pvid=a59a0ef4-feff-4b1a-b341-8883ad49d5dc&transAbTest=ae803_2&priceBeautifyAB=0) [3x13= 39 €]
-+ 1x [***Digital Turbine Flow Sensor***, 1.5" DN40 2~200L/min](https://www.aliexpress.com/item/1-5-DN40-2-200L-min-water-Plastic-Hall-Turbine-flow-sensor-industry-meter/32445746581.html?spm=a2g0s.9042311.0.0.lPAUbg) [13 €]
-+ 1x [***Analog Turbidity Sensor***, 5V 40mA](https://www.aliexpress.com/item/DFRobot-Gravity-Analog-Digital-Turbidity-Sensor-5V-40mA-DC-support-both-signal-output-compatible-with-arduino/32595773560.html?spm=a2g0s.9042311.0.0.dGtxdp) [9 €]
-+ 1x [Waterproof DS18B20 digital Temperature Sensor (probe)](https://www.aliexpress.com/snapshot/0.html?spm=a2g0s.9042311.0.0.oXghXt&orderId=505161631680030&productId=32675444739) [<1€]
-+ 1x [BME280 Digital Sensor, Humidity, Temperature and Barometric Pressure Sensor](https://www.aliexpress.com/item/3In1-BME280-GY-BME280-Digital-Sensor-SPI-I2C-Humidity-Temperature-and-Barometric-Pressure-Sensor-Module-1/32659765502.html?spm=a2g0s.9042311.0.0.oXghXt) [3 €]
-
-Most of the sensors are connected to the acquisition system box via the mini aviator (circular) plugs. An exception is the 
-*BME280* chip, which is soldered directly into the PCB. If possible this chip should be placed with the sensor pointing to the exterior of the AS box (with an opening), 
-to minimize the influence of the heat generated by the monitor!
-
-#### Other components that may be useful for debugging
-+ Breadboard(s)
-+ [T-cobbler for raspberry pi](https://www.aliexpress.com/item/830-tie-points-MB102-breadboard-40Pin-Rainbow-Cable-GPIO-T-Cobbler-Plus-Breakout-Board-Kit-for/32673580640.html?spm=2114.search0104.3.9.6581309ai8NJdY&ws_ab_test=searchweb0_0,searchweb201602_1_10152_10151_10065_10344_10068_10342_10343_5722611_10340_10341_10698_10696_5722911_5722811_10084_5722711_10083_10618_10304_10307_10301_5711211_10059_308_100031_10103_10624_10623_10622_10621_10620_5711311_5722511,searchweb201603_32,ppcSwitch_5&algo_expid=3ed88c37-67f1-4fe2-a688-b3983db90ff7-1&algo_pvid=3ed88c37-67f1-4fe2-a688-b3983db90ff7&transAbTest=ae803_2&priceBeautifyAB=0)
-+ DuPont jumper wires
-+ Micro SD adapter
- 
-#### Additional tools required for the assemblage of the PCB and enclosure
-+ Wire Stripper/Crimping tools
-+ Soldering iron + sold
-+ Tools to make the openings in the aluminum box (*eg* a mini Drill DIY set) 
-+ Precision screwdriver set
 
 ## Graphical User Interface (GUI): How to use
  
