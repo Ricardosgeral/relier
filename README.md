@@ -154,7 +154,7 @@ Instructions about the way those components are connected are also presented.
 Just for reference, some links and prices of the components are also presented.
 
 The fundamental *Hardware* is composed by the:
-1. ***Server*** [***Raspberry Pi 3 model B***](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) [35 €],
+1. ***Server*** [Raspberry Pi 3 model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) [35 €],
 2. [***Nextion touchscreen 2.8"*** - NX3224T028](https://www.itead.cc/nextion-nx3224t028-1932.html) [16 €]
 3. ***Custom 2 layers PCB (Raspberry hat)***, linking the server, the touchscreen and the sensors (design details [below](https://github.com/Ricardosgeral/relier/blob/master/README.md#printed-circuit-board-pcb-designedproduced)) [12 €], and
 4. ***Sensors*** (4 with analog outputs, and 3 with digital outputs).
