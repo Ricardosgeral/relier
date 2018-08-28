@@ -7,7 +7,7 @@ import RPi.GPIO as GPIO
 from time import sleep
 redPin = 16    # GPIO16 pin 16
 greenPin = 21  # GPIO21 pin 40
-bluePin = 26   # GPIO26 pin 37
+bluePin = 12   # GPIO12 pin 32
 
 def blink(pin):
     GPIO.setmode(GPIO.BCM)
