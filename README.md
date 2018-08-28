@@ -154,9 +154,12 @@ Instructions about the way those components are connected are also presented.
 Just for reference, some links and prices of the components are also presented.
 
 The fundamental *Hardware* is composed by the:
-1. ***Server [Raspberry Pi 3 model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) [35 €]***,
-2. ***PCB Hat for raspberry***, linking the server and the sensors, and
-3. ***Sensors*** (4 with analog outputs, and 3 with digital outputs).
+1. ***Server*** [***Raspberry Pi 3 model B***](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) [35 €],
+2. [***Nextion touchscreen 2.8"*** - NX3224T028](https://www.itead.cc/nextion-nx3224t028-1932.html) [16 €]
+3. ***Custom 2 layers PCB (Raspberry hat)***, linking the server, the touchscreen and the sensors (design details [below](https://github.com/Ricardosgeral/relier/blob/master/README.md#printed-circuit-board-pcb-designedproduced)) [12 €], and
+4. ***Sensors*** (4 with analog outputs, and 3 with digital outputs).
+
+The server, the touchscreen and the custom PCB are placed inside an aluminum enclosure [(88x38x100mm box profile)](https://www.aliexpress.com/item/Free-shipping88-38-100mm-width-x-high-x-length-aluminum-extrusion-box-profile-enclosure-for-PCB/32800855972.html?spm=a2g0s.9042311.0.0.Wvmz38) [6 €]
 
 The following picture shows all the hardware involved.
 
@@ -165,23 +168,20 @@ The following picture shows all the hardware involved.
 You can find more pictures and an overview video in this GitHub repo in [Media folder](/Media).
 
 
-### Server and peripherals
+### Additional hardware 
+#### For the Raspberry Pi server
 
-+ 1x [***Raspberry Pi 3 model B***](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) [35 €]
 + 1x [micro SD card (> 8 GB)](https://www.aliexpress.com/item/SAMSUNG-Micro-SD-Card-256G-128GB-64gb-32g-100M-s-Class10-U3-4K-UHD-Memory-card/32813615707.html?spm=a2g0s.9042311.0.0.Xdt3Ob) [12 €]
 + 1x [Raspberry Pi Universal Power Supply or equivalent](https://www.raspberrypi.org/products/raspberry-pi-universal-power-supply/) [15 €]
-+ 1x [Raspberry Pi GPIO 40 pin cable](https://www.aliexpress.com/item/Raspberry-pi-B-raspberry-PI-GPIO-40-pin-cable/32809594049.html?spm=2114.search0104.8.35.5790121bpoCIAu&transAbTest=ae803_2&priceBeautifyAB=0) [3 €]
-+ 1x [Raspberry Pi case](https://www.aliexpress.com/item/Best-Selling-Clear-Case-for-Raspberry-Pi-3-Model-B-Clear-by-SB-Components-Plastic-Protective/32738665641.html?spm=a2g0s.9042311.0.0.A8JBGc) [2 €] (optional !)
+
+#### For the Nextion touchscreen
++ 1x micro SD card (>128 MB, only required for installation) [< 5 €]
 
 
-### Acquisition system (AS) box
+#### For the custom 2 layers PCB (raspberry hat) 
 
-+ 1x ***PCB with 2 layers*** (details about the design of the *PCB* are shown [below](https://github.com/Ricardosgeral/relier/blob/master/README.md#printed-circuit-board-pcb-designedproduced)) [12 €]
-+ 1x [***Nextion touchscreen 2.8"*** - NX3224T028](https://www.itead.cc/nextion-nx3224t028-1932.html) [16 €]
 + 1x [***16 Bit I2C ADS1115*** Module ADC 4 channel with Pro Gain Amplifier](https://www.aliexpress.com/item/16-Bit-I2C-ADS1115-Module-ADC-4-channel-with-Pro-Gain-Amplifier-RPi-1PCS/32817162654.html?spm=a2g0s.9042311.0.0.KZKf8O) [2 €]
 + 1x [***Logic Level Shifter*** Bi-Directional 5V to 3.3V](https://www.aliexpress.com/item/5PCS-Logic-Level-Shifter-Bi-Directional-For-Arduino-5V-to-3-3V-Four-Way-Two-Way/32827270848.html?spm=a2g0s.9042311.0.0.PRV9iC) [2 €]
-+ 1x micro SD card (>128 MB, only required for installation) [< 1 €]
-+ 1x [88x38x100mm aluminum box profile with enclosure for PCB](https://www.aliexpress.com/item/Free-shipping88-38-100mm-width-x-high-x-length-aluminum-extrusion-box-profile-enclosure-for-PCB/32800855972.html?spm=a2g0s.9042311.0.0.Wvmz38) [6 €]
 + 6x [8mm Male & Female Connector miniature Aviation Plug M8 Circular Socket+Plug](https://www.aliexpress.com/item/1PCS-AP049-YC8-2-3-4-5-6-7Pin-8mm-Male-Female-Connector-miniature-Aviation-Plug/32845374887.html?spm=a2g0s.9042311.0.0.6sphAY) [6x4= 24 €]
 + 6x [XH2.54 3-Pins connectors with right angle Male for PCB - Header+Housing+Terminal](https://www.aliexpress.com/item/XH2-54-2P-3P-4P-5P-6P-7P-8P-9P-10P-11P-12P-13P-14P-15P/32793262315.html?spm=a2g0s.9042311.0.0.DEz5gr) [3 €]
 + 1x [2.54mm 2x20 DC3 40 Pin Right Angle Male for PCB](https://www.aliexpress.com/item/10pcs-2-54mm-2x20-DC3-40-Pin-Right-Angle-Male-Shrouded-PCB-IDC-Socket-Box-header/32597308721.html?spm=a2g0s.9042311.0.0.y1HFgb) [4 €]
@@ -193,6 +193,9 @@ You can find more pictures and an overview video in this GitHub repo in [Media f
 + 1x 20 kΩ carbon film resistor [< 1 €]
 + 1x 4 pins Male Single Row Pin Header Strip [< 1 €]
 + 6 x 5 cm cable with 3 wires [< 1 €]
+
++ 1x [88x38x100mm aluminum box profile with enclosure for PCB](https://www.aliexpress.com/item/Free-shipping88-38-100mm-width-x-high-x-length-aluminum-extrusion-box-profile-enclosure-for-PCB/32800855972.html?spm=a2g0s.9042311.0.0.Wvmz38) [6 €]
+
 
 #### Printed circuit board (*PCB*) designed/produced
 The design of the 2 layer's *PCB* was developed using [Fritzing](http://www.fritzing.org/). 
