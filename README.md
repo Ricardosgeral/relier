@@ -153,9 +153,9 @@ The hardware components required to make the ***relier*** *acquisition system* a
 Instructions about the way those components are connected are also presented.
 Just for reference, some links and prices of the components are also presented.
 
-The *Hardware* is composed by the:
-1. ***Server*** an their peripherals,
-2. ***Acquisition system box***, linking the server and the sensors, and
+The fundamental *Hardware* is composed by the:
+1. ***Server [Raspberry Pi 3 model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) [35 €]***,
+2. ***PCB Hat for raspberry***, linking the server and the sensors, and
 3. ***Sensors*** (4 with analog outputs, and 3 with digital outputs).
 
 The following picture shows all the hardware involved.
