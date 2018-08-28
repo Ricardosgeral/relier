@@ -65,7 +65,7 @@ else: # GAIN == 2/3
     max_VOLT = 6.144
 
 #For the flowmeter
-FLOW_ch = 27       #GPIO27 in raspberry pi3
+FLOW_ch = 25       #GPIO25 in raspberry pi3
 pi = pigpio.pi()        # connect to Pi
 if not pi.connected:
    exit()

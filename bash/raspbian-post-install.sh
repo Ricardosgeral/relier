@@ -97,8 +97,8 @@ echo  '=> Configurations for serial, 1-Wire, I2C and UART'
 echo  '--------------------------------------------------'
 #
 # enable 1-Wire GPIO on Raspberry Pi
-echo '>>> Enable 1-Wire GPIO (w1)'
-if grep -q 'dtoverlay=w1-gpio' /boot/config.txt; then
+echo '>>> Enable 1-Wire GPIO (w1) on GPIO24'
+if grep -q 'dtoverlay=w1-gpio,gpiopin=24' /boot/config.txt; then
   echo 'Seems w1-gpio parameter already set, skip this step.'
 else
   echo dtoverlay=w1-gpio >> /boot/config.txt
