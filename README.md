@@ -28,8 +28,8 @@ For reference, some links and prices of the components used are also presented.
 
 The main *Hardware* is composed by the:
 1. ***Server*** [Raspberry Pi 3 model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) [35 €],
-2. ***Touchscreen*** [Nextion 2.8" - NX3224T028](https://www.itead.cc/nextion-nx3224t028-1932.html) [16 €]
-3. ***Custom PCB*** (*Raspberry  hat*) (design details [below](https://github.com/Ricardosgeral/relier/blob/master/README.md#printed-circuit-board-pcb-designedproduced)) [12 €], and
+2. ***Touchscreen*** [Nextion 2.8" - NX3224T028](https://www.itead.cc/nextion-nx3224t028-1932.html) [16 €],
+3. ***Custom Raspberry Pi Hat*** (*'shield'*), that interlinks the server, the touchscreen and the sensors,
 4. ***Sensors*** (4 with analog outputs, and 3 with digital outputs).
 
 The server, the touchscreen and the custom PCB are placed inside an aluminum enclosure [(88x38x100mm box profile)](https://www.aliexpress.com/item/Free-shipping88-38-100mm-width-x-high-x-length-aluminum-extrusion-box-profile-enclosure-for-PCB/32800855972.html?spm=a2g0s.9042311.0.0.Wvmz38) [6 €].
@@ -49,8 +49,9 @@ You can find more pictures and an overview video in this GitHub repository in [M
 #### For the Nextion touchscreen
 + 1x micro SD card (>128 MB, only required for installation) [< 5 €]
 
-#### To solder in the 2 layers custom PCB (raspberry hat) 
+#### For the custom Raspberry Pi Hat (shield)
 
++ 1x Custom PBC (design details [below](https://github.com/Ricardosgeral/relier/blob/master/README.md#printed-circuit-board-pcb-designedproduced)) [12 €]
 + 1x [***16 Bit I2C ADS1115*** Module ADC 4 channel with Pro Gain Amplifier](https://www.aliexpress.com/item/16-Bit-I2C-ADS1115-Module-ADC-4-channel-with-Pro-Gain-Amplifier-RPi-1PCS/32817162654.html?spm=a2g0s.9042311.0.0.KZKf8O) [2 €]
 + 1x [***Logic Level Shifter*** Bi-Directional 5V to 3.3V](https://www.aliexpress.com/item/5PCS-Logic-Level-Shifter-Bi-Directional-For-Arduino-5V-to-3-3V-Four-Way-Two-Way/32827270848.html?spm=a2g0s.9042311.0.0.PRV9iC) [2 €]
 + 6x [8mm Male & Female Connector miniature Aviation Plug M8 Circular Socket+Plug](https://www.aliexpress.com/item/1PCS-AP049-YC8-2-3-4-5-6-7Pin-8mm-Male-Female-Connector-miniature-Aviation-Plug/32845374887.html?spm=a2g0s.9042311.0.0.6sphAY) [6x4= 24 €]
@@ -66,7 +67,7 @@ You can find more pictures and an overview video in this GitHub repository in [M
 + 6 x 5 cm cable with 3 wires [< 1 €]
 
 ### Custom *PCB* design (2 layers)
-This PCB (Printed circuit board) interlinks the server, the touchscreen and the sensors. 
+. 
 The design of the 2 layer's *PCB* was developed using [Fritzing](http://www.fritzing.org/). 
 The production files and the *.fzz* file are [here](https://github.com/Ricardosgeral/relier/tree/master/Fritzing). 
 Latest version of *PCB* is v3 (August 2018). 
@@ -98,13 +99,13 @@ you can see the numbering of the 40 GPIO pins of the Raspberry Pi used.
 
 The following ***'low cost' sensors*** were used:
 + 3x [***Analog Pressure Transducer Transmitter Sensor***, 0-5psi 0.5-5V](https://www.aliexpress.com/item/1Pc-Pressure-Transducer-Sender-Stainless-Steel-for-Oil-Fuel-Air-Water-5psi-CSL2017/32814346612.html?spm=2114.search0104.3.34.61855791WWOsT5&ws_ab_test=searchweb0_0,searchweb201602_1_10152_10151_10065_10344_10068_10342_10343_5722611_10340_10341_10698_10696_5722911_5722811_10084_5722711_10083_10618_10304_10307_10301_5711211_10059_308_100031_10103_10624_10623_10622_10621_10620_5711311_5722511,searchweb201603_32,ppcSwitch_5&algo_expid=a59a0ef4-feff-4b1a-b341-8883ad49d5dc-5&algo_pvid=a59a0ef4-feff-4b1a-b341-8883ad49d5dc&transAbTest=ae803_2&priceBeautifyAB=0) [3x13= 39 €]
-+ 1x [***Digital Turbine Flow Sensor***, 1.25" DN32 1~120L/min](https://www.aliexpress.com/item/DN32-Water-Flow-Meter-Sensor-Switch-G5-4-Thread-Port-Industrial-Flowmeter/32567971320.html?spm=a2g0s.9042311.0.0.27424c4dVfTiwe) [13 €]
++ 1x [***Digital Turbine Flow Sensor***, G5/4, 1.25", DN32, 1~120L/min](https://www.aliexpress.com/item/DN32-Water-Flow-Meter-Sensor-Switch-G5-4-Thread-Port-Industrial-Flowmeter/32567971320.html?spm=a2g0s.9042311.0.0.27424c4dVfTiwe) [13 €]
 + 1x [***Analog Turbidity Sensor***, 5V 40mA](https://www.aliexpress.com/item/DFRobot-Gravity-Analog-Digital-Turbidity-Sensor-5V-40mA-DC-support-both-signal-output-compatible-with-arduino/32595773560.html?spm=a2g0s.9042311.0.0.dGtxdp) [9 €]
 + 1x [Waterproof DS18B20 digital Temperature Sensor (probe)](https://www.aliexpress.com/snapshot/0.html?spm=a2g0s.9042311.0.0.oXghXt&orderId=505161631680030&productId=32675444739) [<1€]
 + 1x [BME280 Digital Sensor, Humidity, Temperature and Barometric Pressure Sensor](https://www.aliexpress.com/item/3In1-BME280-GY-BME280-Digital-Sensor-SPI-I2C-Humidity-Temperature-and-Barometric-Pressure-Sensor-Module-1/32659765502.html?spm=a2g0s.9042311.0.0.oXghXt) [3 €]
 
 Most of the sensors are connected to the acquisition system box via the mini aviator (circular) plugs. An exception is the 
-*BME280* chip, which needs to be soldered to the PCB. If possible this chip should be placed with the sensor pointing to the exterior of the AS box (with openings), 
+*BME280* chip, which needs to be soldered to the PCB. If possible the *BME280* should be placed with the sensor pointing to the exterior of the AS box (with openings), 
 to minimize the influence of the heat generated by the chips inside the aluminium box!
 
 #### Other components that may be useful for debugging
