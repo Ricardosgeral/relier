@@ -70,7 +70,8 @@ You can find more pictures and an overview video in this GitHub repository in [M
  The design of the 2 layer's *PCB* was developed using [Fritzing](http://www.fritzing.org/). 
 The production files and the *.fzz* file are [here](https://github.com/Ricardosgeral/relier/tree/master/Fritzing). 
 Latest version of *PCB* is v3 (August 2018). 
-The *PCB* was produced/printed by [PCBWay company](https://www.pcbway.com/).
+The *PCB* was produced/printed by [PCBWay company](https://www.pcbway.com/). 
+You can order a copy [here](https://www.pcbway.com/project/shareproject/Relier_Acquisition_system___for_Rasoberry_pi3_b_.html).
 
 Below, you can see images showing the circuits hooked in the breadboard and in the PCB, as well as the final 
 aspect of each *PCB* layer individually. 
