@@ -5,12 +5,12 @@
 
 import RPi.GPIO as GPIO
 from time import sleep
-redPin = 16    # GPIO16 pin 16
+redPin = 16    # GPIO16 pin 36
 greenPin = 21  # GPIO21 pin 40
 bluePin = 12   # GPIO12 pin 32
 
 def blink(pin):
-    GPIO.setmode(GPIO.BCM)
+    GPIO.setmode(GPIO.BCM   )
     GPIO.setwarnings(False)
     GPIO.setup(pin, GPIO.OUT)
     GPIO.output(pin, GPIO.HIGH)
@@ -87,7 +87,7 @@ def reboot_led(): #10 fast blue flashes
         sleep(0.1)
 
 def main():
-#print("""Ensure the following GPIO connections: R-36, G-40, B-37
+#print("""Ensure the  GPIO connections are correct
 #Colors: Red, Green, Blue, Yellow, Cyan, Magenta, and White
 #Use the format: color on/color off""")
     while True:
@@ -123,4 +123,3 @@ def main():
             whiteOff()
         else:
             print("Not a valid command")
-

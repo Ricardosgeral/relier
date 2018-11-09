@@ -19,12 +19,15 @@ from endbips import test_end # for Buzzer
 import database as db
 
 ######### make connection to serial UART to read/write NEXTION
-ser = serial.Serial(port='/dev/ttyAMA0', baudrate = 38400,
+BAUDRATE = 38400
+
+ser = serial.Serial(port='/dev/ttyAMA0', baudrate = BAUDRATE,
                     parity=serial.PARITY_NONE,
                     stopbits=serial.STOPBITS_ONE,
                     bytesize=serial.EIGHTBITS,
                     timeout=0.15)
 
+nx_setsys(ser, 'bauds', BAUDRATE)  # set default baud default baud rate of nextion is 9600
 nxlib.nx_setsys(ser, 'bkcmd',0)     # sets in NEXTION 'no return error/success codes'
 nxlib.nx_setcmd_1par(ser,'page',1)  # sets page 1  (page 0 is "not connected")
 nxlib.nx_setcmd_2par(ser,'tsw','b0',0)    # disable touch events of b0

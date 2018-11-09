@@ -1,15 +1,15 @@
 #uncoment lines below to use the examples in the bottom of file
 
-# import serial
-# ser = serial.Serial(
-#   port='/dev/ttyAMA0',
-#   baudrate = 9600,
-#   parity=serial.PARITY_NONE,
-#   stopbits=serial.STOPBITS_ONE,
-#   bytesize=serial.EIGHTBITS,
-#   timeout=0.100)
-#
-# ser.reset_output_buffer()
+import serial
+ser = serial.Serial(
+  port='/dev/ttyAMA0',
+  baudrate = 9600,
+  parity=serial.PARITY_NONE,
+  stopbits=serial.STOPBITS_ONE,
+  bytesize=serial.EIGHTBITS,
+  timeout=0.100)
+
+ser.reset_output_buffer()
 
 EndCom = "\xff\xff\xff"
 
@@ -89,7 +89,7 @@ def nx_setValue(ser, pageID, componentID, value):  # writes the value in the num
 
 ####### examples of usage (uncommrnt the top part)
 #
-#nx_setsys(ser, 'bauds', 9600)  # set default baud
+#nx_setsys(ser, 'bauds', 38400)  # set default baud
 
 #nx_setsys(ser, 'dim',80)                    # sets backlight of device 1 to 100
 #nx_setsys(ser, 'bkcmd',0)     # avoids receiving bytes used in debugging
