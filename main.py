@@ -27,7 +27,7 @@ ser = serial.Serial(port='/dev/ttyAMA0', baudrate = BAUDRATE,
                     bytesize=serial.EIGHTBITS,
                     timeout=0.15)
 
-nx_setsys(ser, 'bauds', BAUDRATE)  # set default baud default baud rate of nextion is 9600
+nxlib.nx_setsys(ser, 'bauds', BAUDRATE)  # set default baud (default baud rate of nextion from fabric is 9600)
 nxlib.nx_setsys(ser, 'bkcmd',0)     # sets in NEXTION 'no return error/success codes'
 nxlib.nx_setcmd_1par(ser,'page',1)  # sets page 1  (page 0 is "not connected")
 nxlib.nx_setcmd_2par(ser,'tsw','b0',0)    # disable touch events of b0
