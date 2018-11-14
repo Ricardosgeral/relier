@@ -19,15 +19,14 @@ from endbips import test_end # for Buzzer
 import database as db
 
 ######### make connection to serial UART to read/write NEXTION
-BAUDRATE = 38400
+ser = nxlib.ser
+# ser = serial.Serial(port='/dev/ttyAMA0', baudrate = nxlib.BAUD,
+#                     parity=serial.PARITY_NONE,
+#                     stopbits=serial.STOPBITS_ONE,
+#                     bytesize=serial.EIGHTBITS,
+#                     timeout=0.15)
 
-ser = serial.Serial(port='/dev/ttyAMA0', baudrate = BAUDRATE,
-                    parity=serial.PARITY_NONE,
-                    stopbits=serial.STOPBITS_ONE,
-                    bytesize=serial.EIGHTBITS,
-                    timeout=0.15)
-
-nxlib.nx_setsys(ser, 'bauds', BAUDRATE)  # set default baud (default baud rate of nextion from fabric is 9600)
+nxlib.nx_setsys(ser, 'bauds', nxlib.BAUD)  # set default baud (default baud rate of nextion from fabric is 9600)
 nxlib.nx_setsys(ser, 'bkcmd',0)     # sets in NEXTION 'no return error/success codes'
 nxlib.nx_setcmd_1par(ser,'page',1)  # sets page 1  (page 0 is "not connected")
 nxlib.nx_setcmd_2par(ser,'tsw','b0',0)    # disable touch events of b0
@@ -39,6 +38,7 @@ EndCom = "\xff\xff\xff"             # 3 last bits to end serial communication
 ####OBTAIN DATA FROM INI FILE WITH DEFAULT INPUTS
 ini = rw.read_ini()  # read inputs.ini and parse parameters
 #settings page
+
 nxlib.nx_setText(ser, nxApp.ID_filename[0] , nxApp.ID_filename[1] , ini['filename'])
 nxlib.nx_setText(ser, nxApp.ID_googlesh[0], nxApp.ID_googlesh[1], ini['googlesh'])
 nxlib.nx_setText(ser, nxApp.ID_share_email[0], nxApp.ID_share_email[1], ini['share_email'])

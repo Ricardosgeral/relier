@@ -1,13 +1,14 @@
 #uncoment lines below to use the examples in the bottom of file
 
 import serial
+BAUD =38400   # for new monitor please put 9600 and then run nx_setsys(ser, 'bauds', newBAUD)
 ser = serial.Serial(
   port='/dev/ttyAMA0',
-  baudrate = 9600,
+  baudrate = BAUD,
   parity=serial.PARITY_NONE,
   stopbits=serial.STOPBITS_ONE,
   bytesize=serial.EIGHTBITS,
-  timeout=0.100)
+  timeout=0.15)
 
 ser.reset_output_buffer()
 
@@ -88,8 +89,8 @@ def nx_setValue(ser, pageID, componentID, value):  # writes the value in the num
 
 
 ####### examples of usage (uncommrnt the top part)
-#
-#nx_setsys(ser, 'bauds', 38400)  # set default baud
+
+#nx_setsys(ser, 'bauds', BAUD)  # set default baud
 
 #nx_setsys(ser, 'dim',80)                    # sets backlight of device 1 to 100
 #nx_setsys(ser, 'bkcmd',0)     # avoids receiving bytes used in debugging

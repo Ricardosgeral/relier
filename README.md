@@ -570,8 +570,10 @@ to check if the Google credentials are correct!.
 and that you followed all 6 steps in installation of the server software. Don't forget to enable the 'Drive API' (step 4).
 - If the Nextion touchscreen is not functioning properly or not working at all:
   + first, see the connections, in particular check that: RX (server) <-> TX (screen), and TX (server) <-> RX (screen); 
-  + second, ensure that *serial* is disconnected: `$ sudo raspi-config` > *5* > *P6 Serial* > *No*;
-  + third, doing `$ ls -l /dev | grep serial` you should see *serial 0 >> ttyAMA0* (pins 14/15 in UART) and 
+  + second, confirm that the baudrate is correct. By default nextion comes with 9600, but in program it is defined as 38400. This means that in first time
+  the nextion needs to be set to that baud rate using file pynextion_lib.py.
+  + third, ensure that *serial* is disconnected: `$ sudo raspi-config` > *5* > *P6 Serial* > *No*;
+  + last, doing `$ ls -l /dev | grep serial` you should see *serial 0 >> ttyAMA0* (pins 14/15 in UART) and 
   *serial 1 >> ttyS0* (bluetooth in miniuart). By default UART is attributed to Bluetooth and miniuart to pins 14/15 (which has limitations). 
   That's why they are changed during the execution of 
   [*raspbian-post-install.sh*](https://github.com/Ricardosgeral/relier/blob/master/bash/raspbian-post-install.sh).
