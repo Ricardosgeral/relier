@@ -9,11 +9,13 @@ import bme280
 port = 1
 address = 0x76
 bus = smbus2.SMBus(port)
-calibration_params = bme280.load_calibration_params(bus, address)
-
-# the sample method will take a single reading and return a
-# compensated_reading object
-data = bme280.sample(bus, address, calibration_params)
+try:
+    calibration_params = bme280.load_calibration_params(bus, address)
+    # the sample method will take a single reading and return a
+    # compensated_reading object
+    data = bme280.sample(bus, address, calibration_params)
+except:
+    print("Attention: no BME has been detected!")
 
 class D_Temp(threading.Thread): # digital temperature sensors (water temp and bme280 (temp+hum+press))
 
@@ -36,10 +38,9 @@ class D_Temp(threading.Thread): # digital temperature sensors (water temp and bm
 
             try:
                 data = bme280.sample(bus, address, calibration_params)
-
                 self.temp = data.temperature
                 self.hum = data.humidity
-                self.press = data.pressure
+                self.pres = data.pressure
             except:
                 self.temp = 0
                 self.hum = 0
@@ -49,5 +50,5 @@ class D_Temp(threading.Thread): # digital temperature sensors (water temp and bm
         water_temp = self.W_temp
         air_temp= self.temp
         air_hum= self.hum
-        air_pres=self.press
+        air_pres=self.pres
         return water_temp, air_temp, air_hum, air_pres

@@ -155,19 +155,8 @@ def get_data(interval, mu, mi, md, bu, bi, bd, mturb, bturb, zerou, zeroi, zerod
     date_ = '{:%Y-%m-%d}'.format(d)
 
     # (DS18B) Water temperature + BME280
-    try:
-        water_temp, air_temp, air_hum, air_pres = d_temp_sensor.read_d_temp()
-        if water_temp == 0: # due to the reading time of the sensor the first reading may not be possible
-            water_temp = 0
-        if air_temp == 0:
-            air_hum = 0
-            air_pres = 0
-    except:
-        water_temp = 0
-        air_temp = 0
-        air_hum = 0
-        air_pres = 0
 
+    water_temp, air_temp, air_hum, air_pres = d_temp_sensor.read_d_temp()
 
     #flowmeter
     pulses_last = pulses
