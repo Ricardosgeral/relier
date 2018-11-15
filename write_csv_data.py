@@ -55,7 +55,7 @@ def write_data(data, data_file):
         rw.write_ini_path(path)
 
 
-        with open(path, 'a', newline='') as f: # if the file exists data will be added below after a black line
+        with open(path, 'a', newline='') as f: # if the file exists data will be added below after a blank line
             writer = DictWriter(f, fieldnames)
             if not file_exists:
                 writer.writeheader()    # file doesn't exist yet, write a header

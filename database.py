@@ -3,7 +3,6 @@ import psycopg2 as p
 #credentials of database in Heroku  # to obtain it $ heroku config, or look in https://data.heroku.com/  -> database -> settings -> Database Credentials -> URI
 DATABASE_URL = 'postgres://wvqemnhwnijypm:7b08a0b8700d1d6850a802c0eb61649999e8ee11bec7be91c8623b99aaac80df@ec2-54-163-228-190.compute-1.amazonaws.com:5432/de93scsb82pcp1'
 import urllib.parse as urlparse
-import os
 
 url = urlparse.urlparse(DATABASE_URL)
 dbname = url.path[1:]
