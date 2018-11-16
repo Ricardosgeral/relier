@@ -5,7 +5,6 @@
 import threading
 import time
 import Adafruit_ADS1x15 # Analogic digital conversor ADS 15 bit 2^15-1=32767 (needs to be installed using pip3)
-
 adc = Adafruit_ADS1x15.ADS1115(address=0x48, busnum=1) #address of ADC See in -- sudo i2cdetect -y 1
 
 # Choose a gain of 1 for reading voltages from 0 to 6.14V.
@@ -36,6 +35,10 @@ class AnalogSensor(threading.Thread):
             # Adds measures and keep track of num of measurements
             for channel in range(4):
                 self.total[channel] += adc.read_adc(channel, gain=GAIN,data_rate=DATA_RATE) # pin gain and data_rate
+                if self.total[channel] == 0:  # if RPi buffer gets full the reading comes negative and should do another one until its not null
+                    while self.total[channel] != 0:
+                        self.total[channel] += adc.read_adc(channel, gain=GAIN, data_rate=DATA_RATE)
+                        time.sleep(0.01)
             self.count += 1
             time.sleep(self.sleep)
 

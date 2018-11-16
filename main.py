@@ -3,7 +3,6 @@
 #Ricardos.geral@gmail.com
 
 import datetime
-import numpy as np
 import time
 from time import sleep
 import threading
@@ -271,22 +270,19 @@ def read_display_write(e_rdw): # read and display data in page "sensors" and wri
                 data['flow'] = 0
             data['liters'] = data['liters']-zero_vol
 
-            # filters readings that are wrong due to overflow of buffer of ADS1115!
-            if data['v_up'] != 0 and data['v_int'] != 0 and data['v_down'] != 0 and data['ana_turb'] != 0:
-                write_csv_data.write_data(data = data, data_file = inp['filename'])
-                ip = get_ip_address()
-                if ip != 'No internet connection':
-                #insert a new row in the database in Heroku (only when there is internet)
-                    cur.execute("INSERT INTO testdata(date_time, duration, mmH2O_up, mmH2O_int, mmH2O_down, turb, flow, volume) "
-                           "VALUES(to_timestamp('{} {}', 'YYYY-MM-DD HH24:MI:SS') ,%s,{},{},{},{},{},{});".format(
-                                data['date'], data['time'],
-                                data['mmH2O_up'],data['mmH2O_int'],data['mmH2O_down'],data['turb'],data['flow'],
-                                data['liters'],inp['interval']),
-                                [elapsed,]
-                          )
+            write_csv_data.write_data(data = data, data_file = inp['filename'])
+            ip = get_ip_address()
+            if ip != 'No internet connection':
+            #insert a new row in the database in Heroku (only when there is internet)
+                cur.execute("INSERT INTO testdata(date_time, duration, mmH2O_up, mmH2O_int, mmH2O_down, turb, flow, volume) "
+                       "VALUES(to_timestamp('{} {}', 'YYYY-MM-DD HH24:MI:SS') ,%s,{},{},{},{},{},{});".format(
+                            data['date'], data['time'],
+                            data['mmH2O_up'],data['mmH2O_int'],data['mmH2O_down'],data['turb'],data['flow'],
+                            data['liters'],inp['interval']),
+                            [elapsed,]
+                      )
 
-                display_sensors(data)  # display in NEXTION monitor
-
+            display_sensors(data)  # display in NEXTION monitor
 
             ID_elapsed = nxApp.get_Ids('sensors', 'txt_duration')
             nxlib.nx_setText(ser, ID_elapsed[0], ID_elapsed[1], elapsed)
