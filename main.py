@@ -265,7 +265,7 @@ def read_display_write(e_rdw): # read and display data in page "sensors" and wri
                 data['flow'] = 0
             data['liters'] = data['liters']-zero_vol
 
-            # filters readings that are wrong due to overflow of buffer of ADS1115!
+            # filters readings that are null! it should never occur but...
             if data['v_up'] != 0 and data['v_int'] != 0 and data['v_down'] != 0 and data['ana_turb'] != 0:
                 write_csv_data.write_data(data = data, data_file = inp['filename'])
                 ip = get_ip_address()

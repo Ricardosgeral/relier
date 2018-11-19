@@ -44,7 +44,10 @@ class AnalogSensor(threading.Thread):
             self.A2.append(adc.read_adc(2, gain=GAIN, data_rate=DATA_RATE))  # pin gain and data_rate
             self.A3.append(adc.read_adc(3, gain=GAIN, data_rate=DATA_RATE))  # pin gain and data_rate
 
-            time.sleep(self.sleep-0.01*4) #each reading takes about 0.01s. this time is compensated during sleep
+            if self.sleep > 0.01*4:
+                self.sleep=self.sleep-0.01*4  #each reading takes about 0.01s. this time is compensated during sleep
+
+            time.sleep(self.sleep)
 
     def read_analog(self):
         """reads the channels as a rounded mean"""
