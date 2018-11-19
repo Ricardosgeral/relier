@@ -18,7 +18,7 @@ The sensors are:
                                     DFRobot Gravity Analog/Digital Turbidity Sensor, 5V 40mA DC
     3 pressure sensors : 0-5psi 5V Pressure Transducer Transmitter Sensor or Sender
     flow sensor : flowrate and total liters
-                 1.5" DN40 2~200L/min water Plastic Hall Turbine flow sensor industry meter
+                 1.25" DN32 1~120L/min water Plastic Hall Turbine flow sensor industry meter (Sea brand)
 
 It also records the time and date of the measure.
 
@@ -26,7 +26,7 @@ It also records the time and date of the measure.
 
 # Libraries required
 from time import sleep
-from analogsensor_thread import AnalogSensor, GAIN, DATA_RATE
+from analogsensor_thread_buf import AnalogSensor, GAIN, DATA_RATE
 from digitalSen_thread import D_Temp
 from datetime import datetime
 from math import log as log
@@ -99,7 +99,7 @@ def init(interval, no_reads):
 
     global analogTread_flag
     if analogTread_flag == False:  # avoids having multiple threats analog_sensor running
-        analog_sensor = AnalogSensor(sleep)  # average readings in the analog sensors per measure interval for signal stability)
+        analog_sensor = AnalogSensor(sleep,no_reads)  # average readings in the analog sensors per measure interval for signal stability)
         analog_sensor.name = "analog_sensors"
         analog_sensor.start()
         analogTread_flag = True

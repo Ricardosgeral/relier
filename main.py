@@ -19,11 +19,6 @@ import database as db
 
 ######### make connection to serial UART to read/write NEXTION
 ser = nxlib.ser
-# ser = serial.Serial(port='/dev/ttyAMA0', baudrate = nxlib.BAUD,
-#                     parity=serial.PARITY_NONE,
-#                     stopbits=serial.STOPBITS_ONE,
-#                     bytesize=serial.EIGHTBITS,
-#                     timeout=0.15)
 
 nxlib.nx_setsys(ser, 'bauds', nxlib.BAUD)  # set default baud (default baud rate of nextion from fabric is 9600)
 nxlib.nx_setsys(ser, 'bkcmd',0)     # sets in NEXTION 'no return error/success codes'
