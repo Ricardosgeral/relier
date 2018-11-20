@@ -255,7 +255,7 @@ def read_display_write(e_rdw): # read and display data in page "sensors" and wri
             LED.greenOn()
             e_rdw.wait()
             current = time.time()
-            elapsed = current - start# restart thread t_rdw
+            elapsed = current - start   # restart thread t_rdw
             elapsed = time.strftime("%H:%M:%S", time.gmtime(elapsed))
             autostop =  time.strftime("%H:%M:%S", time.localtime(stop))
             print("write running")

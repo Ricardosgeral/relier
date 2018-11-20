@@ -176,10 +176,11 @@ def get_data(interval, mu, mi, md, bu, bi, bd, mturb, bturb, zerou, zeroi, zerod
         # Ratio of 15 bit value to max volts determines volts
             volts[ch] = analog[ch] / 32767 * max_VOLT
         else:
-            volts[ch] = 0
+            volts[ch] = 0  # only pull-up resistor is present
+
     # linear relationship between psi & voltage in the pressure sensors(from manufacturer)
     if volts[PRESSUP_ch] != 0:
-        bar[PRESSUP_ch]  = (mu * volts[PRESSUP_ch]  + bu) - zerou # 0 psi(bar) = 0.5v ; 15psi(*psi_to_bar) = 4.5V
+        bar[PRESSUP_ch] = (mu * volts[PRESSUP_ch]  + bu) - zerou # 0 psi(bar) = 0.5v ; 15psi(*psi_to_bar) = 4.5V
     else:
         bar[PRESSUP_ch] = 0
     if volts[PRESSINT_ch] != 0:
@@ -187,7 +188,7 @@ def get_data(interval, mu, mi, md, bu, bi, bd, mturb, bturb, zerou, zeroi, zerod
     else:
         bar[PRESSINT_ch] = 0
     if volts[PRESSDW_ch] != 0:
-        bar[PRESSDW_ch]  = (md * volts[PRESSDW_ch]  + bd) - zerod # 0 psi(bar) = 0.5v ;  5psi(*psi_to_bar) = 4.5V
+        bar[PRESSDW_ch] = (md * volts[PRESSDW_ch]  + bd) - zerod # 0 psi(bar) = 0.5v ;  5psi(*psi_to_bar) = 4.5V
     else:
         bar[PRESSDW_ch] = 0
 
@@ -197,7 +198,7 @@ def get_data(interval, mu, mi, md, bu, bi, bd, mturb, bturb, zerou, zeroi, zerod
             mmH2O[ch] = bar[ch] * bar_to_mmH2O   # mmH2O conversion
         else:
             mmH2O[ch]=0
-    if testtype == '3': #HET
+    if testtype == '3':             #HET
         volts[PRESSINT_ch]= 0
         bar[PRESSINT_ch]= 0
         mmH2O[PRESSINT_ch]= 0
