@@ -13,6 +13,7 @@ from gpiozero import Button
 from signal import pause
 from subprocess import check_call
 import RGBled as LED
+import shutdown_reboot as shutboot
 
 held_for=0.0
 
@@ -20,9 +21,11 @@ def rls():
     global held_for
     if held_for > 3.0:  # if button is helded for more than 3 seconds -> Shutdown: useful to disconnect the pi
         LED.shutdown_led()
+        shutboot.shutdown_pi()
         check_call(['/sbin/poweroff'])
     elif held_for > 0.5: # if helded for more than 0.5 seconds and less than 3- > reboot: useful if there any abnormal code error
         LED.reboot_led()
+        shutboot.reboot_pi()
         check_call(['/sbin/reboot'])
     else:
         held_for = 0.0

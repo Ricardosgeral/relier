@@ -160,17 +160,17 @@ sudo udevadm control --reload-rules     #reloads rules
 sudo systemctl daemon-reload            #reloads systemd
 #
 echo 'Done.'
-#
-echo '--------------------------------------------------------'
-echo ' => Create systemd unit file to run at shutdown/reboot'
-echo ' -------------------------------------------------------'
-#
-#Create a script to run at shutdown/reboot
-sudo cp /home/pi/relier/services/rcshut.service /etc/systemd/system/rcshut.service
-sudo systemctl enable rcshut --now
-sudo systemctl start rcshut
-sudo chmod +w /home/pi/relier/shutdown.py
-echo 'Done.'
+# This is no longer necessary
+#echo '--------------------------------------------------------'
+#echo ' => Create systemd unit file to run at shutdown/reboot'
+#echo ' -------------------------------------------------------'
+##
+##Create a script to run at shutdown/reboot
+#sudo cp /home/pi/relier/services/rcshut.service /etc/systemd/system/rcshut.service
+#sudo systemctl enable rcshut --now
+#sudo systemctl start rcshut
+#sudo chmod +w /home/pi/relier/shutdown.py
+#echo 'Done.'
 #
 echo  '----------------------------------------------------------------'
 echo  '=> Create systemd unit file to control shutdown/restart button'
