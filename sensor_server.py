@@ -172,25 +172,39 @@ def get_data(interval, mu, mi, md, bu, bi, bd, mturb, bturb, zerou, zeroi, zerod
     analog = analog_sensor.read_analog()  # get the actual reading from average
 
     for ch in range(0,3,1):
+        if analog[ch] != 32767:  # The pcb has a pull-up resister that is used to check if there is no sensor attached.
         # Ratio of 15 bit value to max volts determines volts
-        volts[ch] = analog[ch] / 32767.0 * max_VOLT
-
+            volts[ch] = analog[ch] / 32767 * max_VOLT
+        else:
+            volts[ch] = 0
     # linear relationship between psi & voltage in the pressure sensors(from manufacturer)
-    bar[PRESSUP_ch]  = (mu * volts[PRESSUP_ch]  + bu) - zerou # 0 psi(bar) = 0.5v ; 15psi(*psi_to_bar) = 4.5V
-    bar[PRESSINT_ch] = (mi * volts[PRESSINT_ch] + bi) - zeroi # 0 psi(bar) = 0.5v ;  5psi(*psi_to_bar) = 4.5V
-    bar[PRESSDW_ch]  = (md * volts[PRESSDW_ch]  + bd) - zerod # 0 psi(bar) = 0.5v ;  5psi(*psi_to_bar) = 4.5V
+    if volts[PRESSUP_ch] != 0:
+        bar[PRESSUP_ch]  = (mu * volts[PRESSUP_ch]  + bu) - zerou # 0 psi(bar) = 0.5v ; 15psi(*psi_to_bar) = 4.5V
+    else:
+        bar[PRESSUP_ch] = 0
+    if volts[PRESSINT_ch] != 0:
+        bar[PRESSINT_ch] = (mi * volts[PRESSINT_ch] + bi) - zeroi  # 0 psi(bar) = 0.5v ;  5psi(*psi_to_bar) = 4.5V
+    else:
+        bar[PRESSINT_ch] = 0
+    if volts[PRESSDW_ch] != 0:
+        bar[PRESSDW_ch]  = (md * volts[PRESSDW_ch]  + bd) - zerod # 0 psi(bar) = 0.5v ;  5psi(*psi_to_bar) = 4.5V
+    else:
+        bar[PRESSDW_ch] = 0
+
 
     for ch in range(3):
-        mmH2O[ch] = bar[ch] * bar_to_mmH2O   # mmH2O conversion
-
-    if testtype == '3':
+        if volts[ch] != 0:
+            mmH2O[ch] = bar[ch] * bar_to_mmH2O   # mmH2O conversion
+        else:
+            mmH2O[ch]=0
+    if testtype == '3': #HET
         volts[PRESSINT_ch]= 0
         bar[PRESSINT_ch]= 0
         mmH2O[PRESSINT_ch]= 0
 
     turb_analog = analog[TURB_ch]           # analog 0 to 32767
 
-    if turb_analog > 0:
+    if turb_analog != 32767:  # value given by pull-up resistor -> nothing connected
         turb = mturb*log(turb_analog) + bturb   # grams/liter  y=m.ln(x) + b     base e
     else:
         turb = 0

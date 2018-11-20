@@ -9,6 +9,7 @@ redPin = 16    # GPIO16 pin 36
 greenPin = 21  # GPIO21 pin 40
 bluePin = 12   # GPIO12 pin 32
 
+
 def blink(pin):
     GPIO.setmode(GPIO.BCM   )
     GPIO.setwarnings(False)

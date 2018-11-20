@@ -42,7 +42,7 @@ class AnalogSensor(threading.Thread):
 
         while True:
             # Adds measures and keep track of num of measurements
-            self.A0.append(adc.read_adc(0, gain=GAIN,data_rate=DATA_RATE)) # pin gain and data_rate
+            self.A0.append(adc.read_adc(0, gain=GAIN, data_rate=DATA_RATE))  # pin gain and data_rate
             self.A1.append(adc.read_adc(1, gain=GAIN, data_rate=DATA_RATE))  # pin gain and data_rate
             self.A2.append(adc.read_adc(2, gain=GAIN, data_rate=DATA_RATE))  # pin gain and data_rate
             self.A3.append(adc.read_adc(3, gain=GAIN, data_rate=DATA_RATE))  # pin gain and data_rate

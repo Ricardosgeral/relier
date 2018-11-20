@@ -17,6 +17,10 @@ import RGBled as LED
 from endbips import test_end # for Buzzer
 import database as db
 
+
+LED.greenOff()
+LED.redOff()
+LED.blueOff()
 ######### make connection to serial UART to read/write NEXTION
 ser = nxlib.ser
 
@@ -266,10 +270,10 @@ def read_display_write(e_rdw): # read and display data in page "sensors" and wri
             data['liters'] = data['liters']-zero_vol
 
             # filters readings that are null! it should never occur but...
-            if data['v_up'] != 0 and data['v_int'] != 0 and data['v_down'] != 0 and data['ana_turb'] != 0:
-                write_csv_data.write_data(data = data, data_file = inp['filename'])
-                ip = get_ip_address()
-                if ip != 'No internet connection':
+            #if data['v_up'] != 0 and data['v_int'] != 0 and data['v_down'] != 0 and data['ana_turb'] != 0:
+            write_csv_data.write_data(data = data, data_file = inp['filename'])
+            ip = get_ip_address()
+            if ip != 'No internet connection':
                 #insert a new row in the database in Heroku (only when there is internet)
                     cur.execute("INSERT INTO testdata(date_time, duration, mmH2O_up, mmH2O_int, mmH2O_down, turb, flow, volume) "
                            "VALUES(to_timestamp('{} {}', 'YYYY-MM-DD HH24:MI:SS') ,%s,{},{},{},{},{},{});".format(
@@ -279,7 +283,7 @@ def read_display_write(e_rdw): # read and display data in page "sensors" and wri
                                 [elapsed,]
                           )
 
-                display_sensors(data)  # display in NEXTION monitor
+            display_sensors(data)  # display in NEXTION monitor
 
 
             ID_elapsed = nxApp.get_Ids('sensors', 'txt_duration')
