@@ -71,7 +71,7 @@ class NextionApp:
 
             {'id': 6, 'name': 'flowtype',
              'components': [
-                 {'id': 7, 'type': 'text',   'name': 'txt_cf'},
+                 {'id': 7, 'type': 'text',     'name': 'txt_cf'},
                  {'id': 2, 'type': 'button',   'name': 'dual_bt'},
              ]
              },
