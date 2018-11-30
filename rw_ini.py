@@ -48,8 +48,6 @@ def read_ini(): ###read the init file
             'bturb': bturb,
             'flowmeter_type': flowmeter_type,
             'cf': cf,
-
-
             }
 
 #write in the ini file
