@@ -42,7 +42,7 @@ class NextionApp:
                  {'id': 12, 'type': 'text',         'name': 'txt_othername'},  # name of the test in OTHER
              ]
              },
-            {'id': 5, 'name': 'analog',
+            {'id': 5, 'name': 'sensors',
              'components': [
                  {'id': 1,  'type': 'button', 'name': 'bt_back'},  # back button
                  {'id': 2,  'type': 'button', 'name': 'bt_home'},  # back home
@@ -64,9 +64,19 @@ class NextionApp:
                  {'id': 18, 'type': 'text',   'name': 'txt_bi'},
                  {'id': 19, 'type': 'text',   'name': 'txt_bd'},
                  {'id': 20, 'type': 'text',   'name': 'txt_bturb'},
+                 {'id': 21, 'type': 'text',   'name': 'bt_flowtype'},
+
              ]
              },
-            {'id': 6, 'name': 'sensors',
+
+            {'id': 6, 'name': 'flowtype',
+             'components': [
+                 {'id': 7, 'type': 'text',   'name': 'txt_cf'},
+                 {'id': 2, 'type': 'button',   'name': 'dual_bt'},
+             ]
+             },
+
+            {'id': 7, 'name': 'record',
              'components': [
                  {'id': 1,  'type': 'button', 'name': 'bt_start'},  # zero the pressures
                  {'id': 2,  'type': 'text',   'name': 'txt_datetime'},
@@ -84,7 +94,7 @@ class NextionApp:
                  {'id': 14, 'type': 'text',   'name': 'txt_autostop'},
              ]
              },
-            {'id': 7, 'name': 'stop_confirm',
+            {'id': 8, 'name': 'stop_confirm',
              'components': [
                  {'id': 1, 'type': 'button', 'name': 'bt_end'},  # zero the pressures
                  {'id': 2, 'type': 'button', 'name': 'bt_continue'},  # back button
@@ -117,38 +127,44 @@ ID_duration    = get_Ids('settings', 'txt_duration')
 ID_interval    = get_Ids('settings', 'txt_interval')
 ID_no_reads    = get_Ids('settings', 'txt_no_reads')
 
-# testType page
+# "testType" page
 ID_rg        = get_Ids('testType', 'rg')  # variable that defines the test type
 ID_othername = get_Ids('testType', 'txt_othername')  # get Ids of 'txt_other' comp
 
-#analog page
-ID_mu    = get_Ids('analog', 'txt_mu')
-ID_mi    = get_Ids('analog', 'txt_mi')
-ID_md    = get_Ids('analog', 'txt_md')
-ID_bu    = get_Ids('analog', 'txt_bu')
-ID_bi    = get_Ids('analog', 'txt_bi')
-ID_bd    = get_Ids('analog', 'txt_bd')
-ID_mturb = get_Ids('analog', 'txt_mturb')
-ID_bturb = get_Ids('analog', 'txt_bturb')
-
-ID_vu    = get_Ids('analog', 'txt_vu')
-ID_vi    = get_Ids('analog', 'txt_vi')
-ID_vd    = get_Ids('analog', 'txt_vd')
-ID_vturb = get_Ids('analog', 'txt_anaturb')
-ID_baru  = get_Ids('analog', 'txt_baru')
-ID_bari  = get_Ids('analog', 'txt_bari')
-ID_bard  = get_Ids('analog', 'txt_bard')
-ID_ntu   = get_Ids('analog', 'txt_ntu')
-
 # "sensors" page
-ID_datetime = get_Ids('sensors', 'txt_datetime')
-ID_pu       = get_Ids('sensors', 'txt_pu')
-ID_pi       = get_Ids('sensors', 'txt_pi')
-ID_pd       = get_Ids('sensors', 'txt_pd')
-ID_turb     = get_Ids('sensors', 'txt_turb')
-ID_tw       = get_Ids('sensors', 'txt_tw')
-ID_flow     = get_Ids('sensors', 'txt_flow')
-ID_liters   = get_Ids('sensors', 'txt_liters')
-ID_ta       = get_Ids('sensors', 'txt_ta')
-ID_hd       = get_Ids('sensors', 'txt_hd')
-ID_pa       = get_Ids('sensors', 'txt_pa')
+ID_mu    = get_Ids('sensors', 'txt_mu')
+ID_mi    = get_Ids('sensors', 'txt_mi')
+ID_md    = get_Ids('sensors', 'txt_md')
+ID_bu    = get_Ids('sensors', 'txt_bu')
+ID_bi    = get_Ids('sensors', 'txt_bi')
+ID_bd    = get_Ids('sensors', 'txt_bd')
+ID_mturb = get_Ids('sensors', 'txt_mturb')
+ID_bturb = get_Ids('sensors', 'txt_bturb')
+
+ID_vu    = get_Ids('sensors', 'txt_vu')
+ID_vi    = get_Ids('sensors', 'txt_vi')
+ID_vd    = get_Ids('sensors', 'txt_vd')
+ID_vturb = get_Ids('sensors', 'txt_anaturb')
+ID_baru  = get_Ids('sensors', 'txt_baru')
+ID_bari  = get_Ids('sensors', 'txt_bari')
+ID_bard  = get_Ids('sensors', 'txt_bard')
+ID_ntu   = get_Ids('sensors', 'txt_ntu')
+
+# "flowtype" page
+
+ID_flowmeter = get_Ids('flowtype', 'dual_bt')
+ID_cf = get_Ids('flowtype', 'txt_cf')
+
+
+# "record" page
+ID_datetime = get_Ids('record', 'txt_datetime')
+ID_pu       = get_Ids('record', 'txt_pu')
+ID_pi       = get_Ids('record', 'txt_pi')
+ID_pd       = get_Ids('record', 'txt_pd')
+ID_turb     = get_Ids('record', 'txt_turb')
+ID_tw       = get_Ids('record', 'txt_tw')
+ID_flow     = get_Ids('record', 'txt_flow')
+ID_liters   = get_Ids('record', 'txt_liters')
+ID_ta       = get_Ids('record', 'txt_ta')
+ID_hd       = get_Ids('record', 'txt_hd')
+ID_pa       = get_Ids('record', 'txt_pa')

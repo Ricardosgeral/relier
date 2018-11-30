@@ -15,7 +15,7 @@ def read_ini(): ###read the init file
     duration    = config['settings']['duration']
     interval    = config['settings']['interval']
     no_reads    = config['settings']['no_reads']
-    testtype    = config['testtype']['testtype']
+    testtype    = config['testtype']['test_type']
     othername   = config['testtype']['othername']
     mu          = config['analog']['mu']
     bu          = config['analog']['bu']
@@ -25,6 +25,9 @@ def read_ini(): ###read the init file
     bd          = config['analog']['bd']
     mturb       = config['analog']['mturb']
     bturb       = config['analog']['bturb']
+    flowmeter_type  = config['flowmeter']['flowmeter_type']
+    cf          = config['flowmeter']['cf']
+
 
     return {'filename': filename,
             'googlesh': googlesh,
@@ -33,7 +36,7 @@ def read_ini(): ###read the init file
             'duration' : duration,
             'interval' : interval,
             'no_reads' : no_reads,
-            'testtype' : testtype,    # 1 -FLET; 2 - CFET; 3- HET; 4 - Other
+            'test_type' : testtype,    # 1 -FLET; 2 - CFET; 3- HET; 4 - Other
             'othername': othername,   # if testtype = 4
             'mu': mu,
             'bu': bu,
@@ -43,12 +46,16 @@ def read_ini(): ###read the init file
             'bd': bd,
             'mturb': mturb,
             'bturb': bturb,
+            'flowmeter_type': flowmeter_type,
+            'cf': cf,
+
+
             }
 
 #write in the ini file
 def write_ini(filename, googlesh, share_email, google_sheets, duration, interval, no_reads,
               testtype, othername,
-              mu, bu, mi, bi, md, bd, mturb, bturb,lastip):
+              mu, bu, mi, bi, md, bd, mturb, bturb, flowmeter_type, cf, lastip):
 
     config['settings'] = {'filename': filename,
                           'googlesh': googlesh,
@@ -59,10 +66,10 @@ def write_ini(filename, googlesh, share_email, google_sheets, duration, interval
                           'no_reads': no_reads,
                           }
 
-    config['testtype'] = {'testtype': testtype,    # 1 - FLET; 2 - CFET; 3 - HET; 4 - Other
+    config['testtype'] = {'test_type': testtype,    # 1 - FLET; 2 - CFET; 3 - HET; 4 - Other
                          'othername': othername    # if testtype = 4
                           }
-    config['analog'] = {'mu':mu,
+    config['sensors'] = {'mu':mu,
                         'bu': bu,
                         'mi': mi,
                         'bi': bi,
@@ -73,6 +80,11 @@ def write_ini(filename, googlesh, share_email, google_sheets, duration, interval
                         }
 
     config['ip'] = {'lastip': lastip}
+
+    config['flowmeter'] = {'flowmeter_type':flowmeter_type,  #1 - Eletromagnetic; 2 - turbine flowmeter
+                           'cf': cf
+                           }
+
 
     with open('inputs.ini', 'w') as configfile:
         config.write(configfile)

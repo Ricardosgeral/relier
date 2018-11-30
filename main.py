@@ -35,14 +35,15 @@ EndCom = "\xff\xff\xff"             # 3 last bits to end serial communication
 
 ####OBTAIN DATA FROM INI FILE WITH DEFAULT INPUTS
 ini = rw.read_ini()  # read inputs.ini and parse parameters
-#settings page
 
+#settings page
 nxlib.nx_setText(ser, nxApp.ID_filename[0] , nxApp.ID_filename[1] , ini['filename'])
 nxlib.nx_setText(ser, nxApp.ID_googlesh[0], nxApp.ID_googlesh[1], ini['googlesh'])
 nxlib.nx_setText(ser, nxApp.ID_share_email[0], nxApp.ID_share_email[1], ini['share_email'])
 nxlib.nx_setText(ser, nxApp.ID_duration[0] , nxApp.ID_duration[1] , ini['duration'])
 nxlib.nx_setText(ser, nxApp.ID_interval[0] , nxApp.ID_interval[1] , ini['interval'])
 nxlib.nx_setText(ser, nxApp.ID_no_reads[0] , nxApp.ID_no_reads[1] , ini['no_reads'])
+
 # google_sheets checkbutton
 google_sheets = ini['google_sheets']
 if google_sheets in ['yes','Yes','YES','y','Y','yep']:
@@ -55,7 +56,7 @@ else:  # if it's not indicated or it's 'no'
     nxlib.nx_setValue(ser, nxApp.ID_google_sheets[0], nxApp.ID_google_sheets[1], 0)  # value = 0
 
 # testtype page
-test = ini['testtype']
+test = ini['test_type']
 if   test == '1':   #Flow Limiting Erosion Test (FLET)
     nxlib.nx_setValue(ser, nxApp.ID_rg[0], nxApp.ID_rg[1], 0)    # r0
 elif test == '2':   #Crack Filling Erosion Test (CFET)
@@ -68,8 +69,7 @@ elif test == '4':   #other name
 else:
     pass
 
-# analog page
-
+# sensors page
 nxlib.nx_setText(ser, nxApp.ID_mu[0], nxApp.ID_mu[1],ini['mu'])
 nxlib.nx_setText(ser, nxApp.ID_mi[0], nxApp.ID_mi[1],ini['mi'])
 nxlib.nx_setText(ser, nxApp.ID_md[0], nxApp.ID_md[1],ini['md'])
@@ -78,6 +78,14 @@ nxlib.nx_setText(ser, nxApp.ID_bi[0], nxApp.ID_bi[1],ini['bi'])
 nxlib.nx_setText(ser, nxApp.ID_bd[0], nxApp.ID_bd[1],ini['bd'])
 nxlib.nx_setText(ser, nxApp.ID_mturb[0], nxApp.ID_mturb[1],ini['mturb'])
 nxlib.nx_setText(ser, nxApp.ID_bturb[0], nxApp.ID_bturb[1],ini['bturb'])
+
+# flowtype page
+flowmeter = ini['flowmeter_type']
+if   flowmeter == '1':   # dual button is selected in eletromagnetic flowmeter
+    nxlib.nx_setValue(ser, nxApp.ID_flowmeter[0], nxApp.ID_flowmeter[1], 0) # .val = 0
+elif flowmeter == '2':   # turbine flowmeter
+    nxlib.nx_setValue(ser, nxApp.ID_flowmeter[0], nxApp.ID_flowmeter[1], 1) # .val = 1
+nxlib.nx_setText(ser, nxApp.ID_cf[0], nxApp.ID_cf[1],ini['cf'])
 
 ##########
 ## display Ip in page 1 of NEXTION
@@ -133,12 +141,12 @@ def input_settings(): # inputs from 'settings' and 'testType' pages
         'duration' :duration,
         'interval' :interval,
         'no_reads' :no_reads,
-        'testtype' :testtype,
+        'test_type' :testtype,
         'othername':othername,
         'lastip':   lastip
         }
 
-def input_analog():   #inputs from page "analog"
+def input_analog():   #inputs from page "sensors" and page "flowmeter"
     mu     =   nxlib.nx_getText(ser, nxApp.ID_mu[0], nxApp.ID_mu[1])
     mi     =   nxlib.nx_getText(ser, nxApp.ID_mi[0], nxApp.ID_mi[1])
     md     =   nxlib.nx_getText(ser, nxApp.ID_md[0], nxApp.ID_md[1])
@@ -147,6 +155,15 @@ def input_analog():   #inputs from page "analog"
     bd     =   nxlib.nx_getText(ser, nxApp.ID_bd[0], nxApp.ID_bd[1])
     mturb  =   nxlib.nx_getText(ser, nxApp.ID_mturb[0], nxApp.ID_mturb[1])
     bturb  =   nxlib.nx_getText(ser, nxApp.ID_bturb[0], nxApp.ID_bturb[1])
+
+    flowmeter = nxlib.nx_getValue(ser, nxApp.ID_flowmeter[0], nxApp.ID_flowmeter[1])
+
+    if flowmeter == 0: # eletromagnetic flowmeter
+        flowmeter_type = '1'
+    elif flowmeter == 1:
+        flowmeter_type = '2'
+    cf  =   nxlib.nx_getText(ser, nxApp.ID_cf[0], nxApp.ID_cf[1])
+
     return  {
         'mu'   : mu,
         'mi'   : mi,
@@ -156,10 +173,12 @@ def input_analog():   #inputs from page "analog"
         'bd'   : bd,
         'mturb': mturb,
         'bturb': bturb,
+        'flowmeter_type': flowmeter_type,
+        'cf': cf,
          }
 
 def display_analog(data):  #outputs
-    #inputs from page "analog"
+    #inputs from page "sensors"
     nxlib.nx_setText(ser, nxApp.ID_vu[0],   nxApp.ID_vu[1],str(round(data['v_up']*1000)))
     nxlib.nx_setText(ser, nxApp.ID_vi[0],   nxApp.ID_vi[1],str(round(data['v_int']*1000)))
     nxlib.nx_setText(ser, nxApp.ID_vd[0],   nxApp.ID_vd[1],str(round(data['v_down']*1000)))
@@ -169,7 +188,7 @@ def display_analog(data):  #outputs
     nxlib.nx_setText(ser, nxApp.ID_bard[0], nxApp.ID_bard[1],str(data['bar_down']*1000))
     nxlib.nx_setText(ser, nxApp.ID_ntu[0],  nxApp.ID_ntu[1],str(data['turb']))
 
-def display_sensors(data):   #outputs
+def display_sensors(data):   #outputs of "record" page
     now = datetime.datetime.now()
     date_time = now.strftime("%Y-%m-%d, %H:%M")
 
@@ -196,12 +215,12 @@ zerou, zeroi, zerod = 0, 0, 0  # always start with zero pressure equal to zero (
 #####################
 
 nxlib.nx_setcmd_2par(ser,'tsw','b0',1)    # re(enable) touch events of page 1
-nxlib.nx_setValue(ser, nxApp.ID_status[0], nxApp.ID_status[1], 1)  # green flag - ok to proceed
+nxlib.nx_setValue(ser, nxApp.ID_status[0], nxApp.ID_status[1], 1)  # green flag - ok to continue
 
 ####
 
-def read_display(e_rd): #read and display data in page "analog"
-    if inp['testtype'] == "3":  # if HET test is the selection
+def read_display(e_rd): #read and display data in page "sensors"
+    if inp['test_type'] == "3":  # if HET test is the selection
         nxlib.nx_setcmd_2par(ser, 'vis', 'txt_vi', 0)
         nxlib.nx_setcmd_2par(ser, 'vis', 'txt_bari', 0)
         nxlib.nx_setcmd_2par(ser, 'vis', 'txt_mi', 0)
@@ -219,15 +238,15 @@ def read_display(e_rd): #read and display data in page "analog"
         data=srv.get_data(int(inp['interval']),
                            float(inp['mu']), float(inp['mi']), float(inp['md']),
                            float(inp['bu']), float(inp['bi']), float(inp['bd']),
-                           float(inp['mturb']), float(inp['bturb']), zerou, zeroi, zerod, inp['testtype'])
+                           float(inp['mturb']), float(inp['bturb']), zerou, zeroi, zerod, inp['test_type'], inp['flowmeter_type'], inp['cf'])
         display_analog(data)
         sleep(int(inp['interval']))
 ##################
 
-def read_display_write(e_rdw): # read and display data in page "sensors" and write to file
+def read_display_write(e_rdw): # read and display data in page "record" and write to file
     global stop, con, cur
     #first, check if HET test is selected
-    if inp['testtype'] == '3':  # if HET test is the selection
+    if inp['test_type'] == '3':  # if HET test is the selection
         nxlib.nx_setcmd_2par(ser, 'vis', 'txt_pi', 0)
     else:
         nxlib.nx_setcmd_2par(ser, 'vis', 'txt_pi', 1)
@@ -235,9 +254,9 @@ def read_display_write(e_rdw): # read and display data in page "sensors" and wri
     # first write in the inputs.ini file the inputs (that will be the default values next time)
     rw.write_ini(inp['filename'],inp['googlesh'], inp['share_email'], inp['google_sheets'],
                  inp['duration'],inp['interval'], inp['no_reads'],
-                 inp['testtype'], inp['othername'],
+                 inp['test_type'], inp['othername'],
                  inp['mu'],inp['bu'],inp['mi'],inp['bi'],inp['md'],inp['bd'],
-                 inp['mturb'], inp['bturb'], inp['lastip'])
+                 inp['mturb'], inp['bturb'], inp['flowmeter_type'], inp['cf'], inp['lastip'])
 
     # obtain the selected worksheet in the google spreadsheet and share it
     export_google = inp['google_sheets']
@@ -263,11 +282,14 @@ def read_display_write(e_rdw): # read and display data in page "sensors" and wri
                               float(inp['mu']), float(inp['mi']), float(inp['md']),
                               float(inp['bu']), float(inp['bi']), float(inp['bd']),
                               float(inp['mturb']), float(inp['bturb']),
-                              zerou, zeroi, zerod, inp['testtype'])
-            if current < start+2:   # zero flowrate at start.
-                zero_vol= data['liters']
-                data['flow'] = 0
-            data['liters'] = data['liters']-zero_vol
+                              zerou, zeroi, zerod, inp['test_type'], inp['flowmeter_type'], inp['cf'])
+
+
+            if inp['flowmeter_type'] != "1":  # only if the turbine flowmeter is selected
+                if current < start+2:   # zero flowrate at start.
+                  zero_vol= data['liters']
+                  data['flow'] = 0
+                data['liters'] = data['liters']-zero_vol
 
             write_csv_data.write_data(data = data, data_file = inp['filename'])
             ip = get_ip_address()
@@ -284,9 +306,9 @@ def read_display_write(e_rdw): # read and display data in page "sensors" and wri
             display_sensors(data)  # display in NEXTION monitor
 
 
-            ID_elapsed = nxApp.get_Ids('sensors', 'txt_duration')
+            ID_elapsed = nxApp.get_Ids('record', 'txt_duration')
             nxlib.nx_setText(ser, ID_elapsed[0], ID_elapsed[1], elapsed)
-            ID_autostop = nxApp.get_Ids('sensors', 'txt_autostop')
+            ID_autostop = nxApp.get_Ids('record', 'txt_autostop')
             if int(inp['duration']) == 0:
                 nxlib.nx_setText(ser, ID_autostop[0], ID_autostop[1], '--:--:--')
             else:
@@ -336,22 +358,31 @@ def input_update(): # update all inputs previous 'analog' and 'sensors' page
     # test type
     rg = nxlib.nx_getValue(ser, nxApp.ID_rg[0], nxApp.ID_rg[1])
     if rg == 0:  # r0
-        inp['testtype'] = '1'
+        inp['test_type'] = '1'
     elif rg == 1:# r1
-        inp['testtype'] = '2'
+        inp['test_type'] = '2'
     elif rg == 2:# r2
-        inp['testtype'] = '3'
+        inp['test_type'] = '3'
     elif rg == 3:# r3
-        inp['testtype'] = '4'
+        inp['test_type'] = '4'
         inp['othername'] = nxlib.nx_getText(ser, nxApp.ID_othername[0], nxApp.ID_othername[1])
     else:
         print('unable to determine test type!')
+
+    # flowmeter type
+    flowmeter = nxlib.nx_getValue(ser, nxApp.ID_flowmeter[0], nxApp.ID_flowmeter[1])
+    if flowmeter == 0:
+        inp['flowmeter_type'] = '1'
+    else:
+        inp['flowmeter_type'] = '2'
+    inp['cf'] = nxlib.nx_getText(ser, nxApp.ID_cf[0], nxApp.ID_cf[1])
+
 
 def detect_touch(e_rd, e_rdw):
 
     look_touch = 1  # in seconds
     print("detecting serial every {} second(s) ...".format(look_touch))
-    global t_rdw
+    global t_rdw, p
     while True:
         try:
             touch=ser.read_until(EndCom)
@@ -368,8 +399,7 @@ def detect_touch(e_rd, e_rdw):
                 elif (pageID_touch, compID_touch) == (2, 2):  # button set analog sensors (comp2) in page 2 is pressed
                     end_rd.clear()
                     input_update()
-                    srv.init(int(inp['interval']),int(inp['no_reads']))
-
+                    srv.init(int(inp['interval']),int(inp['no_reads']), inp['flowmeter_type'])
                     t_rd = threading.Thread(target=read_display, name='Read/Display', args=(e_rd,))
                     t_rd.start()
 
@@ -381,7 +411,8 @@ def detect_touch(e_rd, e_rdw):
                     global start, stop, con, cur
                     input_update()
                     srv.init(int(inp['interval']),
-                             int(inp['no_reads']))
+                             int(inp['no_reads']),
+                             inp['flowmeter_type'])
                     t_rdw = threading.Thread(target=read_display_write, name='Read/Write/Display', args=(e_rdw,))
                     t_rdw.start()
                     sleep(1)  # necessary to allow enough time to start the 1º read of the ads1115 and sensor temp
@@ -398,7 +429,7 @@ def detect_touch(e_rd, e_rdw):
                         cur.execute(
                             "INSERT INTO testinputs (start, test_name, rec_interval, test_type, mu, bu, mi, bi, md, bd, mturb, bturb) "
                             "VALUES (to_timestamp('{}', 'YYYY-MM-DD HH24:MI') , %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);".format(datetime.datetime.now()),
-                            [inp['filename'], inp['interval'], inp['testtype'],
+                            [inp['filename'], inp['interval'], inp['test_type'],
                              inp['mu'], inp['bu'], inp['mi'], inp['bi'], inp['md'], inp['bd'],
                              inp['mturb'], inp['bturb']])
 
@@ -422,7 +453,7 @@ def detect_touch(e_rd, e_rdw):
                     sleep(1.5)
                     inp['mu'] = nxlib.nx_getText(ser, nxApp.ID_mu[0], nxApp.ID_mu[1])
                     inp['bu'] = nxlib.nx_getText(ser, nxApp.ID_bu[0], nxApp.ID_bu[1])
-                    if inp['testtype'] != '3':
+                    if inp['test_type'] != '3':
                         inp['mi'] = nxlib.nx_getText(ser, nxApp.ID_mi[0], nxApp.ID_mi[1])
                         inp['bi'] = nxlib.nx_getText(ser, nxApp.ID_bi[0], nxApp.ID_bi[1])
 
@@ -430,13 +461,13 @@ def detect_touch(e_rd, e_rdw):
                     inp['md'] = nxlib.nx_getText(ser, nxApp.ID_md[0], nxApp.ID_md[1])
 
                     zero = srv.zero_press(float(inp['mu']), float(inp['mi']), float(inp['md']),
-                                          float(inp['bu']), float(inp['bi']), float(inp['bd']), inp['testtype'])
+                                          float(inp['bu']), float(inp['bi']), float(inp['bd']), inp['test_type'])
 
                     zerou = zero[0]
                     zeroi = zero[1]
                     zerod = zero[2]
 
-                    if inp['testtype'] == "3":  # if HET test is the selection
+                    if inp['test_type'] == "3":  # if HET test is the selection
                         nxlib.nx_setcmd_2par(ser, 'vis', 'txt_vi', 0)
                         nxlib.nx_setcmd_2par(ser, 'vis', 'txt_bari', 0)
                         nxlib.nx_setcmd_2par(ser, 'vis', 'txt_mi', 0)
@@ -455,7 +486,7 @@ def detect_touch(e_rd, e_rdw):
                     sleep(1) # give time to pause read
                     inp['mu']    = nxlib.nx_getText(ser, nxApp.ID_mu[0],    nxApp.ID_mu[1])
                     inp['bu']    = nxlib.nx_getText(ser, nxApp.ID_bu[0],    nxApp.ID_bu[1])
-                    if inp['testtype'] != '3':
+                    if inp['test_type'] != '3':
                         inp['mi'] = nxlib.nx_getText(ser, nxApp.ID_mi[0],    nxApp.ID_mi[1])
                         inp['bi'] = nxlib.nx_getText(ser, nxApp.ID_bi[0], nxApp.ID_bi[1])
                     inp['md']    = nxlib.nx_getText(ser, nxApp.ID_md[0],    nxApp.ID_md[1])
@@ -477,7 +508,7 @@ def detect_touch(e_rd, e_rdw):
                     nxlib.nx_setValue(ser, nxApp.ID_status[0], nxApp.ID_status[1], 1)  # green flag
                     nxlib.nx_setText(ser, nxApp.ID_ip[0], nxApp.ID_ip[1], ip)
 
-                elif (pageID_touch,compID_touch) == (7,1):  # button confirm exit (comp 1) in page 7 is pressed
+                elif (pageID_touch,compID_touch) == (8,1):  # button confirm exit (comp 1) in page 8 is pressed
                     end_rdw.set()
                     t_rdw.join()
                     e_rdw.clear()

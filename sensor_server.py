@@ -28,6 +28,8 @@ It also records the time and date of the measure.
 from time import sleep
 from analogsensor_thread_buf import AnalogSensor, GAIN, DATA_RATE
 from digitalSen_thread import D_Temp
+import FlowMAG  # for the eletromagnetic flow meter from Danfoss
+import multiprocessing  # the reading of FLOWMAG is placed in a different process
 from datetime import datetime
 from math import log as log
 import pigpio   # needs to be installed for callback https://www.raspberrypi.org/forums/viewtopic.php?t=66445
@@ -81,12 +83,15 @@ global zerou, zeroi, zerod  # to zero the piezometric pressures (datum)
 tempTread_flag = False
 analogTread_flag = False
 
-def init(interval, no_reads):
+def init(interval, no_reads, flowmeter):
     global analog_sensor
     global d_temp_sensor
-    global pulses
+    global pulses, flowrate
+    global v1,v2,p
 
-    pulses = 0      #starts the counting of pulses of the flowmeter
+    pulses   = 0      #starts the counting of pulses of the turbine flowmeter
+    flowrate = 0      #starts the counting of the flowrate of the eletromagnetic flowmeter
+
     sleep = interval / no_reads
 
     #create the threads ('parallel' calculations for analog sensors and temp sensors)
@@ -103,6 +108,20 @@ def init(interval, no_reads):
         analog_sensor.name = "analog_sensors"
         analog_sensor.start()
         analogTread_flag = True
+
+    if flowmeter == "1": # 1= eletroMagnetic flowmeter; 2 = turbine flowmeter
+        # create a process only to read the eletromagnetic flowmeter
+        # first see if any process to read the eletromag flowmeter is running and terminates it.
+        try:
+            p.terminate()
+        except:
+            None
+
+        v1 = multiprocessing.Value('d', 0.0)  # flow rate -> value for shared memory between parent(main) and child process
+        v2 = multiprocessing.Value('d', 0.0)  # total volume
+        p = multiprocessing.Process(target=FlowMAG.read_flowMAG, args=(v1,v2,))
+        p.start()
+
 
 def zero_press(mu, mi, md, bu, bi, bd, testtype):
     # Transform the analog numbers in volts  # 15 bit value
@@ -124,7 +143,7 @@ def zero_press(mu, mi, md, bu, bi, bd, testtype):
     sleep(1)
     return zerou, zeroi, zerod
 
-def get_data(interval, mu, mi, md, bu, bi, bd, mturb, bturb, zerou, zeroi, zerod, testtype): #
+def get_data(interval, mu, mi, md, bu, bi, bd, mturb, bturb, zerou, zeroi, zerod, testtype, flowmeter, cf): #
     """Get the data from the sensors, also get the date and time.
 
     Data recorded:
@@ -133,7 +152,7 @@ def get_data(interval, mu, mi, md, bu, bi, bd, mturb, bturb, zerou, zeroi, zerod
         mmH2O_up (float): pressure in the upstream piezometer in mmH2O
         mmH2O_int (float): pressure in the piezometer at the interface (middle) in mmH2O
         mmH2O_dwn (float): pressure in the downstream piezometer in mmH2O
-        flowrate (float): instantaneous flowrate in L/min
+        flowrate (float): instantaneous flowrate in L/hour
         total_liters (float): Volume of fluid since start of program in Liters
         turb (int): the analog value of the turbidity (from 0 to 32768).
         water_temp (float): the temperature of the water in Celsius.
@@ -147,7 +166,8 @@ def get_data(interval, mu, mi, md, bu, bi, bd, mturb, bturb, zerou, zeroi, zerod
     """
     global analog_sensor
     global d_temp_sensor
-    global pulses
+    global pulses, flowrate
+    global v1,v2,p
 
     # Date (DD-MM-YYY) and time (HH:MM:SS)
     d = datetime.now()
@@ -158,11 +178,21 @@ def get_data(interval, mu, mi, md, bu, bi, bd, mturb, bturb, zerou, zeroi, zerod
 
     water_temp, air_temp, air_hum, air_pres = d_temp_sensor.read_d_temp()
 
-    #flowmeter
-    pulses_last = pulses
-    pulses = callback.tally()
-    total_liters = (pulses) / 27  # 1L water = 27 pulse (device specs)
-    flowrate = (pulses - pulses_last) / interval / 0.45  # F (Hz) = 0.45 Q  with Q = L/min  (device specs)
+
+    if flowmeter == "1": # eletromagnetic flowmeter was selected
+        #flowmeter: MAGFLOW (eletromagnetic flowmeter). values from the multiprocessing
+        flowrate = v1.value  # in liters per hour
+        total_liters = v2.value  # in liters
+        #print(time.time(),flowrate, total_liters)
+
+    else:  # if a int number equal or higher than 2 is selected consider the turbine flowmeter!
+        #flowmeter: turbine
+        if cf == "": cf="0.45" # in case the cf variable is not set in ini file
+        pulses_last = pulses
+        pulses = callback.tally()
+        total_liters = (pulses) / (float(cf)*60)  # 1L water = 0.45 x 60 = 27 pulses (device specs)
+        flowrate = (pulses - pulses_last) / interval / float(cf)  # f (Hz) = cf x Q , with Q = L/min  (cf = 0.45 device specs)
+
 
     # Transform the analog numbers in volts
     volts = [0] * 3
@@ -225,13 +255,17 @@ def get_data(interval, mu, mi, md, bu, bi, bd, mturb, bturb, zerou, zeroi, zerod
         'ana_turb':     round(analog[TURB_ch]), #analog number
         'turb':         round(turb,2),
         'flow':         round(flowrate,2),
-        'liters':       round(total_liters),
+        'liters':       round(total_liters,2),
         'water_temp':   round(water_temp,1),
         'air_temp':     round(air_temp,1),
         'air_hum':      round(air_hum,1),
         'air_pres':     round(air_pres),
 
     }
+
+#for testing
+#init(5,1)
+#get_data(5,.4,.4,.4,.4,.4,.4,.4,.4,0.01,0.01,0.01,1) #( dummy values )
 
 #
 #     callback.cancel()  # cancel callback

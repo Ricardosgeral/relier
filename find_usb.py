@@ -43,5 +43,5 @@ def find_dev(path, data_file):
 
     return dev
 
-# x= find_dev('/media/pi', 'test.csv')
-# print(x)
+#x= find_dev('/media/pi', 'test.csv')
+#print(x)

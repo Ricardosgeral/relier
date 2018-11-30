@@ -1,7 +1,7 @@
-import psycopg2 as p
+import psycopg2
 
 #credentials of database in Heroku  # to obtain it $ heroku config, or look in https://data.heroku.com/  -> database -> settings -> Database Credentials -> URI
-DATABASE_URL = 'postgres://wvqemnhwnijypm:7b08a0b8700d1d6850a802c0eb61649999e8ee11bec7be91c8623b99aaac80df@ec2-54-163-228-190.compute-1.amazonaws.com:5432/de93scsb82pcp1'
+DATABASE_URL = 'postgres://gpnbdknfgyikxg:3f8fb6a99ba82b5c67d06d111ed8ce9a6548032b9d4e3ff49c4442af3508c948@ec2-54-204-36-249.compute-1.amazonaws.com:5432/ddv9240719j048'
 import urllib.parse as urlparse
 
 url = urlparse.urlparse(DATABASE_URL)
@@ -13,7 +13,7 @@ port = url.port
 
 def connect_db():
     try:
-        con = p.connect(
+        con = psycopg2.connect(
             dbname=dbname,
             user=user,
             password=password,
@@ -23,7 +23,7 @@ def connect_db():
         cur = con.cursor() # as list
     except:
         print('No connection with Heroku database! DB is local and NO live data streaming!')
-        con= p.connect(dbname='testdata_local', user='relier', password='relier-dash', host='localhost')
+        con= psycopg2.connect(dbname='testdata_local', user='relier', password='relier-dash', host='localhost')
         cur= con.cursor() # as list
 
     #create table (only first time) with the data results
@@ -38,7 +38,7 @@ def connect_db():
                      "mmH2O_down integer, "
                      "turb float, "
                      "flow float, "
-                     "volume integer);")
+                     "volume float);")
         con.commit()
         print('Database table for test results created!')
     except:
