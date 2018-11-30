@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #Ricardos.geral@gmail.com
 
-"""Server that reads values from differents sensors for lab test.
+"""Server that reads values from different sensors for lab test.
 
 This script is a server that is supposed to run on a RPi with the
 adequate sensors hooked to it via GPIO.
@@ -17,8 +17,9 @@ The sensors are:
     Turbidity Sensor (dishwasher) : turbidity of water
                                     DFRobot Gravity Analog/Digital Turbidity Sensor, 5V 40mA DC
     3 pressure sensors : 0-5psi 5V Pressure Transducer Transmitter Sensor or Sender
-    flow sensor : flowrate and total liters
-                 1.25" DN32 1~120L/min water Plastic Hall Turbine flow sensor industry meter (Sea brand)
+    flow sensor : flowrate and total liters. It is possible to choose between two different types of flowmeters:
+                1- Eletro-magnetic flowmeter (Danfoss Mag) - connected via serial port
+                2- 1.25" DN32 1~120L/min water Plastic Hall Turbine flow sensor industry meter (Sea brand)
 
 It also records the time and date of the measure.
 
