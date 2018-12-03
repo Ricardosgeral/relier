@@ -40,7 +40,7 @@ def read_flowMAG(v1,v2):
             except:
                 pass
         else:
-            flow = ser.readline().decode()  #gets flow rate in liters/min
+            flow = ser.readline().decode()  #gets flow rate in liters/hour
             last_time = time.time()         # to calculate the volume between readings
             intv = last_time - first_time
             first_time = last_time

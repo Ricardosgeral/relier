@@ -179,20 +179,19 @@ def get_data(interval, mu, mi, md, bu, bi, bd, mturb, bturb, zerou, zeroi, zerod
 
     water_temp, air_temp, air_hum, air_pres = d_temp_sensor.read_d_temp()
 
-
+#FLOWMETERS
     if flowmeter == "1": # eletromagnetic flowmeter was selected
         #flowmeter: MAGFLOW (eletromagnetic flowmeter). values from the multiprocessing
         flowrate = v1.value  # in liters per hour
         total_liters = v2.value  # in liters
-        #print(time.time(),flowrate, total_liters)
 
     else:  # if a int number equal or higher than 2 is selected consider the turbine flowmeter!
         #flowmeter: turbine
         if cf == "": cf="0.45" # in case the cf variable is not set in ini file
         pulses_last = pulses
         pulses = callback.tally()
-        total_liters = (pulses) / (float(cf)*60)  # 1L water = 0.45 x 60 = 27 pulses (device specs)
-        flowrate = (pulses - pulses_last) / interval / float(cf)  # f (Hz) = cf x Q , with Q = L/min  (cf = 0.45 device specs)
+        total_liters = round((pulses) / (float(cf)*60),2)  # 1L water = 0.45 x 60 = 27 pulses (device specs)
+        flowrate = ((pulses - pulses_last) / interval / float(cf))*60  # f (Hz) = cf x Q , with Q = L/min  (cf = 0.45 device specs)
 
 
     # Transform the analog numbers in volts
@@ -222,7 +221,6 @@ def get_data(interval, mu, mi, md, bu, bi, bd, mturb, bturb, zerou, zeroi, zerod
         bar[PRESSDW_ch] = (md * volts[PRESSDW_ch]  + bd) - zerod # 0 psi(bar) = 0.5v ;  5psi(*psi_to_bar) = 4.5V
     else:
         bar[PRESSDW_ch] = 0
-
 
     for ch in range(3):
         if volts[ch] != 0:
