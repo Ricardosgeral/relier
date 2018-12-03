@@ -134,16 +134,16 @@ def input_settings(): # inputs from 'settings' and 'testType' pages
     lastip  = nxlib.nx_getText(ser, nxApp.ID_ip[0], nxApp.ID_ip[1])
 
     return{
-        'filename' :filename,
-        'googlesh':googlesh,
-        'share_email': share_email,
-        'google_sheets': google_sheets,
-        'duration' :duration,
-        'interval' :interval,
-        'no_reads' :no_reads,
-        'test_type' :testtype,
-        'othername':othername,
-        'lastip':   lastip
+        'filename'      : filename,
+        'googlesh'      : googlesh,
+        'share_email'   : share_email,
+        'google_sheets' : google_sheets,
+        'duration'      : duration,
+        'interval'      : interval,
+        'no_reads'      : no_reads,
+        'test_type'     : testtype,
+        'othername'     : othername,
+        'lastip'        : lastip
         }
 
 def input_analog():   #inputs from page "sensors" and page "flowmeter"
