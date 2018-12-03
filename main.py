@@ -255,8 +255,9 @@ def read_display_write(e_rdw): # read and display data in page "record" and writ
     rw.write_ini(inp['filename'],inp['googlesh'], inp['share_email'], inp['google_sheets'],
                  inp['duration'],inp['interval'], inp['no_reads'],
                  inp['test_type'], inp['othername'],
-                 inp['mu'],inp['bu'],inp['mi'],inp['bi'],inp['md'],inp['bd'],
-                 inp['mturb'], inp['bturb'], inp['flowmeter_type'], inp['cf'], inp['lastip'])
+                 inp['mu'],inp['bu'],inp['mi'],inp['bi'],inp['md'],inp['bd'],inp['mturb'], inp['bturb'],
+                 inp['flowmeter_type'], inp['cf'],
+                 inp['lastip'])
 
     # obtain the selected worksheet in the google spreadsheet and share it
     export_google = inp['google_sheets']
@@ -264,7 +265,6 @@ def read_display_write(e_rdw): # read and display data in page "record" and writ
         wks = gsh.spreadsheet_worksheet(ssheet_title=inp['googlesh'],
                                         wsheet_title=inp['filename'],
                                         share_email=inp['share_email'])
-
 
     e_rdw.wait()
     row = 1
@@ -386,7 +386,7 @@ def detect_touch(e_rd, e_rdw):
     while True:
         try:
             touch=ser.read_until(EndCom)
-            if  hex(touch[0]) == '0x65':  #  touch event. If it's empty don't do nothing
+            if  hex(touch[0]) == '0x65':  #  touch event. If it's empty, do nothing
                 pageID_touch = touch[1]
                 compID_touch = touch[2]
                 event_touch = touch[3]

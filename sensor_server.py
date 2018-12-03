@@ -118,8 +118,8 @@ def init(interval, no_reads, flowmeter):
         except:
             None
 
-        v1 = multiprocessing.Value('d', 0.0)  # flow rate -> value for shared memory between parent(main) and child process
-        v2 = multiprocessing.Value('d', 0.0)  # total volume
+        v1 = multiprocessing.Value('d', 0.0)  # flow rate -> value for shared memory between parent(main)
+        v2 = multiprocessing.Value('d', 0.0)  # total volume -> value for shared memory
         p = multiprocessing.Process(target=FlowMAG.read_flowMAG, args=(v1,v2,))
         p.start()
 
