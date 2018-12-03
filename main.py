@@ -17,10 +17,10 @@ import RGBled as LED
 from endbips import test_end # for Buzzer
 import database as db
 
+LED.redOff()    #R
+LED.greenOff()  #G
+LED.blueOff()   #B
 
-LED.greenOff()
-LED.redOff()
-LED.blueOff()
 ######### make connection to serial UART to read/write NEXTION
 ser = nxlib.ser
 
