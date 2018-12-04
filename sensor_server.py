@@ -145,7 +145,7 @@ def zero_press(mu, mi, md, bu, bi, bd, testtype):
     sleep(1)
     return zerou, zeroi, zerod
 
-def get_data(interval, mu, mi, md, bu, bi, bd, mturb, bturb, zerou, zeroi, zerod, testtype, flowmeter, cf): #
+def get_data(interval, mu, mi, md, bu, bi, bd, zerou, zeroi, zerod, testtype, flowmeter, cf): #
     """Get the data from the sensors, also get the date and time.
 
     Data recorded:

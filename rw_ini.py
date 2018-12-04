@@ -23,8 +23,6 @@ def read_ini(): ###read the init file
     bi          = config['analog']['bi']
     md          = config['analog']['md']
     bd          = config['analog']['bd']
-    mturb       = config['analog']['mturb']
-    bturb       = config['analog']['bturb']
     flowmeter_type  = config['flowmeter']['flowmeter_type']
     cf          = config['flowmeter']['cf']
 
@@ -44,8 +42,6 @@ def read_ini(): ###read the init file
             'bi': bi,
             'md': md,
             'bd': bd,
-            'mturb': mturb,
-            'bturb': bturb,
             'flowmeter_type': flowmeter_type,
             'cf': cf,
             }
@@ -73,8 +69,6 @@ def write_ini(filename, googlesh, share_email, google_sheets, duration, interval
                         'bi': bi,
                         'md': md,
                         'bd': bd,
-                        'mturb': mturb,
-                        'bturb': bturb,
                         }
 
     config['ip'] = {'lastip': lastip}

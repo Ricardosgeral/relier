@@ -76,8 +76,6 @@ nxlib.nx_setText(ser, nxApp.ID_md[0], nxApp.ID_md[1],ini['md'])
 nxlib.nx_setText(ser, nxApp.ID_bu[0], nxApp.ID_bu[1],ini['bu'])
 nxlib.nx_setText(ser, nxApp.ID_bi[0], nxApp.ID_bi[1],ini['bi'])
 nxlib.nx_setText(ser, nxApp.ID_bd[0], nxApp.ID_bd[1],ini['bd'])
-nxlib.nx_setText(ser, nxApp.ID_mturb[0], nxApp.ID_mturb[1],ini['mturb'])
-nxlib.nx_setText(ser, nxApp.ID_bturb[0], nxApp.ID_bturb[1],ini['bturb'])
 
 # flowtype page
 flowmeter = ini['flowmeter_type']
@@ -153,8 +151,6 @@ def input_analog():   #inputs from page "sensors" and page "flowmeter"
     bu     =   nxlib.nx_getText(ser, nxApp.ID_bu[0], nxApp.ID_bu[1])
     bi     =   nxlib.nx_getText(ser, nxApp.ID_bi[0], nxApp.ID_bi[1])
     bd     =   nxlib.nx_getText(ser, nxApp.ID_bd[0], nxApp.ID_bd[1])
-    mturb  =   nxlib.nx_getText(ser, nxApp.ID_mturb[0], nxApp.ID_mturb[1])
-    bturb  =   nxlib.nx_getText(ser, nxApp.ID_bturb[0], nxApp.ID_bturb[1])
 
     flowmeter = nxlib.nx_getValue(ser, nxApp.ID_flowmeter[0], nxApp.ID_flowmeter[1])
 
@@ -171,8 +167,6 @@ def input_analog():   #inputs from page "sensors" and page "flowmeter"
         'bu'   : bu,
         'bi'   : bi,
         'bd'   : bd,
-        'mturb': mturb,
-        'bturb': bturb,
         'flowmeter_type': flowmeter_type,
         'cf': cf,
          }
@@ -238,7 +232,7 @@ def read_display(e_rd): #read and display data in page "sensors"
         data=srv.get_data(int(inp['interval']),
                            float(inp['mu']), float(inp['mi']), float(inp['md']),
                            float(inp['bu']), float(inp['bi']), float(inp['bd']),
-                           float(inp['mturb']), float(inp['bturb']), zerou, zeroi, zerod, inp['test_type'], inp['flowmeter_type'], inp['cf'])
+                           zerou, zeroi, zerod, inp['test_type'], inp['flowmeter_type'], inp['cf'])
         display_analog(data)
         sleep(int(inp['interval']))
 ##################
@@ -255,7 +249,7 @@ def read_display_write(e_rdw): # read and display data in page "record" and writ
     rw.write_ini(inp['filename'],inp['googlesh'], inp['share_email'], inp['google_sheets'],
                  inp['duration'],inp['interval'], inp['no_reads'],
                  inp['test_type'], inp['othername'],
-                 inp['mu'],inp['bu'],inp['mi'],inp['bi'],inp['md'],inp['bd'],inp['mturb'], inp['bturb'],
+                 inp['mu'],inp['bu'],inp['mi'],inp['bi'],inp['md'],inp['bd'],
                  inp['flowmeter_type'], inp['cf'],
                  inp['lastip'])
 
@@ -281,7 +275,6 @@ def read_display_write(e_rdw): # read and display data in page "record" and writ
             data=srv.get_data(int(inp['interval']),
                               float(inp['mu']), float(inp['mi']), float(inp['md']),
                               float(inp['bu']), float(inp['bi']), float(inp['bd']),
-                              float(inp['mturb']), float(inp['bturb']),
                               zerou, zeroi, zerod, inp['test_type'], inp['flowmeter_type'], inp['cf'])
 
 
@@ -427,11 +420,11 @@ def detect_touch(e_rd, e_rdw):
 
                         # insert a new row in the database in Heroku
                         cur.execute(
-                            "INSERT INTO testinputs (start, test_name, rec_interval, test_type, mu, bu, mi, bi, md, bd, mturb, bturb) "
+                            "INSERT INTO testinputs (start, test_name, rec_interval, test_type, mu, bu, mi, bi, md, bd) "
                             "VALUES (to_timestamp('{}', 'YYYY-MM-DD HH24:MI') , %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);".format(datetime.datetime.now()),
                             [inp['filename'], inp['interval'], inp['test_type'],
                              inp['mu'], inp['bu'], inp['mi'], inp['bi'], inp['md'], inp['bd'],
-                             inp['mturb'], inp['bturb']])
+                             ])
 
                         con.commit()
                         cur.execute('rollback;')
@@ -491,8 +484,6 @@ def detect_touch(e_rd, e_rdw):
                         inp['bi'] = nxlib.nx_getText(ser, nxApp.ID_bi[0], nxApp.ID_bi[1])
                     inp['md']    = nxlib.nx_getText(ser, nxApp.ID_md[0],    nxApp.ID_md[1])
                     inp['bd']    = nxlib.nx_getText(ser, nxApp.ID_bd[0],    nxApp.ID_bd[1])
-                    inp['mturb'] = nxlib.nx_getText(ser, nxApp.ID_mturb[0], nxApp.ID_mturb[1])
-                    inp['bturb'] = nxlib.nx_getText(ser, nxApp.ID_bturb[0], nxApp.ID_bturb[1])
                     e_rd.set()
 
                 elif (pageID_touch,compID_touch) == (5,1):  # back button leave analog sensors page (comp 1) in page 5 is pressed

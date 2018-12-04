@@ -59,11 +59,9 @@ class NextionApp:
                  {'id': 13, 'type': 'text',   'name': 'txt_mu'},
                  {'id': 14, 'type': 'text',   'name': 'txt_mi'},
                  {'id': 15, 'type': 'text',   'name': 'txt_md'},
-                 {'id': 16, 'type': 'text',   'name': 'txt_mturb'},
                  {'id': 17, 'type': 'text',   'name': 'txt_bu'},
                  {'id': 18, 'type': 'text',   'name': 'txt_bi'},
                  {'id': 19, 'type': 'text',   'name': 'txt_bd'},
-                 {'id': 20, 'type': 'text',   'name': 'txt_bturb'},
                  {'id': 21, 'type': 'text',   'name': 'bt_flowtype'},
 
              ]
@@ -138,8 +136,6 @@ ID_md    = get_Ids('sensors', 'txt_md')
 ID_bu    = get_Ids('sensors', 'txt_bu')
 ID_bi    = get_Ids('sensors', 'txt_bi')
 ID_bd    = get_Ids('sensors', 'txt_bd')
-ID_mturb = get_Ids('sensors', 'txt_mturb')
-ID_bturb = get_Ids('sensors', 'txt_bturb')
 
 ID_vu    = get_Ids('sensors', 'txt_vu')
 ID_vi    = get_Ids('sensors', 'txt_vi')
