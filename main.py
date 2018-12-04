@@ -230,9 +230,10 @@ def read_display(e_rd): #read and display data in page "sensors"
         e_rd.wait()         # restart thread t_rd
         print('read running')
         data=srv.get_data(int(inp['interval']),
-                           float(inp['mu']), float(inp['mi']), float(inp['md']),
-                           float(inp['bu']), float(inp['bi']), float(inp['bd']),
-                           zerou, zeroi, zerod, inp['test_type'], inp['flowmeter_type'], inp['cf'])
+                          float(inp['mu']), float(inp['mi']), float(inp['md']),
+                          float(inp['bu']), float(inp['bi']), float(inp['bd']),
+                          zerou, zeroi, zerod, inp['test_type'],
+                          inp['flowmeter_type'], inp['cf'])
         display_analog(data)
         sleep(int(inp['interval']))
 ##################

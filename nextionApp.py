@@ -59,10 +59,10 @@ class NextionApp:
                  {'id': 13, 'type': 'text',   'name': 'txt_mu'},
                  {'id': 14, 'type': 'text',   'name': 'txt_mi'},
                  {'id': 15, 'type': 'text',   'name': 'txt_md'},
-                 {'id': 17, 'type': 'text',   'name': 'txt_bu'},
-                 {'id': 18, 'type': 'text',   'name': 'txt_bi'},
-                 {'id': 19, 'type': 'text',   'name': 'txt_bd'},
-                 {'id': 21, 'type': 'text',   'name': 'bt_flowtype'},
+                 {'id': 16, 'type': 'text',   'name': 'txt_bu'},
+                 {'id': 17, 'type': 'text',   'name': 'txt_bi'},
+                 {'id': 18, 'type': 'text',   'name': 'txt_bd'},
+                 {'id': 19, 'type': 'text',   'name': 'bt_flowtype'},
 
              ]
              },

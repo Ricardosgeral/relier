@@ -241,11 +241,6 @@ def get_data(interval, mu, mi, md, bu, bi, bd, zerou, zeroi, zerod, testtype, fl
     else:
         turb = 0
 
-#abandoned the idea that a logaritmic relation exists between analog and turbidity
-#    if turb_analog != 32767:  # value given by pull-up resistor -> nothing connected
-#        turb = mturb*log(turb_analog) + bturb   # grams/liter  y=m.ln(x) + b      ( log of base e )
-#    else:
-#        turb = 0
 
     return {
         'date':         date_,
