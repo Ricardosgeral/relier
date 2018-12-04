@@ -33,6 +33,7 @@ import FlowMAG  # for the eletromagnetic flow meter from Danfoss
 import multiprocessing  # the reading of FLOWMAG is placed in a different process
 from datetime import datetime
 from math import log as log
+import turbidity_calibration  # to get data from a txt with calibrated turbidity sensor
 import pigpio   # needs to be installed for callback https://www.raspberrypi.org/forums/viewtopic.php?t=66445
 import Adafruit_ADS1x15  # Analogic digital conversor ADS 15 bit 2^15-1=32767 (needs to be installed using pip3)
 adc = Adafruit_ADS1x15.ADS1115(address=0x48, busnum=1)  # address of ADC See in -- sudo i2cdetect -y 1
@@ -176,7 +177,6 @@ def get_data(interval, mu, mi, md, bu, bi, bd, mturb, bturb, zerou, zeroi, zerod
     date_ = '{:%Y-%m-%d}'.format(d)
 
     # (DS18B) Water temperature + BME280
-
     water_temp, air_temp, air_hum, air_pres = d_temp_sensor.read_d_temp()
 
 #FLOWMETERS
@@ -234,10 +234,18 @@ def get_data(interval, mu, mi, md, bu, bi, bd, mturb, bturb, zerou, zeroi, zerod
 
     turb_analog = analog[TURB_ch]           # analog 0 to 32767
 
+
     if turb_analog != 32767:  # value given by pull-up resistor -> nothing connected
-        turb = mturb*log(turb_analog) + bturb   # grams/liter  y=m.ln(x) + b     base e
+        turb = turbidity_calibration.turb_interpolate(turb_analog)
+        turb=float(turb)
     else:
         turb = 0
+
+#abandoned the idea that a logaritmic relation exists between analog and turbidity
+#    if turb_analog != 32767:  # value given by pull-up resistor -> nothing connected
+#        turb = mturb*log(turb_analog) + bturb   # grams/liter  y=m.ln(x) + b      ( log of base e )
+#    else:
+#        turb = 0
 
     return {
         'date':         date_,
