@@ -256,7 +256,7 @@ def read_display_write(e_rdw): # read and display data in page "record" and writ
 
     # obtain the selected worksheet in the google spreadsheet and share it
     export_google = inp['google_sheets']
-    if export_google in ['yes','Yes','YES','y','Y','yep'] and gsh.google_creds == True:
+    if export_google in ('yes', 'Yes', 'YES', 'y', 'Y', 'yep') and gsh.google_creds == True:
         wks = gsh.spreadsheet_worksheet(ssheet_title=inp['googlesh'],
                                         wsheet_title=inp['filename'],
                                         share_email=inp['share_email'])

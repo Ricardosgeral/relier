@@ -49,7 +49,7 @@ def read_ini(): ###read the init file
 #write in the ini file
 def write_ini(filename, googlesh, share_email, google_sheets, duration, interval, no_reads,
               testtype, othername,
-              mu, bu, mi, bi, md, bd, mturb, bturb, flowmeter_type, cf, lastip):
+              mu, bu, mi, bi, md, bd, flowmeter_type, cf, lastip):
 
     config['settings'] = {'filename': filename,
                           'googlesh': googlesh,

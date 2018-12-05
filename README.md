@@ -413,8 +413,6 @@ mi            = 0.0898          # <Interface pressure sensor> [ pi(mbar) = mi te
 bi            = -0.0596
 md            = 0.0898          # <Downstream pressure sensor> [ pd(mbar) = md tension_d(mV) + bu ]
 bd            = -0.0596
-mturb         = -0.0429         # For turbidity a logaritmic relation is assumed !
-bturb         = 1413.289        # <Turbidity sensor> [ turbidity(g/cm3) = mturb x ln(analog_no) + bturb ]
 
 [ip]
 lastip        = 193.136.108.75  # This parameter is not editable! It's an indication of the server IP in the last test 
