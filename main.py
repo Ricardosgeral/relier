@@ -158,7 +158,11 @@ def input_analog():   #inputs from page "sensors" and page "flowmeter"
         flowmeter_type = '1'
     elif flowmeter == 1:
         flowmeter_type = '2'
+    else:
+        flowmeter_type ='2'
+
     cf  =   nxlib.nx_getText(ser, nxApp.ID_cf[0], nxApp.ID_cf[1])
+
 
     return  {
         'mu'   : mu,
@@ -334,8 +338,8 @@ def read_display_write(e_rdw): # read and display data in page "record" and writ
     nxlib.nx_setText(ser, nxApp.ID_ip[0], nxApp.ID_ip[1], ip)
 
 ##################
-
-def input_update(): # update all inputs previous 'analog' and 'sensors' page
+# update all inputs previous 'analog' and 'sensors' page
+def input_update():
     # update the inputs in settings page
     inp['filename'] = nxlib.nx_getText(ser, nxApp.ID_filename[0], nxApp.ID_filename[1])
     inp['googlesh'] = nxlib.nx_getText(ser, nxApp.ID_googlesh[0], nxApp.ID_googlesh[1])
@@ -488,6 +492,15 @@ def detect_touch(e_rd, e_rdw):
                     e_rd.set()
 
                 elif (pageID_touch,compID_touch) == (5,1):  # back button leave analog sensors page (comp 1) in page 5 is pressed
+
+                    # write in the inputs.ini file the inputs (that will be the default values next time)
+                    rw.write_ini(inp['filename'], inp['googlesh'], inp['share_email'], inp['google_sheets'],
+                                 inp['duration'], inp['interval'], inp['no_reads'],
+                                 inp['test_type'], inp['othername'],
+                                 inp['mu'], inp['bu'], inp['mi'], inp['bi'], inp['md'], inp['bd'],
+                                 inp['flowmeter_type'], inp['cf'],
+                                 inp['lastip'])
+
                     end_rd.set()
                     t_rd.join()
                     e_rd.clear()
