@@ -62,8 +62,8 @@ class NextionApp:
                  {'id': 16, 'type': 'text',   'name': 'txt_bu'},
                  {'id': 17, 'type': 'text',   'name': 'txt_bi'},
                  {'id': 18, 'type': 'text',   'name': 'txt_bd'},
-                 {'id': 19, 'type': 'text',   'name': 'bt_flowtype'},
-
+                 {'id': 19, 'type': 'button', 'name': 'bt_flowtype'},
+                 {'id': 20, 'type': 'text',   'name': 'txt_flowrate'},
              ]
              },
 
@@ -145,6 +145,7 @@ ID_baru  = get_Ids('sensors', 'txt_baru')
 ID_bari  = get_Ids('sensors', 'txt_bari')
 ID_bard  = get_Ids('sensors', 'txt_bard')
 ID_ntu   = get_Ids('sensors', 'txt_ntu')
+ID_flowrate   = get_Ids('sensors', 'txt_flowrate')
 
 # "flowtype" page
 

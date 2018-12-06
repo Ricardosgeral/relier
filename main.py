@@ -69,7 +69,7 @@ elif test == '4':   #other name
 else:
     pass
 
-# sensors page
+# send to sensors page the inputs from ini file
 nxlib.nx_setText(ser, nxApp.ID_mu[0], nxApp.ID_mu[1],ini['mu'])
 nxlib.nx_setText(ser, nxApp.ID_mi[0], nxApp.ID_mi[1],ini['mi'])
 nxlib.nx_setText(ser, nxApp.ID_md[0], nxApp.ID_md[1],ini['md'])
@@ -185,6 +185,8 @@ def display_analog(data):  #outputs
     nxlib.nx_setText(ser, nxApp.ID_bari[0], nxApp.ID_bari[1],str(data['bar_int']*1000))
     nxlib.nx_setText(ser, nxApp.ID_bard[0], nxApp.ID_bard[1],str(data['bar_down']*1000))
     nxlib.nx_setText(ser, nxApp.ID_ntu[0],  nxApp.ID_ntu[1],str(data['turb']))
+    nxlib.nx_setText(ser, nxApp.ID_flowrate[0],  nxApp.ID_flowrate[1],str(data['flow']))
+
 
 def display_sensors(data):   #outputs of "record" page
     now = datetime.datetime.now()
