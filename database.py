@@ -1,7 +1,8 @@
 import psycopg2
 
 #credentials of database in Heroku  # to obtain it $ heroku config, or look in https://data.heroku.com/  -> database -> settings -> Database Credentials -> URI
-DATABASE_URL = 'postgres://fybflihwtshmkt:644948e0d37e896994d8e5927a752aaefa8ecd26e21192f00f52650716ccbab5@ec2-23-21-65-173.compute-1.amazonaws.com:5432/d8thuflqh325l1'
+DATABASE_URL = 'postgres://ejpdnwfhlrfilh:986d5c4d2782d8c39904f51fcf9d5e1db9809473fa20e3fc05552792f36ea847@ec2-54-204-40-248.compute-1.amazonaws.com:5432/dekc4e7p0jmc28'
+
 import urllib.parse as urlparse
 
 url = urlparse.urlparse(DATABASE_URL)
@@ -47,8 +48,17 @@ def connect_db():
 
     #create a table to parse test relevant inputs to  heroku app
     try:
-        cur.execute("CREATE TABLE testinputs (start timestamptz, test_name text, rec_interval integer, test_type integer, "
-                    "mu float, bu float,mi float, bi float,md float, bd float);")
+        cur.execute("CREATE TABLE testinputs ("
+                    "start timestamptz,"
+                    "test_name text,"
+                    "rec_interval integer,"
+                    "test_type integer,"
+                    "mu float,"
+                    "bu float,"
+                    "mi float,"
+                    "bi float,"
+                    "md float,"
+                    "bd float);")
         con.commit()
         print('Database table for test inputs created!')
     except:

@@ -337,6 +337,7 @@ def read_display_write(e_rdw): # read and display data in page "record" and writ
     nxlib.nx_setValue(ser, nxApp.ID_status[0], nxApp.ID_status[1], 1)  # green flag
     nxlib.nx_setText(ser, nxApp.ID_ip[0], nxApp.ID_ip[1], ip)
 
+
 ##################
 # update all inputs previous 'analog' and 'sensors' page
 def input_update():
@@ -426,7 +427,7 @@ def detect_touch(e_rd, e_rdw):
                         # insert a new row in the database in Heroku
                         cur.execute(
                             "INSERT INTO testinputs (start, test_name, rec_interval, test_type, mu, bu, mi, bi, md, bd) "
-                            "VALUES (to_timestamp('{}', 'YYYY-MM-DD HH24:MI') , %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);".format(datetime.datetime.now()),
+                            "VALUES (to_timestamp('{}', 'YYYY-MM-DD HH24:MI') , %s, %s, %s, %s, %s, %s, %s, %s, %s);".format(datetime.datetime.now()),
                             [inp['filename'], inp['interval'], inp['test_type'],
                              inp['mu'], inp['bu'], inp['mi'], inp['bi'], inp['md'], inp['bd'],
                              ])

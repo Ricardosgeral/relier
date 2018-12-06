@@ -15,11 +15,11 @@ def read_flowMAG(v1,v2):
 
     try:
           ser = serial.Serial(port='/dev/ttyACM0',
-                          baudrate=9600,
+                          baudrate=2400,
                           parity=serial.PARITY_NONE,
                           stopbits=serial.STOPBITS_ONE,
                           bytesize=serial.EIGHTBITS,
-                          timeout=1.09)
+                          timeout=0.5)
     except:
         ser = None
         print("MAG-flow not connected no USB! could not open port /dev/ttyACM0")
