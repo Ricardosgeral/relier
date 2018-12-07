@@ -494,6 +494,21 @@ def detect_touch(e_rd, e_rdw):
                     inp['bd']    = nxlib.nx_getText(ser, nxApp.ID_bd[0],    nxApp.ID_bd[1])
                     e_rd.set()
 
+                elif (pageID_touch, compID_touch) == (6, 1):  # back button in flowmeter type selection (comp1) in page 5 is pressed
+                # the idea is to stop and restart the threads so that the eventual new flowmeter type can be active
+                    end_rd.set()
+                    t_rd.join()
+                    e_rd.clear()
+
+                    end_rd.clear()
+                    input_update()
+                    srv.init(int(inp['interval']), int(inp['no_reads']), inp['flowmeter_type'])
+                    t_rd = threading.Thread(target=read_display, name='Read/Display', args=(e_rd,))
+                    t_rd.start()
+
+                    sleep(1)  # necessary to allow enough time to start the 1º read of the ads1115 and sensor temp
+                    e_rd.set()  # start read_display()
+
                 elif (pageID_touch,compID_touch) == (5,1):  # back button leave analog sensors page (comp 1) in page 5 is pressed
 
                     # write in the inputs.ini file the inputs (that will be the default values next time)
