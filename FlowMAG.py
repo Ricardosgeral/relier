@@ -19,14 +19,15 @@ def read_flowMAG(v1,v2):
                           parity=serial.PARITY_NONE,
                           stopbits=serial.STOPBITS_ONE,
                           bytesize=serial.EIGHTBITS,
-                          timeout=0.5)
+                          timeout=1)
+          ser.readline().decode()  # gets flow rate in liters/hour
+
     except:
         ser = None
         print("MAG-flow not connected no USB! could not open port /dev/ttyACM0")
 
-    sleep(.2)                   # for stability
+#    sleep(1)                   # for stability
     first_time = time.time()    # acquire time to calculate total volume
-
 
     while 1:
         if ser == None:  # if serial did not acquired initially then try again
@@ -36,7 +37,9 @@ def read_flowMAG(v1,v2):
                                     parity=serial.PARITY_NONE,
                                     stopbits=serial.STOPBITS_ONE,
                                     bytesize=serial.EIGHTBITS,
-                                    timeout=1.09)    #data from flowMAG is streaming at a rate of 1s. so 9% more for safety
+                                    timeout=1)    #data from flowMAG is streaming at a rate of 1s. so 9% more for safety
+                ser.readline().decode()  # gets flow rate in liters/hour
+
             except:
                 pass
         else:
