@@ -20,7 +20,7 @@ def read_flowMAG(v1,v2):
                           stopbits=serial.STOPBITS_ONE,
                           bytesize=serial.EIGHTBITS,
                           timeout=1)
-          ser.readline().decode()  # gets flow rate in liters/hour
+          ser.readline().decode()  # required because of MAGFLOW harware
 
     except:
         ser = None
@@ -38,8 +38,7 @@ def read_flowMAG(v1,v2):
                                     stopbits=serial.STOPBITS_ONE,
                                     bytesize=serial.EIGHTBITS,
                                     timeout=1)    #data from flowMAG is streaming at a rate of 1s. so 9% more for safety
-                ser.readline().decode()  # gets flow rate in liters/hour
-
+                ser.readline().decode() #needed
             except:
                 pass
         else:
