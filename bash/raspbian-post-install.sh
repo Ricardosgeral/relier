@@ -68,7 +68,7 @@ echo  '------------------------------------------'
 echo '=> Install developer packages'
 #
 sudo apt-get install -y python3-pandas
-sudo apt-get install libpq-dev # required to install psycopg2-binary
+sudo apt-get install libpq-dev -y # required to install psycopg2-binary
 sudo pip3 install --upgrade pip
 sudo pip3 install pygsheets
 sudo pip3 install --upgrade oauth2client
