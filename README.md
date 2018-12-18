@@ -34,6 +34,44 @@ The main *Hardware* is composed by the:
 
 The server, the touchscreen and the custom PCB are placed inside an aluminum enclosure [(88x38x100mm box profile)](https://www.aliexpress.com/item/Free-shipping88-38-100mm-width-x-high-x-length-aluminum-extrusion-box-profile-enclosure-for-PCB/32800855972.html?spm=a2g0s.9042311.0.0.Wvmz38) [6 €].
 
+
+| Qt | €/un | Total € | Description                                                                   | Note                                                                                 |
+|----|----------|-------|-------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
+|    |          |       | ***relier*** **ACQUISITION BOX**                                                        |                                                                                      |
+| 1  | 35       | 35    | [Raspberry Pi 3 model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/)                                                               | Server                                                                               |
+| 1  | 16       | 16    | [Nextion HMI touch display 2.8"](https://www.itead.cc/nextion-nx3224t028-1932.html)                                                | Graphical User Interface (GUI)                                                       |
+| 1  | 6        | 6     | [Aluminium enclosure box (88x38x100mm)](https://www.aliexpress.com/item/Free-shipping88-38-100mm-width-x-high-x-length-aluminum-extrusion-box-profile-enclosure-for-PCB/32800855972.html?spm=a2g0s.9042311.0.0.Wvmz38)                                         | Enclosure of the raspberry, the hat and the custom PCB                               |
+| 2  | 12       | 24    | Micro SD card (>8GB)                                                          | One for the raspberry pi and another for the Nextion display (during instalation)    |
+| 1  | 15       | 15    | [Raspberry Pi Power Supply](https://www.raspberrypi.org/products/raspberry-pi-universal-power-supply)                                                     | Power of the raspberry pi and the sensors                                            |
+| 1  | 12       | 12    | [Raspberry pi Hat - Custom PCB](http://www.pcbway.com/project/shareproject/Relier_Acquisition_system___for_Rasoberry_pi3_b_.html):                                                | Interlinks server, touchscreen and the sensors                                       |
+| 1  | 2        | 2     | - [16 Bit I2C ADS1115 Module ADC 4 channel with Pro Gain Amplifier](https://www.aliexpress.com/item/16-Bit-I2C-ADS1115-Module-ADC-4-channel-with-Pro-Gain-Amplifier-RPi-1PCS/32817162654.html?spm=a2g0s.9042311.0.0.KZKf8O)             | Analog to Digital Conversor for analog sensors                                       |
+| 1  | 2        | 2     | -  Logic Level Shifter Bi-Directional 5V to 3.3V                              | Required for stability, since ADS1115 requires 5V and raspberry I2C pins use 3.3V    |
+| 6  | 4        | 24    | - 8mm Male & Female Connector miniature Aviation Plug M8 Circular Socket+Plug | Connection of the sensors to the acquisition box                                     |
+| 6  | 3        | 18    | - XH2.54 3-Pins connectors Male for PCB - Header+Housing+Terminal             | Connection of miniature aviation plugs to the custom PCB                             |
+| 1  | 2        | 2     | -  PC104 2.54mm Pitch 2x20 Pin 40 Pin Female Double Row Long Pin Header Strip | Connection between Raspberry GPIO and custom PCB                                     |
+| 1  | 2        | 2     | - Momentary pushbutton switch 3A Reset Button                                 | Safe restart or shutdown of the raspberry                                            |
+| 1  | 1        | 1     | - 5 mm RGB LED                                                                | Indicative multicolor LED                                                            |
+| 1  | 1        | 1     | - Active Buzzer Alarm 5 V                                                     | Indication of end of test                                                            |
+| 3  | 1        | 3     | - 220 ? carbon film resistor                                                  | Protection of the RGB LED                                                            |
+| 2  | 1        | 2     | - 10 k? carbon film resistor                                                  | 1 for voltage divider (turbine flowmeter) and other for water temperature sensor     |
+| 1  | 1        | 1     | - 20 k? carbon film resistor                                                  | Voltage divider (turbine flowmeter)                                                  |
+| 3  | 1        | 3     | - 0805 SMD 1/4W resistor 1M?                                                  | Pull up resistors to know when there is no sensors connected                         |
+| 6  | 1        | 6     | - 5 cm cable with 3 wires [< 1 ]                                              | Connection between mini aviator plugs and XH2.54 connectors                          |
+|    |          |       |                                                                               |                                                                                      |
+|    |          |       | **SENSORS**                                                                       |                                                                                      |
+| 3  | 13       | 39    | Analog Pressure Transducer Transmitter Sensor***, 0-5psi 0.5-5V               | Measures water pressure at different levels (piezometers)                            |
+| 1  | 9        | 9     | Analog Turbidity Sensor, 5V 40mA                                              | Measures the turbidity of effluent water                                             |
+| 1  | 13       | 13    | Digital Turbine Flow Sensor***, G5/4, 1.25", DN32, 1~120L/min                 | Measures the water flow (it is also possible to use a eletromagnetic type flowmeter) |
+| 1  | 1        | 1     | Waterproof DS18B20 digital Temperature Sensor                                 | Measures the water temperature                                                       |
+| 1  | 3        | 3     | BME280 Digital Sensor, Humidity, Temperature and Barometric Pressure Sensor   | Measures the atmosferic temperature, humidity and pressure                           |
+                                                                             |                                                                                      |
+|    |          | **240**  |                                                                               |                                                                                      |
+
+
+
+
+
+
 The following picture shows the main hardware involved.
 
 ![Hardware](Media/images/00%20-%20relier%20AS.jpg)
