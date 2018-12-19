@@ -344,23 +344,25 @@ First line of this file is ignored and values should be separated by tab or spac
 | Turbidity           | 0 to 32767 (15 bits >> 2^15) | turbidity (gr/liter)   | ****turbcalib.txt****  |
 
 
+This page also includes:
+ 
 a) ***Flowmeter type* button**: to choose between turbine and eletromagnetic flowmeters
 
-***relier*** is intended to use low budget sensors. Thus, initially, only allowed the use of a turbine type flowmeter. 
-However, since LNEC laboratory owns a eletromagnetic type flowmeter ([Danfoss MAGFLO 5000](http://apps.watersurplus.com/techlib/Fluidyne/Fluidyne_Flowmeter_Mag1100_Mag3100_spec_D499.pdf))
-the software was adapted to allow its use (communication via USB serial port of the raspberry pi).
+***relier*** was designed to use low budget sensors. Thus, initially, only allowed the use of a turbine type flowmeter. 
+However, since LNEC laboratory owns a eletromagnetic type flowmeter ([Danfoss MAGFLO 5000](http://apps.watersurplus.com/techlib/Fluidyne/Fluidyne_Flowmeter_Mag1100_Mag3100_spec_D499.pdf)),
+the software was adapted to also allow its use (communication via USB serial port of the raspberry pi).
 
 ![page6](Media/images/GUI/relier_page6_flowmeter.PNG)
 
 If turbine flowmeter is selected, the parameter ***Ctf*** should also be indicated (default value is 0.45).  
 *f = Ctf x Q*, where *Q* (liters/min) is the flow rate and *f* (Hz) are the pulses frequency. 
 
-The following table indicates the advantages and drawbacks of each type of the available turbidimeters. 
+The following table indicates the advantages and drawbacks of each type of turbidimeter available. 
 
-Flowmeter type | Advantages                               | Drawbacks                                                      |
----------------|------------------------------------------|----------------------------------------------------------------|
-Turbine        |Fast response to sudden drop/rise of flow | Low accuracy for low flow (may be even unable to detect then)  | 
-Eletromagnetic |Better accuracy, even for low flow        | Somewhat smother variation of flow, for sudden drop/rise of flow|
+**Flowmeter type** | **Advantages**                           | **Drawbacks**                                                   |
+-------------------|------------------------------------------|-----------------------------------------------------------------|
+Turbine            |Fast response to sudden drop/rise of flow | Low accuracy for low flow (may be even unable to detect then)   | 
+Eletromagnetic     |Better accuracy, even for low flow        | Somewhat smother variation of flow, for sudden drop/rise of flow|
 
 Pressing the *back blue button* will bring the user back to ***Set sensors*** page, 
 and changes to the flowmeter type are reflected in the flowrate value.
