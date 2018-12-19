@@ -618,6 +618,9 @@ Threads are used in this project in three cases:
    + Detection of *serial communication* between the server and the Nextion touchscreen. 
    The server needs to check if the touchscreen is pressed, independently of being at the same time doing other tasks. 
    To achieve this it is used *Thread*, alongside with *Event*, both from the threading module. This achievement took me a while to master, and I believe it may be useful to others.
+- *Use of Multiprocessing (['process-based parallelism'](https://docs.python.org/3/library/multiprocessing.html)). 
+Multiprocessing is used to acquire data from the Eletromagnetic flowmeter via serial USB communication. [Value](https://docs.python.org/3/library/multiprocessing.html#multiprocessing.Value) method uses Shared memory to pass values between processes.
+- Implementation of a [Ring buffer](https://www.oreilly.com/library/view/python-cookbook/0596001673/ch05s19.html), to avoid overflow of readings coming from the ADC chip.
 - *Library for serial communication with the Nextion device in Python 3* (TX-RX, UART protocol). 
 Unfortunately, until the day I'm writing this, a Python library to use Nextion touchscreen was not available.
 There is a good library developed for Arduino, but I did not want to mix Python and *C* code. 
@@ -634,7 +637,8 @@ For that, see the [*instructions set*](https://nextion.itead.cc/resources/docume
 library [*pandas*](https://pandas.pydata.org/index.html), to collect data from multiple sensors and send them to Google Sheets.  
 - Use the library [*CSV*](https://docs.python.org/3.6/library/csv.html) to write the data (as dictionary) in rows.
 - Use of the library [*configparser*](https://docs.python.org/3/library/configparser.html) to have a *.ini* file 
-with the inputs. 
+with the inputs.
+- Use of the library [pyserial](https://pythonhosted.org/pyserial/), to read from the TX/RX (communication with the Nextion) and USB serial ports (communication with the Eletromagnetic flowmeter).
 - Automatic detection when USB drives are plugged-in (mounted) or removed (unmounted).
  This also implies writing two rules in file *99-local.rules*.
 - Combined Restart / Shutdown Button for Raspberry Pi 
