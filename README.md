@@ -50,10 +50,10 @@ The acquisition box is powered only through the power supply connected to the ra
 
 ![Aquisition box](Media/images/6.jpg)
 
+![Aquisition box](Media/images/9.jpg)
+
 You can find more pictures and an overview video in this GitHub repository in [Media folder](/Media).
 
-
- 
 
 The following table shows the details about most of the components used in ***relier*** **AS box**, as well as their indicative prices (at the time this is written).
 
