@@ -724,6 +724,6 @@ Also, my thanks to *João Paixão* (LNEC-CIC technician) for soldering the small
 
 
 ## License
-Copyright (c) 2018 Ricardo Correia dos Santos
+Copyright (c) 2019 Ricardo Correia dos Santos
 
 See the [license conditions](LICENSE).
