@@ -345,34 +345,13 @@ First line of this file is ignored and values should be separated by tab or spac
 
 
 This page also includes:
- 
-a) ***Flowmeter type* button**: to choose between turbine and eletromagnetic flowmeters
 
-***relier*** was designed to use low budget sensors. Thus, initially, only allowed the use of a turbine type flowmeter. 
-However, since LNEC laboratory owns a eletromagnetic type flowmeter ([Danfoss MAGFLO 5000](http://apps.watersurplus.com/techlib/Fluidyne/Fluidyne_Flowmeter_Mag1100_Mag3100_spec_D499.pdf)),
-the software was adapted to also allow its use (communication via USB serial port of the raspberry pi).
-
-![page6](Media/images/GUI/relier_page6_flowmeter.PNG)
-
-If turbine flowmeter is selected, the parameter ***Ctf*** should also be indicated (default value is 0.45).  
-*f = Ctf x Q*, where *Q* (liters/min) is the flow rate and *f* (Hz) are the pulses frequency. 
-
-The following table indicates the advantages and drawbacks of each type of turbidimeter available. 
-
-**Flowmeter type** | **Advantages**                           | **Drawbacks**                                                   |
--------------------|------------------------------------------|-----------------------------------------------------------------|
-Turbine            |Fast response to sudden drop/rise of flow | Low accuracy for low flow (may be even unable to detect then)   | 
-Eletromagnetic     |Better accuracy, even for low flow        | Somewhat smother variation of flow, for sudden drop/rise of flow|
-
-Pressing the *back blue button* will bring the user back to ***Set sensors*** page, 
-and changes to the flowmeter type are reflected in the flowrate value.
-
-b) ***Calibration* button**: to update readings after setting new input parameters.
+a) ***Calibration* button**: to update readings after setting new input parameters.
 
 If you modify  the *m* and *b* parameters of any of the sensors, you need to push the *Calibration* button, 
 in order to see the influence on the pressure and/or turbidity values. The new values should appear in screen every second. 
 
-c) ***Zeroing* button**: to make current sensor pressures equal to zero.
+b) ***Zeroing* button**: to make current sensor pressures equal to zero.
 
 This functionality can be used to take into account the normal variations of the atmospheric pressure.
 To use it properly, it is necessary, first, to ensure that *no pressure* is applied to the sensors (besides the ambient pressure).
@@ -396,8 +375,33 @@ When you consider that the analog pressure sensors are conveniently calibrated, 
 which will send you to the **Main menu** page.
 
 Pushing the *Home* button will send you to the **Credits** page.  
+Pushing the flowmeter icon button will redirect the user to the ***Flowmwter type*** page 
 
-### *6 - Sensors data record*
+### *6 - Flowmeter type*
+
+This page allowa to select between turbine and eletromagnetic flowmeters.
+***relier*** was designed to use low budget sensors. Thus, initially, only allowed the use of a turbine type flowmeter. 
+However, since LNEC laboratory owns a eletromagnetic type flowmeter ([Danfoss MAGFLO 5000](http://apps.watersurplus.com/techlib/Fluidyne/Fluidyne_Flowmeter_Mag1100_Mag3100_spec_D499.pdf)),
+the software was adapted to also allow its use (communication via USB serial port of the raspberry pi).
+
+![page6](Media/images/GUI/relier_page6_flowmeter.PNG)
+
+If turbine flowmeter is selected, the parameter ***Ctf*** should also be indicated (default value is 0.45).  
+*f = Ctf x Q*, where *Q* (liters/min) is the flow rate and *f* (Hz) are the pulses frequency. 
+
+The following table indicates the advantages and drawbacks of each type of turbidimeter available. 
+
+**Flowmeter type** | **Advantages**                           | **Drawbacks**                                                   |
+-------------------|------------------------------------------|-----------------------------------------------------------------|
+Turbine            |Fast response to sudden drop/rise of flow | Low accuracy for low flow (may be even unable to detect then)   | 
+Eletromagnetic     |Better accuracy, even for low flow        | Somewhat smother variation of flow, for sudden drop/rise of flow|
+
+Pressing the *back blue button* will bring the user back to ***Set sensors*** page, 
+and changes to the flowmeter type are reflected in the flowrate value.
+
+
+
+### *7 - Sensors data record*
 ![page7](Media/images/GUI/relier_page7_record.PNG)
 
 This page appears once the *Start* green button in **Main menu** is released. 
@@ -417,13 +421,20 @@ The buzz emits some sounds (SOS in morse code! :) ), and the screen is sent to *
 Actually, it will not record indefinitely. *'Forever'* should be understood as 2 months (86400 minutes!).
 
 
-### *7 - Stop sensors data recording*
-![page7](Media/images/GUI/relier_page8-stop0.png)
+### *8 - Stop sensors data recording*
+![page8](Media/images/GUI/relier_page8-stop0.png)
 
 Here you confirm that you pressed the stop button, just in case! Pressing the:
 
 - *Green button* >> stops recording data and directs to **Credits** page. 
 - *Red button*   >> go back to **Sensors data record** page, and readings never stopped being registered. Buzzer should also alert for the end of the test.
+
+### *9 - Shut down page*
+
+If the physical pusbutton at the lateral side of the acquisition box is hold longer than 3 seconds, the Raspberry Pi shutdowns automatically.
+The user should unplug the power supply, after some seconds (>10s).
+
+![page9](Media/images/GUI/relier_page10-shuttdown.png)
 
 
 ## Web live streaming of data from sensors
@@ -493,6 +504,29 @@ So, those selections are kept and are set by default in the next test.
 However, they will always appear in their respective sections. 
 That is, for example, the parameter *interval* will always appear in section [settings], 
 but may appear at any position inside its section.
+
+## *Turbidity calibration* (calibturb.txt)
+
+The file *calibturb.txt* allows to define a calibration curve for the turbidity analog sensor. 
+For that, open a terminal and run the command:
+
+    $ sudo nano /home/pi/relier/calibturb.txt
+
+Pairs of **analog number** (0 to 32767) versus **turbidity** (grams/liter) should be introduced.
+
+### Example of file *calibturb.txt* 
+```
+Analog#  grams/liter   # The first line is always ignored
+29618	0
+29586	0.025
+29430	0.05
+ ... (omitted values)
+1154	34.5
+ 778    47.1
+```
+Below is a graphical representation of the calibration curve (for a soil passed to the #60 ASTM sieve and tap water).
+
+![turbcalib](Media/images/GUI/turbiditycalibration.PNG)
 
 
 ## Data collection
