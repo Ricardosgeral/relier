@@ -235,13 +235,14 @@ def read_display(e_rd): #read and display data in page "sensors"
     while end_rd.is_set() == False:
         e_rd.wait()         # restart thread t_rd
         print('read running')
-        data=srv.get_data(int(inp['interval']),
+        data=srv.get_data(1,                    #int(inp['interval'])
                           float(inp['mu']), float(inp['mi']), float(inp['md']),
                           float(inp['bu']), float(inp['bi']), float(inp['bd']),
                           zerou, zeroi, zerod, inp['test_type'],
                           inp['flowmeter_type'], inp['cf'])
         display_analog(data)
-        sleep(int(inp['interval']))
+        #sleep(int(inp['interval']))
+        sleep(1)  # in read_display
 ##################
 
 def read_display_write(e_rdw): # read and display data in page "record" and write to file
@@ -397,10 +398,10 @@ def detect_touch(e_rd, e_rdw):
                     ip=get_ip_address()
                     nxlib.nx_setText(ser, nxApp.ID_ip[0], nxApp.ID_ip[1], ip)
 
-                elif (pageID_touch, compID_touch) == (2, 2):  # button set analog sensors (comp2) in page 2 is pressed
+                elif (pageID_touch, compID_touch) == (2, 2):  # button set sensors (comp2) in page 2 is pressed
                     end_rd.clear()
                     input_update()
-                    srv.init(int(inp['interval']),int(inp['no_reads']), inp['flowmeter_type'])
+                    srv.init(int(inp['no_reads']),int(inp['no_reads']), inp['flowmeter_type'])  # the interval between displays in monitor should be 1 second, but no_reads does not change
                     t_rd = threading.Thread(target=read_display, name='Read/Display', args=(e_rd,))
                     t_rd.start()
 
