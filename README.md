@@ -34,16 +34,28 @@ The *Hardware* is composed by the:
 
 #### **AQUISITION BOX**
 
-![Aquisition box](Media/images/00%20-%20relier%20AS.jpg)
-
-
 The main components are a server (*raspberry Pi*), a 2.8" touchscreen (*Nextion HMI display*), and a PCB HAT 
 (made specifically for this project - details about the PCB design are shown in a topic below). 
 All these main components are placed inside an aluminum enclosure. 
 Peripheral inputs to collect sensor data and peripheral outputs (USB) to storage data are also available. 
-The acquisition box is powered only through the power supply connected to the raspberry Pi (output: 5V DC, 2A)  
+The acquisition box is powered only through the power supply connected to the raspberry Pi (output: 5V DC, 2A) 
+
+![Aquisition box](Media/images/1.jpg)
+
+![Aquisition box](Media/images/2.jpg)
+
+![Aquisition box](Media/images/3.jpg)
+
+![Aquisition box](Media/images/4.jpg)
+
+![Aquisition box](Media/images/6.jpg)
+
+You can find more pictures and an overview video in this GitHub repository in [Media folder](/Media).
 
 
+ 
+
+The following table shows the details about most of the components used in ***relier*** **AS box**, as well as their indicative prices (at the time this is written).
 
 
 | **Qt**  | **€/un*** | **Ʃ €** | **Description**                                                                                                                                                                                                 | Notes                                                                                |
@@ -75,6 +87,8 @@ The acquisition box is powered only through the power supply connected to the ra
 There may be cheaper alternatives. The prices indicated correspond to the acquired components for this project.
 
 
+
+
 #### **SENSORS**
 
 | **Qt**  | **€/un** | **Ʃ €** | **Description**                                                                                                                                                                                                            | Notes                                                                                      |
@@ -88,9 +102,7 @@ There may be cheaper alternatives. The prices indicated correspond to the acquir
 
 The following picture shows the main hardware involved.
 
-![Hardware](Media/images/00%20-%20relier%20AS.jpg)
 
-You can find more pictures and an overview video in this GitHub repository in [Media folder](/Media).
 
 ### Additional hardware 
 #### For the Raspberry Pi server
