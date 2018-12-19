@@ -37,8 +37,6 @@ The *Hardware* is composed by the:
 ![Aquisition box](Media/images/00%20-%20relier%20AS.jpg)
 
 
-
-
 The main components are a server (*raspberry Pi*), a 2.8" touchscreen (*Nextion HMI display*), and a PCB HAT 
 (made specifically for this project - details about the PCB design are shown in a topic below). 
 All these main components are placed inside an aluminum enclosure. 
