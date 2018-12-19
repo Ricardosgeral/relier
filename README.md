@@ -26,16 +26,27 @@ The hardware components required to make the ***relier*** *acquisition system* a
 Instructions about the way those components are connected are also presented.
 For reference, some links and prices of the components used are also presented.
 
-The main *Hardware* is composed by the:
-1. ***Server*** [Raspberry Pi 3 model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) [35 €],
-2. ***Touchscreen*** [Nextion 2.8" - NX3224T028](https://www.itead.cc/nextion-nx3224t028-1932.html) [16 €],
-3. ***Custom Raspberry Pi Hat*** (*'shield'*), that interlinks the server, the touchscreen and the sensors,
-4. ***Sensors*** (4 with analog outputs, and 3 with digital outputs).
-
-The server, the touchscreen and the custom PCB are placed inside an aluminum enclosure [(88x38x100mm box profile)](https://www.aliexpress.com/item/Free-shipping88-38-100mm-width-x-high-x-length-aluminum-extrusion-box-profile-enclosure-for-PCB/32800855972.html?spm=a2g0s.9042311.0.0.Wvmz38) [6 €].
+The *Hardware* is composed by the: 
+1. ***Aquisition box*** (*server*, *touchscreen*, *custom PCB HAT* and *connection plugs*)
+2. ***Sensors*** (4 with analog outputs, and 3 with digital outputs).
 
 
-***relier*** **AQUISITION BOX**
+
+#### **AQUISITION BOX**
+
+![Aquisition box](Media/images/00%20-%20relier%20AS.jpg)
+
+
+
+
+The main components are a server (*raspberry Pi*), a 2.8" touchscreen (*Nextion HMI display*), and a PCB HAT 
+(made specifically for this project - details about the PCB design are shown in a topic below). 
+All these main components are placed inside an aluminum enclosure. 
+Peripheral inputs to collect sensor data and peripheral outputs (USB) to storage data are also available. 
+The acquisition box is powered only through the power supply connected to the raspberry Pi (output: 5V DC, 2A)  
+
+
+
 
 | **Qt**  | **€/un*** | **Ʃ €** | **Description**                                                                                                                                                                                                 | Notes                                                                                |
 |---------|----------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
@@ -62,7 +73,11 @@ The server, the touchscreen and the custom PCB are placed inside an aluminum enc
 | 1       | 0.1      | 0.1      | ► 8 cm cable with 4 wires                                                                                                                                                                                      | Connection between BME280 and the custom PCB                                         |
 |         |          | **115€** |                                                                                                                                                                                                                |                                                                                      |
 
-**SENSORS**
+*The unitary prices don't include eventual shipping costs neither the need to buy sets of components. 
+There may be cheaper alternatives. The prices indicated correspond to the acquired components for this project.
+
+
+#### **SENSORS**
 
 | **Qt**  | **€/un** | **Ʃ €** | **Description**                                                                                                                                                                                                            | Notes                                                                                      |
 |---------|----------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |--------------------------------------------------------------------------------------------|
