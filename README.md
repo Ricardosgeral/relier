@@ -55,11 +55,11 @@ You can find more pictures and an overview video in the [Media folder](https://g
 
 The ***relier*** *acquisition system* is prepared to simultaneously collect data from the following ***'low cost' sensors***:
 
-+ **Channels 0-2**    : 3 Analog pressure transducer sensor (Piezometric water pressure)
-+ **Channel 3**       : 1x Waterproof DS18B20 Sensor (Water temperature)
-+ **Channel 4**       : 1 Analog turbidity sensor (Water turbidity)
-+ **Channel 5**       : 1 Turbine flow Sensor (Water flow)
-+ 1x BME280 sensor (Air temperature, humidity and pressure) 
++ **Channels 0-2**    : Analog pressure transducer sensor (Piezometric water pressure)
++ **Channel 3**       : Waterproof DS18B20 Sensor (Water temperature)
++ **Channel 4**       : Analog turbidity sensor (Water turbidity)
++ **Channel 5**       : Turbine flow Sensor (Water flow)
++ BME280 sensor (Air temperature, humidity and pressure) 
 
 Most of the sensors are connected using the 6 mini aviator (circular) plugs that are linked to the custom PCB HAT. 
 An exception is the *BME280* chip, which can be soldered directly to the custom PCB or using a short 4 wires cable. 
