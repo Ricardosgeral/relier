@@ -38,22 +38,10 @@ All these main components are placed inside an aluminum enclosure.
 Peripheral inputs to collect sensor data and peripheral outputs (USB) to storage data are also available. 
 The acquisition box is powered only through the power supply connected to the raspberry Pi (output: 5V DC, 2A) 
 
-|  ![Aquisition box](Media/images/1.jpg)     |    ![Aquisition box](Media/images/2.jpg)    |
-|-------|--------|
-|   ![Aquisition box](Media/images/3.jpg)    |    ![Aquisition box](Media/images/4.jpg)    |
+| ![Aquisition box](Media/images/1.jpg)  | ![Aquisition box](Media/images/2.jpg)  |
+|----------------------------------------|----------------------------------------|
+| ![Aquisition box](Media/images/3.jpg)  | ![Aquisition box](Media/images/4.jpg)  |
 | ![Aquisition box](Media/images/7.jpg)  | ![Aquisition box](Media/images/9.jpg)  |
-
-
-
-
-
-
-
-
-
-
-
-
 
 You can find more pictures and an overview video in this GitHub repository in [Media folder](/Media).
 
@@ -131,6 +119,10 @@ aspect of each *PCB* layer individually.
 [Here](https://www.raspberrypi-spy.co.uk/2012/06/simple-guide-to-the-rpi-gpio-header-and-pins/#prettyPhoto/1/)
 you can see the numbering of the 40 GPIO pins of the Raspberry Pi used.
 
+
+
+
+
 **Fritzing: breadboard view**
 ![Breadboard_image](Fritzing/v3.2-hat/relierv3.2_production(hat)_bb.png)
 
@@ -138,11 +130,15 @@ you can see the numbering of the 40 GPIO pins of the Raspberry Pi used.
 
 ![PCB_image](Fritzing/v3.2-hat/relierv3.2_production(hat)_pcb.png)
 
-**PCB: bottom Layer**
-![PCBbottom_image](Fritzing/v3.2-hat/relier_pcb3.2_bottom.png)
 
-**PCB: top layer**
-![PCBtop_image](Fritzing/v3.2-hat/relier_pcb3.2_top.png)
+| **PCB: bottom Layer**                                           | **PCB: top layer**                                       |
+|-----------------------------------------------------------------|----------------------------------------------------------|
+| ![PCBbottom_image](Fritzing/v3.2-hat/relier_pcb3.2_bottom.png)  | ![PCBtop_image](Fritzing/v3.2-hat/relier_pcb3.2_top.png) |
+
+
+
+
+
 
 **Fritzing: scheme**
 
