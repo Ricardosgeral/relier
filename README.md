@@ -327,7 +327,7 @@ Pressing the blue button on top-right corner goes back to **Main menu** page.
 There is also a blue button that allows the user to select the **Test type**.
 
 
-### *4 - Test type*
+### *Test type* page
 ![page4](Media/images/GUI/relier_page4_testType.PNG)
 
 This page allows the selection of the type of test you want to perform.
@@ -339,7 +339,7 @@ In this case, test data from all sensors is recorded.
 
 To go back to the **General settings** page, click the blue return button. 
 
-### *5 - Set sensors*
+### *Set sensors* page
 ![page5](Media/images/GUI/relier_page5_sensors.PNG)
 
 This page is used to set the calibration parameters of the analog pressure sensors. 
@@ -390,7 +390,7 @@ which will send you to the **Main menu** page.
 Pushing the *Home* button will send you to the **Credits** page.  
 Pushing the flowmeter icon button will redirect the user to the ***Flowmwter type*** page 
 
-### *6 - Flowmeter type*
+### *Flowmeter type* page
 
 This page allowa to select between turbine and eletromagnetic flowmeters.
 ***relier*** was designed to use low budget sensors. Thus, initially, only allowed the use of a turbine type flowmeter. 
@@ -414,7 +414,7 @@ and changes to the flowmeter type are reflected in the flowrate value.
 
 
 
-### *7 - Sensors data record*
+### *Sensors data record* page
 ![page7](Media/images/GUI/relier_page7_record.PNG)
 
 This page appears once the *Start* green button in **Main menu** is released. 
@@ -434,7 +434,7 @@ The buzz emits some sounds (SOS in morse code! :) ), and the screen is sent to *
 Actually, it will not record indefinitely. *'Forever'* should be understood as 2 months (86400 minutes!).
 
 
-### *8 - Stop sensors data recording*
+### *Stop recording* page
 ![page8](Media/images/GUI/relier_page8-stop0.png)
 
 Here you confirm that you pressed the stop button, just in case! Pressing the:
@@ -442,7 +442,7 @@ Here you confirm that you pressed the stop button, just in case! Pressing the:
 - *Green button* >> stops recording data and directs to **Credits** page. 
 - *Red button*   >> go back to **Sensors data record** page, and readings never stopped being registered. Buzzer should also alert for the end of the test.
 
-### *9 - Shut down page*
+### *Shut down* page
 
 If the physical pusbutton at the lateral side of the acquisition box is hold longer than 3 seconds, the Raspberry Pi shutdowns automatically.
 The user should unplug the power supply, after some seconds (>10s).
@@ -450,7 +450,7 @@ The user should unplug the power supply, after some seconds (>10s).
 ![page9](Media/images/GUI/relier_page10-shuttdown.png)
 
 
-## Web live streaming of data from sensors
+## 4. Web live streaming of data from sensors
 
 In GitHub repository [relier-web](https://github.com/Ricardosgeral/relier-web) 
 you can find all the required files to deploy  a python app to the internet.
@@ -461,7 +461,7 @@ This is the look of the app, which is accessed at a site ***https://<APP_NAME>.h
  
 ![relier-web](https://github.com/Ricardosgeral/relier-web/blob/master/images/plot%20example.png)
 
-## *inputs.ini*
+## 5. *inputs.ini*
 
 It is possible to set *ALL* (test and the calibration of the pressure sensors and turbine flowmeter) inputs by editing the file [*inputs.ini*](https://github.com/Ricardosgeral/relier/blob/master/inputs.ini). This avoids setting the inputs 
 interactively in the touchscreen. For that, open a terminal and run the command:
@@ -518,7 +518,7 @@ However, they will always appear in their respective sections.
 That is, for example, the parameter *interval* will always appear in section [settings], 
 but may appear at any position inside its section.
 
-## *Turbidity calibration* (calibturb.txt)
+## 6. *Turbidity calibration* (calibturb.txt)
 
 The file *calibturb.txt* allows to define a calibration curve for the turbidity analog sensor. 
 For that, open a terminal and run the command:
@@ -542,12 +542,12 @@ Below is a graphical representation of the calibration curve (for a soil passed 
 ![turbcalib](Media/images/GUI/turbiditycalibration.PNG)
 
 
-## Data collection
+## 7. Data collection
 The *Raspberry Pi*, together with the *acquisition system box*, handles the sensors and gets the data from them.  
 The location where data will be collected is defined  by the user, and depends
 on whether an internet connection is available, and whether a USB drive is plugged in.
 
-### No internet connection
+### 7.1. No internet connection
 Data is only stored locally in the *CSV* format and has two possible ways to go:
   
 1. *No USB drive* is plugged in  >>
@@ -574,7 +574,7 @@ in the micro SD card, data is placed in the file but bellow the last row already
 in the same file (not desirable). It is preferable to set each test in an individual file.
 
 
-### Internet connection available (Ethernet or WiFi)
+### 7.2. Internet connection available (Ethernet or WiFi)
 
 Data collection is also done locally in *CSV* format. 
 That is, if a USB drive is plugged in, data goes to the USB drive, otherwise, data goes to the micro SD card in the server.
@@ -612,7 +612,7 @@ If you need an interval between readings smaller than 8 seconds, or you require 
 please disable the 'Google Sheets' feature.
  
 
-## Achievements that can help the reuse of *Python code*
+## 8. Achievements and reuse of *Python code*
 
 - Use of the [*ADS1115*](https://www.adafruit.com/product/1085) *Analog to Digital Conversor (ADC)*, to acquire the analog outputs of the pressure sensors and turbidity sensor.
 If you want to use another ADC (e.g., the [MCP3008 (10 bits)](https://www.adafruit.com/product/856), 
@@ -668,7 +668,7 @@ using [*crontab*](https://debian-administration.org/article/56/Command_schedulin
 - Enable pins 14(TX) and 15(RX) to use UART serial connection (where Nextion device is connected).  
 
 
-## Troubleshooting
+## 9. Troubleshooting
 
 - The following warning is expected: *'grep: /dev/fd/63: No such file or directory'* at the end of 
 `$ sudo ./raspbian-post-install.sh`. Ignore it.
@@ -707,7 +707,7 @@ open a terminal and execute:
  ```
 
 
-### About the author and the *relier* project
+## 10.  About the author and the *relier* project
 I'm a Civil Engineer, with a [master degree](https://www.researchgate.net/publication/273715929_Enquadramento_das_analises_de_riscos_em_Geotecnia) 
 in risk analysis in Geotechnical Engineering, and a [PhD](https://www.researchgate.net/publication/265396445_Experimental_investigation_on_limitation_of_the_progression_of_internal_erosion_in_zoned_dams?_sg=TYpuvUDlOEmsy1nkmycUNZZQmLHo34eFR1un5kQBsel1Ih6m8itcptNphw4q33ZLbFPsnKm5uX3PfaJmW1fljV7_goXnxDN4Ne4RwewR.OOCKioxBNPJoOd0B8BiFk4-Dqk849OZdMI_lxDR_IRduPQ88ovShdBBoVm34ZNhMTA_UT3M8PANv1KdYr7rMXg) 
 on internal erosion in embankment dams.
@@ -730,13 +730,13 @@ Yet, ***relier*** *acquisition system* performs as intended.
 You can report bugs, suggest enhancements, or even fork the project on [Github](https://github.com/Ricardosgeral/relier). 
 All contributions are welcome.
 
-## Acknowledgements
+## 11. Acknowledgements
 My thanks to *António Timóteo* (LNEC-DG technician) for his work on cutting the openings in the acquisition aluminium box. 
 Also, my thanks to *João Paixão* (LNEC-CIC technician) for soldering the smaller and more difficult parts 
 (cup terminals of the mini aviator plugs and the pines in the ADC and of the level shifter).
 
 
-## License
+## 12. License
 Copyright (c) 2019 Ricardo Correia dos Santos
 
 See the [license conditions](LICENSE).
