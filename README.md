@@ -120,13 +120,10 @@ aspect of each *PCB* layer individually.
 you can see the numbering of the 40 GPIO pins of the Raspberry Pi used.
 
 
-
-
-
-**Fritzing: breadboard view**
+**PCB: breadboard view**
 ![Breadboard_image](Fritzing/v3.2-hat/relierv3.2_production(hat)_bb.png)
 
-**Fritzing: PCB view**
+**PCB: both layers view**
 
 ![PCB_image](Fritzing/v3.2-hat/relierv3.2_production(hat)_pcb.jpg)
 
@@ -134,13 +131,10 @@ you can see the numbering of the 40 GPIO pins of the Raspberry Pi used.
 | **PCB: bottom Layer**                                           | **PCB: top layer**                                       |
 |-----------------------------------------------------------------|----------------------------------------------------------|
 | ![PCBbottom_image](Fritzing/v3.2-hat/relier_pcb3.2_bottom.png)  | ![PCBtop_image](Fritzing/v3.2-hat/relier_pcb3.2_top.png) |
+| ![PCBbottom_image](Fritzing/v3.2-hat/relier_)  | ![PCBtop_image](Fritzing/v3.2-hat/relier_pcb3.2_bottom.png)|
 
 
-
-
-
-
-**Fritzing: scheme**
+**PCB: scheme**
 
 ![PCB_image](Fritzing/v3.2-hat/relierv3.2_production(hat)_schem.png)
 
