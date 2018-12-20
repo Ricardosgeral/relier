@@ -116,7 +116,7 @@ There may be cheaper alternatives. The prices indicated correspond to the acquir
 
 
 
-#### Total price
+#### Total cost
 
 The total estimated cost of the ***relier*** **AS** is about **180 €**. 
 This value excludes costs related to other supplementary materials required for the assembly of the custom PCB (e.g. solder wire) 
@@ -530,6 +530,7 @@ The calibration cup shown in the pictures below was printed in PLA material. Fee
 
 |![turbcalib](Media/images/CalibTurb/calibCup1.PNG) | ![turbcalib](Media/images/CalibTurb/calibCup2.PNG)|
 |---|---|
+|||
 
 **Procedure/Steps**
 
@@ -537,7 +538,7 @@ The steps and best practices to achieve a consistent calibration curve for the t
 Below are some photos taken during the calibration for the finer fraction of a coarse soil (passing sieve #60, aperture of 6.3 mm)
 
 |![turbcalib](Media/images/CalibTurb/calib1.jpg) |![turbcalib](Media/images/CalibTurb/calib2.jpg) |
-|---|---|
+|-----|------|
 |![turbcalib](Media/images/CalibTurb/calib3.jpg) |![turbcalib](Media/images/CalibTurb/calib4.jpg)|
 
 These are the main steps:
