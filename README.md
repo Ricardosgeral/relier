@@ -38,16 +38,22 @@ All these main components are placed inside an aluminum enclosure.
 Peripheral inputs to collect sensor data and peripheral outputs (USB) to storage data are also available. 
 The acquisition box is powered only through the power supply connected to the raspberry Pi (output: 5V DC, 2A) 
 
-![Aquisition box](Media/images/1.jpg)
-
-![Aquisition box](Media/images/2.jpg)
-
-![Aquisition box](Media/images/3.jpg)
-
-![Aquisition box](Media/images/4.jpg)
+|  ![Aquisition box](Media/images/1.jpg)     |    ![Aquisition box](Media/images/2.jpg)    |
+|-------|--------|
+|   ![Aquisition box](Media/images/3.jpg)    |    ![Aquisition box](Media/images/4.jpg)    |
+| ![Aquisition box](Media/images/7.jpg)  | ![Aquisition box](Media/images/9.jpg)  |
 
 
-![Aquisition box](Media/images/9.jpg)
+
+
+
+
+
+
+
+
+
+
 
 You can find more pictures and an overview video in this GitHub repository in [Media folder](/Media).
 
