@@ -124,7 +124,7 @@ This value excludes costs related to other supplementary materials required for 
 
 
 ### 1.4. Custom *PCB* (Raspberry Pi HAT)
- The design of the 2 layer's *PCB* was developed using open-source software [Fritzing](http://www.fritzing.org/). 
+ The design of the 2 layer's *PCB* was developed using the open-source software [Fritzing](http://www.fritzing.org/). 
 The production files and the *.fzz* file are [here](https://github.com/Ricardosgeral/relier/tree/master/Fritzing). 
 Latest version of *PCB* is v3.2 (November 2018). 
 The *PCB* was produced/printed by [PCBWay company](https://www.pcbway.com/). 
