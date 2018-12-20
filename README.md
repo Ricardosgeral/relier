@@ -128,7 +128,7 @@ you can see the numbering of the 40 GPIO pins of the Raspberry Pi used.
 
 **Fritzing: PCB view**
 
-![PCB_image](Fritzing/v3.2-hat/relierv3.2_production(hat)_pcb.png)
+![PCB_image](Fritzing/v3.2-hat/relierv3.2_production(hat)_pcb.jpg)
 
 
 | **PCB: bottom Layer**                                           | **PCB: top layer**                                       |
