@@ -355,7 +355,7 @@ First line of this file is ignored and values should be separated by tab or spac
 | Turbidity           | 0 to 32767 (15 bits >> 2^15) | turbidity (gr/liter)   | ****turbcalib.txt****  |
 
 
-This page also includes:
+This page includes:
 
 a) ***Calibration* button**: to update readings after setting new input parameters.
 
