@@ -445,7 +445,7 @@ Here you confirm that you pressed the stop button, just in case! Pressing the:
 If the physical pushbutton at the lateral side of the acquisition box is hold longer than 3 seconds, the Raspberry Pi shutdowns automatically.
 The user should unplug the power supply, after some seconds (>10s).
 
-![page9](Media/images/GUI/relier_page10-shuttdown.png)
+![page9](Media/images/GUI/relier_page10-shuttdown.png) 
 
 
 ## 4. Web live streaming of data from sensors
