@@ -48,7 +48,7 @@ The acquisition box is powered solely through the power supply connected to the 
 | ![Aquisition box](Media/images/3.jpg)  | ![Aquisition box](Media/images/4.jpg)  |
 | ![Aquisition box](Media/images/7.jpg)  | ![Aquisition box](Media/images/9.jpg)  |
 
-You can find more pictures and an overview video in this GitHub repository in [Media folder](/Media).
+You can find more pictures and an overview video in this GitHub repository in [Media folder](https://github.com/Ricardosgeral/relier/tree/master/Media).
 
 
 ### 1.2. Sensors
@@ -76,25 +76,25 @@ The following tables show the bill of materials (BOM) of the items used in ***re
 
 | **Qt**  | **€/un*** | **Ʃ €** | **Description**                                                                                                                                                                                                 | Notes                                                                                |
 |---------|----------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| 1       | 35       | 35       | [Raspberry pi 3B](www.raspberrypi.org/products/#buy-now-modal)                                                                                                                                                  | Server                                                                               |
-| 1       | 16.2     | 16.2     | [Nextion HMI touch display 2.8"](www.itead.cc/nextion-nx3224t028-1933.html)                                                                                                                                     | Graphical User Interface (GUI)                                                       |
-| 1       | 6.2      | 6.2      | [Aluminium enclosure box (88x38x100mm)](www.aliexpress.com/item/Free-shipping88-38-100mm-width-x-high-x-length-aluminum-extrusion-box-profile-enclosure-for-PCB/32800855972.html?spm=a2g0s.9042311.0.0.Wvmz38)  | Aluminium enclosure box                                                              |
+| 1       | 35       | 35       | [Raspberry pi 3B](https://www.raspberrypi.org/products/#buy-now-modal)                                                                                                                                                  | Server                                                                               |
+| 1       | 16.2     | 16.2     | [Nextion HMI touch display 2.8"](https://www.itead.cc/nextion-nx3224t028-1933.html)                                                                                                                                     | Graphical User Interface (GUI)                                                       |
+| 1       | 6.2      | 6.2      | [Aluminium enclosure box (88x38x100mm)](https://www.aliexpress.com/item/Free-shipping88-38-100mm-width-x-high-x-length-aluminum-extrusion-box-profile-enclosure-for-PCB/32800855972.html?spm=a2g0s.9042311.0.0.Wvmz38)  | Aluminium enclosure box                                                              |
 | 2       | 10       | 20       | Micro SD card (>16GB)                                                                                                                                                                                           | One for the raspberry pi and another for the Nextion display (during installation)   |
-| 1       | 8        | 8        | [Raspberry Pi Power Supply](www.raspberrypi.org/products/raspberry-pi-universal-power-supply)                                                                                                                   | Power of the raspberry pi and the sensors                                            |
-| 1       | 1        | 1        | [**Raspberry pi Hat - Custom PBC**](www.pcbway.com/project/shareproject/Relier_Acquisition_system___for_Rasoberry_pi3_b_.html) **:**                                                                            | Interlinks server, touchscreen and the sensors                                       |
+| 1       | 8        | 8        | [Raspberry Pi Power Supply](https://www.raspberrypi.org/products/raspberry-pi-universal-power-supply)                                                                                                                   | Power of the raspberry pi and the sensors                                            |
+| 1       | 1        | 1        | [**Raspberry pi Hat - Custom PBC**](https://www.pcbway.com/project/shareproject/Relier_Acquisition_system___for_Rasoberry_pi3_b_.html) **:**                                                                            | Interlinks server, touchscreen and the sensors                                       |
 | 1       | 1.4      | 1.4      | ► [16 Bit I2C ADS1115 Module ADC 4 channel with Pro Gain Amplifier](https://www.aliexpress.com/item/16-Bit-I2C-ADS1115-Module-ADC-4-channel-with-Pro-Gain-Amplifier-RPi-1PCS/32817162654.html)                 | Analog to Digital conversion for analog sensors                                      |
-| 1       | 0.3      | 0.3      | ► [Logic Level Shifter Bi-Directional 5V to 3.3V](www.aliexpress.com/item/5PCS-Logic-Level-Shifter-Bi-Directional-For-Arduino-5V-to-3-3V-Four-Way-Two-Way/32827270848.html)                                    | Required for stability, since ADS1115 requires 5V and raspberry I2C pins use 3.3V    |
-| 6       | 3.8      | 22.8     | ► [8mm Male & Female Connector miniature Aviation Plug M8 Circular Socket+Plug](www.aliexpress.com/item/1PCS-AP049-YC8-2-3-4-5-6-7Pin-8mm-Male-Female-Connector-miniature-Aviation-Plug/32845374887.html)      | Connection of the sensors to the acquisition box                                     |
-| 6       | 0.2      | 0.2      | ► [XH2.54 3-Pins connectors Male for PCB - Header+Housing+Terminal](www.aliexpress.com/item/XH2-54-2P-3P-4P-5P-6P-7P-8P-9P-10P-11P-12P-13P-14P-15P/32793262315.html)                                           | Connection of miniature aviation plugs to the custom PCB                             |
-| 2       | 0.2      | 0.2      | ► [XH2.54 4-Pins connectors Male for PCB - Header+Housing+Terminal](www.aliexpress.com/item/XH2-54-2P-3P-4P-5P-6P-7P-8P-9P-10P-11P-12P-13P-14P-15P/32793262315.html)                                           | Connection of miniature aviation plugs to the custom PCB                             |
+| 1       | 0.3      | 0.3      | ► [Logic Level Shifter Bi-Directional 5V to 3.3V](https://www.aliexpress.com/item/5PCS-Logic-Level-Shifter-Bi-Directional-For-Arduino-5V-to-3-3V-Four-Way-Two-Way/32827270848.html)                                    | Required for stability, since ADS1115 requires 5V and raspberry I2C pins use 3.3V    |
+| 6       | 3.8      | 22.8     | ► [8mm Male & Female Connector miniature Aviation Plug M8 Circular Socket+Plug](https://www.aliexpress.com/item/1PCS-AP049-YC8-2-3-4-5-6-7Pin-8mm-Male-Female-Connector-miniature-Aviation-Plug/32845374887.html)      | Connection of the sensors to the acquisition box                                     |
+| 6       | 0.2      | 0.2      | ► [XH2.54 3-Pins connectors Male for PCB - Header+Housing+Terminal](https://www.aliexpress.com/item/XH2-54-2P-3P-4P-5P-6P-7P-8P-9P-10P-11P-12P-13P-14P-15P/32793262315.html)                                           | Connection of miniature aviation plugs to the custom PCB                             |
+| 2       | 0.2      | 0.2      | ► [XH2.54 4-Pins connectors Male for PCB - Header+Housing+Terminal](https://www.aliexpress.com/item/XH2-54-2P-3P-4P-5P-6P-7P-8P-9P-10P-11P-12P-13P-14P-15P/32793262315.html)                                           | Connection of miniature aviation plugs to the custom PCB                             |
 | 1       | 0.9      | 0.9      | ► [PC104 2.54mm Pitch 2x20 Pin 40 Pin Female Double Row Long Pin Header Strip](https://www.aliexpress.com/item/2-Pcs-PC104-2-54mm-Pitch-2x20-Pin-40-Pin-Female-Double-Row-Long-Pin-Header/32805691836.html)    | Connection between Raspberry GPIO pins and the custom PCB                            |
-| 1       | 0.2      | 0.2      | ► [Momentary pushbutton switch 3A Reset Button](www.aliexpress.com/item/10pcs-Momentary-Push-Button-Switch-12mm-Momentary-pushbutton-switches-3A-125VAC-1-5A-250VAC-Reset-Button/32802331189.html)             | Safe restart/shutdown button for the raspberry                                       |
-| 1       | 0.1      | 0.1      | ► [5mm Through-Hole RGB LED](www.aliexpress.com/item/100pcs-lot-Transparent-Round-5mm-RGB-LED-Common-Anode-LED-Light-Emitting-Diode-Lamp/32278301731.html)                                                     | Indicative multicolor LED                                                            |
-| 1       | 0.1      | 0.1      | ► [Active Buzzer Alarm 5 V](www.aliexpress.com/item/10pcs-5v-Active-Buzzer-Magnetic-Long-Continous-Beep-Tone-Alarm-Ringer-12mm-MINI-Active-Piezo-Buzzers/32914327679.html)                                     | Audible for end of test                                                              |
-| 3       | 0.02     | 0.06     | ► [220 Ω carbon film resistor](www.aliexpress.com/item/100pcs-1-4W-Metal-film-resistor-1R-1M-100R-220R-330R-1K-1-5K-2-2K/32847011772.html)                                                                     | Protection of the RGB LED                                                            |
-| 2       | 0.02     | 0.04     | ► [10 kΩ carbon film resistor](www.aliexpress.com/item/100pcs-1-4W-Metal-film-resistor-1R-1M-100R-220R-330R-1K-1-5K-2-2K/32847011772.html)                                                                     | 1 for voltage divider (turbine flowmeter) and other for water temperature sensor     |
-| 1       | 0.02     | 0.02     | ► [20 kΩ carbon film resistor](www.aliexpress.com/item/100pcs-1-4W-Metal-film-resistor-1R-1M-100R-220R-330R-1K-1-5K-2-2K/32847011772.html)                                                                     | Voltage divider (turbine flowmeter)                                                  |
-| 3       | 0.01     | 0.03     | ► [0805 SMD 1/4W resistor 1MΩ](www.aliexpress.com/item/100Pcs-0805-SMD-1-4W-chip-resistor-0R-10M-0-10R-100R-220R-330R-470R-1K/32933956924.html)                                                                | Pull up resistors (allow to know when analog sensors are disconnected)               |
+| 1       | 0.2      | 0.2      | ► [Momentary pushbutton switch 3A Reset Button](https://www.aliexpress.com/item/10pcs-Momentary-Push-Button-Switch-12mm-Momentary-pushbutton-switches-3A-125VAC-1-5A-250VAC-Reset-Button/32802331189.html)             | Safe restart/shutdown button for the raspberry                                       |
+| 1       | 0.1      | 0.1      | ► [5mm Through-Hole RGB LED](https://www.aliexpress.com/item/100pcs-lot-Transparent-Round-5mm-RGB-LED-Common-Anode-LED-Light-Emitting-Diode-Lamp/32278301731.html)                                                     | Indicative multicolor LED                                                            |
+| 1       | 0.1      | 0.1      | ► [Active Buzzer Alarm 5 V](https://www.aliexpress.com/item/10pcs-5v-Active-Buzzer-Magnetic-Long-Continous-Beep-Tone-Alarm-Ringer-12mm-MINI-Active-Piezo-Buzzers/32914327679.html)                                     | Audible for end of test                                                              |
+| 3       | 0.02     | 0.06     | ► [220 Ω carbon film resistor](https://www.aliexpress.com/item/100pcs-1-4W-Metal-film-resistor-1R-1M-100R-220R-330R-1K-1-5K-2-2K/32847011772.html)                                                                     | Protection of the RGB LED                                                            |
+| 2       | 0.02     | 0.04     | ► [10 kΩ carbon film resistor](https://www.aliexpress.com/item/100pcs-1-4W-Metal-film-resistor-1R-1M-100R-220R-330R-1K-1-5K-2-2K/32847011772.html)                                                                     | 1 for voltage divider (turbine flowmeter) and other for water temperature sensor     |
+| 1       | 0.02     | 0.02     | ► [20 kΩ carbon film resistor](https://www.aliexpress.com/item/100pcs-1-4W-Metal-film-resistor-1R-1M-100R-220R-330R-1K-1-5K-2-2K/32847011772.html)                                                                     | Voltage divider (turbine flowmeter)                                                  |
+| 3       | 0.01     | 0.03     | ► [0805 SMD 1/4W resistor 1MΩ](https://www.aliexpress.com/item/100Pcs-0805-SMD-1-4W-chip-resistor-0R-10M-0-10R-100R-220R-330R-470R-1K/32933956924.html)                                                                | Pull up resistors (allow to know when analog sensors are disconnected)               |
 | 6       | 0.1      | 0.6      | ► 5 cm cable with 3 wires                                                                                                                                                                                      | Connection between mini aviator plugs and XH2.54 connectors                          |
 | 1       | 0.1      | 0.1      | ► 8 cm cable with 4 wires (to place the BME280 outside the acquisition box)                                                                                                                                    | Connection between BME280 and the custom PCB                                         |
 |         |          | **115€** |                                                                                                                                                                                                                |                                                                                      |
@@ -103,11 +103,11 @@ The following tables show the bill of materials (BOM) of the items used in ***re
 
 | **Qt**  | **€/un***| **Ʃ €** | **Description**                                                                                                                                                                                                            | Notes                                                                                      |
 |---------|----------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |--------------------------------------------------------------------------------------------|
-| 3       | 13       | 39      | [Analog Pressure Transducer Transmitter Sensor, 0-5psi 0.5-5V](www.aliexpress.com/item/1Pc-Pressure-Transducer-Sender-Stainless-Steel-for-Oil-Fuel-Air-Water-5psi-CSL2017/32814346612.html)                                | Measurement of water pressure at different levels (piezometers)                            |
-| 1       | 9        | 9       | [Analog Turbidity Sensor, 5V 40mA](www.aliexpress.com/item/DFRobot-Gravity-Analog-Digital-Turbidity-Sensor-5V-40mA-DC-support-both-signal-output-compatible-with-arduino/32595773560.html)                                 | Measurement of the turbidity of effluent water                                             |
-| 1       | 13       | 13      | [Digital Turbine Flow Sensor, G5/4, 1.25", DN32, 1~120L/min](www.aliexpress.com/item/DN32-Water-Flow-Meter-Sensor-Switch-G5-4-Thread-Port-Industrial-Flowmeter/32567971320.html)                                           | Measurement of the water flow (it is also possible to use a electromagnetic type flowmeter)|
-| 1       | 1        | 1       | [Waterproof DS18B20 digital Temperature Sensor](www.aliexpress.com/snapshot/0.html?spm=a2g0s.9042311.0.0.oXghXt&orderId=505161631680030&productId=32675444739)                                                             | Measurement of the water temperature                                                       |
-| 1       | 3        | 3       | [BME280 Digital Sensor, Humidity, Temp. and Barometric Pressure Sensor](www.aliexpress.com/item/3In1-BME280-GY-BME280-Digital-Sensor-SPI-I2C-Humidity-Temperature-and-Barometric-Pressure-Sensor-Module-1/32659765502.html)| Measurement of the atmospheric temperature, humidity and pressure                          |
+| 3       | 13       | 39      | [Analog Pressure Transducer Transmitter Sensor, 0-5psi 0.5-5V](https://www.aliexpress.com/item/1Pc-Pressure-Transducer-Sender-Stainless-Steel-for-Oil-Fuel-Air-Water-5psi-CSL2017/32814346612.html)                                | Measurement of water pressure at different levels (piezometers)                            |
+| 1       | 9        | 9       | [Analog Turbidity Sensor, 5V 40mA](https://www.aliexpress.com/item/DFRobot-Gravity-Analog-Digital-Turbidity-Sensor-5V-40mA-DC-support-both-signal-output-compatible-with-arduino/32595773560.html)                                 | Measurement of the turbidity of effluent water                                             |
+| 1       | 13       | 13      | [Digital Turbine Flow Sensor, G5/4, 1.25", DN32, 1~120L/min](https://www.aliexpress.com/item/DN32-Water-Flow-Meter-Sensor-Switch-G5-4-Thread-Port-Industrial-Flowmeter/32567971320.html)                                           | Measurement of the water flow (it is also possible to use a electromagnetic type flowmeter)|
+| 1       | 1        | 1       | [Waterproof DS18B20 digital Temperature Sensor](https://www.aliexpress.com/snapshot/0.html?spm=a2g0s.9042311.0.0.oXghXt&orderId=505161631680030&productId=32675444739)                                                             | Measurement of the water temperature                                                       |
+| 1       | 3        | 3       | [BME280 Digital Sensor, Humidity, Temp. and Barometric Pressure Sensor](https://www.aliexpress.com/item/3In1-BME280-GY-BME280-Digital-Sensor-SPI-I2C-Humidity-Temperature-and-Barometric-Pressure-Sensor-Module-1/32659765502.html)| Measurement of the atmospheric temperature, humidity and pressure                          |
 |         |          | **65€** |                                                                                                                                                                                                                                                                                                                         |                                                                                      |
 
 *The unitary prices don't include eventual shipping costs neither the need to buy sets of components. 
@@ -527,29 +527,33 @@ The calibration cup shown in the pictures below was printed in PLA material. Fee
 
 |![turbcalib](Media/images/CalibTurb/calibCup1.PNG) | ![turbcalib](Media/images/CalibTurb/calibCup2.PNG)|
 |---|---|
-**Procedure typically used**
 
-1. Place 500g of water in a beaker.
-2. Place the beaker over a portable magnetic stirrer. Turn it on so that water is agitated, but without forming a visible vortex.
-3. Place the calibration cup (with the sensor) floating in the water. Ensure that the probe (emitter and receiver) are submersed, and there is no air bubbles between them.
-4. Connect the turbidity sensor to Channel 4 in the acquisition box, and start the system (connect the RPi to the power supply).
-5. Navigate to ***Set sensors*** page 
+**Procedure/Steps**
 
-
-#### Additional notes to improve calibration accuracy
-
-and the analog# value should be registered manually using [*Set sensor*](https://github.com/Ricardosgeral/relier/blob/master/README.md#set-sensors-page) page,
-or automatically using [*Sensors data record*](https://github.com/Ricardosgeral/relier/blob/master/README.md#sensors-data-record-page) page. 
-For each step, it is recommended to do an average of the recorded values. 
-. 
-For that, the beaker can be placed on . 
-
-   
+The steps and best practices to achieve a consistent calibration curve for the turbidity sensor are here presented. 
+Below are some photos taken during the calibration for the finer fraction of a coarse soil (passing sieve #60, aperture of 6.3 mm)
 
 |![turbcalib](Media/images/CalibTurb/calib1.jpg) |![turbcalib](Media/images/CalibTurb/calib2.jpg) |
 |---|---|
 |![turbcalib](Media/images/CalibTurb/calib3.jpg) |![turbcalib](Media/images/CalibTurb/calib4.jpg)|
 
+These are the main steps:
+1. Place a know quantity of water (e.g. 500 ml) inside a beaker.
+2. Place the beaker over a portable magnetic stirrer. Turn it on, and regulate it in a way that the water is agitated, but without forming a visible vortex.
+3. Place the calibration cup (with the sensor) floating in the water.
+4. Connect the turbidity sensor to Channel 4 in the acquisition box, and start the system (connect the RPi to the power supply).
+5. Register ***analog#*** of this channel. The register of this values can be done:
+    + *Manually* - Navigate to [*Set sensor*](https://github.com/Ricardosgeral/relier/blob/master/README.md#set-sensors-page) page, 
+and register the values shown in the turbidity section;
+    + *Automatically* - Navigate to [*Sensors data record*](https://github.com/Ricardosgeral/relier/blob/master/README.md#sensors-data-record-page) page, 
+and the ***analog#*** values are recorded to the adequate file (see [Data collection](https://github.com/Ricardosgeral/relier/blob/master/README.md#7-data-collection) section).  
+6. Add a known mass of the selected soil (e.g. 0.1 grams) to the stirring water. Wait a fee seconds, and then register the new ***analog#*** values,
+ which are expected to be smaller than those before adding the amount of soil.
+Calculate the turbidity in grams/liter, dividing the cumulative mass of the soil by the total amount of water (e.g. 0.1 grams/0.5 liters = 0.2 l/g).
+7. Repeat step 6 until the entire range of possible turbidity's is tested. As reference, it is considered that calibration process is finished when analog# is below 1000. 
+8. Modify the file *calibturb.txt* with the pairs of *analog#* versus *turbidity* obtained. This procedure is indicated next.
+
+### *calibturb.txt* file
 
 The file *calibturb.txt* allows to define a calibration curve for the turbidity analog sensor. 
 For that, open a terminal and run the command:
@@ -568,10 +572,17 @@ Analog#  grams/liter   # The first line is always ignored
 1154	34.5
  778    47.1
 ```
-Below is a graphical representation of the calibration curve (for a soil passed to the #60 ASTM sieve and tap water).
+Below is a graphical representation of that calibration curve (made using tap water).
 
-![turbcalib](Media/images/GUI/turbiditycalibration.PNG)
+![turbcalib](Media/images/CalibTurb/turbidity_curve.PNG)
 
+#### Additional notes for calibration accuracy and repeatability
+
+- For each new turbidity being calibrated, it is always recommended to do an average of the recorded values. 
+- Ensure that the probe (emitter and receiver) are submersed, and there is no air bubbles between them. Air bubbles influence strongly the readings. 
+- Avoid direct sunlight on the turbidity probe during the calibration process, which is likely to alter readings. 
+- The ambient light, water temperature and environment conditions (temperature, light and humidity) should be similar to those during the actual tests.
+- If **analog#** is obtained automatically, the interval between readings is the one defined in [General settings](https://github.com/Ricardosgeral/relier/blob/master/README.md#general-settings-page) page.
 
 ## 7. Data collection
 The *Raspberry Pi*, together with the *acquisition system box*, handles the sensors and gets the data from them.  
@@ -579,6 +590,7 @@ The location where data will be collected is defined  by the user, and depends
 on whether an internet connection is available, and whether a USB drive is plugged in.
 
 ### 7.1. No internet connection
+
 Data is only stored locally in the *CSV* format and has two possible ways to go:
   
 1. *No USB drive* is plugged in  >>
