@@ -669,7 +669,7 @@ using [*crontab*](https://debian-administration.org/article/56/Command_schedulin
 
 
 ## 9. Troubleshooting
-
+ 
 - The following warning is expected: *'grep: /dev/fd/63: No such file or directory'* at the end of 
 `$ sudo ./raspbian-post-install.sh`. Ignore it.
 - Don't forget to obtain and replace the content of the file [*service_creds.json*](https://github.com/Ricardosgeral/relier/blob/master/service_creds.json), 
