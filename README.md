@@ -515,13 +515,23 @@ but may appear at any position inside its section.
 
 ## 6. Turbidity calibration: *calibturb.txt* 
 
-For the calibration of the turbidity sensor, a know quantity of clear water is placed in a beaker. 
-This water should of the same nature of the one that will be used in the soil tests. 
-The turbidity sensor is placed floating in the water. 
-Since the turbidity probe is not waterproof, a cup has been designed for safety reasons. 
-The design of this calibration cup is available in [Thingiverse](https://www.thingiverse.com/thing:3299997). Feel free to (re)use it.
+For the calibration of the turbidity sensor, portions of soil are mixed in steps with a know quantity of water. 
+The water used in calibration should of the same nature of the one that will be used in the soil tests. 
+Since the turbidity probe is not waterproof, a calibration cup has been designed for safety reasons. 
+The design of this calibration cup is available in [Thingiverse](https://www.thingiverse.com/thing:3299997). 
+Feel free to (re)use it.
 
-![turbcalib](Media/images/CalibTurb/calibCup.PNG)   
+|![turbcalib](Media/images/CalibTurb/calibCup1.PNG) | ![turbcalib](Media/images/CalibTurb/calibCup2.PNG)|
+|---|---|
+
+The calibration cup (with the sensor) is placed floating in the clear water placed in a beaker, 
+and the analog# value should be registered manually using [*Set sensor*](https://github.com/Ricardosgeral/relier/blob/master/README.md#set-sensors-page) page,
+or automatically using [*Sensors data record*](https://github.com/Ricardosgeral/relier/blob/master/README.md#sensors-data-record-page) page. 
+For each step, it is recommended to do an average of the recorded values. 
+The liquid should be agitated during all the calibration process, to avoid sedimentation of any suspended particles. 
+For that, the beaker can be placed on a portable magnetic stirrer. 
+
+   
 
 |![turbcalib](Media/images/CalibTurb/calib1.jpg) |![turbcalib](Media/images/CalibTurb/calib2.jpg) |
 |---|---|
