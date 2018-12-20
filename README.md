@@ -291,7 +291,7 @@ which is useful in case you want to make a remote connection.
 |----------------------------------------------------------|-----------------------------------------------------------|
 | ![page1_red](Media/images/GUI/relier_page1-credits0.png) | ![page1_green](Media/images/GUI/relier_page1-credits1.png)|
 
-If the server has no internet, then the following message is displayed: `No internet connection`.
+If the server is not connected to the internet, then the following message is displayed: `No internet connection`.
 
 To update the IP status case the internet connection has been changed (e.g., insertion of an Ethernet cable, connection to WiFi, ...), 
 wait a couple of seconds, then touch on the IP message (bottom of the screen). 
