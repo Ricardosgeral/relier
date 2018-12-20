@@ -528,9 +528,9 @@ Since the turbidity probe is not waterproof, a calibration cup has been designed
 The design of this calibration cup is available in [Thingiverse](https://www.thingiverse.com/thing:3299997). 
 The calibration cup shown in the pictures below was printed in PLA material. Feel free to (re)use the design.
 
-|![turbcalib](Media/images/CalibTurb/calibCup1.PNG) | ![turbcalib](Media/images/CalibTurb/calibCup2.PNG)|
+|   |   |
 |---|---|
-| | |
+|![turbcalib](Media/images/CalibTurb/calibCup1.PNG) | ![turbcalib](Media/images/CalibTurb/calibCup2.PNG)|
 
 **Procedure/Steps**
 
