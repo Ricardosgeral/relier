@@ -450,7 +450,7 @@ The user should unplug the power supply, after some seconds (>10s).
 
 ## 4. Web live streaming of data from sensors
 
-In GitHub repository [relier-web](https://github.com/Ricardosgeral/relier-web) 
+In GitHub repository [relier-web](Media/images/relier-web/relier_web_example.png) 
 you can find all the required files to deploy  a python app to the internet.
 In that way you can live view the test results acquired by ***relier*** from any device connected to the internet 
 (smartphone, tablet, laptop, ...). The acquisition system server should be connected to the internet before the start of the test.  
