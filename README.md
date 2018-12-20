@@ -455,7 +455,7 @@ you can find all the required files to deploy  a python app to the internet.
 In that way you can live view the test results acquired by ***relier*** from any device connected to the internet 
 (smartphone, tablet, laptop, ...). The acquisition system server should be connected to the internet before the start of the test.  
 
-This is the look of the app, which is accessed at a site ***https://<APP_NAME>.herokuapp.com/*** (you should choose the <APP_NAME>)
+This is the look of the app, which is accessed at a site ***https://<APP_NAME>.herokuapp.com*** (you should choose the <APP_NAME>)
  
 ![relier-web](Media/images/relier-web/relier_web_example.png)
 
