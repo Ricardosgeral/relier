@@ -515,21 +515,34 @@ but may appear at any position inside its section.
 
 ## 6. Turbidity calibration: *calibturb.txt* 
 
-For the calibration of the turbidity sensor, portions of soil are mixed in steps with a know quantity of water. 
+The calibration of the turbidity sensor is made mixing successive portions of soil with a know quantity of water. 
 The water used in calibration should of the same nature of the one that will be used in the soil tests. 
+The liquid should be agitated during all the calibration process, to avoid sedimentation of any suspended particles. 
+This can be achieved using a portable magnetic stirrer. 
+
+
 Since the turbidity probe is not waterproof, a calibration cup has been designed for safety reasons. 
 The design of this calibration cup is available in [Thingiverse](https://www.thingiverse.com/thing:3299997). 
-Feel free to (re)use it.
+The calibration cup shown in the pictures below was printed in PLA material. Feel free to (re)use the design.
 
 |![turbcalib](Media/images/CalibTurb/calibCup1.PNG) | ![turbcalib](Media/images/CalibTurb/calibCup2.PNG)|
 |---|---|
+**Procedure typically used**
 
-The calibration cup (with the sensor) is placed floating in the clear water placed in a beaker, 
+1. Place 500g of water in a beaker.
+2. Place the beaker over a portable magnetic stirrer. Turn it on so that water is agitated, but without forming a visible vortex.
+3. Place the calibration cup (with the sensor) floating in the water. Ensure that the probe (emitter and receiver) are submersed, and there is no air bubbles between them.
+4. Connect the turbidity sensor to Channel 4 in the acquisition box, and start the system (connect the RPi to the power supply).
+5. Navigate to ***Set sensors*** page 
+
+
+#### Additional notes to improve calibration accuracy
+
 and the analog# value should be registered manually using [*Set sensor*](https://github.com/Ricardosgeral/relier/blob/master/README.md#set-sensors-page) page,
 or automatically using [*Sensors data record*](https://github.com/Ricardosgeral/relier/blob/master/README.md#sensors-data-record-page) page. 
 For each step, it is recommended to do an average of the recorded values. 
-The liquid should be agitated during all the calibration process, to avoid sedimentation of any suspended particles. 
-For that, the beaker can be placed on a portable magnetic stirrer. 
+. 
+For that, the beaker can be placed on . 
 
    
 
