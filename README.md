@@ -386,7 +386,7 @@ When you consider that the analog pressure sensors are conveniently calibrated, 
 which will send you to the **Main menu** page.
 
 Pushing the *Home* button will send you to the **Credits** page.  
-Pushing the flowmeter icon button will redirect the user to the ***Flowmwter type*** page 
+Pushing the flowmeter icon button will redirect the user to the ***Flowmeter type*** page 
 
 ### *Flowmeter type* page
 
