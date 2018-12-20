@@ -281,8 +281,7 @@ In that process you should see fast blink of the led (with purple color) placed 
 
 
 ### *Credits* page
- 
- 
+
 First, you will see a *red* bar on the top of the screen. Wait (less than 5 seconds).
 After some server checks the bar should then stay *green*, meaning that the server and touchscreen are working Ok. 
 You can also see the local *IP address* of the server, 
