@@ -273,8 +273,8 @@ The *GUI* pages displayed in the touchscreen (*Nextion device*), and their usage
  
 ### *Connecting* page
 ![page0](Media/images/GUI/relier_page0-powerOn.png)
-
-Right after a start up or reboot of the *Raspberry Pi*, you should see this **Disconnected** black page. 
+* Connecting 
+Right after a start up or reboot of the *Raspberry Pi*, you should see this **Connecting** black page. 
 Waiting a while (tipically 20 seconds, but can vary from 15 to 60 seconds, depending on the pending OS services) 
 you should see the **Credits** page. 
 In that process you should see fast blink of the led (with purple color) placed in the AS box.
