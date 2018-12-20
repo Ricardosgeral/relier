@@ -37,7 +37,7 @@ The main items of the Acquisition box are the following:
  
  + **Server**: *Raspberry Pi 3B*
  + **2.8" Touchscreen**: *Nextion HMI display*
- + **Custom PCB HAT**: made specifically for this project (details about the PCB design are shown in a topic below) 
+ + **Custom PCB HAT**: made specifically for this project ([details about the PCB design](https://github.com/Ricardosgeral/relier/blob/master/README.md#14-custom-pcb-raspberry-pi-hat) 
  
 All these main components are placed inside an aluminum enclosure box. 
 Peripheral inputs to collect sensors data, and peripheral outputs (USB) to storage sensors data, are also available. 
