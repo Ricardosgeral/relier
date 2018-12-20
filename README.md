@@ -393,7 +393,7 @@ Pushing the flowmeter icon button will redirect the user to the ***Flowmeter typ
 This page allows to select between a turbine and a eletromagnetic flowmeter.
 ***relier*** was designed to use low budget sensors. Thus, initially, only allowed the use of a turbine type flowmeter. 
 However, since LNEC laboratory owns a eletromagnetic type flowmeter ([Danfoss MAGFLO 5000](http://apps.watersurplus.com/techlib/Fluidyne/Fluidyne_Flowmeter_Mag1100_Mag3100_spec_D499.pdf)),
-the software was adapted to also allow its use (communication via USB serial port of the raspberry pi).
+the software was adapted to also allow its use (communication via USB serial port of the Raspberry Pi).
 
 ![page6](Media/images/GUI/relier_page6_flowmeter.PNG)
 
