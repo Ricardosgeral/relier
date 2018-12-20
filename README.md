@@ -513,7 +513,7 @@ However, they will always appear in their respective sections.
 That is, for example, the parameter *interval* will always appear in section [settings], 
 but may appear at any position inside its section.
 
-## 6. Turbidity calibration: *calibturb.txt*
+## 6. Turbidity calibration: *calibturb.txt* 
 
 
 |![turbcalib](Media/images/CalibTurb/calib1.jpg) |![turbcalib](Media/images/CalibTurb/calib2.jpg) |
