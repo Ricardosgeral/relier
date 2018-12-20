@@ -530,7 +530,7 @@ The calibration cup shown in the pictures below was printed in PLA material. Fee
 
 |![turbcalib](Media/images/CalibTurb/calibCup1.PNG) | ![turbcalib](Media/images/CalibTurb/calibCup2.PNG)|
 |---|---|
-|||
+| | |
 
 **Procedure/Steps**
 
