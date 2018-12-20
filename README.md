@@ -515,6 +515,13 @@ but may appear at any position inside its section.
 
 ## 6. Turbidity calibration: *calibturb.txt* 
 
+For the calibration of the turbidity sensor, a know quantity of clear water is placed in a beaker. 
+This water should of the same nature of the one that will be used in the soil tests. 
+The turbidity sensor is placed floating in the water. 
+Since the turbidity probe is not waterproof, a cup has been designed for safety reasons. 
+The design of this calibration cup is available in [Thingiverse](https://www.thingiverse.com/thing:3299997). Feel free to (re)use it.
+
+![turbcalib](Media/images/CalibTurb/calibCup.PNG)   
 
 |![turbcalib](Media/images/CalibTurb/calib1.jpg) |![turbcalib](Media/images/CalibTurb/calib2.jpg) |
 |---|---|
