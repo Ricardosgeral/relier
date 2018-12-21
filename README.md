@@ -510,9 +510,9 @@ othername     = testype_name # < Name of the test type> only relevant when testt
 mu            = 0.0862       # <Upstream pressure sensor> [ pu(bar) = mu tension_u(Volts) + bu ] 
 bu            = -0.0432
 mi            = 0.0898       # <Interface pressure sensor> [ pi(bar) = mi tension_i(Volts) + bi ]
-bi            = -0.0596
+bi            = -0.0432
 md            = 0.0898       # <Downstream pressure sensor> [ pd(bar) = md tension_d(Volts) + bu ]
-bd            = -0.0596
+bd            = -0.0432
 
 [flowmeter]                  # Parameters about the flowmeter type
 flowmeter_type = 1           # < 1 or 2> 1-Eletromagnetic;   2-Turbine  
