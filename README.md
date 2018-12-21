@@ -347,7 +347,7 @@ This page allows the selection of the type of test you want to perform.
 Note that, selecting the option <Hole Erosion Test (HET)>,
 ***no*** data of the interface (middle) pressure sensor will be acquired, 
 since HET only uses two pressure sensors (upstream and downstream).
-If you select <**Other**>, you have a textbox that can be used to give a name to the test type. 
+If you select <**Other**>, a textbox is enabled for the user to give a name to the test type. 
 In this case, test data from all sensors is recorded.
 
 To go back to the **General settings** page, click the blue return button. 
@@ -355,65 +355,73 @@ To go back to the **General settings** page, click the blue return button.
 ### *Set sensors* page
 ![page5](Media/images/GUI/relier_page5_sensors.PNG)
 
-This page is used to set the calibration parameters of the analog pressure sensors. 
+This page allows to see the sensor data (piezometric pressure, flow and turbidiy), which should be displayed every second.
+
+It can also be used to set the calibration parameters of the analog pressure sensors and of the turbidity sensor. 
+
 For the pressure sensors a linear relation, between the analog readings and the effective measurements, is assumed. 
 ***m*** and ***b*** are the calibration parameters.
 
-The calibration of turbidity is made using the file *turbcalib.txt*. 
-First line of this file is ignored and values should be separated by tab or spaces.
+The calibration of turbidity is made *exclusively* using the file *turbcalib.txt*. 
+First line of this file is ignored and values should be separated by tab or spaces. 
+Decimal separator should be a point (.), **not** a comma (,).
+
+To edit the file, open a terminal and type:
 
     $ sudo nano /home/pi/relier/turbcalib.txt 
 
-| Sensors             | ***x*** (analog from ADC)    | ***y*** (measurements) | Relation       y = f(x)|
+The following table indicates the units that should be considered for the calibration parameters.
+
+| Sensors             | ***x*** (analog from ADC)    | ***y*** (measurements) | Relation y = f(x)      |
 |:--------------------|:-----------------------------|:-----------------------|------------------------|
-| Pressure transducer | voltage,V (*Volt*)           | pressure, p (*bar*)    | ***p = m V + b***       |
-| Turbidity           | 0 to 32767 (15 bits >> 2^15) | turbidity (gr/liter)   | ****turbcalib.txt****  |
+| Pressure transducer | voltage,V (*Volt*)           | pressure, p (*bar*)    | ***p = m V + b***      |
+| Turbidity           | 0 to 32767 (15 bits >> 2^15) | turbidity (gr/liter)   | ***turbcalib.txt***    |
 
 
-This page includes:
+This page also includes:
 
 a) ***Calibration* button**: to update readings after setting new input parameters.
 
 If you modify  the *m* and *b* parameters of any of the sensors, you need to push the *Calibration* button, 
-in order to see the influence on the pressure and/or turbidity values. The new values should appear in screen every second. 
+in order to see the influence on the pressure and/or turbidity values. 
 
 b) ***Zeroing* button**: to make current sensor pressures equal to zero.
 
-This functionality can be used to take into account the normal variations of the atmospheric pressure.
+This functionality can be used to take into account the normal variations of the atmospheric conditions and the normal sensors drift over time.
 To use it properly, it is necessary, first, to ensure that *no pressure* is applied to the sensors (besides the ambient pressure).
 
-In such conditions, ideally, assuming the factory calibration parameters, the readings from the pressure sensors should indicate null *mbar*. 
-However, due to the influence of barometric pressure, ambient temperature, humidity, and others, 
+In such conditions, ideally, the readings from the pressure sensors should indicate null *mbar*. 
+However, due to the influence of drift, barometric pressure, ambient temperature, humidity, and others, 
 the most likely is that they are not zero. 
 
 If you push the *Zeroing* button at this stage (*ie*, with no external pressure applied), 
 you will get a *wait a few seconds* progress bar. After a few seconds, the readings will show up again,
- and show the corrected values.
+and show the corrected values.
 Now the piezometric pressures should be nearly null. The next figure exemplifies the '*zeroing*' procedure, 
 which is done in all pressure sensors simultaneously.
 
 ![zeroing](Media/images/GUI/Zeroing_explain.png)
 
-***Attention***: the '*zeroing*' process (if desired !) should be done at the beginning of each test, 
+***Attention***: the '*zeroing*' process (when desired!) should be done at the beginning of each test, 
  since the history of the zero shift, *z*, is not (intentionally) remembered by the acquisition system after reboot. 
 
-When you consider that the analog pressure sensors are conveniently calibrated, you can press the *back blue button* (top-right), 
+When you consider that the pressure sensors are conveniently calibrated, you can press the *back blue button* (top-right), 
 which will send you to the **Main menu** page.
 
 Pushing the *Home* button will send you to the **Credits** page.  
-Pushing the flowmeter icon button will redirect the user to the ***Flowmeter type*** page 
+Pushing the *flowmeter icon* button will redirect the user to the ***Flowmeter type*** page 
 
 ### *Flowmeter type* page
 
-This page allows to select between a turbine and a eletromagnetic flowmeter.
+This page allows to select between a turbine flowmeter and an Eletromagnetic flowmeter.
 
 ![page6](Media/images/GUI/relier_page6_flowmeter.PNG)
 
-If turbine flowmeter is selected, the parameter ***Ctf*** should also be indicated (default value is 0.45).  
+If a turbine flowmeter is selected, the parameter ***Ctf*** should also be indicated (default value is 0.45).  
 *f = Ctf x Q*, where *Q* (liters/min) is the flow rate and *f* (Hz) are the pulses frequency. 
 
 Pressing the *back blue button* will bring the user back to ***Set sensors*** page, 
-and changes to the flowmeter type are reflected in the flowrate value.
+and changes to the flowmeter type are reflected in the flow rate value.
 
 
 
