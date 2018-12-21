@@ -76,9 +76,9 @@ The user should choose, in each test, one of these types of flowmeter.
 
 The following table indicates the advantages and drawbacks of each type of flowmeter allowed. 
 
-**Flowmeter type** |                                        |**Advantages**                                   | **Drawbacks**                                                   |
--------------------|----------------------------------------|-------------------------------------------------|-----------------------------------------------------------------|
-Turbine            | ![](Media/images/sensors/turbine.PNG)  |Cheap; Fast response to sudden drop/rise of flow | Low accuracy for low flow (may be even unable to detect then)   | 
+**Flowmeter type** |                                        |**Advantages**                                   | **Drawbacks**                                                              |
+-------------------|----------------------------------------|-------------------------------------------------|----------------------------------------------------------------------------|
+Turbine            | ![](Media/images/sensors/turbine.PNG)  |Cheap; Fast response to sudden drop/rise of flow | Low accuracy for low flow rates (may be even unable to detect low flow)    | 
 Eletromagnetic     | ![](Media/images/sensors/MAGflow.PNG)  |Better accuracy, even for low flow rates         | Expensive; Somewhat smother variation of flow, for sudden drop/rise of flow|
 
 ### 1.3. Bill of materials (BOM)
