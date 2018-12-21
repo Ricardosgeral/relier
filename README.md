@@ -528,8 +528,10 @@ lastpath   = /srv/EROSTESTS/soil_Y_n01.csv  # Location where the results of the 
 #### Additional notes
 
 + If the user changes the parameters in the interactive way, [*inputs.ini*](https://github.com/Ricardosgeral/relier/blob/master/inputs.ini) 
-will be updated, once the server begins to record data (green start button in **Main menu**). 
-So, those selections are kept and are set by default in the next test.
+will be updated every time the, 
+  + server begins to record data (green start button in **Main menu**), or
+  + blue back button is released in **Set sensors** page.
++ In such cases, the parameters are kept and are set by default in the next test.
 + Note that the parameters in the *ini* file will not appear always in the same order! 
 However, they will always appear in their respective sections. 
 That is, for example, the parameter *interval* will always appear in section [settings], 
@@ -538,14 +540,14 @@ but may appear at any position inside its section.
 ## 6. Turbidity calibration: *calibturb.txt* 
 
 The calibration of the turbidity sensor is made mixing successive portions of soil with a know quantity of water. 
-The water used in calibration should of the same nature of the one that will be used in the soil tests. 
+The water used in calibration should of the same nature and chemistry of the one that will be used in the soil tests. 
 The liquid should be agitated during all the calibration process, to avoid sedimentation of any suspended particles. 
-This can be achieved using a portable magnetic stirrer. 
+This can be achieved easily using a portable magnetic stirrer. 
 
 
 Since the turbidity probe is not waterproof, a calibration cup has been designed for safety reasons. 
 The design of this calibration cup is available in [Thingiverse](https://www.thingiverse.com/thing:3299997). 
-The calibration cup shown in the pictures below was printed in PLA material. Feel free to (re)use the design.
+The calibration cup shown in the pictures below was 3D printed in PLA material. Feel free to (re)use the design.
 
 |   |   |
 |---|---|
@@ -562,9 +564,9 @@ Below are some photos taken during the calibration for the finer fraction of a c
 
 These are the main steps:
 1. Place a know quantity of water (e.g. 500 ml) inside a beaker.
-2. Place the beaker over a portable magnetic stirrer. Turn it on, and regulate it in a way that the water is agitated, but without forming a visible vortex.
+2. Place the beaker over a portable magnetic stirrer. Turn it on, and regulate the spinning in a way that the water is agitated, but without forming a visible vortex.
 3. Place the calibration cup (with the sensor) floating in the water.
-4. Connect the turbidity sensor to Channel 4 in the acquisition box, and start the system (connect the RPi to the power supply).
+4. Connect the turbidity sensor to Channel 4 in the acquisition box, and start the system (i.e. connect the RPi to the power supply).
 5. Register ***analog#*** of this channel. The register of this values can be done:
     + *Manually* - Navigate to [*Set sensor*](https://github.com/Ricardosgeral/relier/blob/master/README.md#set-sensors-page) page, 
 and register the values shown in the turbidity section;
@@ -574,9 +576,9 @@ and the ***analog#*** values are recorded to the adequate file (see [Data collec
  which are expected to be smaller than those before adding the amount of soil.
 Calculate the turbidity in grams/liter, dividing the cumulative mass of the soil by the total amount of water (e.g. 0.1 grams/0.5 liters = 0.2 l/g).
 7. Repeat step 6 until the entire range of possible turbidity's is tested. As reference, it is considered that calibration process is finished when analog# is below 1000. 
-8. Modify the file *calibturb.txt* with the pairs of *analog#* versus *turbidity* obtained. This procedure is indicated next.
+8. Modify the file *calibturb.txt* with the tested pairs of *analog#* versus *turbidity* (g/l). This procedure is indicated next.
 
-### *calibturb.txt* file
+### Edition of *calibturb.txt* file
 
 The file *calibturb.txt* allows to define a calibration curve for the turbidity analog sensor. 
 For that, open a terminal and run the command:
@@ -595,32 +597,32 @@ Analog#  grams/liter   # The first line is always ignored
 1154	34.5
  778    47.1
 ```
-Below is a graphical representation of that calibration curve (made using tap water).
+Below is a graphical representation of a calibration curve (made using tap water).
 
 ![turbcalib](Media/images/CalibTurb/turbidity_curve.PNG)
 
 #### Additional notes for calibration accuracy and repeatability
 
 - For each new turbidity being calibrated, it is always recommended to do an average of the recorded values. 
-- Ensure that the probe (emitter and receiver) are submersed, and there is no air bubbles between them. Air bubbles influence strongly the readings. 
-- Avoid direct sunlight on the turbidity probe during the calibration process, which is likely to alter readings. 
+- Ensure that the probe (emitter and receiver) are submersed, and there are no air bubbles between them. Air bubbles influence strongly the readings. 
+- Avoid direct sunlight on the turbidity probe during the calibration process. Direct sunlight is likely to alter readings. 
 - The ambient light, water temperature and environment conditions (temperature, light and humidity) should be similar to those during the actual tests.
 - If **analog#** is obtained automatically, the interval between readings is the one defined in [General settings](https://github.com/Ricardosgeral/relier/blob/master/README.md#general-settings-page) page.
 
 ## 7. Data collection
-The *Raspberry Pi*, together with the *acquisition system box*, handles the sensors and gets the data from them.  
+The *acquisition system box* handles the sensors and gets the data from them.  
 The location where data will be collected is defined  by the user, and depends
 on whether an internet connection is available, and whether a USB drive is plugged in.
 
 ### 7.1. No internet connection
 
-Data is only stored locally in the *CSV* format and has two possible ways to go:
+Data is only saved locally in the *CSV* format and has two possible ways to go:
   
 1. *No USB drive* is plugged in  >>
-   Data are stored *only* on the micro SD card, inside folder **/srv/EROSTESTS**. 
+   Data are saved *only* on the micro SD card, inside folder **/srv/EROSTESTS**. 
 
 2. A *USB is plugged in* >>
-   Data are stored *only* on the **USB_root_directory**. 
+   Data are saved *only* on the **USB_root_directory**. 
 
 #### Additional notes
 
@@ -631,23 +633,22 @@ Data is only stored locally in the *CSV* format and has two possible ways to go:
 and unplug the power supply.
 This will prevent corruption of the micro SD card and of the USB drive, and increase their life span. 
 To silently disconnect the server you can either:
-   + hold the *red pushbutton* in the back of the *acquisition system box* for more than *5 seconds* (if holden between 2 and 5 seconds, 
+   + hold the *red pushbutton* in the back of the *acquisition system box* for more than *3 seconds* (if holden between 1 and 3 seconds, 
    the *Raspberry Pi* will reboot), or 
    + `$ sudo halt` in a *SSH* terminal session.
 - If more than one USB drive is plugged in (not recommended !), data will be saved in the *first drive* being found.
 - Data in the *CSV* files is ***never deleted*** automatically. If a file with the same name already exists in the USB drive or 
-in the micro SD card, data is placed in the file but bellow the last row already there. This means that multiple tests may be collected 
+in the micro SD card, data is saved in the file but placed below the last row already there. This means that multiple tests may be collected 
 in the same file (not desirable). It is preferable to set each test in an individual file.
 
 
 ### 7.2. Internet connection available (Ethernet or WiFi)
 
-Data collection is also done locally in *CSV* format. 
-That is, if a USB drive is plugged in, data goes to the USB drive, otherwise, data goes to the micro SD card in the server.
+Data collection is also saved locally in *CSV* format. 
+That is, if a USB drive is plugged in, data is saved to the USB drive, otherwise, data is saved to the server micro SD card.
 
 However, ***in addition***, it is possible to send data to [Google Sheets](https://www.google.com/sheets/about/), if a valid 
 *service_creds.json* file is provided (see instructions in *Software installation > server sofrware*).
-This functionality allows ***Live data streaming***. 
 
 #### How to enable 'Google Sheets'
 1.  Select that option:
@@ -668,7 +669,7 @@ This functionality allows ***Live data streaming***.
 However, when a new Worksheet name is provided in an already existing Spreadsheet, a new sheet is added. 
 This means that you can have a single Spreadsheet with different tests organized in different Worksheets (preferable).
 - If there is no internet connection, data will not be, of course, sent to Google Sheets, 
-even if you select the Google Sheets checkbutton (***Attention***). For debugging look at the 
+even if you select the Google Sheets checkbutton (***Attention***). For debugging please see the 
 [troubleshooting](https://github.com/Ricardosgeral/relier#troubleshooting) section. 
 - If internet connection is lost during a test, the software will raise an exception and stop recording data to Google Sheets, 
 but it will continue to record data locally (USB drive or micro SD card).
@@ -697,7 +698,7 @@ Threads are used in this project in three cases:
    + Detection of *serial communication* between the server and the Nextion touchscreen. 
    The server needs to check if the touchscreen is pressed, independently of being at the same time doing other tasks. 
    To achieve this it is used *Thread*, alongside with *Event*, both from the threading module. This achievement took me a while to master, and I believe it may be useful to others.
-- *Use of Multiprocessing (['process-based parallelism'](https://docs.python.org/3/library/multiprocessing.html)). 
+- *Use of Multiprocessing* (['Process-based parallelism'](https://docs.python.org/3/library/multiprocessing.html)). 
 Multiprocessing is used to acquire data from the Eletromagnetic flowmeter via serial USB communication. [Value](https://docs.python.org/3/library/multiprocessing.html#multiprocessing.Value) method uses Shared memory to pass values between processes.
 - Implementation of a [Ring buffer](https://www.oreilly.com/library/view/python-cookbook/0596001673/ch05s19.html), to avoid overflow of readings coming from the ADC chip.
 - *Library for serial communication with the Nextion device in Python 3* (TX-RX, UART protocol). 
