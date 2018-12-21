@@ -436,10 +436,11 @@ If 'Google Sheets' option has been selected, the first reading can take more tha
 Each time the acquisition system records a set of values, the LED will blink with a green color.
 
 If you want to stop the test, prior to the test duration defined in settings, 
-just press the *Red button*, which will redirect you to the **Stop sensor data recording** confirmation page.
+just press the *Red button*, which performs one more reading and then will redirect 
+the user to the **Stop recording** confirmation page.
 
-When the chosen test duration is achieved, the server stops acquiring the data. 
-The buzz emits some sounds (SOS in morse code! :) ), and the screen is sent to *Credits* page.
+When the predefined test duration is achieved, the server stops acquiring the data. 
+The buzz emits some sounds (SOS in morse code! :) ), and the screen is redirected to the *Credits* page.
 
 **Note:** if you want to record data 'forever', set the *Test time duration* input parameter to **0**. 
 Actually, it will not record indefinitely. *'Forever'* should be understood as 2 months (86400 minutes!).
@@ -451,80 +452,85 @@ Actually, it will not record indefinitely. *'Forever'* should be understood as 2
 Here you confirm that you pressed the stop button, just in case! Pressing the:
 
 - *Green button* >> stops recording data and directs to **Credits** page. 
-- *Red button*   >> go back to **Sensors data record** page, and readings never stopped being registered. Buzzer should also alert for the end of the test.
+- *Red button*   >> go back to **Sensors data record** page, and readings never stopped being registered.
+ Buzzer should also alert for the end of the test.
 
 ### *Shut down* page
 
-If the physical pushbutton at the lateral side of the acquisition box is hold longer than 3 seconds, the Raspberry Pi shutdowns automatically.
-The user should unplug the power supply, after some seconds (>10s).
+When the physical push button at the lateral side of the acquisition box is hold longer than 3 seconds, the Raspberry Pi shut downs automatically.
 
 ![page9](Media/images/GUI/relier_page10-shuttdown.png) 
+
+The user should unplug the power supply, after some seconds (> 10s).
 
 
 ## 4. Web live streaming of data from sensors
 
 In GitHub repository [relier-web](https://github.com/Ricardosgeral/relier-web) 
-you can find all the required files to deploy  a python app to the internet.
+you can find all the required files to deploy a *Python* application to the internet that allows web streaming of the test data recorded.
 In that way you can live view the test results acquired by ***relier*** from any device connected to the internet 
-(smartphone, tablet, laptop, ...). The acquisition system server should be connected to the internet before the start of the test.  
+(smartphone, tablet, laptop, ...). 
+The acquisition system server should be connected to the internet before the start of the test.  
 
-This is the look of the app, which is accessed at a site ***https://APP_NAME.herokuapp.com*** (you should choose the <APP_NAME>)
+The picture below shows the the app layout, which is accessed at the site ***https://APP_NAME.herokuapp.com*** (you should choose the <APP_NAME>)
  
 ![relier-web](Media/images/relier-web/relier_web_example.png)
 
 ## 5. Inputs file: *inputs.ini*
 
-It is possible to set *ALL* (test and the calibration of the pressure sensors and turbine flowmeter) inputs by editing the file [*inputs.ini*](https://github.com/Ricardosgeral/relier/blob/master/inputs.ini). This avoids setting the inputs 
-interactively in the touchscreen. For that, open a terminal and run the command:
+It is possible to set most of the test inputs by editing the file [*inputs.ini*](https://github.com/Ricardosgeral/relier/blob/master/inputs.ini). 
+Editing the file avoids setting the inputs interactively in the touchscreen. 
+For that, open a terminal and run the command:
 
     $ sudo nano /home/pi/relier/inputs.ini
      
 and change the parameters as intended.
 
-The structure of the *ini* file comprises 6 sections: [settings], [testtype], [analog], [flowmeter], [ip] and [path]. 
+The structure of the *inputs.ini* file comprises 6 sections: [settings], [testtype], [analog], [flowmeter], [ip] and [path]. 
 The last two sections are informative only, thus, their edition don't produce any effect!
 An example of an *inputs.ini* file, with a description of the meaning of each parameter, is shown below.
 
 #### Example of file *inputs.ini* 
 ```
 [settings]
-filename      = soil_X_n01      # <Name of the CSV file> and (if google_sheets = yes) <Name of the Worksheet of Google Spreadsheet>
-google_sheets = yes             # <yes (y, yep, Yes, YES) or no (n, nop, No, NO)>  
-googlesh      = tests_soilX     # <Name of the Google spreadsheet>
-share_email   = email@email.com # <email to share access to the Google spreedsheet>
-duration      = 180             # <Duration of the test in Minutes> if duration = 0 will run 'forever'
-interval      = 15              # <Interval between records in seconds>
-no_reads      = 5               # <Number of readings per interval (analog sensors only)>: In this example an average between 15/5=3 values is made.
+filename      = soil_X_n01   # <Name of the CSV file> and (if google_sheets = yes) <Worksheet of Google Spreadsheet>
+google_sheets = yes          # <yes (y, yep, Yes, YES) or no (n, nop, No, NO)>  
+googlesh      = tests_soilX  # <Name of the Google spreadsheet>
+share_email   = my@email.com # <email to share access to the Google spreedsheet>
+duration      = 180          # <Duration of the test in Minutes> duration = 0 will run 'forever'
+interval      = 15           # <Interval between records in seconds>
+no_reads      = 5            # <Number of readings per interval (analog sensors only)>: 
+                             #  In this example an average between 15/5=3 values is made.
 
 [testtype]
-testtype      = 1               # <1 to 4>  1-HET; 2-FLET; 3-CFET; 4-OTHER
-othername     = testtype_name   # < Name of the test type> only relevant when testtype = 4
+testtype      = 1            # <1 to 4>  1-HET; 2-FLET; 3-CFET; 4-OTHER
+othername     = testype_name # < Name of the test type> only relevant when testtype = 4
 
-[analog]                        # Equation of the straight lines for pressure sensors: y = m x + b (m is the slope and b the y intercept)
-mu            = 0.0862          # <Upstream pressure sensor> [ pu(bar) = mu tension_u(Volts) + bu ] 
+[analog]                     # Equation of the straight lines for pressure sensors: y = m x + b
+mu            = 0.0862       # <Upstream pressure sensor> [ pu(bar) = mu tension_u(Volts) + bu ] 
 bu            = -0.0432
-mi            = 0.0898          # <Interface pressure sensor> [ pi(bar) = mi tension_i(Volts) + bi ]
+mi            = 0.0898       # <Interface pressure sensor> [ pi(bar) = mi tension_i(Volts) + bi ]
 bi            = -0.0596
-md            = 0.0898          # <Downstream pressure sensor> [ pd(bar) = md tension_d(Volts) + bu ]
+md            = 0.0898       # <Downstream pressure sensor> [ pd(bar) = md tension_d(Volts) + bu ]
 bd            = -0.0596
 
-[flowmeter]                     # Parameters about the flowmeter type
-flowmeter_type = 1              # 1- Eletromagnetic   2- Turbine  
-cf = 0.45                       # Calibration parameter for the turbine flowmeter
+[flowmeter]                  # Parameters about the flowmeter type
+flowmeter_type = 1           # < 1 or 2> 1-Eletromagnetic;   2-Turbine  
+cf = 0.45                    # Calibration parameter for the turbine flowmeter
 
 [ip]
-lastip        = 193.136.108.75  # This parameter is not editable! It's an indication of the server IP in the last test 
+lastip     = 193.136.108.75  # Parameter is not editable! It's an indication of the server IP in the last test 
 
 [path]
-lastpath     = /srv/EROSTESTS/soil_Y_n01.csv  # This shows the location where the results of the last test were stored (not editable!).
+lastpath   = /srv/EROSTESTS/soil_Y_n01.csv  # Location where the results of the previous test were stored.
 ```
 
 #### Additional notes
 
-- If the user changes the parameters in the interactive way, [*inputs.ini*](https://github.com/Ricardosgeral/relier/blob/master/inputs.ini) 
++ If the user changes the parameters in the interactive way, [*inputs.ini*](https://github.com/Ricardosgeral/relier/blob/master/inputs.ini) 
 will be updated, once the server begins to record data (green start button in **Main menu**). 
 So, those selections are kept and are set by default in the next test.
-- Note that the parameters in the *ini* file will not appear always in the same order! 
++ Note that the parameters in the *ini* file will not appear always in the same order! 
 However, they will always appear in their respective sections. 
 That is, for example, the parameter *interval* will always appear in section [settings], 
 but may appear at any position inside its section.
