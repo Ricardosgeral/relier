@@ -313,13 +313,15 @@ Touch anywhere else on the screen to go the **Main menu** page.
 ### *Main menu* page
 ![page2](Media/images/GUI/relier_page2-menu0.png)
  
-You have three main options:
+You have three options:
  1. ***Settings***: set the *test inputs* >> Redirects to **General settings** page.
  2. ***Sensors***: set the *calibration inputs* of water pressure sensors and choose flowmeter type >> Redirects to **Set sensors** page.
  3. ***Start***: initiate the test right away >> Redirects to **Sensors data record** page.
  
-You can skip options 1 and/or 2, case you use the file
-[*inputs.ini* ](https://github.com/Ricardosgeral/relier#inputs-ini-file), and you are confident that the calibration
+You can skip options 1 and/or 2, case you use the files
+[*inputs.ini* ](https://github.com/Ricardosgeral/relier#5-inputs-file-inputsini), 
+[*calibturb.txt*](https://github.com/Ricardosgeral/relier#calibturbtxt-file)
+and you are confident that the calibration
 parameters of the pressure sensors, specified in that file, are accurate enough. 
  
 ### *General settings* page
