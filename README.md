@@ -741,7 +741,7 @@ using [*crontab*](https://debian-administration.org/article/56/Command_schedulin
 `$ sudo ./raspbian-post-install.sh`. Ignore it.
 - Don't forget to obtain and replace the content of the file [*service_creds.json*](https://github.com/Ricardosgeral/relier/blob/master/service_creds.json), 
 as indicated [above](https://github.com/Ricardosgeral/relier/blob/master/README.md#server-software-raspberry-pi), 
-or the program may not start!
+or the " Export to Google Sheets" feature will not work!
 - The inspection of the **cronlog** file (`$ sudo nano /home/pi/relier/logs/cronlog`) may be helpful for detecting 
 any eventual bugs during the software installation process, or during start up of the server, for example, 
 to check if the Google credentials are correct!.
@@ -750,13 +750,13 @@ and that you followed all 6 steps in installation of the server software. Don't 
 - If the Nextion touchscreen is not functioning properly or not working at all:
   + first, see the connections, in particular check that: RX (server) <-> TX (screen), and TX (server) <-> RX (screen); 
   + second, confirm that the baudrate is correct. By default nextion comes with 9600, but in program it is defined as 38400. This means that in first time
-  the nextion needs to be set to that baud rate using file pynextion_lib.py.
+  the nextion needs to be set to that baud rate using file *pynextion_lib.py*.
   + third, ensure that *serial* is disconnected: `$ sudo raspi-config` > *5* > *P6 Serial* > *No*;
   + last, doing `$ ls -l /dev | grep serial` you should see *serial 0 >> ttyAMA0* (pins 14/15 in UART) and 
   *serial 1 >> ttyS0* (bluetooth in miniuart). By default UART is attributed to Bluetooth and miniuart to pins 14/15 (which has limitations). 
   That's why they are changed during the execution of 
   [*raspbian-post-install.sh*](https://github.com/Ricardosgeral/relier/blob/master/bash/raspbian-post-install.sh).
-- To check if the *Analog-to-Digital Converter* (ADC - ADS1115 chip) is properly connected via I2C, you can do 
+- To check if the *Analog-to-Digital Converter* (ADC - ADS1115 chip) and BME280 are properly connected via I2C, you can do 
 *`$ sudo i2cdetect -y 1`*. 
  You should see a matrix with number ***48*** (ADS 1x15) and number ***76*** (BME280). 
  Otherwise, something is not connected correctly, or I2C protocol has not been enabled 
@@ -792,7 +792,7 @@ collect data automatically from multiple analog and digital output sensors.
 Please note that I'm not an expert in informatics, in computing, nor in electronics.
 I define myself as an enthusiastic self learner. 
 All shown here was developed from my own research, mainly on forums, Github and other websites.
-Thus, it is possible that some things (code, connections, methods...) could be optimized, or done in a different or better way. 
+Thus, it is possible that some things (code, connections, methods...) could be optimized, or done in a different or a better way. 
 Yet, ***relier*** *acquisition system* performs as intended.
 You can report bugs, suggest enhancements, or even fork the project on [Github](https://github.com/Ricardosgeral/relier). 
 All contributions are welcome.
