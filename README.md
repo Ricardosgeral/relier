@@ -28,16 +28,16 @@ For reference, some links and prices of each component are indicated.
 
 The *Hardware* is composed by the: 
 
-+ ***Aquisition box*** (*server*, *touchscreen*, *custom PCB HAT* and *connection plugs*)
++ ***Aquisition box*** (*server*, *touchscreen*, *custom PCB HAT* and *connection plugs*);
 + ***Sensors*** (4 with analog outputs and 3 with digital outputs).
 
 ### 1.1. Aquisition Box
 
 The main items of the *acquisition box* are the following:
  
- + ***Server***: *Raspberry Pi 3 model B*
- + ***2.8" Touchscreen***: *Nextion HMI display*
- + ***Custom PCB HAT***: made specifically for this project ([details about the PCB design](https://github.com/Ricardosgeral/relier/blob/master/README.md#14-custom-pcb-raspberry-pi-hat)) 
+ + ***Server***: *Raspberry Pi 3 model B*;
+ + ***2.8" Touchscreen***: *Nextion HMI display*;
+ + ***Custom PCB HAT***: made specifically for this project ([details about the PCB design](https://github.com/Ricardosgeral/relier/blob/master/README.md#14-custom-pcb-raspberry-pi-hat)).
  
 All these main components are placed inside an aluminum enclosure box, in which openings were made, for the power supply, display, and connections. 
 Peripheral inputs to collect sensors data, and peripheral outputs (USB ports) to storage sensors data, are also available. 
@@ -55,11 +55,11 @@ You can find more pictures and an overview video in the [Media folder](https://g
 
 The ***relier*** *acquisition system* is prepared to simultaneously collect data from the following ***'low cost' sensors***:
 
-+ **Channels 0-2**    : Analog pressure transducer sensor (Piezometric water pressure)
-+ **Channel 3**       : Waterproof DS18B20 Sensor (Water temperature)
-+ **Channel 4**       : Analog turbidity sensor (Water turbidity)
-+ **Channel 5**       : Turbine flow Sensor (Water flow)
-+ BME280 sensor (Air temperature, humidity and pressure) 
++ **Channels 0-2**    : Analog pressure transducer sensor (Piezometric water pressure);
++ **Channel 3**       : Waterproof DS18B20 Sensor (Water temperature);
++ **Channel 4**       : Analog turbidity sensor (Water turbidity);
++ **Channel 5**       : Turbine flow Sensor (Water flow); and
++ BME280 sensor (Air temperature, humidity and pressure).
 
 Most of the sensors are connected using the 6 mini aviator (circular) plugs that are linked to the custom PCB HAT. 
 An exception is the *BME280* chip, which can be soldered directly to the custom PCB or using a short 4 wires cable. 
