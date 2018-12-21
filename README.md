@@ -132,7 +132,7 @@ There may exist cheaper alternatives. The prices indicated correspond to the com
 #### Total cost
 
 The total estimated cost of the ***relier*** **AS** is about **180 €**, considering the use of low budget sensors. 
-This value excludes costs related to other supplementary materials required for the assembly of the custom PCB (e.g. solder wire).
+This value excludes costs related to other supplementary materials required for the assembly of the custom PCB (e.g. solder wire or DIY tools).
 
 
 ### 1.4. Custom *PCB* (Raspberry Pi HAT)
@@ -170,7 +170,7 @@ you can see the numbering of the 40 GPIO pins of the Raspberry Pi used.
  
 ### 1.6. Additional tools required in the assembly of the Raspberry Hat and of the enclosure
 + Wire Stripper/Crimping tools
-+ Soldering iron + sold
++ Soldering iron + solder wire
 + Tools to make the openings in the aluminum box (*eg* a mini Drill DIY set) 
 + Precision screwdriver set
 
@@ -178,18 +178,19 @@ you can see the numbering of the 40 GPIO pins of the Raspberry Pi used.
 
 The  ***relier*** *acquisition system* is composed by two distinct but interconnected programs, particularly the:
 
-+ **Server software** (*running in the Raspberry Pi*), which performs the computation tasks, and
-+ **Touchscreen software** (*running in the Nextion device*), responsible by the interactivity between the end user and the server.
++ **Server software**: *runs in the Raspberry Pi*, and performs the computation tasks, and
++ **Touchscreen software**: *runs in the Nextion device*, and is responsible by the interactivity between the end user and the server.
 
 
 ### 2.1. Server software: installation
-The server is a Raspberry Pi 3 model B. These instructions should be carried out after a fresh installation of *Raspbian* image in a Micro SD card 
+The server is a Raspberry Pi 3 model B (it was also tested successfully with RPi 3B+).
+ These instructions should be carried out after a fresh installation of *Raspbian* image in a Micro SD card 
 (see [instructions](https://www.raspberrypi.org/documentation/installation/installing-images/README.md)). 
 The server has been tested with [2018-11-15-raspian-stretch](http://downloads.raspberrypi.org/raspbian/images/raspbian-2018-11-15/). 
 Most of the code is written in *Python v3.5.3*, and a few scripts are written in *Bash v4.4.12(1)*.
 
 **Note:** If no monitor is available (*Raspberry Pi* headless setup), the following 4 simple steps are required to 
-enable *SSH* in first boot. So, right after installing the Raspbian image in the  Micro SD card:
+enable *SSH* on first boot. So, right after installing the Raspbian image in the  Micro SD card:
 1. Create an empty file (in Windows use notepad, in a Linux terminal use command *touch*, in Mac use TextEdit).
 2. Save the file with name: ***ssh*** (preferentially with no extension, but *ssh.txt* should also work).
 3. Copy or move that file into the ***root*** of the Micro SD card, where Raspbian image is installed.
@@ -215,7 +216,7 @@ Then, in the terminal, run the following sequential commands:
     $ sudo chmod +x raspbian-post-install.sh && sed -i 's/\r//' raspbian-post-install.sh
     $ sudo ./raspbian-post-install.sh
 
-Prepare a big cup of hot tea, since this can take some minutes ! The raspberry should reboot automatically!
+Prepare a big cup of hot tea, since this can take some minutes! The raspberry should reboot automatically!
 
 **Note:** During installation of the server, [VNC](https://www.realvnc.com/en/raspberrypi/) is also enabled, 
 case you want to use it. 
@@ -226,7 +227,7 @@ case you want to use it.
 ***relier AS*** has the ability to send the main test results to google sheets, but, for that, it requires some configurations.
 If you don't need this feature you can skip it.
 
-After reboot of the RPI, you need to get your *json* file with your Google Signed credentials.
+After reboot of the RPi, you need to get your *json* file with your Google Signed credentials.
 First, you need to create a project in the developer console and enable some APIs (follow steps 1 to 4 from these [instructions](https://pygsheets.readthedocs.io/en/latest/authorizing.html#)), 
 then, get the *Signed credentials* (follow steps 5 and 6 from these [instructions](https://pygsheets.readthedocs.io/en/latest/authorizing.html#signed-credentials)). 
 *Copy* your Signed credentials, then, do:
@@ -239,7 +240,7 @@ and *Past* the Signed credentials. `Ctrl+X`, then `y` and finally `Enter` to sav
 
 
 And that's it, after reboot, the *Raspberry Pi* is set properly. 
-However, you still need to update the  **Touchscreen software**!
+However, you still need to install the **Touchscreen software**!
 
 ### 2.2. *Touchscreen* software: installation
 
@@ -256,7 +257,7 @@ Follow the [Nextion Editor Guide](https://nextion.itead.cc/editor_guide/) to lea
 I've provide the file [*relier.HMI*](https://github.com/Ricardosgeral/relier/blob/master/Nextion/HMI/relier.HMI) 
 developed for this project. The next picture shows the Nextion Editor with the project file.
 
-![NextionEditor](Nextion/GUI/Nextion_Editor.PNG)
+![NextionEditor](Media/images/GUI/NextionEditor.PNG)
 
 To upload the code into *Nextion device touchscreen* follow these steps:
 
