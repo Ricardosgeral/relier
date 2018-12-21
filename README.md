@@ -261,18 +261,18 @@ developed for this project. The next picture shows the Nextion Editor with the p
 
 To upload the code into *Nextion device touchscreen* follow these steps:
 
-1. Open the file [*relier.HMI*](https://github.com/Ricardosgeral/relier/blob/master/Nextion/HMI/relier.HMI) 
+1. Open the [*relier.HMI*](https://github.com/Ricardosgeral/relier/blob/master/Nextion/HMI/relier.HMI) file
 with the Nextion Editor.
 2. Press the *Compile* icon in the first top bar, and check that there are no errors.
 3. Go to *File > Open build folder* and copy the *relier.tft* file produced by the editor (that has the code). 
-4. Past the file into a micro SD card ***without*** any files (first I recommend using the windows format tool, 
-to ensure all files are cleared from the card).
+4. Past the file into a formatted micro SD card. I recommend using the windows format tool, 
+to ensure the card is empty. Don't forget to safe eject the sd card.
 5. Disconnect the power supply to *Nextion*.
 6. Insert the micro SD card in the slot on the back of the device.
 7. Reconnect the power supply to *Nextion*. You should see the *SD card update* status. 
-If you see `Check data.. 100%`, the code was uploaded successfully.  
+When you see `Check data.. 100%`, the code was uploaded successfully.  
 8. Disconnect again the power supply to the screen, and remove the micro SD card (it will not be necessary anymore).
-9. In next start up, the software with the code made by the Nextion Editor is running in the device, 
+9. In next start up, the software with the code, developed in the Nextion Editor, is running 
 and the GUI is set on the touchscreen.
 
 **Note:** Be very careful when buying the *Nextion* device. Confirm that you are not getting a *TJC* (for the Chinese market), 
@@ -286,7 +286,7 @@ The *GUI* pages displayed in the touchscreen (*Nextion device*), and their usage
  
 ### *Connecting* page
 ![page0](Media/images/GUI/relier_page0-powerOn.png)
-* Connecting 
+
 Right after a start up or reboot of the *Raspberry Pi*, you should see this **Connecting** black page. 
 Waiting a while (tipically 20 seconds, but can vary from 15 to 60 seconds, depending on the pending OS services) 
 you should see the **Credits** page. 
