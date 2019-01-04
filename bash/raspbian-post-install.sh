@@ -102,7 +102,7 @@ echo '>>> Enable 1-Wire GPIO (w1) on GPIO24'
 if grep -q 'dtoverlay=w1-gpio,gpiopin=24' /boot/config.txt; then
   echo 'Seems w1-gpio parameter already set on GPIO24, skip this step.'
 else
-  echo dtoverlay=w1-gpio,gpiopin=24 >> /boot/config.txt
+  echo 'dtoverlay=w1-gpio,gpiopin=24' >> /boot/config.txt
 fi
 #
 # enable I2C on Raspberry Pi
@@ -129,12 +129,12 @@ echo '>>> Configure UART/Bluetooth'
 if grep -q 'enable_uart=1' /boot/config.txt; then
   echo 'Seems Uart already enabled in 14/15 pins, skip this step.'
 else
-  echo enable_uart=1 >> /boot/config.txt
+  echo 'enable_uart=1' >> /boot/config.txt
 fi
 if grep -q 'dtoverlay=pi3-disable-bt' /boot/config.txt; then
   echo 'Seems bluetooth on 14/15 already disabled, skip this step.'
 else
-  echo dtoverlay=pi3-disable-bt >> /boot/config.txt
+  echo 'dtoverlay=pi3-disable-bt' >> /boot/config.txt
 fi
 #
 #Stop Bluetooth modem to use UART
@@ -221,6 +221,6 @@ echo  '--------------------'
 if [ -f "/tmp/raspbian-post-install.sh" ]; then
 sudo rm /tmp/raspbian-post-install.sh
 fi
-echo '>> Rebooting'
+echo '>>> Rebooting'
 #
 sudo reboot
