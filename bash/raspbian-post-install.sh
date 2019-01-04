@@ -100,9 +100,9 @@ echo  '--------------------------------------------------'
 # enable 1-Wire GPIO on Raspberry Pi
 echo '>>> Enable 1-Wire GPIO (w1) on GPIO24'
 if grep -q 'dtoverlay=w1-gpio,gpiopin=24' /boot/config.txt; then
-  echo 'Seems w1-gpio parameter already set, skip this step.'
+  echo 'Seems w1-gpio parameter already set on GPIO24, skip this step.'
 else
-  echo dtoverlay=w1-gpio >> /boot/config.txt
+  echo dtoverlay=w1-gpio,gpiopin=24 >> /boot/config.txt
 fi
 #
 # enable I2C on Raspberry Pi
