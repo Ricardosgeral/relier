@@ -161,7 +161,7 @@ you can see the numbering of the 40 GPIO pins of the Raspberry Pi used.
 |-----------------------------------------------------------------|----------------------------------------------------------| 
 | ![PCBbottom_image](Fritzing/v3.2-hat/relier_pcb3.2_bottom.png)  | ![PCBtop_image](Fritzing/v3.2-hat/relier_pcb3.2_top.png) |
 | ![PCBbottom_image](Fritzing/v3.2-hat/relierv3.2_production(hat)_below_pcb.png)  | ![PCBtop_image](Fritzing/v3.2-hat/relierv3.2_production(hat)_top_pcb.png)|
-| ![PCBbottom_image](Media/images/geral/2019-01-07_relierv3_006)  | ![PCBbottom_image](Media/images/geral/2019-01-07_relierv3_007)|
+| ![PCBbottom_image](Media/images/geral/2019-01-07_relierv3_006.JPG)  | ![PCBbottom_image](Media/images/geral/2019-01-07_relierv3_007.JPG)|
 
 **PCB: scheme**
 ![PCB_image](Fritzing/v3.2-hat/relierv3.2_production(hat)_schem.png)
