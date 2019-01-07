@@ -26,6 +26,8 @@ The hardware components required to make the ***relier*** *acquisition system* a
 Instructions about the way those components are connected are presented.
 For reference, some links and prices of each component are indicated.
 
+![relier](Media/geral/)
+
 The *Hardware* is composed by the: 
 
 + ***Aquisition box*** (*server*, *touchscreen*, *custom PCB HAT* and *connection plugs*);
