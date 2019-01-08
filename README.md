@@ -1,16 +1,18 @@
 # *relier - acquisition system*
 ### Open {*re*}design of an acquisition system for {*l*}aboratory tests on {*i*}nternal {*er*}osion in soils
 
-Project developed by [*Ricardo Correia dos Santos*](https://www.linkedin.com/in/ricardons/) at 
+Project developed by [*Ricardo Correia dos Santos*](https://www.linkedin.com/in/ricardons/) at
 [Laboratório Nacional de Engenharia Civil - *LNEC*](http://www.lnec.pt/en/), in Lisbon, Portugal
 
 
 ***relier AS*** is an open 'low budget' acquisition system (hardware and software), that automatically
 collects data from multiple analog and digital output sensors, which are commonly used in laboratory tests on soil erosion. 
 
+![relier](Media/images/geral/2019-01-07_relierv3_023.JPG)
+
 ### Is this for me?
 If you need to do a similar project, you just need to have some DIY skills, for scrapping some materials, figuring out 
-how to assemble some things together, and investigate how some components work. 
+how to assemble some things together, and investigate how some components work.
 The instructions given here should also be taken more like guidelines based on "what I can do with the materials I have". If 
 you do not have the exact same hardware components 
 (sensors, ADC, level shifter, touchscreen...), yours will surely work a little different, but as they should do the same 
@@ -25,8 +27,6 @@ and be more helpful.
 The hardware components required to make the ***relier*** *acquisition system* are indicated in this chapter. 
 Instructions about the way those components are connected are presented.
 For reference, some links and prices of each component are indicated.
-
-![relier](Media/images/geral/2019-01-07_relierv3_023.JPG)
 
 The *Hardware* is composed by the: 
 
