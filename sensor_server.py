@@ -191,7 +191,7 @@ def get_data(interval, mu, mi, md, bu, bi, bd, zerou, zeroi, zerod, testtype, fl
         pulses_last = pulses
         pulses = callback.tally()
         total_liters = round((pulses) / (float(cf)*60),2)  # 1L water = 0.45 x 60 = 27 pulses (device specs)
-        flowrate = ((pulses - pulses_last) / interval / float(cf))*60  # f (Hz) = cf x Q , with Q = L/min  (cf = 0.45 device specs)
+        flowrate = round(((pulses - pulses_last) / interval / float(cf))*60,2)  # f (Hz) = cf x Q , with Q = L/min  (cf = 0.45 device specs)
 
 
     # Transform the analog numbers in volts
