@@ -68,8 +68,7 @@ elif test == '3':   #Hole Erosion Test (HET)
 elif test == '4':   #other name
     nxlib.nx_setValue(ser, nxApp.ID_rg[0], nxApp.ID_rg[1], 3)   # r3
     nxlib.nx_setText(ser, nxApp.ID_othername[0], nxApp.ID_othername[1],ini['othername'])
-else:
-    pass
+else: pass
 
 # send to sensors page the inputs from ini file
 nxlib.nx_setText(ser, nxApp.ID_mu[0], nxApp.ID_mu[1],ini['mu'])
