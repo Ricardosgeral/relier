@@ -1,5 +1,6 @@
 #! /usr/bin/python3
 # -*- coding: utf-8 -*-
+# This is the main program
 #Ricardos.geral@gmail.com
 
 import datetime
@@ -7,16 +8,17 @@ import time
 from time import sleep
 import threading
 import py3nextion_lib  as nxlib    # simple python3 library to use nextion device
-import nextionApp as nxApp # initialization of the components
-import sensor_server as srv # where data is acquired
-import socket
-import rw_ini as rw
-import write_csv_data
-import google_sheets as gsh
-import RGBled as LED
-from endbips import test_end # for Buzzer
-import database as db
+import nextionApp as nxApp         # initialization of the components of the Nextion display
+import sensor_server as srv        # where data is acquired
+import socket                      # to find the IP address
+import rw_ini as rw                # read and write in .ini file
+import write_csv_data              # write results in csv file (sd card in RPi or in USB drive)
+import google_sheets as gsh        # export data to google sheets over internet
+import RGBled as LED               # manages the multicolor led
+from endbips import test_end       # for Buzzer
+import database as db              # for postgresSQL
 
+# turn of the led
 LED.redOff()    #R
 LED.greenOff()  #G
 LED.blueOff()   #B
@@ -25,10 +27,10 @@ LED.blueOff()   #B
 ser = nxlib.ser
 
 nxlib.nx_setsys(ser, 'bauds', nxlib.BAUD)  # set default baud (default baud rate of nextion from fabric is 9600)
-nxlib.nx_setsys(ser, 'bkcmd',0)     # sets in NEXTION 'no return error/success codes'
-nxlib.nx_setcmd_1par(ser,'page',1)  # sets page 1  (page 0 is "not connected")
-nxlib.nx_setcmd_2par(ser,'tsw','b0',0)    # disable touch events of b0
-nxlib.nx_setcmd_2par(ser,'tsw','txt_status',0)    # disable touch events of dual button
+nxlib.nx_setsys(ser, 'bkcmd',0)            # sets in NEXTION 'no return error/success codes'
+nxlib.nx_setcmd_1par(ser,'page',1)         # sets page 1  (page 0 is "not connected")
+nxlib.nx_setcmd_2par(ser,'tsw','b0',0)     # disable touch events of b0
+nxlib.nx_setcmd_2par(ser,'tsw','txt_status',0)                     # disable touch events of dual button
 nxlib.nx_setValue(ser, nxApp.ID_status[0], nxApp.ID_status[1], 0)  # red flag - not ready yet
 
 EndCom = "\xff\xff\xff"             # 3 last bits to end serial communication
@@ -197,7 +199,7 @@ def display_sensors(data):   #outputs of "record" page
     nxlib.nx_setText(ser, nxApp.ID_pi[0], nxApp.ID_pi[1],str(data['mmH2O_int']))
     nxlib.nx_setText(ser, nxApp.ID_pd[0], nxApp.ID_pd[1],str(data['mmH2O_down']))
     nxlib.nx_setText(ser, nxApp.ID_turb[0], nxApp.ID_turb[1],str(data['turb']))
-    nxlib.nx_setText(ser, nxApp.ID_liters[0], nxApp.ID_liters[1],str(data['liters']))
+    nxlib.nx_setText(ser, nxApp.ID_liters[0], nxApp.ID_liters[1],str(round(data['liters'],2)))
     nxlib.nx_setText(ser, nxApp.ID_flow[0], nxApp.ID_flow[1],str(data['flow']))
     nxlib.nx_setText(ser, nxApp.ID_tw[0], nxApp.ID_tw[1],str(data['water_temp']))
     nxlib.nx_setText(ser, nxApp.ID_ta[0], nxApp.ID_ta[1],str(data['air_temp']))

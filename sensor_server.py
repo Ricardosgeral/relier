@@ -9,7 +9,7 @@ adequate sensors hooked to it via GPIO.
 It reads the value of the sensors then store them on disk or on
 the usb drive if one is plugged, it also always export local data on
 the usb drive if there are local data.
-The measurements are stored in csv format in "/srv/sensors/" or directly at the root of the usb.
+The measurements are always stored in csv format in "/srv/sensors/" or directly at the root of the usb.
 
 The sensors are:
     BME280 GY-BME280 : ambient temperature humidity and barometric pressure
@@ -32,22 +32,21 @@ from digitalSen_thread import D_Temp
 import FlowMAG  # for the eletromagnetic flow meter from Danfoss
 import multiprocessing  # the reading of FLOWMAG is placed in a different process
 from datetime import datetime
-from math import log as log
 import turbidity_calibration  # to get data from a txt with calibrated turbidity sensor
 import pigpio   # needs to be installed for callback https://www.raspberrypi.org/forums/viewtopic.php?t=66445
 import Adafruit_ADS1x15  # Analogic digital conversor ADS 15 bit 2^15-1=32767 (needs to be installed using pip3)
 adc = Adafruit_ADS1x15.ADS1115(address=0x48, busnum=1)  # address of ADC See in -- sudo i2cdetect -y 1
 
 # Constants
-PATH_TO_MEDIA = '/media'
+PATH_TO_MEDIA = '/media'  # to save in USB flash drive placed in raspberry pi
 
 #Channel numbers in ads1115 analog to digital converter DAC
 PRESSUP_ch = 0     # piezometric pressure in upstream chamber
 PRESSINT_ch = 1    # piezometric pressure in interface
 PRESSDW_ch = 2     # piezometric pressure in downstream chamber
-TURB_ch = 3        # turbidity of outlet water (or downstream chamber)
+TURB_ch = 3        # turbidity of outlet water
 
-# Relation Gain voltages :
+# Relation Gain voltages for ADS1115 chip:
 #  - 2/3 = +/-6.144V
 #  -   1 = +/-4.096V
 #  -   2 = +/-2.048V
@@ -75,15 +74,18 @@ if not pi.connected:
    exit()
 pi.set_mode(FLOW_ch, pigpio.INPUT)
 pi.set_pull_up_down(FLOW_ch, pigpio.PUD_UP)
-callback = pi.callback(FLOW_ch) # default tally (contagem) callback
+callback = pi.callback(FLOW_ch) # default tally callback
 
 
 # Global variables
-analog_sensor = None
-d_temp_sensor = None
-global zerou, zeroi, zerod  # to zero the piezometric pressures (datum)
-tempTread_flag = False
+analog_sensor = None   # for thread of analog sensors
 analogTread_flag = False
+
+d_temp_sensor = None   # for thread of temperature sensors (digital)
+tempTread_flag = False
+
+global zerou, zeroi, zerod  # to zeroing the piezometric pressures (datum)
+
 
 def init(interval, no_reads, flowmeter):
     global analog_sensor
@@ -113,15 +115,14 @@ def init(interval, no_reads, flowmeter):
 
     if flowmeter == "1": # 1= eletroMagnetic flowmeter; 2 = turbine flowmeter
         # create a process only to read the eletromagnetic flowmeter
-        # first see if any process to read the eletromag flowmeter is running and terminates it.
+        # first see if any process to read the eletromag flowmeter is running and, if so, terminates it.
         try:
             p.terminate()
-        except:
-            None
+        except: pass
 
         v1 = multiprocessing.Value('d', 0.0)  # flow rate -> value for shared memory between parent(main)
         v2 = multiprocessing.Value('d', 0.0)  # total volume -> value for shared memory
-        p = multiprocessing.Process(target=FlowMAG.read_flowMAG, args=(v1,v2,))
+        p = multiprocessing.Process(target=FlowMAG.read_flowMAG, args=(v1,v2,)) # parallel process
         p.start()
 
 
@@ -132,17 +133,17 @@ def zero_press(mu, mi, md, bu, bi, bd, testtype):
     analog = [0]*3
     for ch in range(3):
         analog[ch] = adc.read_adc(ch, gain=GAIN, data_rate=DATA_RATE)
-        # transformar o valor lido pelo adc em volts
+        # transform the analog number in volts
         # Ratio of 15 bit value to max volts determines volts
         volts[ch] = analog[ch] / 32767.0 * max_VOLT
         #determine the value to add in order to zero pressures
         zerou = (mu * volts[PRESSUP_ch] + bu)
-        if testtype == '3':  # if the test is a HET
+        if testtype == '3':  # if the test is a HET (there is no intermediate pressure sensor)
             zeroi = 0
         else:
             zeroi = (mi * volts[PRESSINT_ch]+ bi)
         zerod = (md * volts[PRESSDW_ch] + bd)
-    sleep(1)
+    sleep(1)  # waits a second
     return zerou, zeroi, zerod
 
 def get_data(interval, mu, mi, md, bu, bi, bd, zerou, zeroi, zerod, testtype, flowmeter, cf): #
@@ -160,7 +161,7 @@ def get_data(interval, mu, mi, md, bu, bi, bd, zerou, zeroi, zerod, testtype, fl
         water_temp (float): the temperature of the water in Celsius.
         air_temp (float): the ambient temperature in Celsius.
         air_hum (float): the ambient humidity in %
-        air_pres (float): the barometric pressure in Pascal.
+        air_pres (float): the barometric pressure in hectoPascal (around 1000 hPa).
 
     Returns:
         dict: The data in the order of the fieldnames.
@@ -180,18 +181,19 @@ def get_data(interval, mu, mi, md, bu, bi, bd, zerou, zeroi, zerod, testtype, fl
     water_temp, air_temp, air_hum, air_pres = d_temp_sensor.read_d_temp()
 
 #FLOWMETERS
-    if flowmeter == "1": # eletromagnetic flowmeter was selected
-        #flowmeter: MAGFLOW (eletromagnetic flowmeter). values from the multiprocessing
+    if flowmeter == "1": # if eletromagnetic flowmeter is selected
+        #flowmeter: MAGFLOW (eletromagnetic flowmeter).
+        # Gets values from the parallel process which are in shared memory
         flowrate = v1.value  # in liters per hour
         total_liters = v2.value  # in liters
 
-    else:  # if a int number equal or higher than 2 is selected consider the turbine flowmeter!
+    else:  # Attention: if any other value rather than "1" is introduced in .ini file, then the program considers the turbine flowmeter!
         #flowmeter: turbine
         if cf == "": cf="0.45" # in case the cf variable is not set in ini file
         pulses_last = pulses
         pulses = callback.tally()
-        total_liters = round((pulses) / (float(cf)*60),2)  # 1L water = 0.45 x 60 = 27 pulses (device specs)
-        flowrate = round(((pulses - pulses_last) / interval / float(cf))*60,2)  # f (Hz) = cf x Q , with Q = L/min  (cf = 0.45 device specs)
+        total_liters = (pulses) / (float(cf)*60)  # 1L water = 0.45 x 60 = 27 pulses (device specs)
+        flowrate = ((pulses - pulses_last) / interval / float(cf))*60  # f (Hz) = cf x Q , with Q = L/min  (cf = 0.45 device specs)
 
 
     # Transform the analog numbers in volts
