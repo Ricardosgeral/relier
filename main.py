@@ -198,7 +198,7 @@ def display_sensors(data):   #outputs of "record" page
     nxlib.nx_setText(ser, nxApp.ID_pi[0], nxApp.ID_pi[1],str(data['mmH2O_int']))
     nxlib.nx_setText(ser, nxApp.ID_pd[0], nxApp.ID_pd[1],str(data['mmH2O_down']))
     nxlib.nx_setText(ser, nxApp.ID_turb[0], nxApp.ID_turb[1],str(data['turb']))
-    nxlib.nx_setText(ser, nxApp.ID_liters[0], nxApp.ID_liters[1],str(round(data['liters'],2)))
+    nxlib.nx_setText(ser, nxApp.ID_liters[0], nxApp.ID_liters[1],str(round(data['liters'],1)))
     nxlib.nx_setText(ser, nxApp.ID_flow[0], nxApp.ID_flow[1],str(data['flow']))
     nxlib.nx_setText(ser, nxApp.ID_tw[0], nxApp.ID_tw[1],str(data['water_temp']))
     nxlib.nx_setText(ser, nxApp.ID_ta[0], nxApp.ID_ta[1],str(data['air_temp']))
