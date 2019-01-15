@@ -8,6 +8,8 @@ Project developed by [*Ricardo Correia dos Santos*](https://www.linkedin.com/in/
 ***relier AS*** is an open 'low budget' acquisition system (hardware and software), that automatically
 collects data from multiple analog and digital output sensors, which are commonly used in laboratory tests on soil erosion. 
 
+[![GUI](https://i.ibb.co/1Xh6w7H/relier-GUI-thumb.png)](https://www.youtube.com/watch?v=-2fSeosClVY&t=10s)
+
 ![relier](Media/images/geral/2019-01-07_relierv3_023.JPG)
 
 ### Is this for me?
