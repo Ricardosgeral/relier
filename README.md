@@ -12,7 +12,7 @@ collects data from multiple analog and digital output sensors, which are commonl
 
 ### some project videos
 
-| Sensors overview and GUI |  Assemblage of acquisition system|
+| Sensors overview and GUI |  Assembly of acquisition system|
 |--------------------------|--------------|
 | [![GUI](https://i.ibb.co/MCKKjJf/relier-GUI-thumb.jpg)](https://youtu.be/-2fSeosClVY)|  [![GUI](https://i.ibb.co/8BpNnZq/relier-assembly-thumb.jpg)](https://youtu.be/6blSNBFLsIU)                              |
 
