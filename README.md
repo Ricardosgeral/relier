@@ -10,7 +10,7 @@ collects data from multiple analog and digital output sensors, which are commonl
 
 ![relier](Media/images/geral/2019-01-07_relierv3_023.JPG)
 
-### some project videos
+### Some project videos
 
 | Sensors overview and GUI |  Assembly of acquisition system|
 |--------------------------|--------------|
