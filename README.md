@@ -817,4 +817,4 @@ Also, my thanks to *João Paixão* (LNEC-CIC technician) for soldering the small
 ## 12. License
 Copyright (c) 2019 Ricardo Correia dos Santos
 
-See the [license conditions](LICENSE).
+See the [license conditions](https://github.com/Ricardosgeral/relier/blob/master/LICENSE).
