@@ -151,7 +151,7 @@ The design of the 2 layer's *PCB* was developed using the open-source software [
 The production files and the *.fzz* file are [here](https://github.com/Ricardosgeral/relier/tree/master/Fritzing). 
 Latest version of *PCB* is v3.2 (November 2018). 
 The *PCB* was produced/printed by [PCBWay company](https://www.pcbway.com/). 
-You can order them a copy [here](www.pcbway.com/project/shareproject/Relier_Acquisition_system___for_Rasoberry_pi3_b_.html)).
+You can order them a copy [here](https://www.pcbway.com/project/shareproject/Relier_Acquisition_system___for_Rasoberry_pi3_b_.html)).
 
 Below, you can see images showing the circuits hooked in the breadboard and in the PCB, as well as the final 
 aspect of each *PCB* layer individually. 
@@ -167,7 +167,7 @@ you can see the numbering of the 40 GPIO pins of the Raspberry Pi used.
 |-----------------------------------------------------------------|----------------------------------------------------------| 
 | ![PCBbottom_image](Fritzing/v3.2-hat/relier_pcb3.2_bottom.png)  | ![PCBtop_image](Fritzing/v3.2-hat/relier_pcb3.2_top.png) |
 | ![PCBbottom_image](Fritzing/v3.2-hat/relierv3.2_production(hat)_below_pcb.png)  | ![PCBtop_image](Fritzing/v3.2-hat/relierv3.2_production(hat)_top_pcb.png)|
-| ![PCBbottom_image](Media/images/geral/2019-01-07_relierv3_006.JPG)  | ![PCBbottom_image](Media/images/geral/2019-01-07_relierv3_007.JPG)|
+| ![PCBbottom_image](Media/images/geral/2019-01-07_relierv3_007.JPG)  | ![PCBbottom_image](Media/images/geral/2019-01-07_relierv3_006.JPG)|
 
 **PCB: scheme**
 ![PCB_image](Fritzing/v3.2-hat/relierv3.2_production(hat)_schem.png)
