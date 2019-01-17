@@ -7,7 +7,7 @@ import pandas as pd
 
 # get signed credentials
 try:
-    gc = pygsheets.authorize(service_file='service_creds.json') # remove the _copy part
+    gc = pygsheets.authorize(service_file="service_creds.json") # the file must be updated by user
     initial_rows = 1000  # default number of rows of the worksheet
     initial_colmn = 15  # default number of columns
     google_creds = True
@@ -19,10 +19,10 @@ except:
 
 def spreadsheet_worksheet(ssheet_title, wsheet_title, share_email):
     # get spredsheet instance
-    list_of_ssheets = gc.list_ssheets()  # gets all the available sheets in the account of the service_creds.jon
+    list_of_ssheets = gc.spreadsheet_titles()  # gets all the available sheets titles in the account of the service_creds.jon
     ssheet_exists = False
     for ssheet in list_of_ssheets:
-        if ssheet['name'] == ssheet_title:
+        if ssheet == ssheet_title:
             ssheet_exists = True
     if ssheet_exists == True:                   # if sheet exists
         sh = gc.open(ssheet_title)              # open it
