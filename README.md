@@ -194,7 +194,7 @@ The  ***relier*** *acquisition system* is composed by two distinct but interconn
 
 
 ### 2.1. Server software: installation
-The server is a Raspberry Pi 3 model B (it was also tested successfully with RPi 3B+).
+The server is a Raspberry Pi 3 model B (it was also tested successfully with a RPi 3 B+).
  These instructions should be carried out after a fresh installation of *Raspbian* image in a Micro SD card 
 (see [instructions](https://www.raspberrypi.org/documentation/installation/installing-images/README.md)). 
 The server has been tested with [2018-11-15-raspian-stretch](http://downloads.raspberrypi.org/raspbian/images/raspbian-2018-11-15/). 
