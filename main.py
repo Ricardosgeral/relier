@@ -328,13 +328,14 @@ def read_display_write(e_rdw): # read and display data in page "record" and writ
             sleep(float(inp['interval'])-delay)
 
     # disconnect from database
+    test_end() # morse code sounds to alert for final test
+
+
     cur.close()
     con.close()
 
     end_rdw.set()
     e_rdw.clear()
-
-    test_end() # morse code sounds to alert for final test
 
     nxlib.nx_setcmd_1par(ser, 'page', 'credits')
     ip = get_ip_address()
