@@ -11,7 +11,7 @@ bluePin = 12   # GPIO12 pin 32
 
 
 def blink(pin):
-    GPIO.setmode(GPIO.BCM   )
+    GPIO.setmode(GPIO.BCM)
     GPIO.setwarnings(False)
     GPIO.setup(pin, GPIO.OUT)
     GPIO.output(pin, GPIO.HIGH)
