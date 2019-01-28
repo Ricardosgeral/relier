@@ -17,6 +17,8 @@ collects data from multiple analog and digital output sensors, which are commonl
 | [![GUI](https://i.ibb.co/MCKKjJf/relier-GUI-thumb.jpg)](https://youtu.be/-2fSeosClVY)|  [![GUI](https://i.ibb.co/8BpNnZq/relier-assembly-thumb.jpg)](https://youtu.be/6blSNBFLsIU)                              |
 
 
+[![GUI](https://i.imgur.com/RYcSZy1.jpg)](https://i.imgur.com/RYcSZy1.jpg)
+
 ### Is this for me?
 If you need to do a similar project, you just need to have some DIY skills, for scrapping some materials, figuring out 
 how to assemble some things together, and investigate how some components work.
@@ -56,6 +58,11 @@ The acquisition box is powered solely through the power supply connected to the 
 |----------------------------------------|----------------------------------------|
 | ![Aquisition box](Media/images/geral/2019-01-07_relierv3_034.JPG)  | ![Aquisition box](Media/images/geral/2019-01-07_relierv3_038.JPG)  |
 | ![Aquisition box](Media/images/geral/2019-01-07_relierv3_046.JPG)  | ![Aquisition box](Media/images/geral/2019-01-07_relierv3_044.JPG)  |
+
+
+
+https://i.imgur.com/RYcSZy1.jpg
+
 
 You can find more pictures and an overview video in the [Media folder](https://github.com/Ricardosgeral/relier/tree/master/Media) of this GitHub repository.
 
