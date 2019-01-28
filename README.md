@@ -17,7 +17,7 @@ collects data from multiple analog and digital output sensors, which are commonl
 | [![GUI](https://i.ibb.co/MCKKjJf/relier-GUI-thumb.jpg)](https://youtu.be/-2fSeosClVY)|  [![GUI](https://i.ibb.co/8BpNnZq/relier-assembly-thumb.jpg)](https://youtu.be/6blSNBFLsIU)                              |
 
 
-[![GUI](https://i.imgur.com/RYcSZy1.jpg)](https://i.imgur.com/RYcSZy1.jpg)
+[![GUI](https://i.imgur.com/RYcSZy1.jpg)](https://www.youtube.com/watch?v=ju51FE9KWwY)
 
 ### Is this for me?
 If you need to do a similar project, you just need to have some DIY skills, for scrapping some materials, figuring out 
@@ -492,7 +492,7 @@ The acquisition system server should be connected to the internet before the sta
 
 The picture below shows the the app layout, which is accessed at the site ***https://APP_NAME.herokuapp.com*** (you should choose the <APP_NAME>)
  
-![relier-web](Media/images/relier-web/relier_web_example.png)
+![relier-web](Media/images/relier-web/relier_web_example1.png)
 
 ## 5. Inputs file: *inputs.ini*
 
