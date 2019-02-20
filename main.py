@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # This is the main program
 #Ricardos.geral@gmail.com
-
+import os
 import datetime
 import time
 from time import sleep
@@ -17,6 +17,9 @@ import google_sheets as gsh        # export data to google sheets over internet
 import RGBled as LED               # manages the multicolor led
 from endbips import test_end       # for Buzzer
 import database as db              # for postgresSQL
+import camera_timelapse
+import multiprocessing as mp
+from find_usb import find_dev
 
 # turn of the led
 LED.redOff()    #R
@@ -272,6 +275,34 @@ def read_display_write(e_rdw): # read and display data in page "record" and writ
     e_rdw.wait()
     row = 1
     zero_vol = 0
+
+    #### required to capture the photos
+    testname = inp['filename']
+
+    if testname[-4:] != '.csv':
+        testname= testname + '.csv'
+
+    checkpath = find_dev('/media/pi/', testname)  # see if usb flash drive is connected
+    if checkpath =="":         # If there is no storage device, write on disk (RPi sd card) in /srv/EROSTESTS/<testname>
+        path = os.path.join('/srv/EROSTESTS', testname[:-4])
+    else:
+        path = os.path.join(checkpath, testname[:-4])
+    PicsLocation = path + '_timelapse' + str(datetime.datetime.now().strftime("%Y-%m-%d_%H%M"))
+
+    # determine test type
+    rg = nxlib.nx_getValue(ser, nxApp.ID_rg[0], nxApp.ID_rg[1])
+    if rg == 0:
+        testtype = 'HET'
+    elif rg == 1:
+        testtype = 'FLET'
+    elif rg == 2:
+        testtype = 'CFET'
+    elif rg == 3:
+        testtype =  nxlib.nx_getText(ser, nxApp.ID_othername[0], nxApp.ID_othername[1])  # r3
+    else:
+        testtype = 'undetermined'
+    #####
+
     while end_rdw.is_set() == False and time.time() < stop+int(inp['interval']):
         if time.time() < stop+int(inp['interval']):
             LED.greenOn()
@@ -325,7 +356,15 @@ def read_display_write(e_rdw): # read and display data in page "record" and writ
             else:
                 delay=0
 
-            sleep(float(inp['interval'])-delay)
+            #### USB CAMERA SHOT
+
+            camera = mp.Process(target=camera_timelapse.CaptureImage(PicsLocation,testname, testtype, elapsed, data['flow']))
+            camera.start()
+            #camera.join()
+            camera.terminate()
+
+            sleep(float(inp['interval'])-delay)  # Interval between records
+
 
     # disconnect from database
     test_end() # morse code sounds to alert for final test

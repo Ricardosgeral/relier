@@ -45,9 +45,9 @@ def write_data(data, data_file):
         csv_file = data_file
 
     if path == '':
-        # If there is no storage device, write on disk (RPi sd card) in /srv/sensors
-        # don't forget to do 1st:   sudo mkdir /srv/sensors
-        #                           sudo chmod - R 777 / srv / sensors
+        # If there is no storage device, write on disk (RPi sd card) in /srv/EROSTESTS
+        # don't forget to do 1st:   sudo mkdir /srv/EROSTESTS
+        #                           sudo chmod - R 777 / srv / EROSTESTS
 
         path = os.path.join('/srv/EROSTESTS', csv_file)  #create first the /srv/EROSTESTS/
         file_exists = os.path.isfile(path)  # sets to TRUE if file exists otherwise FALSE
