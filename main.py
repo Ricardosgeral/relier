@@ -17,8 +17,8 @@ import google_sheets as gsh        # export data to google sheets over internet
 import RGBled as LED               # manages the multicolor led
 from endbips import test_end       # for Buzzer
 import database as db              # for postgresSQL
-import camera_timelapse
-import multiprocessing as mp
+import camera_timelapse as cm
+import movie_timelapse as movie
 from find_usb import find_dev
 
 # turn of the led
@@ -251,6 +251,8 @@ def read_display(e_rd): #read and display data in page "sensors"
 
 def read_display_write(e_rdw): # read and display data in page "record" and write to file
     global stop, con, cur
+    global takephoto_flag
+
     #first, check if HET test is selected
     if inp['test_type'] == '3':  # if HET test is the selection
         nxlib.nx_setcmd_2par(ser, 'vis', 'txt_pi', 0)
@@ -287,7 +289,7 @@ def read_display_write(e_rdw): # read and display data in page "record" and writ
         path = os.path.join('/srv/EROSTESTS', testname[:-4])
     else:
         path = os.path.join(checkpath, testname[:-4])
-    PicsLocation = path + '_timelapse' + str(datetime.datetime.now().strftime("%Y-%m-%d_%H%M"))
+    picsLocation = path + '_timelapse_' + str(datetime.datetime.now().strftime("%Y-%m-%d_%H%M"))
 
     # determine test type
     rg = nxlib.nx_getValue(ser, nxApp.ID_rg[0], nxApp.ID_rg[1])
@@ -316,7 +318,6 @@ def read_display_write(e_rdw): # read and display data in page "record" and writ
                               float(inp['mu']), float(inp['mi']), float(inp['md']),
                               float(inp['bu']), float(inp['bi']), float(inp['bd']),
                               zerou, zeroi, zerod, inp['test_type'], inp['flowmeter_type'], inp['cf'])
-
 
             if inp['flowmeter_type'] != "1":  # only if the turbine flowmeter is selected
                 if current < start+2:   # zero flowrate at start.
@@ -356,14 +357,17 @@ def read_display_write(e_rdw): # read and display data in page "record" and writ
             else:
                 delay=0
 
-            #### USB CAMERA SHOT
 
-            camera = mp.Process(target=camera_timelapse.CaptureImage(PicsLocation,testname, testtype, elapsed, data['flow']))
-            camera.start()
-            #camera.join()
-            camera.terminate()
-
+            # take picture in a different threat
+            t_pics = cm.capture(picsLocation, testname[:-4], testtype, elapsed, data['flow'])
+            t_pics.start()
+            #t_pics.join()  # takes too long. don't use
             sleep(float(inp['interval'])-delay)  # Interval between records
+
+    # make video in a separate thread
+
+    t_movie = movie.makemovie(picsLocation, testname[:-4])
+    t_movie.start()
 
 
     # disconnect from database
