@@ -89,6 +89,42 @@ elif flowmeter == '2':   # turbine flowmeter
     nxlib.nx_setValue(ser, nxApp.ID_flowmeter[0], nxApp.ID_flowmeter[1], 1) # .val = 1
 nxlib.nx_setText(ser, nxApp.ID_cf[0], nxApp.ID_cf[1],ini['cf'])
 
+# send to timelapse page the inputs from ini file
+
+if ini['timelapse'] in ['yes','Yes','YES','y','Y','yep', 'true', 'True']:
+    nxlib.nx_setValue(ser, nxApp.ID_doTimeLapse[0], nxApp.ID_doTimeLapse[1],1)
+else:
+    nxlib.nx_setValue(ser, nxApp.ID_doTimeLapse[0], nxApp.ID_doTimeLapse[1], 0)
+
+if ini['video'] in ['yes','Yes','YES','y','Y','yep', 'true', 'True']:
+    nxlib.nx_setValue(ser, nxApp.ID_doVideo[0], nxApp.ID_doVideo[1],1)
+else:
+    nxlib.nx_setValue(ser, nxApp.ID_doVideo[0], nxApp.ID_doVideo[1],0)
+
+if ini['del_images'] in ['yes','Yes','YES','y','Y','yep', 'true', 'True']:
+    nxlib.nx_setValue(ser, nxApp.ID_delImages[0], nxApp.ID_delImages[1],1)
+else:
+    nxlib.nx_setValue(ser, nxApp.ID_delImages[0], nxApp.ID_delImages[1],0)
+
+if ini['control_video'] == 0 or ini['control_video'] in ['freq', 'Freq', 'frequency', 'Frequency','fps', 'FPS']:
+    nxlib.nx_setValue(ser, nxApp.ID_choiceVideoDur[0], nxApp.ID_choiceVideoDur[1], 0)
+else:
+    nxlib.nx_setValue(ser, nxApp.ID_choiceVideoDur[0], nxApp.ID_choiceVideoDur[1], 1)
+
+nxlib.nx_setText(ser, nxApp.ID_freqPics[0], nxApp.ID_freqPics[1],ini['freq'])
+nxlib.nx_setText(ser, nxApp.ID_maxVideoDur[0], nxApp.ID_maxVideoDur[1],ini['max_videoDur'])
+
+ratioVideoTest=int(ini['interval'])*int(ini['freq'])
+nxlib.nx_setText(ser, nxApp.ID_ratioVideoTest[0], nxApp.ID_ratioVideoTest[1],str(ratioVideoTest))
+
+
+videoDur=round(int(ini['duration'])/ratioVideoTest,1)
+nxlib.nx_setText(ser, nxApp.ID_videoDur[0], nxApp.ID_videoDur[1], str(videoDur))
+
+nxlib.nx_setText(ser, nxApp.ID_testDur[0], nxApp.ID_testDur[1],ini['duration'])
+
+
+
 ##########
 ## display Ip in page 1 of NEXTION
 def get_ip_address():  # get the (local) ip_address of the raspberry pi
@@ -148,7 +184,7 @@ def input_settings(): # inputs from 'settings' and 'testType' pages
         'lastip'        : lastip
         }
 
-def input_analog():   #inputs from page "sensors" and page "flowmeter"
+def input_analog():   #inputs from page "sensors", page "flowmeter" and page timelapse
     mu     =   nxlib.nx_getText(ser, nxApp.ID_mu[0], nxApp.ID_mu[1])
     mi     =   nxlib.nx_getText(ser, nxApp.ID_mi[0], nxApp.ID_mi[1])
     md     =   nxlib.nx_getText(ser, nxApp.ID_md[0], nxApp.ID_md[1])
@@ -167,6 +203,12 @@ def input_analog():   #inputs from page "sensors" and page "flowmeter"
 
     cf  =   nxlib.nx_getText(ser, nxApp.ID_cf[0], nxApp.ID_cf[1])
 
+    timelapse     = nxlib.nx_getValue(ser, nxApp.ID_doTimeLapse[0], nxApp.ID_doTimeLapse[1])
+    video         = nxlib.nx_getValue(ser, nxApp.ID_doVideo[0], nxApp.ID_doVideo[1])
+    del_images    = nxlib.nx_getValue(ser, nxApp.ID_delImages[0], nxApp.ID_delImages[1])
+    control_video = nxlib.nx_getValue(ser, nxApp.ID_choiceVideoDur[0], nxApp.ID_choiceVideoDur[1])
+    freq          = nxlib.nx_getText(ser, nxApp.ID_freqPics[0], nxApp.ID_freqPics[1])
+    max_videoDur  = nxlib.nx_getText(ser, nxApp.ID_maxVideoDur[0], nxApp.ID_maxVideoDur[1])
 
     return  {
         'mu'   : mu,
@@ -177,7 +219,14 @@ def input_analog():   #inputs from page "sensors" and page "flowmeter"
         'bd'   : bd,
         'flowmeter_type': flowmeter_type,
         'cf': cf,
-         }
+        'timelapse':timelapse,
+        'video':video,
+        'del_images':del_images,
+        'control_video':control_video,
+        'freq':freq,
+        'max_videoDur':max_videoDur,
+
+    }
 
 def display_analog(data):  #outputs
     #inputs from page "sensors"
@@ -265,6 +314,7 @@ def read_display_write(e_rdw): # read and display data in page "record" and writ
                  inp['test_type'], inp['othername'],
                  inp['mu'],inp['bu'],inp['mi'],inp['bi'],inp['md'],inp['bd'],
                  inp['flowmeter_type'], inp['cf'],
+                 inp['timelapse'],inp['video'],inp['del_images'],inp['control_video'],inp['freq'],inp['max_videoDur'],
                  inp['lastip'])
 
     # obtain the selected worksheet in the google spreadsheet and share it
@@ -357,17 +407,31 @@ def read_display_write(e_rdw): # read and display data in page "record" and writ
             else:
                 delay=0
 
+            # time to timelapse ;)
+            if nxlib.nx_getValue(ser, nxApp.ID_doTimeLapse[0], nxApp.ID_doTimeLapse[1]) == 1:
+                # take picture in a different threat
+                t_pics = cm.capture(picsLocation, testname[:-4], testtype, elapsed, data['flow'])
+                t_pics.start()
+                #t_pics.join()  # takes too long. don't use
 
-            # take picture in a different threat
-            t_pics = cm.capture(picsLocation, testname[:-4], testtype, elapsed, data['flow'])
-            t_pics.start()
-            #t_pics.join()  # takes too long. don't use
             sleep(float(inp['interval'])-delay)  # Interval between records
 
-    # make video in a separate thread
 
-    t_movie = movie.makemovie(picsLocation, testname[:-4])
-    t_movie.start()
+    ### time to make video
+    if nxlib.nx_getValue(ser, nxApp.ID_doVideo[0], nxApp.ID_doVideo[1]) == "1":
+
+        # make video in a separate thread
+        control=nxlib.nx_getValue(ser, nxApp.ID_choiceVideoDur[0], nxApp.ID_choiceVideoDur[1])
+        freq=nxlib.nx_getText(ser, nxApp.ID_freqPics[0], nxApp.ID_freqPics[1])
+        max_vid_dur=nxlib.nx_getText(ser, nxApp.ID_maxVideoDur[0], nxApp.ID_maxVideoDur[1])
+        interval = nxlib.nx_getText(ser, nxApp.ID_interval[0], nxApp.ID_interval[1])
+        t_movie = movie.makemovie(picsLocation, testname[:-4], control, freq, max_vid_dur, elapsed, interval)
+        t_movie.start()
+
+        if nxlib.nx_getValue(ser, nxApp.ID_delImages[0], nxApp.ID_delImages[1]) == "1":
+            # delete images
+            #todo
+            pass
 
 
     # disconnect from database
@@ -425,6 +489,35 @@ def input_update():
     inp['cf'] = nxlib.nx_getText(ser, nxApp.ID_cf[0], nxApp.ID_cf[1])
 
 
+    # timelapse
+
+    doTimeLapse = nxlib.nx_getValue(ser, nxApp.ID_doTimeLapse[0], nxApp.ID_doTimeLapse[1])
+    if doTimeLapse == 1: #checkbox selected
+        inp['timelapse'] = 'yes'
+    else:
+        inp['timelapse'] = 'no'
+
+    doVideo = nxlib.nx_getValue(ser, nxApp.ID_doVideo[0], nxApp.ID_doVideo[1])
+    if doVideo == 1: #checkbox selected
+        inp['video'] = 'yes'
+    else:
+        inp['video'] = 'no'
+
+    delImages = nxlib.nx_getValue(ser, nxApp.ID_delImages[0], nxApp.ID_delImages[1])
+    if delImages == 1: #checkbox selected
+        inp['del_images'] = 'yes'
+    else:
+        inp['del_images'] = 'no'
+
+    choiceVideoDur = nxlib.nx_getValue(ser, nxApp.ID_choiceVideoDur[0], nxApp.ID_choiceVideoDur[1])
+    if choiceVideoDur == 0: #checkbox selected
+        inp['control_video'] = 'Frequency'
+    else:
+        inp['control_video'] = 'Max_Duration'
+
+    inp['freq'] = nxlib.nx_getText(ser, nxApp.ID_freqPics[0], nxApp.ID_freqPics[1])
+    inp['max_videoDur'] = nxlib.nx_getText(ser, nxApp.ID_maxVideoDur[0], nxApp.ID_maxVideoDur[1])
+
 def detect_touch(e_rd, e_rdw):
 
     look_touch = 1  # in seconds
@@ -444,6 +537,9 @@ def detect_touch(e_rd, e_rdw):
                     nxlib.nx_setText(ser, nxApp.ID_ip[0], nxApp.ID_ip[1], ip)
 
                 elif (pageID_touch, compID_touch) == (2, 2):  # button set sensors (comp2) in page 2 is pressed
+
+                    nxlib.nx_setcmd_2par(ser, 'tsw', 'bt_timelapse', 0)  # lock touch for page 5 (sensors) to give time to first
+
                     end_rd.clear()
                     input_update()
                     srv.init(int(inp['no_reads']),int(inp['no_reads']), inp['flowmeter_type'])  # the interval between displays in monitor should be 1 second, but no_reads does not change
@@ -452,6 +548,7 @@ def detect_touch(e_rd, e_rdw):
 
                     sleep(1)  # necessary to allow enough time to start the 1º read of the ads1115 and sensor temp
                     e_rd.set()  # start read_display()
+                    nxlib.nx_setcmd_2par(ser, 'tsw', 'bt_timelapse', 1)  # re(enable) touch events of page 5
 
                 elif (pageID_touch,compID_touch) == (2,3):  # button start record (comp3) in page 2 is pressed
                     end_rdw.clear()
@@ -540,6 +637,33 @@ def detect_touch(e_rd, e_rdw):
                     inp['bd']    = nxlib.nx_getText(ser, nxApp.ID_bd[0],    nxApp.ID_bd[1])
                     e_rd.set()
 
+
+                elif (pageID_touch, compID_touch) == (5, 21):  # button timelapse is selected (comp21) in page 5 is pressed
+
+                    while True: # this loop is to estimate the duration of the video
+                        ratioVideoTest = float(nxlib.nx_getText(ser, nxApp.ID_ratioVideoTest[0], nxApp.ID_ratioVideoTest[1]))
+                        testDur = float(nxlib.nx_getText(ser, nxApp.ID_testDur[0], nxApp.ID_testDur[1]))
+                        duration_min= testDur/ratioVideoTest  # in minutes
+                        # convert to string in form hh:mm:s
+                        seconds = duration_min * 60
+                        minutes, seconds = divmod(seconds, 60)
+                        hours, minutes = divmod(minutes, 60)
+                        duration_srt = "%02d:%02d:%02d" % (hours, minutes, seconds)
+                        nxlib.nx_setText(ser, nxApp.ID_videoDur[0], nxApp.ID_videoDur[1], duration_srt)
+                        try:
+                            touch = ser.read_until(EndCom)
+                            if hex(touch[0]) == '0x65':  # touch event. If it's empty, do nothing
+                                pageID_touch = touch[1]
+                                compID_touch = touch[2]
+                                event_touch = touch[3]
+                                print("page= {}, component= {}, event= {}".format(pageID_touch, compID_touch, event_touch))
+
+                                if (pageID_touch, compID_touch) == (7, 6):
+                                    break
+                        except:
+                            pass
+
+
                 elif (pageID_touch, compID_touch) == (6, 1):  # back button in flowmeter type selection (comp1) in page 5 is pressed
                 # the idea is to stop and restart the threads so that the eventual new flowmeter type can be active
                     end_rd.set()
@@ -563,6 +687,7 @@ def detect_touch(e_rd, e_rdw):
                                  inp['test_type'], inp['othername'],
                                  inp['mu'], inp['bu'], inp['mi'], inp['bi'], inp['md'], inp['bd'],
                                  inp['flowmeter_type'], inp['cf'],
+                                 inp['timelapse'], inp['video'], inp['del_images'], inp['control_video'], inp['freq'], inp['max_videoDur'],
                                  inp['lastip'])
 
                     end_rd.set()
@@ -577,7 +702,7 @@ def detect_touch(e_rd, e_rdw):
                     nxlib.nx_setValue(ser, nxApp.ID_status[0], nxApp.ID_status[1], 1)  # green flag
                     nxlib.nx_setText(ser, nxApp.ID_ip[0], nxApp.ID_ip[1], ip)
 
-                elif (pageID_touch,compID_touch) == (8,1):  # button confirm exit (comp 1) in page 8 is pressed
+                elif (pageID_touch,compID_touch) == (9,1):  # button confirm exit (comp 1) in page 8 is pressed
                     end_rdw.set()
                     t_rdw.join()
                     e_rdw.clear()

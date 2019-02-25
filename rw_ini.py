@@ -26,6 +26,13 @@ def read_ini(): ###read the init file
     flowmeter_type  = config['flowmeter']['flowmeter_type']
     cf          = config['flowmeter']['cf']
 
+    timelapse     = config['timelapse']['timelapse']
+    video         = config['timelapse']['video']
+    del_images    = config['timelapse']['del_images']
+    control_video = config['timelapse']['control_video']
+    freq          = config['timelapse']['freq']
+    max_videoDur  = config['timelapse']['max_videoDur']
+
 
     return {'filename': filename,
             'googlesh': googlesh,
@@ -44,12 +51,19 @@ def read_ini(): ###read the init file
             'bd': bd,
             'flowmeter_type': flowmeter_type,
             'cf': cf,
+            'timelapse':timelapse,
+            'video':video,
+            'del_images':del_images,
+            'control_video':control_video,
+            'freq':freq,
+            'max_videoDur':max_videoDur,
             }
 
 #write in the ini file
 def write_ini(filename, googlesh, share_email, google_sheets, duration, interval, no_reads,
               testtype, othername,
-              mu, bu, mi, bi, md, bd, flowmeter_type, cf, lastip):
+              mu, bu, mi, bi, md, bd, flowmeter_type, cf,
+              timelapse, video, del_images, control_video, freq, max_videoDur, lastip):
 
     config['settings'] = {'filename': filename,
                           'googlesh': googlesh,
@@ -71,12 +85,20 @@ def write_ini(filename, googlesh, share_email, google_sheets, duration, interval
                         'bd': bd,
                         }
 
-    config['ip'] = {'lastip': lastip}
 
     config['flowmeter'] = {'flowmeter_type':flowmeter_type,  #1 - Eletromagnetic; 2 - turbine flowmeter
                            'cf': cf
                            }
 
+    config['timelapse'] = {'timelapse':timelapse,
+                        'video': video,
+                        'del_images': del_images,
+                        'control_video': control_video,
+                        'freq': freq,
+                        'max_videoDur': max_videoDur,
+                        }
+
+    config['ip'] = {'lastip': lastip}
 
     with open('inputs.ini', 'w') as configfile:
         config.write(configfile)
