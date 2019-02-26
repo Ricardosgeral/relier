@@ -437,8 +437,7 @@ def read_display_write(e_rdw): # read and display data in page "record" and writ
 
         if delImages == 1:
             # delete images
-            #todo
-            pass
+            cm.delImages(picsLocation)
 
     # disconnect from database
     test_end() # morse code sounds to alert for final test

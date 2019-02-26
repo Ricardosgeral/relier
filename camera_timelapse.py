@@ -9,8 +9,7 @@
 
 import threading
 import datetime, subprocess, os
-from time import sleep
-
+import re
 class capture(threading.Thread):
 
     def __init__(self, picsLocation, testname, testtype, elapsed, flowrate):
@@ -43,3 +42,9 @@ class capture(threading.Thread):
 
     def run(self):
         self.CaptureImage()
+
+
+def delImages(picsLocation):
+    for f in os.listdir(picsLocation):
+        if re.search(".jpg", f):  # if the file has the extension .jpg
+            os.remove(os.path.join(picsLocation, f))  #remove the file
