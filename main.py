@@ -355,6 +355,17 @@ def read_display_write(e_rdw): # read and display data in page "record" and writ
         testtype = 'undetermined'
     #####
 
+    # check if timelapse, movie and delete photos are selected
+    doTimelapse = nxlib.nx_getValue(ser, nxApp.ID_doTimeLapse[0], nxApp.ID_doTimeLapse[1])   # 1 = yes
+    doMovie     = nxlib.nx_getValue(ser, nxApp.ID_doVideo[0], nxApp.ID_doVideo[1])
+    delImages   = nxlib.nx_getValue(ser, nxApp.ID_delImages[0], nxApp.ID_delImages[1])
+    # parameters required for the video
+    control = nxlib.nx_getValue(ser, nxApp.ID_choiceVideoDur[0], nxApp.ID_choiceVideoDur[1])
+    freq = nxlib.nx_getText(ser, nxApp.ID_freqPics[0], nxApp.ID_freqPics[1])
+    max_vid_dur = nxlib.nx_getText(ser, nxApp.ID_maxVideoDur[0], nxApp.ID_maxVideoDur[1])
+    interval = nxlib.nx_getText(ser, nxApp.ID_interval[0], nxApp.ID_interval[1])
+
+
     while end_rdw.is_set() == False and time.time() < stop+int(inp['interval']):
         if time.time() < stop+int(inp['interval']):
             LED.greenOn()
@@ -407,8 +418,9 @@ def read_display_write(e_rdw): # read and display data in page "record" and writ
             else:
                 delay=0
 
-            # time to timelapse ;)
-            if nxlib.nx_getValue(ser, nxApp.ID_doTimeLapse[0], nxApp.ID_doTimeLapse[1]) == 1:
+            # time to timelapse :)
+
+            if doTimelapse == 1:
                 # take picture in a different threat
                 t_pics = cm.capture(picsLocation, testname[:-4], testtype, elapsed, data['flow'])
                 t_pics.start()
@@ -418,25 +430,18 @@ def read_display_write(e_rdw): # read and display data in page "record" and writ
 
 
     ### time to make video
-    if nxlib.nx_getValue(ser, nxApp.ID_doVideo[0], nxApp.ID_doVideo[1]) == "1":
-
+    if doMovie == 1:
         # make video in a separate thread
-        control=nxlib.nx_getValue(ser, nxApp.ID_choiceVideoDur[0], nxApp.ID_choiceVideoDur[1])
-        freq=nxlib.nx_getText(ser, nxApp.ID_freqPics[0], nxApp.ID_freqPics[1])
-        max_vid_dur=nxlib.nx_getText(ser, nxApp.ID_maxVideoDur[0], nxApp.ID_maxVideoDur[1])
-        interval = nxlib.nx_getText(ser, nxApp.ID_interval[0], nxApp.ID_interval[1])
         t_movie = movie.makemovie(picsLocation, testname[:-4], control, freq, max_vid_dur, elapsed, interval)
         t_movie.start()
 
-        if nxlib.nx_getValue(ser, nxApp.ID_delImages[0], nxApp.ID_delImages[1]) == "1":
+        if delImages == 1:
             # delete images
             #todo
             pass
 
-
     # disconnect from database
     test_end() # morse code sounds to alert for final test
-
 
     cur.close()
     con.close()
@@ -448,7 +453,6 @@ def read_display_write(e_rdw): # read and display data in page "record" and writ
     ip = get_ip_address()
     nxlib.nx_setValue(ser, nxApp.ID_status[0], nxApp.ID_status[1], 1)  # green flag
     nxlib.nx_setText(ser, nxApp.ID_ip[0], nxApp.ID_ip[1], ip)
-
 
 ##################
 # update all inputs previous 'analog' and 'sensors' page
@@ -488,9 +492,7 @@ def input_update():
         inp['flowmeter_type'] = '2'
     inp['cf'] = nxlib.nx_getText(ser, nxApp.ID_cf[0], nxApp.ID_cf[1])
 
-
     # timelapse
-
     doTimeLapse = nxlib.nx_getValue(ser, nxApp.ID_doTimeLapse[0], nxApp.ID_doTimeLapse[1])
     if doTimeLapse == 1: #checkbox selected
         inp['timelapse'] = 'yes'
