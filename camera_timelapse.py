@@ -44,7 +44,3 @@ class capture(threading.Thread):
         self.CaptureImage()
 
 
-def delImages(picsLocation):
-    for f in os.listdir(picsLocation):
-        if re.search(".jpg", f):  # if the file has the extension .jpg
-            os.remove(os.path.join(picsLocation, f))  #remove the file

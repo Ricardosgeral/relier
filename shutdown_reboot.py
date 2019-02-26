@@ -12,4 +12,4 @@ def reboot_pi():
 
 def shutdown_pi():
     nxlib.nx_setsys(ser, 'bkcmd',0)     # sets in NEXTION 'no return error/success codes'
-    nxlib.nx_setcmd_1par(ser,'page',10)  # sends screen to page 9 "shutdown"
+    nxlib.nx_setcmd_1par(ser,'page',11)  # sends screen to page 9 "shutdown"

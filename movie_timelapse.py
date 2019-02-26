@@ -2,9 +2,11 @@ import os
 import threading
 import subprocess
 import datetime
+import re
+
 class makemovie(threading.Thread):
 
-    def __init__(self, picsLocation, testname, control, freq, max_vid_dur, elapsed, interval):
+    def __init__(self, picsLocation, testname, control, freq, max_vid_dur, elapsed, interval, delImages):
         # initialize the inherited Thread object
         threading.Thread.__init__(self)
         self.daemon = True
@@ -15,6 +17,7 @@ class makemovie(threading.Thread):
         self.max_vid_dur=max_vid_dur
         self.elapsed=elapsed
         self.interval=interval
+        self.delImages = delImages
         # create a data lock
         self.my_lock = threading.Lock()
 
@@ -32,5 +35,11 @@ class makemovie(threading.Thread):
         process.wait(timeout=10)
         print('time-lapse movie done')
 
+        # delete images if desired
+        if self.delImages == 1:
+            for f in os.listdir(self.picsLocation):
+                if re.search(".jpg", f):  # if the file has the extension .jpg
+                    os.remove(os.path.join(self.picsLocation, f))  # remove the file
+            print('time-lapse images deleted')
     def run(self):
         self.MovieMaker()

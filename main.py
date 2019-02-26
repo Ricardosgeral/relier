@@ -357,10 +357,10 @@ def read_display_write(e_rdw): # read and display data in page "record" and writ
 
     # check if timelapse, movie and delete photos are selected
     doTimelapse = nxlib.nx_getValue(ser, nxApp.ID_doTimeLapse[0], nxApp.ID_doTimeLapse[1])   # 1 = yes
-    doMovie     = nxlib.nx_getValue(ser, nxApp.ID_doVideo[0], nxApp.ID_doVideo[1])
-    delImages   = nxlib.nx_getValue(ser, nxApp.ID_delImages[0], nxApp.ID_delImages[1])
+    doMovie     = nxlib.nx_getValue(ser, nxApp.ID_doVideo[0], nxApp.ID_doVideo[1])           # 1 = yes
+    delImages   = nxlib.nx_getValue(ser, nxApp.ID_delImages[0], nxApp.ID_delImages[1])       # 1 = yes
     # parameters required for the video
-    control = nxlib.nx_getValue(ser, nxApp.ID_choiceVideoDur[0], nxApp.ID_choiceVideoDur[1])
+    control = nxlib.nx_getValue(ser, nxApp.ID_choiceVideoDur[0], nxApp.ID_choiceVideoDur[1]) # 0 = freq;  1 = max duration
     freq = nxlib.nx_getText(ser, nxApp.ID_freqPics[0], nxApp.ID_freqPics[1])
     max_vid_dur = nxlib.nx_getText(ser, nxApp.ID_maxVideoDur[0], nxApp.ID_maxVideoDur[1])
     interval = nxlib.nx_getText(ser, nxApp.ID_interval[0], nxApp.ID_interval[1])
@@ -432,12 +432,8 @@ def read_display_write(e_rdw): # read and display data in page "record" and writ
     ### time to make video
     if doMovie == 1:
         # make video in a separate thread
-        t_movie = movie.makemovie(picsLocation, testname[:-4], control, freq, max_vid_dur, elapsed, interval)
+        t_movie = movie.makemovie(picsLocation, testname[:-4], control, freq, max_vid_dur, elapsed, interval, delImages)
         t_movie.start()
-
-        if delImages == 1:
-            # delete images
-            cm.delImages(picsLocation)
 
     # disconnect from database
     test_end() # morse code sounds to alert for final test
