@@ -295,12 +295,23 @@ def read_display(e_rd): #read and display data in page "sensors"
                           inp['flowmeter_type'], inp['cf'])
         display_analog(data)
         #sleep(int(inp['interval']))
+        nxlib.nx_setText(ser, nxApp.ID_videoDur[0], nxApp.ID_videoDur[1], "")
         sleep(1)  # in read_display
 ##################
 
 def read_display_write(e_rdw): # read and display data in page "record" and write to file
     global stop, con, cur
-    global takephoto_flag
+
+    # check if timelapse, movie and delete photos are selected
+    doTimelapse = nxlib.nx_getValue(ser, nxApp.ID_doTimeLapse[0], nxApp.ID_doTimeLapse[1])   # 1 = yes
+    doMovie     = nxlib.nx_getValue(ser, nxApp.ID_doVideo[0], nxApp.ID_doVideo[1])           # 1 = yes
+    delImages   = nxlib.nx_getValue(ser, nxApp.ID_delImages[0], nxApp.ID_delImages[1])       # 1 = yes
+    # parameters required for the video
+    control = nxlib.nx_getValue(ser, nxApp.ID_choiceVideoDur[0], nxApp.ID_choiceVideoDur[1]) # 0 = freq;  1 = max duration
+    freq = nxlib.nx_getText(ser, nxApp.ID_freqPics[0], nxApp.ID_freqPics[1])
+    max_vid_dur = nxlib.nx_getText(ser, nxApp.ID_maxVideoDur[0], nxApp.ID_maxVideoDur[1])
+    interval = nxlib.nx_getText(ser, nxApp.ID_interval[0], nxApp.ID_interval[1])
+
 
     #first, check if HET test is selected
     if inp['test_type'] == '3':  # if HET test is the selection
@@ -355,23 +366,14 @@ def read_display_write(e_rdw): # read and display data in page "record" and writ
         testtype = 'undetermined'
     #####
 
-    # check if timelapse, movie and delete photos are selected
-    doTimelapse = nxlib.nx_getValue(ser, nxApp.ID_doTimeLapse[0], nxApp.ID_doTimeLapse[1])   # 1 = yes
-    doMovie     = nxlib.nx_getValue(ser, nxApp.ID_doVideo[0], nxApp.ID_doVideo[1])           # 1 = yes
-    delImages   = nxlib.nx_getValue(ser, nxApp.ID_delImages[0], nxApp.ID_delImages[1])       # 1 = yes
-    # parameters required for the video
-    control = nxlib.nx_getValue(ser, nxApp.ID_choiceVideoDur[0], nxApp.ID_choiceVideoDur[1]) # 0 = freq;  1 = max duration
-    freq = nxlib.nx_getText(ser, nxApp.ID_freqPics[0], nxApp.ID_freqPics[1])
-    max_vid_dur = nxlib.nx_getText(ser, nxApp.ID_maxVideoDur[0], nxApp.ID_maxVideoDur[1])
-    interval = nxlib.nx_getText(ser, nxApp.ID_interval[0], nxApp.ID_interval[1])
-
+    # print(t1,t2)  # takes to long!!! why? i don't understand
 
     while end_rdw.is_set() == False and time.time() < stop+int(inp['interval']):
         if time.time() < stop+int(inp['interval']):
             LED.greenOn()
             e_rdw.wait()
             current = time.time()
-            elapsed = current - start   # restart thread t_rdw
+            elapsed = current - start   # restart thread t_rdw    ### delta_calculus is to take account the time required to write and read from the nextion!!!
             elapsed = time.strftime("%H:%M:%S", time.gmtime(elapsed))
             autostop =  time.strftime("%H:%M:%S", time.localtime(stop))
             print("write running")
@@ -400,7 +402,6 @@ def read_display_write(e_rdw): # read and display data in page "record" and writ
 
             display_sensors(data)  # display in NEXTION monitor
 
-
             ID_elapsed = nxApp.get_Ids('record', 'txt_duration')
             nxlib.nx_setText(ser, ID_elapsed[0], ID_elapsed[1], elapsed)
             ID_autostop = nxApp.get_Ids('record', 'txt_autostop')
@@ -419,13 +420,11 @@ def read_display_write(e_rdw): # read and display data in page "record" and writ
                 delay=0
 
             # time to timelapse :)
-
             if doTimelapse == 1:
                 # take picture in a different threat
                 t_pics = cm.capture(picsLocation, testname[:-4], testtype, elapsed, data['flow'])
                 t_pics.start()
                 #t_pics.join()  # takes too long. don't use
-
             sleep(float(inp['interval'])-delay)  # Interval between records
 
 
@@ -636,30 +635,48 @@ def detect_touch(e_rd, e_rdw):
 
 
                 elif (pageID_touch, compID_touch) == (5, 21):  # button timelapse is selected (comp21) in page 5 is pressed
+                    print("Enter time-lapse-settings: page= {}, component= {}, event= {}".format(pageID_touch, compID_touch, event_touch))
+                    #stop the reading thread
+                    end_rd.set()
+                    t_rd.join()
+                    e_rd.clear()
+
+                    end_rd.clear()
+                    input_update()
 
                     while True: # this loop is to estimate the duration of the video
-                        ratioVideoTest = float(nxlib.nx_getText(ser, nxApp.ID_ratioVideoTest[0], nxApp.ID_ratioVideoTest[1]))
-                        testDur = float(nxlib.nx_getText(ser, nxApp.ID_testDur[0], nxApp.ID_testDur[1]))
-                        duration_min= testDur/ratioVideoTest  # in minutes
-                        # convert to string in form hh:mm:s
-                        seconds = duration_min * 60
-                        minutes, seconds = divmod(seconds, 60)
-                        hours, minutes = divmod(minutes, 60)
-                        duration_srt = "%02d:%02d:%02d" % (hours, minutes, seconds)
-                        nxlib.nx_setText(ser, nxApp.ID_videoDur[0], nxApp.ID_videoDur[1], duration_srt)
+
                         try:
                             touch = ser.read_until(EndCom)
                             if hex(touch[0]) == '0x65':  # touch event. If it's empty, do nothing
                                 pageID_touch = touch[1]
                                 compID_touch = touch[2]
                                 event_touch = touch[3]
-                                print("page= {}, component= {}, event= {}".format(pageID_touch, compID_touch, event_touch))
 
-                                if (pageID_touch, compID_touch) == (7, 6):
+                                if (pageID_touch, compID_touch) == (7, 6): # leave the time-lapse page and enter the sensors page
+
+                                    #restart the readind thread
+                                    print("Leaving time-lapse settings : page= {}, component= {}, event= {}".format(pageID_touch, compID_touch, event_touch))
+
+                                    t_rd = threading.Thread(target=read_display, name='Read/Display', args=(e_rd,))
+                                    t_rd.start()
+                                    sleep(1)  # necessary to allow enough time to start the 1º read of the ads1115 and sensor temp
+                                    e_rd.set()  # start read_display()
                                     break
                         except:
                             pass
 
+                        ratioVideoTest = float(nxlib.nx_getText(ser, nxApp.ID_ratioVideoTest[0], nxApp.ID_ratioVideoTest[1]))
+                        testDur = float(nxlib.nx_getText(ser, nxApp.ID_testDur[0], nxApp.ID_testDur[1]))
+                        duration_min = testDur / ratioVideoTest  # in minutes
+                        # convert to string in form hh:mm:s
+                        seconds = duration_min * 60
+                        minutes, seconds = divmod(seconds, 60)
+                        hours, minutes = divmod(minutes, 60)
+                        duration_srt = "%02d:%02d:%02d" % (hours, minutes, seconds)
+                        nxlib.nx_setText(ser, nxApp.ID_videoDur[0], nxApp.ID_videoDur[1], duration_srt)
+
+                        sleep(0.8) # for stability
 
                 elif (pageID_touch, compID_touch) == (6, 1):  # back button in flowmeter type selection (comp1) in page 5 is pressed
                 # the idea is to stop and restart the threads so that the eventual new flowmeter type can be active
