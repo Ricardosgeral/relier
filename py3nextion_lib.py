@@ -62,8 +62,10 @@ def nx_getText(ser, pageID, componentID):  # Returns the .txt from a component i
     ser.write((send+EndCom).encode('latin-1'))
     text=ser.read_until(EndCom)
     text = str(text)
-    text = text.lstrip("b\\'p")
-    text = text.rstrip("\\xff\\xff\\xff\\'")
+    text = text[3:]
+    #text = text.lstrip("b\\'p")
+    #text = text.rstrip("\\xff\\xff\\xff\\'")
+    text = text[:-13]
     return text  # as string"
 
 def nx_getValue(ser, pageID, componentID):  # Returns the .val from a component in a page as text

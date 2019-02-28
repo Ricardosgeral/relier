@@ -15,7 +15,11 @@ class makemovie(threading.Thread):
         self.control=control
         self.freq = freq
         self.max_vid_dur=max_vid_dur
-        self.elapsed=elapsed
+        self.fps = 1
+
+        (h, m, s) = elapsed.split(':')
+        self.elapsed = (int(h) * 3600 + int(m) * 60 + int(s))/60   # in minutes
+
         self.interval=interval
         self.delImages = delImages
         # create a data lock
@@ -27,10 +31,10 @@ class makemovie(threading.Thread):
     def MovieMaker(self):
         os.chdir(self.picsLocation)
         if self.control ==1:  ## selected a maximum duration for the video
-            self.freq = (int(self.elapsed)/60)/(int(self.interval)*int(self.max_vid_dur))
+            self.fps = self.elapsed/(int(self.interval)*int(self.max_vid_dur))
         else:
-            self.freq = int(self.freq)
-        command = "ffmpeg -r {} -pattern_type glob -i '*.jpg' -c:v libx264 -s 1280x960 {}/{}_{}.mp4".format(self.freq, self.picsLocation, self.testname, self.getDateTime())
+            self.fps = int(self.freq)
+        command = "ffmpeg -r {} -pattern_type glob -i '*.jpg' -c:v libx264 -s 1280x960 {}/{}_{}.mp4".format(self.fps, self.picsLocation, self.testname, self.getDateTime())
         process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE)  # make video
 
         # delete images if desired

@@ -9,7 +9,7 @@
 
 import threading
 import datetime, subprocess, os
-import re
+
 class capture(threading.Thread):
 
     def __init__(self, picsLocation, testname, testtype, elapsed, flowrate):
