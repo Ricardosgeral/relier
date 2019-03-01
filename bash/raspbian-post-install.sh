@@ -69,6 +69,7 @@ echo '=> Install developer packages'
 #
 sudo apt-get install -y python3-pandas
 sudo apt-get install -y libpq-dev # required to install psycopg2-binary
+sudo apt-get install fswebcam  # required to take the pictures through the USB port
 sudo pip3 install --upgrade pip
 python3 -m pip install --user numpy scipy matplotlib ipython jupyter pandas sympy nose
 sudo pip3 install pygsheets

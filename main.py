@@ -358,6 +358,7 @@ def read_display_write(e_rdw): # read and display data in page "record" and writ
 
     while end_rdw.is_set() == False and time.time() < stop+int(inp['interval']):
         if time.time() < stop+int(inp['interval']):
+            t1=time.time()
             LED.greenOn()
             e_rdw.wait()
             current = time.time()
@@ -402,18 +403,18 @@ def read_display_write(e_rdw): # read and display data in page "record" and writ
                 row += 1
             LED.greenOff()
 
-            if ip != 'No internet connection':
-                delay = 0.16 # interval to write down  the readings--  NOTE: -0.16 s because of the time to write values in the database
-            else:
-                delay=0
-
             # time to timelapse :)
             if doTimelapse == 1:
                 # take picture in a different threat
                 t_pics = cm.capture(picsLocation, testname[:-4], testtype, elapsed, data['flow'])
                 t_pics.start()
                 #t_pics.join()  # takes too long. don't use
-            sleep(float(inp['interval'])-delay-0.012)  # Interval between records # also added a small 0.012 delay
+            t2=time.time()
+            delta=t2-t1
+            if delta >= float(inp['interval']):
+                delta=float(inp['interval'])-0.5 # half second interval if delta is bigger than interval
+
+            sleep(float(inp['interval'])-delta)  # Interval between records
 
 
     ### time to make video
