@@ -106,10 +106,13 @@ if ini['del_images'] in ['yes','Yes','YES','y','Y','yep', 'true', 'True']:
 else:
     nxlib.nx_setValue(ser, nxApp.ID_delImages[0], nxApp.ID_delImages[1],0)
 
-if ini['control_video'] == 0 or ini['control_video'] in ['freq', 'Freq', 'frequency', 'Frequency','fps', 'FPS']:
+if ini['control_video'] == 1 or ini['control_video'] in ['freq', 'Freq', 'frequency', 'Frequency','fps', 'FPS']:
     nxlib.nx_setValue(ser, nxApp.ID_choiceVideoDur[0], nxApp.ID_choiceVideoDur[1], 0)
 else:
     nxlib.nx_setValue(ser, nxApp.ID_choiceVideoDur[0], nxApp.ID_choiceVideoDur[1], 1)
+
+
+
 
 nxlib.nx_setText(ser, nxApp.ID_freqPics[0], nxApp.ID_freqPics[1],ini['freq'])
 nxlib.nx_setText(ser, nxApp.ID_maxVideoDur[0], nxApp.ID_maxVideoDur[1],ini['max_videoDur'])
@@ -307,6 +310,17 @@ def read_display_write(e_rdw): # read and display data in page "record" and writ
     else:
         nxlib.nx_setcmd_2par(ser, 'vis', 'txt_pi', 1)
 
+    # inputs about timelapse, movie and delete photos are selected
+    doTimelapse = nxlib.nx_getValue(ser, nxApp.ID_doTimeLapse[0], nxApp.ID_doTimeLapse[1])  # 1 = yes
+    doMovie = nxlib.nx_getValue(ser, nxApp.ID_doVideo[0], nxApp.ID_doVideo[1])  # 1 = yes
+    delImages = nxlib.nx_getValue(ser, nxApp.ID_delImages[0], nxApp.ID_delImages[1])  # 1 = yes
+    # parameters required for the video
+    control = nxlib.nx_getValue(ser, nxApp.ID_choiceVideoDur[0],
+                                nxApp.ID_choiceVideoDur[1])  # 0 = freq;  1 = max duration
+    freq = nxlib.nx_getText(ser, nxApp.ID_freqPics[0], nxApp.ID_freqPics[1])
+    max_vid_dur = nxlib.nx_getText(ser, nxApp.ID_maxVideoDur[0], nxApp.ID_maxVideoDur[1])
+    interval = nxlib.nx_getText(ser, nxApp.ID_interval[0], nxApp.ID_interval[1])
+
     # first write in the inputs.ini file the inputs (that will be the default values next time)
     rw.write_ini(inp['filename'],inp['googlesh'], inp['share_email'], inp['google_sheets'],
                  inp['duration'],inp['interval'], inp['no_reads'],
@@ -498,7 +512,7 @@ def input_update():
     if choiceVideoDur == 0: #checkbox selected
         inp['control_video'] = 'Frequency'
     else:
-        inp['control_video'] = 'Max_Duration'
+        inp['control_video'] = 'Duration'
 
     inp['freq'] = nxlib.nx_getText(ser, nxApp.ID_freqPics[0], nxApp.ID_freqPics[1])
     inp['max_videoDur'] = nxlib.nx_getText(ser, nxApp.ID_maxVideoDur[0], nxApp.ID_maxVideoDur[1])
@@ -539,16 +553,7 @@ def detect_touch(e_rd, e_rdw):
                     end_rdw.clear()
                     global start, stop, con, cur, doTimelapse, doMovie, delImages, control, freq, max_vid_dur, interval
 
-                    # inputs about timelapse, movie and delete photos are selected
-                    doTimelapse = nxlib.nx_getValue(ser, nxApp.ID_doTimeLapse[0], nxApp.ID_doTimeLapse[1])  # 1 = yes
-                    doMovie = nxlib.nx_getValue(ser, nxApp.ID_doVideo[0], nxApp.ID_doVideo[1])  # 1 = yes
-                    delImages = nxlib.nx_getValue(ser, nxApp.ID_delImages[0], nxApp.ID_delImages[1])  # 1 = yes
-                    # parameters required for the video
-                    control = nxlib.nx_getValue(ser, nxApp.ID_choiceVideoDur[0],
-                                                nxApp.ID_choiceVideoDur[1])  # 0 = freq;  1 = max duration
-                    freq = nxlib.nx_getText(ser, nxApp.ID_freqPics[0], nxApp.ID_freqPics[1])
-                    max_vid_dur = nxlib.nx_getText(ser, nxApp.ID_maxVideoDur[0], nxApp.ID_maxVideoDur[1])
-                    interval = nxlib.nx_getText(ser, nxApp.ID_interval[0], nxApp.ID_interval[1])
+
 
                     input_update()
                     srv.init(int(inp['interval']),

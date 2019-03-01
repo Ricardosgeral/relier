@@ -32,11 +32,11 @@ class capture(threading.Thread):
            os.makedirs(self.picsLocation)
         #take the actual photo
         try:
-                 command = 'fswebcam -i 0 -d v4l2:/dev/video0 -r 1280x960 -fps 20 -S 5 --jpeg 95 --set brightness=55% --set lights=on  --top-banner --font sans:28 --timestamp "%Y-%m-%d %H:%M" ' \
+                 command = 'fswebcam -i 0 -d v4l2:/dev/video0 -r 1280x960 -fps 20 -S 5 --top-banner --font sans:28 --timestamp "%Y-%m-%d %H:%M" ' \
                          ' --title "{} hh:mm:ss" --subtitle "{} liters/hour" ' \
-                         ' --info "Test name: {} | Type: {} " --save {}/{}.jpg'.format(self.elapsed, self.flowrate ,self.testname, self.testtype, self.picsLocation, self.getDateTime())
+                         ' --info "Test name: {} | Type: {}" --save {}/{}.jpg'.format(self.elapsed, self.flowrate ,self.testname, self.testtype, self.picsLocation, self.getDateTime())
                  process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE)  # take snap
-                 process.wait(timeout=2)
+                 process.wait(timeout=0)
         except:
                  pass
 

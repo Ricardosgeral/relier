@@ -42,6 +42,11 @@ class makemovie(threading.Thread):
             poll = process.poll()
             if poll != None:  # A None value indicates that the process hasn't terminated yet.
                 print('time-lapse movie done')
+                try:
+                    os.remove(os.path.join("/home/pi/relier", "20"))  ## fswebcam creates this temporary file
+                    os.remove(os.path.join("/home/pi/relier", "30"))  ## fswebcam creates this temporary file
+                except:
+                    pass
                 if self.delImages == 1:   # delete the photos
                     for f in os.listdir(self.picsLocation):
                         if re.search(".jpg", f):  # if the file has the extension .jpg

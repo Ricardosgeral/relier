@@ -1,4 +1,6 @@
-#uncoment lines below to use the examples in the bottom of file
+#! /usr/bin/python3
+# -*- coding: utf-8 -*-
+#Ricardos.geral@gmail.com
 
 import serial
 BAUD =38400   # for new monitor please put 9600 and then run nx_setsys(ser, 'bauds', newBAUD)
@@ -90,7 +92,7 @@ def nx_setValue(ser, pageID, componentID, value):  # writes the value in the num
     return None
 
 
-####### examples of usage (uncommrnt the top part)
+####### examples of usage
 
 #nx_setsys(ser, 'bauds', BAUD)  # set default baud
 
