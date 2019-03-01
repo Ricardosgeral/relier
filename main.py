@@ -413,7 +413,7 @@ def read_display_write(e_rdw): # read and display data in page "record" and writ
                 t_pics = cm.capture(picsLocation, testname[:-4], testtype, elapsed, data['flow'])
                 t_pics.start()
                 #t_pics.join()  # takes too long. don't use
-            sleep(float(inp['interval'])-delay)  # Interval between records
+            sleep(float(inp['interval'])-delay-0.012)  # Interval between records # also added a small 0.012 delay
 
 
     ### time to make video
