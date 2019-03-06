@@ -112,8 +112,6 @@ else:
     nxlib.nx_setValue(ser, nxApp.ID_choiceVideoDur[0], nxApp.ID_choiceVideoDur[1], 1)
 
 
-
-
 nxlib.nx_setText(ser, nxApp.ID_freqPics[0], nxApp.ID_freqPics[1],ini['freq'])
 nxlib.nx_setText(ser, nxApp.ID_maxVideoDur[0], nxApp.ID_maxVideoDur[1],ini['max_videoDur'])
 
@@ -125,7 +123,6 @@ videoDur=round(int(ini['duration'])/ratioVideoTest,1)
 nxlib.nx_setText(ser, nxApp.ID_videoDur[0], nxApp.ID_videoDur[1], str(videoDur))
 
 nxlib.nx_setText(ser, nxApp.ID_testDur[0], nxApp.ID_testDur[1],ini['duration'])
-
 
 
 ##########
@@ -433,8 +430,10 @@ def read_display_write(e_rdw): # read and display data in page "record" and writ
 
     ### time to make video
     if doMovie == 1:
+        nxlib.nx_setcmd_1par(ser,'page', 15)
         # make video in a separate thread
-        t_movie = movie.makemovie(picsLocation, testname[:-4], control, freq, max_vid_dur, elapsed, interval, delImages)
+        ip = get_ip_address()
+        t_movie = movie.makemovie(picsLocation, testname[:-4], control, freq, max_vid_dur, elapsed, interval, delImages, ip)
         t_movie.start()
 
     # disconnect from database
@@ -446,10 +445,11 @@ def read_display_write(e_rdw): # read and display data in page "record" and writ
     end_rdw.set()
     e_rdw.clear()
 
-    nxlib.nx_setcmd_1par(ser, 'page', 'credits')
-    ip = get_ip_address()
-    nxlib.nx_setValue(ser, nxApp.ID_status[0], nxApp.ID_status[1], 1)  # green flag
-    nxlib.nx_setText(ser, nxApp.ID_ip[0], nxApp.ID_ip[1], ip)
+    if doMovie != 1:
+        nxlib.nx_setcmd_1par(ser, 'page','credits')
+        ip = get_ip_address()
+        nxlib.nx_setValue(ser, nxApp.ID_status[0], nxApp.ID_status[1], 1)  # green flag
+        nxlib.nx_setText(ser, nxApp.ID_ip[0], nxApp.ID_ip[1], ip)
 
 ##################
 # update all inputs previous 'analog' and 'sensors' page
@@ -553,8 +553,6 @@ def detect_touch(e_rd, e_rdw):
                     end_rdw.clear()
                     global start, stop, con, cur, doTimelapse, doMovie, delImages, control, freq, max_vid_dur, interval
 
-
-
                     input_update()
                     srv.init(int(inp['interval']),
                              int(inp['no_reads']),
@@ -650,6 +648,7 @@ def detect_touch(e_rd, e_rdw):
                     end_rd.clear()
                     input_update()
                     while True:
+
                         if nxlib.nx_page(ser)== 7 or nxlib.nx_page(ser) == 12 :  # page 12 is the keyboard
                             ratioVideoTest = float(nxlib.nx_getText(ser, nxApp.ID_ratioVideoTest[0], nxApp.ID_ratioVideoTest[1]))
                             testDur = float(nxlib.nx_getText(ser, nxApp.ID_testDur[0], nxApp.ID_testDur[1]))
@@ -661,14 +660,14 @@ def detect_touch(e_rd, e_rdw):
                             duration_srt = "%02d:%02d:%02d" % (hours, minutes, seconds)
                             nxlib.nx_setText(ser, nxApp.ID_videoDur[0], nxApp.ID_videoDur[1], duration_srt)
 
-                        else:
+                        if nxlib.nx_page(ser)== 5:
 
                             t_rd = threading.Thread(target=read_display, name='Read/Display', args=(e_rd,))
                             t_rd.start()
                             sleep(1)  # necessary to allow enough time to start the 1º read of the ads1115 and sensor temp
                             e_rd.set()  # start read_display()
                             break
-
+                        sleep(0.7) # for stability
 
                 elif (pageID_touch, compID_touch) == (6, 1):  # back button in flowmeter type selection (comp1) in page 5 is pressed
                 # the idea is to stop and restart the threads so that the eventual new flowmeter type can be active
@@ -716,6 +715,11 @@ def detect_touch(e_rd, e_rdw):
                     LED.magentaOn()
                     sleep(1)
                     LED.magentaOff()
+
+                    while True:
+                        if nxlib.nx_page(ser)== 1:
+                            break
+                        sleep(0.3) # for stability
 
                     ip = get_ip_address()
                     nxlib.nx_setValue(ser, nxApp.ID_status[0], nxApp.ID_status[1], 1)  # green flag

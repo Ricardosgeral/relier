@@ -3,6 +3,27 @@
 #    while True:
 #        flag = False
 #        if flag == True:
+
+if doMovie == 1:
+    while True:  ## wait until movie_timelapse ends the movie and set page to 'credits' page 1
+        sleep(0.5)  # for stability
+        if nxlib.nx_page(ser) == 1:
+            break
+
+    ip = get_ip_address()
+    nxlib.nx_setValue(ser, nxApp.ID_status[0], nxApp.ID_status[1], 1)  # green flag
+    nxlib.nx_setText(ser, nxApp.ID_ip[0], nxApp.ID_ip[1], ip)
+
+
+
+
+
+
+
+
+
+
+
 #            print(var_1 + var_2)
 import threading
 import time
