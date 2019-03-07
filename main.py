@@ -333,7 +333,7 @@ def read_display_write(e_rdw): # read and display data in page "record" and writ
         wks = gsh.spreadsheet_worksheet(ssheet_title=inp['googlesh'],
                                         wsheet_title=inp['filename'],
                                         share_email=inp['share_email'])
-
+        #sleep(0.01)
     e_rdw.wait()
     row = 1
     zero_vol = 0
@@ -559,7 +559,11 @@ def detect_touch(e_rd, e_rdw):
                              inp['flowmeter_type'])
                     t_rdw = threading.Thread(target=read_display_write, name='Read/Write/Display', args=(e_rdw,))
                     t_rdw.start()
-                    sleep(1)  # necessary to allow enough time to start the 1º read of the ads1115 and sensor temp
+
+                    if inp['google_sheets'] in ('yes', 'Yes', 'YES', 'y', 'Y', 'yep') and gsh.google_creds == True:
+                        sleep(5)   # necessary to acquire certificate from google
+                    else:
+                        sleep(1)  # necessary to allow enough time to start the 1º read of the ads1115 and sensor temp
 
                     # connect to databases and clean data from tables
                     # deletes all data from the tables in the database
@@ -583,6 +587,9 @@ def detect_touch(e_rd, e_rdw):
                         pass
 
                     e_rdw.set()        #start read_write_display()
+
+
+
                     start = time.time()
                     if int(inp['duration']) == 0:
                         stop = start + 86400 # 'forever', 2 months = 86400 min

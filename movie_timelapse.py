@@ -33,7 +33,7 @@ class makemovie(threading.Thread):
     def MovieMaker(self):
         os.chdir(self.picsLocation)
         if self.control ==1:  ## selected a maximum duration for the video
-            self.fps = self.elapsed/(int(self.interval)*int(self.max_vid_dur))
+            self.fps = self.elapsed/(int(self.interval)*float(self.max_vid_dur))
         else:
             self.fps = int(self.freq)
         command = "ffmpeg -r {} -pattern_type glob -i '*.jpg' -c:v libx264 -s 1280x960 {}/{}_{}.mp4".format(self.fps, self.picsLocation, self.testname, self.getDateTime())
@@ -45,14 +45,15 @@ class makemovie(threading.Thread):
             poll = process.poll()
             if poll != None:  # A None value indicates that the process hasn't terminated yet.
                 print('time-lapse movie done')
+                os.chdir('/home/pi/relier')
                 ## go to credits page
                 nxlib.nx_setcmd_1par(nxlib.ser, 'page', 'credits')
                 nxlib.nx_setValue(nxlib.ser, nxApp.ID_status[0], nxApp.ID_status[1], 1)  # green flag
                 nxlib.nx_setText(nxlib.ser, nxApp.ID_ip[0], nxApp.ID_ip[1], str(self.ip))
 
                 try:
-                    os.remove(os.path.join("/home/pi/relier", "20"))  ## fswebcam creates this temporary file
-                    os.remove(os.path.join("/home/pi/relier", "30"))  ## fswebcam creates this temporary file
+                    os.remove(os.path.join('/home/pi/relier', '20'))  ## fswebcam creates this temporary file
+                    os.remove(os.path.join('/home/pi/relier', '30'))  ## fswebcam creates this temporary file
                 except:
                     pass
                 if self.delImages == 1:   # delete images if desired
