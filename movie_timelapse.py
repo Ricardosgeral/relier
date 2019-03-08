@@ -52,6 +52,8 @@ class makemovie(threading.Thread):
                 nxlib.nx_setText(nxlib.ser, nxApp.ID_ip[0], nxApp.ID_ip[1], str(self.ip))
 
                 try:
+                    os.remove(os.path.join('/home/pi/relier', '0'))  ## fswebcam creates this temporary file
+                    os.remove(os.path.join('/home/pi/relier', '10'))  ## fswebcam creates this temporary file
                     os.remove(os.path.join('/home/pi/relier', '20'))  ## fswebcam creates this temporary file
                     os.remove(os.path.join('/home/pi/relier', '30'))  ## fswebcam creates this temporary file
                 except:

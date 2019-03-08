@@ -422,14 +422,15 @@ def read_display_write(e_rdw): # read and display data in page "record" and writ
                 #t_pics.join()  # takes too long. don't use
             t2=time.time()
             delta=t2-t1
-            if delta >= float(inp['interval']):
-                delta=float(inp['interval'])-0.5 # half second interval if delta is bigger than interval
 
+            if delta >= float(inp['interval']):
+                delta=float(inp['interval'])
             sleep(float(inp['interval'])-delta)  # Interval between records
 
 
     ### time to make video
     if doMovie == 1:
+        sleep(1)
         nxlib.nx_setcmd_1par(ser,'page', 15)
         # make video in a separate thread
         ip = get_ip_address()
