@@ -17,7 +17,7 @@ ser.reset_output_buffer()
 EndCom = "\xff\xff\xff"
 
 def nx_setsys(ser, sysvar,value):  # Set system variables. sysvar as text. example: sysvar='dim'
-    #Possible commands: 'bkcmd', 'dp', 'dim', 'dims', 'baud', 'bauds','ussp', 'thsp', 'thup', 'delay', 'sleep'
+    #Possible commands: 'bkcmd', 'dp', 'dim', 'dims', 'baud', 'bauds', 'ussp', 'thsp', 'thup', 'delay', 'sleep'
     # see instruction set of NEXTION device to see possible values for each system variable
     set = sysvar + '=' + str(value)
     ser.write((set+EndCom).encode('latin-1'))

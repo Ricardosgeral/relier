@@ -308,6 +308,7 @@ def read_display_write(e_rdw): # read and display data in page "record" and writ
         nxlib.nx_setcmd_2par(ser, 'vis', 'txt_pi', 1)
 
     # inputs about timelapse, movie and delete photos are selected
+
     doTimelapse = nxlib.nx_getValue(ser, nxApp.ID_doTimeLapse[0], nxApp.ID_doTimeLapse[1])  # 1 = yes
     doMovie = nxlib.nx_getValue(ser, nxApp.ID_doVideo[0], nxApp.ID_doVideo[1])  # 1 = yes
     delImages = nxlib.nx_getValue(ser, nxApp.ID_delImages[0], nxApp.ID_delImages[1])  # 1 = yes
