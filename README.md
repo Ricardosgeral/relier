@@ -492,7 +492,7 @@ The acquisition system server should be connected to the internet before the sta
 
 The picture below shows the the app layout, which is accessed at the site ***https://APP_NAME.herokuapp.com*** (you should choose the <APP_NAME>)
  
-![relier-web](Media/images/relier-web/relier_web_example1.png)
+![relier-web](Media/images/relier-web/relier_web_example1.PNG)
 
 ## 5. Inputs file: *inputs.ini*
 
