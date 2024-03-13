@@ -555,7 +555,7 @@ However, they will always appear in their respective sections.
 That is, for example, the parameter *interval* will always appear in section [settings], 
 but may appear at any position inside its section.
 
-## 6. Turbidity calibration: *calibturb.txt* 
+## 6. Turbidity calibration 
 
 The calibration of the turbidity sensor is made mixing successive portions of soil with a know quantity of water. 
 The water used in calibration should of the same nature and chemistry of the one that will be used in the soil tests. 
