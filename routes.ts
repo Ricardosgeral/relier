@@ -19,7 +19,7 @@ export const authRoutes = [
 ];
 
 /**
- * The prefix for API authentication routes z
+ * The prefix for API authentication routes
  * Routes that start with this prefix are used for API authentication
  * @type{string}
  */
