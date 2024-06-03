@@ -8,7 +8,7 @@ export default function NavLinks() {
   //console.log(pathname);
 
   return (
-    <div className="flex flex-col justify-center items-center space-y-2 pr-1">
+    <div className="flex flex-col items-center justify-center space-y-2 pr-1">
       {sidebarLinks.map((item) => {
         const isActive =
           pathname === item.route || pathname.startsWith(`${item.route}/`);
@@ -17,8 +17,8 @@ export default function NavLinks() {
           <Link className="w-full" href={item.route} key={item.label}>
             <div
               className={cn(
-                "flex font-semibold w-full items-center rounded-r-full p-2 justify-end space-x-2 xl:justify-end hover:text-yellow-500",
-                { "bg-black text-white": isActive },
+                "flex w-full items-center justify-end space-x-2 rounded-r-full p-2 font-semibold hover:text-yellow-500 xl:justify-end",
+                { "bg-black text-white dark:bg-yellow-500": isActive },
               )}
             >
               <p className={cn("sidebar-label", { "text-white": isActive })}>

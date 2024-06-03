@@ -1,10 +1,5 @@
 "use client";
 
-import { cn } from "@/lib/utils";
-import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { UserAvatar } from "./auth/user-avatar";
 import NavLinks from "./nav-links";
 import LogoApp from "./logo-app";
 import { ModeToggle } from "./theme-toggle";
@@ -13,11 +8,11 @@ export const Sidebar = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <section className="sticky left-0 top-0 flex flex-col h-screen items-center justify-between py-4 max-md:hidden border-r border-gray-300 text-black">
+    <section className="sticky left-0 top-0 flex h-screen flex-col flex-wrap items-center justify-between border-r border-gray-300 py-4 text-black dark:dark:text-slate-200 max-md:hidden">
       <LogoApp square={true} />
       <NavLinks />
       <ModeToggle />
-      <div className="text-xs text-gray-900 dark:text-gray-200 p-2">
+      <div className="p-2 text-xs text-gray-900 dark:text-slate-200">
         © {currentYear} Ricardos
       </div>
     </section>

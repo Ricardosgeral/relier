@@ -13,9 +13,12 @@ import { usePathname } from "next/navigation";
 import { HamburgerMenuIcon } from "@radix-ui/react-icons";
 import { UserAvatar } from "./auth/user-avatar";
 import LogoApp from "./logo-app";
+import { ModeToggle } from "./theme-toggle";
+import useDarkMode from "@/hooks/use-dark-mode";
 
 const MobileNav = () => {
   const pathname = usePathname();
+  const isDarkModeOn = useDarkMode();
 
   return (
     <Sheet>
@@ -24,10 +27,10 @@ const MobileNav = () => {
       </SheetTrigger>
       <SheetContent
         side="left"
-        className="border-none bg-white flex flex-col justify-between pl-0 pr-1 w-1/4 max-w-[250px] min-w-[130px]"
+        className="flex w-1/4 min-w-[150px] max-w-[250px] flex-col justify-between border-none bg-background pl-0 pr-1"
       >
-        <LogoApp square={true} />
-        <div className="flex flex-col space-y-2 w-full">
+        <LogoApp square={true} negative={isDarkModeOn} />
+        <div className="flex w-full flex-col space-y-2">
           {sidebarLinks.map((item) => {
             const isActive =
               pathname === item.route || pathname.startsWith(`${item.route}/`);
@@ -37,8 +40,8 @@ const MobileNav = () => {
                 <SheetClose asChild key={item.route}>
                   <div
                     className={cn(
-                      "flex font-semibold w-full items-center rounded-r-full p-2 justify-end space-x-2 xl:justify-end hover:text-yellow-500",
-                      { "bg-black text-white": isActive },
+                      "flex w-full items-center justify-end space-x-2 rounded-r-full p-2 font-semibold hover:text-yellow-500 xl:justify-end",
+                      { "bg-black text-white dark:bg-yellow-500": isActive },
                     )}
                   >
                     <p
@@ -64,6 +67,9 @@ const MobileNav = () => {
               </Link>
             );
           })}
+        </div>
+        <div className="flex justify-center">
+          <ModeToggle />
         </div>
         <div className="overflow-hidden py-2">
           <UserAvatar isPhotoLeft={true} />

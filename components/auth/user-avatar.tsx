@@ -12,13 +12,10 @@ import {
 
 import {
   Dialog,
-  DialogClose,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
 
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
@@ -41,33 +38,23 @@ export function UserAvatar({
   const user = useCurrentUser();
   const [avatarUrl, setAvatarUrl] = useState(user?.image || undefined);
 
-  useEffect(() => {
-    setAvatarUrl(user?.image || undefined);
-  }, [user?.image]);
-
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const router = useRouter();
-
-  const handleDialogClose = () => {
-    // Do something after the dialog is closed
-    router.refresh();
-    // Perform any action here
-  };
 
   return (
     <div
       className={
         isPhotoLeft
-          ? "flex flex-row-reverse gap-x-2 px-2 justify-end"
+          ? "flex flex-row-reverse justify-end gap-x-2 px-2"
           : "flex gap-x-3"
       }
     >
       {justPhoto ? (
         <div>
-          <Avatar>
+          <Avatar className="ring-1 ring-foreground/80 hover:ring-2 hover:ring-yellow-500 hover:ring-offset-2">
             <AvatarImage className="object-cover" src={avatarUrl} />
-            <AvatarFallback className="bg-yellow-500 text-white shadow-xl ">
+            <AvatarFallback className="bg-yellow-500 text-white shadow-xl">
               {!user?.name ? (
                 <FaUser />
               ) : (
@@ -82,7 +69,7 @@ export function UserAvatar({
         <>
           <div className="flex items-center overflow-hidden">
             {user?.name && (
-              <h1 className="truncate overflow-ellipsis text-sm text-slate-600">
+              <h1 className="truncate overflow-ellipsis text-sm text-foreground/80">
                 {user?.name.trim().split(/\s+/)[0]}
               </h1>
             )}
@@ -90,7 +77,7 @@ export function UserAvatar({
           <DropdownMenu>
             <DropdownMenuTrigger>
               <div>
-                <Avatar className="hover:ring-2 hover:ring-offset-2 hover:ring-yellow-500">
+                <Avatar className="ring-1 ring-foreground/80 hover:ring-2 hover:ring-yellow-500 hover:ring-offset-2">
                   <AvatarImage className="object-cover" src={avatarUrl} />
                   <AvatarFallback className="bg-yellow-500 text-white shadow-xl hover:bg-yellow-500/80">
                     {!user?.name ? (
@@ -105,23 +92,23 @@ export function UserAvatar({
               </div>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="min-w-[110px]" align="end">
-              <p className="text-yellow-600 text-xs px-1 font-semibold">
+              <p className="px-1 text-xs font-semibold text-yellow-600">
                 {user?.email?.toString()}
               </p>
               <DropdownMenuItem>
                 <Button
                   variant="ghost"
-                  className="flex w-full items-center justify-start pl-2 h-8"
+                  className="flex h-8 w-full items-center justify-start pl-2"
                   onClick={() => setIsDialogOpen(true)}
                 >
-                  <LuSettings className="h-4 w-4 mr-1" />
+                  <LuSettings className="mr-1 h-4 w-4" />
                   Account
                 </Button>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <Button variant="ghost" className="w-full h-8 pl-2">
-                  <LogoutButton className="flex w-full items-center justify-start ">
-                    <ExitIcon className="h-4 w-4 mr-1" />
+                <Button variant="ghost" className="h-8 w-full pl-2">
+                  <LogoutButton className="flex w-full items-center justify-start">
+                    <ExitIcon className="mr-1 h-4 w-4" />
                     Logout
                   </LogoutButton>
                 </Button>
@@ -129,7 +116,7 @@ export function UserAvatar({
             </DropdownMenuContent>
           </DropdownMenu>
           <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-            <DialogContent className="sm:max-w-md h-screen overflow-y-auto scrollbar-hide">
+            <DialogContent className="scrollbar-hide h-screen overflow-y-auto sm:max-w-md">
               <DialogHeader>
                 <DialogTitle>Account settings</DialogTitle>
                 <DialogDescription>

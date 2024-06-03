@@ -15,9 +15,9 @@ const HeaderBox = ({
   user,
 }: HeaderBoxProps) => {
   return (
-    <div className="flex justify-between items-stretch">
-      <div className="flex flex-row md:flex-col gap-y-1 gap-x-3 items-baseline justify-between">
-        <h1 className="text-xl md:text-xl font-semibold text-slate-800">
+    <div className="flex items-stretch justify-between">
+      <div className="flex flex-row items-baseline justify-between gap-x-3 gap-y-1 md:flex-col">
+        <h1 className="text-xl font-semibold text-foreground/90 md:text-xl">
           {title}
           {type === "greeting" && (
             <span className="text-20 lg:text-32 font-sans font-semibold text-yellow-500">
@@ -25,7 +25,7 @@ const HeaderBox = ({
             </span>
           )}
         </h1>
-        <p className="text-sm md:text-md  text-slate-500 font-semibold">
+        <p className="md:text-md text-sm font-semibold text-foreground/70">
           {subtext}
         </p>
       </div>

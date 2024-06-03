@@ -36,15 +36,15 @@ import { UserRole } from "@prisma/client";
 import { deleteAccount } from "@/actions/delete-account";
 import { Badge } from "@/components/ui/badge";
 import { setName } from "@/actions/set-name";
-import HeaderBox from "@/components/header-box";
 import { UploadButton } from "@/app/utils/uploadthing";
 import { useToast } from "@/components/ui/use-toast";
 import Image from "next/image";
 import { LuLoader2, LuTrash2 } from "react-icons/lu";
 import { deleteProfilePhoto } from "@/actions/delete-profile-photo";
-
+import { useRouter } from "next/navigation";
 export default function AccountSettings() {
   const user = useCurrentUser();
+  const router = useRouter();
 
   const [image, setImage] = useState(user?.image || "");
 
@@ -66,8 +66,8 @@ export default function AccountSettings() {
   const formName = useForm<z.infer<typeof NameSchema>>({
     resolver: zodResolver(NameSchema),
     defaultValues: {
-      name: user?.name || undefined,
-      image: user?.image || undefined,
+      name: user?.name || "",
+      image: user?.image || "",
       role: user?.role || "USER",
     },
   });
@@ -90,7 +90,9 @@ export default function AccountSettings() {
   });
 
   const onSubmitName = (values: z.infer<typeof NameSchema>) => {
+    router.refresh();
     startTransition(() => {
+      console.log(values.image);
       setName(values)
         .then((data) => {
           if (data.error) {
@@ -167,18 +169,18 @@ export default function AccountSettings() {
   };
 
   return (
-    <section className="flex flex-col  w-full h-full gap-y-3">
+    <section className="flex h-full w-full flex-col gap-y-3">
       <Card className="p-2">
         <CardHeader>
-          <p className="text-md font-semibold text-center">👷🏼‍♂️ Profile</p>
+          <p className="text-md text-center font-semibold">👷🏼‍♂️ Profile</p>
         </CardHeader>
         <CardContent className="flex items-center">
-          <p className="text-xs font-semibold pr-2">id</p>
+          <p className="pr-2 text-xs font-semibold">id</p>
           <Badge variant={"secondary"}>{user?.id?.toString()}</Badge>
         </CardContent>
         {user?.isOAuth && (
           <CardContent className="flex items-center">
-            <p className="text-xs font-semibold pr-2">email</p>
+            <p className="pr-2 text-xs font-semibold">email</p>
             <Badge variant={"secondary"}>{user?.email?.toString()}</Badge>
           </CardContent>
         )}
@@ -189,23 +191,6 @@ export default function AccountSettings() {
               onSubmit={formName.handleSubmit(onSubmitName)}
             >
               <div className="space-y-4">
-                <FormField
-                  control={formName.control}
-                  name="name"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Name</FormLabel>
-                      <FormControl>
-                        <Input
-                          {...field}
-                          placeholder="name"
-                          disabled={isPending}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
                 {!user?.isOAuth && (
                   <FormField
                     control={formName.control}
@@ -216,21 +201,21 @@ export default function AccountSettings() {
                         <FormControl>
                           <div className="flex w-full justify-center">
                             {image ? (
-                              <div className="relative w-52 h-52 border-1 ">
+                              <div className="border-1 relative h-52 w-52">
                                 <Image
                                   src={image}
                                   sizes="(max-width: 200px) 100vw, (max-width: 400px) 50vw, 33vw"
                                   alt="profile image"
                                   fill
                                   objectFit="cover"
-                                  className="object-cover border-2 rounded-full"
+                                  className="rounded-full border-2 object-cover"
                                 />
                                 <Button
                                   onClick={() => handleImageDelete(image)}
                                   type="button"
                                   size="icon"
                                   variant="outline"
-                                  className="absolute left-[-10px] bottom-0 rounded-full"
+                                  className="absolute bottom-0 left-[-10px] rounded-full"
                                 >
                                   {imageIsDeleting ? (
                                     <LuLoader2 />
@@ -241,10 +226,7 @@ export default function AccountSettings() {
                               </div>
                             ) : (
                               <>
-                                <div
-                                  className="flex justify-center w-52 h-52 pt-6 border  rounded-full
-                                border-slate-200"
-                                >
+                                <div className="flex h-52 w-52 justify-center rounded-full border border-slate-200 pt-6">
                                   <UploadButton
                                     content={{
                                       button({ ready, isUploading }) {
@@ -261,9 +243,7 @@ export default function AccountSettings() {
                                           return "Please wait...";
                                       },
                                     }}
-                                    className="flex items-center ut-button:bg-yellow-500 ut-button:h-8 ut-button:ut-readying:bg-yellow-500/50 ut-button:ring-1 
-                  ut-button:text-sm ut-button:font-semibold ut-button:ring-yellow-500 after:ut-button:bg-yellow-200/50
-                   after:ut-button:text-black"
+                                    className="flex items-center ut-button:h-8 ut-button:bg-yellow-500 ut-button:text-sm ut-button:font-semibold ut-button:ring-1 ut-button:ring-yellow-500 after:ut-button:bg-yellow-200/50 after:ut-button:text-black ut-button:ut-readying:bg-yellow-500/50"
                                     endpoint="profilePhotoUploader"
                                     onClientUploadComplete={(res) => {
                                       const imageUrl = res[0].url;
@@ -310,6 +290,25 @@ export default function AccountSettings() {
                     )}
                   />
                 )}
+
+                <FormField
+                  control={formName.control}
+                  name="name"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Name</FormLabel>
+                      <FormControl>
+                        <Input
+                          {...field}
+                          placeholder="name"
+                          disabled={isPending}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
                 <FormField
                   control={formName.control}
                   name="role"
@@ -351,7 +350,7 @@ export default function AccountSettings() {
       {!user?.isOAuth && (
         <Card className="p-2">
           <CardHeader>
-            <p className="text-md font-semibold text-center">🔐 Security</p>
+            <p className="text-md text-center font-semibold">🔐 Security</p>
           </CardHeader>
           <CardContent>
             <Form {...form}>
@@ -422,7 +421,7 @@ export default function AccountSettings() {
                         control={form.control}
                         name="isTwoFactorEnabled"
                         render={({ field }) => (
-                          <FormItem className="flex flex-row itens-center justify-between rounded-md shadow-sm">
+                          <FormItem className="itens-center flex flex-row justify-between rounded-md shadow-sm">
                             <div className="space-y-0.5">
                               <FormLabel> Two Factor Authentication</FormLabel>
                               <FormDescription>
@@ -455,9 +454,11 @@ export default function AccountSettings() {
           </CardContent>
         </Card>
       )}
-      <Card className=" bg-red-100 p-2">
+      <Card className="bg-red-100 p-2">
         <CardHeader>
-          <p className="text-md font-semibold text-center">⚡ Danger</p>
+          <p className="text-md text-center font-semibold dark:text-background/70">
+            ⚡ Danger
+          </p>
         </CardHeader>
         <CardContent className="">
           <Form {...formDelete}>
@@ -477,11 +478,14 @@ export default function AccountSettings() {
                             Delete Account <span> 😟</span>
                           </h1>
 
-                          <div className="flex flex-col space-y-4">
+                          <div className="flex flex-col space-y-4 dark:text-background/70">
                             <span>This action cannot be undone.</span>
-                            <span className="font-normal text-sm">
+                            <span className="text-sm font-normal">
                               To delete your account, write{" "}
-                              <Badge className="inline-flex" variant="outline">
+                              <Badge
+                                className="inline-flex dark:bg-red-200 dark:text-background/50"
+                                variant="outline"
+                              >
                                 DELETE
                               </Badge>
                             </span>

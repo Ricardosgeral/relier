@@ -1,8 +1,8 @@
-import { setName } from "@/actions/set-name";
 import { currentUser } from "@/lib/auth";
 import { createUploadthing, type FileRouter } from "uploadthing/next";
 import { UploadThingError } from "uploadthing/server";
 import { db } from "@/lib/db";
+import { setName } from "@/actions/set-name";
 
 const f = createUploadthing();
 
@@ -56,6 +56,7 @@ export const ourFileRouter = {
       //console.log("Upload complete for userId:", metadata.userId);
       //console.log("file url", file.url);
       // !!! Whatever is returned here is sent to the clientside `onClientUploadComplete` callback
+      await setName({ image: file.url });
       return { uploadedBy: metadata.userId };
     }),
 } satisfies FileRouter;

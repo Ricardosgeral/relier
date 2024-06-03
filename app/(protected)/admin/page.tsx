@@ -41,7 +41,7 @@ export default function AdminPage() {
   return (
     <Card className="w-[600px]">
       <CardHeader>
-        <p className="sm:text-sm text-md font-semibold text-center">🔑 Admin</p>
+        <p className="text-md text-center font-semibold">🔑 Admin</p>
       </CardHeader>
       <CardContent className="space-y-2">
         <RoleGate allowedRole={UserRole.ADMIN}>
