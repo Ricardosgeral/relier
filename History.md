@@ -20,3 +20,4 @@
 
  * Object.defineProperty() sucks
  * Initial commit
+*
