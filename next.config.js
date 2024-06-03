@@ -32,6 +32,11 @@ const config = {
   logging: {
     fetches:{fullUrl:true}
   },
+  compiler: {
+    styledComponents: {
+      ssr:true,
+    }
+  }
 
 }
  
