@@ -22,7 +22,7 @@ import { getTwoFactorConfirmationByUserId } from "@/data/two-factor-confirmation
 
 export const login = async (
   values: z.infer<typeof LoginSchema>,
-  callbackUrl?: string | null
+  callbackUrl?: string | null,
 ) => {
   const validateFields = LoginSchema.safeParse(values);
 
@@ -40,12 +40,12 @@ export const login = async (
 
   if (!existingUser.emailVerified) {
     const verificationToken = await generateVerificationToken(
-      existingUser.email
+      existingUser.email,
     );
     //resend verification token email
     await sendVerificationEmail(
       verificationToken.email,
-      verificationToken.token
+      verificationToken.token,
     );
 
     return { success: "Sent again! Check your email!" };
@@ -68,7 +68,7 @@ export const login = async (
       await db.twoFactorToken.delete({ where: { id: twoFactorToken.id } });
 
       const existingConfirmation = await getTwoFactorConfirmationByUserId(
-        existingUser.id
+        existingUser.id,
       );
 
       if (existingConfirmation) {

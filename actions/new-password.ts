@@ -9,7 +9,7 @@ import { getPasswordResetTokenByToken } from "@/data/password-reset-token";
 
 export const newPassword = async (
   values: z.infer<typeof NewPasswordSchema>,
-  token: string | null
+  token: string | null,
 ) => {
   if (!token) return { error: "Missing token!" };
 

@@ -38,7 +38,7 @@ const MobileNav = () => {
                   <div
                     className={cn(
                       "flex font-semibold w-full items-center rounded-r-full p-2 justify-end space-x-2 xl:justify-end hover:text-yellow-500",
-                      { "bg-black text-white": isActive }
+                      { "bg-black text-white": isActive },
                     )}
                   >
                     <p

@@ -2,7 +2,7 @@
 const config = {
   experimental: {
     serverActions: {
-      bodySizeLimit: '4mb',
+      bodySizeLimit: "4mb",
     },
   },
   images: {
@@ -11,33 +11,30 @@ const config = {
         protocol: "https",
         hostname: "utfs.io",
         port: "",
-        pathname:"/**"
-      }, {
-        
+        pathname: "/**",
+      },
+      {
         protocol: "https",
         hostname: "lh3.googleusercontent.com",
         port: "",
-        pathname:"/**"
+        pathname: "/**",
       },
       {
-        
         protocol: "https",
         hostname: "avatars.githubusercontent.com",
         port: "",
-        pathname:"/**"
+        pathname: "/**",
       },
-      
-    ]
+    ],
   },
   logging: {
-    fetches:{fullUrl:true}
+    fetches: { fullUrl: true },
   },
   compiler: {
     styledComponents: {
-      ssr:true,
-    }
-  }
+      ssr: true,
+    },
+  },
+};
 
-}
- 
-module.exports = config
+module.exports = config;

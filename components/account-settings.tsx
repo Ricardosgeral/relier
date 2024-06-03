@@ -120,7 +120,7 @@ export default function AccountSettings() {
   };
 
   const onSubmitDeleteAccount = (
-    values: z.infer<typeof DeleteAccountSchema>
+    values: z.infer<typeof DeleteAccountSchema>,
   ) => {
     startTransition(() => {
       deleteAccount(values)

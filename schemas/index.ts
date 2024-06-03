@@ -31,7 +31,7 @@ export const SettingsSchema = z
     {
       message: "New (or Confirmation) Password is required!",
       path: ["newPassword"],
-    }
+    },
   )
   .refine(
     (data) => {
@@ -43,7 +43,7 @@ export const SettingsSchema = z
     {
       message: "Password is required!",
       path: ["password"],
-    }
+    },
   );
 
 export const NewPasswordSchema = z.object({

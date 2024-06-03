@@ -8,7 +8,7 @@ import { DeleteAccountSchema } from "@/schemas";
 import { signOut } from "@/auth";
 
 export const deleteAccount = async (
-  values: z.infer<typeof DeleteAccountSchema>
+  values: z.infer<typeof DeleteAccountSchema>,
 ) => {
   const user = await currentUser();
 
